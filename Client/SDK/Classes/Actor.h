@@ -36,6 +36,9 @@ public:
     auto isFireImmune(void) -> bool;
     auto blockedByShield(struct ActorDamageSource*, Actor*) -> void;
     auto teleportTo(Vec3<float>*, bool, int, int) -> void;
+    auto tryTeleportTo(Vec3<float>*, bool, bool, int, int) -> void;
+    auto chorusFruitTeleport(Vec3<float>*) -> void;
+    auto lerpMotion(Vec3<float>*) -> void;
 public:
     auto onGround(void) -> bool*;
 };
