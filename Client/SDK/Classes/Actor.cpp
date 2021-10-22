@@ -2,6 +2,19 @@
 
 #include "../Minecraft.h"
 
+auto Actor::outOfWorld(void) -> bool {
+    using OutOfWorld = bool (__thiscall*)(Actor*);
+    OutOfWorld _OutOfWorld = (OutOfWorld)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _OutOfWorld = (OutOfWorld)(this->VTable[7]);
+        break;
+    };
+
+    return _OutOfWorld(this);
+};
+
 auto Actor::remove(void) -> void {
     using Remove = void (__thiscall*)(Actor*);
     Remove _Remove = (Remove)(this->VTable[0]);
