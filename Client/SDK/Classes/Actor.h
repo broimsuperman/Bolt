@@ -3,7 +3,7 @@
 
 class Actor {
 public:
-    //
+    auto onGround(void) -> bool*;
 };
 
 #endif /* CLIENT_SDK_CLASSES_ACTOR */
