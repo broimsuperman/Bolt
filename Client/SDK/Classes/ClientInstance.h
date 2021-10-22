@@ -2,10 +2,12 @@
 #define CLIENT_SDK_CLASSES_CLIENTINSTANCE
 
 #include "Player.h"
+#include "MinecraftGame.h"
 
 class ClientInstance {
 public:
     auto getLocalPlayer(void) -> Player*;
+    auto getMinecraftGame(void) -> MinecraftGame*;
 };
 
 #endif /* CLIENT_SDK_CLASSES_CLIENTINSTANCE */
