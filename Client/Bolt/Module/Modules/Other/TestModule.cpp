@@ -27,5 +27,16 @@ auto TestModule::onDisable(void) -> void {
 };
 
 auto TestModule::onTick(void) -> void {
-    //
+    auto instance = Minecraft::getClientInstance();
+
+    if(instance == nullptr)
+        return;
+    
+    auto player = instance->getLocalPlayer();
+
+    if(player == nullptr)
+        return;
+        
+    auto lerpTo = Vec3<float>(0, 1.f, 0);
+    player->lerpMotion(&lerpTo);
 };
