@@ -185,7 +185,7 @@ auto Actor::setRot(Vec2<float>* bodyRot) -> void {
 };
 
 auto Actor::move(struct IActorMovementProxy* proxy, Vec3<float>* moveVec) -> void {
-    using Move = void (__thiscall*)(Actor*, struct IActorMovementProxy*, Vec3<float>*);
+    using Move = void (__thiscall*)(Actor*, IActorMovementProxy*, Vec3<float>*);
     auto _Move = (Move)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
@@ -273,6 +273,71 @@ auto Actor::getWorldPosition(void) -> Vec3<float>* {
     };
 
     return _GetWorldPosition(this);
+};
+
+auto Actor::updateEntityInside(void) -> void {
+    using UpdateEntityInside = void (__thiscall*)(Actor*);
+    auto _UpdateEntityInside = (UpdateEntityInside)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _UpdateEntityInside = (UpdateEntityInside)(this->VTable[38]);
+        break;
+    };
+
+    _UpdateEntityInside(this);
+};
+
+auto Actor::updateEntityInside(AABB<float>* aabb) -> void {
+    using UpdateEntityInside = void (__thiscall*)(Actor*, AABB<float>*);
+    auto _UpdateEntityInside = (UpdateEntityInside)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _UpdateEntityInside = (UpdateEntityInside)(this->VTable[39]);
+        break;
+    };
+
+    _UpdateEntityInside(this, aabb);
+};
+
+auto Actor::isFireImmune(void) -> bool {
+    using IsFireImmune = bool (__thiscall*)(Actor*);
+    auto _IsFireImmune = (IsFireImmune)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _IsFireImmune = (IsFireImmune)(this->VTable[40]);
+        break;
+    };
+
+    return _IsFireImmune(this);
+};
+
+auto Actor::blockedByShield(struct ActorDamageSource* damageSource, Actor* entity) -> void {
+    using BlockedByShield = void (__thiscall*)(Actor*, ActorDamageSource*, Actor*);
+    auto _BlockedByShield = (BlockedByShield)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _BlockedByShield = (BlockedByShield)(this->VTable[42]);
+        break;
+    };
+
+    _BlockedByShield(this, damageSource, entity);
+};
+
+auto Actor::teleportTo(Vec3<float>* tpPos, bool paramB, int paramC, int paramD) -> void {
+    using TeleportTo = void (__thiscall*)(Actor*, Vec3<float>*, bool, int, int);
+    auto _TeleportTo = (TeleportTo)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _TeleportTo = (TeleportTo)(this->VTable[43]);
+        break;
+    };
+
+    _TeleportTo(this, tpPos, paramB, paramC, paramD);
 };
 
 auto Actor::onGround(void) -> bool* {
