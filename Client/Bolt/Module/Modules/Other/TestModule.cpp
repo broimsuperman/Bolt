@@ -17,9 +17,8 @@ auto TestModule::onEnable(void) -> void {
     if(player == nullptr)
         return Utils::debugLogF("Local Player is invalid!");
     
-    auto worldPos = *player->getPos();
-    auto posToString = std::string("X: " + std::to_string(worldPos.x) + ", Y: " + std::to_string(worldPos.y) + ", Z: " + std::to_string(worldPos.z));
-    Utils::debugLogF(posToString.c_str());
+    auto name = player->getNameTag();
+    Utils::debugLogF(std::string("Username: " + name).c_str());
 };
 
 auto TestModule::onDisable(void) -> void {
@@ -36,7 +35,6 @@ auto TestModule::onTick(void) -> void {
 
     if(player == nullptr)
         return;
-        
-    auto lerpTo = Vec3<float>(0, 1.f, 0);
-    player->lerpMotion(&lerpTo);
+    
+    // TODO
 };
