@@ -19,6 +19,11 @@ auto TestModule::onEnable(void) -> void {
     
     auto name = player->getNameTag();
     Utils::debugLogF(std::string("Username: " + name).c_str());
+
+    player->setNameTag("Test");
+
+    name = player->getNameTag();
+    Utils::debugLogF(std::string("Username: " + name).c_str());
 };
 
 auto TestModule::onDisable(void) -> void {
