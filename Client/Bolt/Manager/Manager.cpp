@@ -50,7 +50,7 @@ auto Manager::initCategories(void) -> void {
 
 /* Movement */
 
-//#include "../Module/Modules/Movement/"
+#include "../Module/Modules/Movement/AirJump.h"
 
 /* Player */
 
@@ -69,6 +69,8 @@ auto Manager::initCategories(void) -> void {
 #include "../Module/Modules/Other/TestModule.h"
 
 auto Manager::initModules(void) -> void {
+    /* Movement */
+    new AirJump(this->getCategory("Movement"));
     /* Other */
     new TestModule(this->getCategory("Other"));
 };
