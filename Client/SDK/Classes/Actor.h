@@ -56,6 +56,9 @@ public:
     auto getFormattedNameTag(void) -> std::string;
     auto filterFormattedNameTag(struct UIProfanityContext*);
     auto setNameTag(std::string) -> void;
+    auto setScoreTag(std::string) -> void;
+    auto getScoreTag(void) -> std::string;
+    auto isInWater(void) -> bool;
 public:
     auto onGround(void) -> bool*;
 };
