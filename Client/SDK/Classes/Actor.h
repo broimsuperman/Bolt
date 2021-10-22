@@ -39,6 +39,13 @@ public:
     auto tryTeleportTo(Vec3<float>*, bool, bool, int, int) -> void;
     auto chorusFruitTeleport(Vec3<float>*) -> void;
     auto lerpMotion(Vec3<float>*) -> void;
+    auto tryCreateAddActorPacket(void) -> __int64;
+    auto normalTick(void) -> void;
+    auto baseTick(void) -> void;
+    auto rideTick(void) -> void;
+    auto positionPassenger(Actor*) -> void;
+    auto startRiding(Actor*) -> bool;
+    auto addPassenger(Actor*) -> void;
 public:
     auto onGround(void) -> bool*;
 };
