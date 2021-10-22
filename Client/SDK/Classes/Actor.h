@@ -53,6 +53,9 @@ public:
     auto canShowNameTag(void) -> bool;
     auto setNameTagVisible(bool) -> void;
     auto getNameTag(void) -> std::string;
+    auto getFormattedNameTag(void) -> std::string;
+    auto filterFormattedNameTag(struct UIProfanityContext*);
+    auto setNameTag(std::string) -> void;
 public:
     auto onGround(void) -> bool*;
 };
