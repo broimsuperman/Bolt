@@ -59,6 +59,8 @@ public:
     auto setScoreTag(std::string) -> void;
     auto getScoreTag(void) -> std::string;
     auto isInWater(void) -> bool;
+    auto hasEnteredWater(void) -> bool;
+    auto isInLava(void) -> bool;
 public:
     auto onGround(void) -> bool*;
 };
