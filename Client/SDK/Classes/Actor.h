@@ -62,6 +62,7 @@ private:
     virtual auto Function40(void) -> void;*/
 public:
     auto outOfWorld(void) -> bool;
+    auto _serverInitItemStackIds(void) -> void;
     auto remove(void) -> void;
     auto setPos(Vec3<float>*) -> void;
 public:
