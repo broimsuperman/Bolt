@@ -46,6 +46,7 @@ public:
     auto positionPassenger(Actor*) -> void;
     auto startRiding(Actor*) -> bool;
     auto addPassenger(Actor*) -> void;
+    auto flagPassengerToRemove(Actor*) -> void;
 public:
     auto onGround(void) -> bool*;
 };
