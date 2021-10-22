@@ -17,12 +17,9 @@ auto TestModule::onEnable(void) -> void {
     if(player == nullptr)
         return Utils::debugLogF("Local Player is invalid!");
     
-    Utils::debugLogF("Going to teleport now...");
-
-    Sleep(500);
-
-    auto tpPos = Vec3<float>(0.f, 12.f, 0.f);
-    player->setPos(&tpPos);
+    auto worldPos = *player->getPos();
+    auto posToString = std::string("X: " + std::to_string(worldPos.x) + ", Y: " + std::to_string(worldPos.y) + ", Z: " + std::to_string(worldPos.z));
+    Utils::debugLogF(posToString.c_str());
 };
 
 auto TestModule::onDisable(void) -> void {
