@@ -445,11 +445,42 @@ auto Actor::positionPassenger(Actor* entity) -> void {
 };
 
 auto Actor::startRiding(Actor* entity) -> bool {
-    //
+    using StartRiding = bool (__thiscall*)(Actor*, Actor*);
+    auto _StartRiding = (StartRiding)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _StartRiding = (StartRiding)(this->VTable[53]);
+        break;
+    };
+
+    return _StartRiding(this, entity);
 };
 
 auto Actor::addPassenger(Actor* entity) -> void {
-    //
+    using AddPassenger = void (__thiscall*)(Actor*, Actor*);
+    auto _AddPassenger = (AddPassenger)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _AddPassenger = (AddPassenger)(this->VTable[54]);
+        break;
+    };
+
+    _AddPassenger(this, entity);
+};
+
+auto Actor::flagPassengerToRemove(Actor* entity) -> void {
+    using FlagPassengerToRemove = void (__thiscall*)(Actor*, Actor*);
+    auto _FlagPassengerToRemove = (FlagPassengerToRemove)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _FlagPassengerToRemove = (FlagPassengerToRemove)(this->VTable[55]);
+        break;
+    };
+
+    _FlagPassengerToRemove(this, entity);
 };
 
 auto Actor::onGround(void) -> bool* {
