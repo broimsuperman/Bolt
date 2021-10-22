@@ -483,6 +483,84 @@ auto Actor::flagPassengerToRemove(Actor* entity) -> void {
     _FlagPassengerToRemove(this, entity);
 };
 
+auto Actor::intersects(Vec3<float>* posA, Vec3<float>* posB) -> bool {
+    using Intersects = bool (__thiscall*)(Actor*, Vec3<float>*, Vec3<float>*);
+    auto _Intersects = (Intersects)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _Intersects = (Intersects)(this->VTable[57]);
+        break;
+    };
+
+    return _Intersects(this, posA, posB);
+};
+
+auto Actor::isInWall(void) -> bool {
+    using IsInWall = bool (__thiscall*)(Actor*);
+    auto _IsInWall = (IsInWall)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _IsInWall = (IsInWall)(this->VTable[58]);
+        break;
+    };
+
+    return _IsInWall(this);
+};
+
+auto Actor::isInvisible(void) -> bool {
+    using IsInvisible = bool (__thiscall*)(Actor*);
+    auto _IsInvisible = (IsInvisible)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _IsInvisible = (IsInvisible)(this->VTable[59]);
+        break;
+    };
+
+    return _IsInvisible(this);
+};
+
+auto Actor::canShowNameTag(void) -> bool {
+    using CanShowNameTag = bool (__thiscall*)(Actor*);
+    auto _CanShowNameTag = (CanShowNameTag)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _CanShowNameTag = (CanShowNameTag)(this->VTable[60]);
+        break;
+    };
+
+    return _CanShowNameTag(this);
+};
+
+auto Actor::setNameTagVisible(bool setVisible) -> void {
+    using SetNameTagVisible = void (__thiscall*)(Actor*, bool);
+    auto _SetNameTagVisible = (SetNameTagVisible)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SetNameTagVisible = (SetNameTagVisible)(this->VTable[62]);
+        break;
+    };
+
+    _SetNameTagVisible(this, setVisible);
+};
+
+auto Actor::getNameTag(void) -> std::string {
+    using GetNameTag = std::string* (__thiscall*)(Actor*);
+    auto _GetNameTag = (GetNameTag)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetNameTag = (GetNameTag)(this->VTable[63]);
+        break;
+    };
+
+    return *_GetNameTag(this);
+};
+
 auto Actor::onGround(void) -> bool* {
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
