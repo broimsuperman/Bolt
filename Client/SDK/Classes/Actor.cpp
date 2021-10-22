@@ -340,6 +340,45 @@ auto Actor::teleportTo(Vec3<float>* tpPos, bool paramB, int paramC, int paramD) 
     _TeleportTo(this, tpPos, paramB, paramC, paramD);
 };
 
+auto Actor::tryTeleportTo(Vec3<float>* tpPos, bool paramB, bool paramC, int paramD, int paramE) -> void {
+    using TeleportTo = void (__thiscall*)(Actor*, Vec3<float>*, bool, bool, int, int);
+    auto _TeleportTo = (TeleportTo)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _TeleportTo = (TeleportTo)(this->VTable[44]);
+        break;
+    };
+
+    _TeleportTo(this, tpPos, paramB, paramC, paramD, paramE);
+};
+
+auto Actor::chorusFruitTeleport(Vec3<float>* tpPos) -> void {
+    using ChorusFruitTeleport = void (__thiscall*)(Actor*, Vec3<float>*);
+    auto _ChorusFruitTeleport = (ChorusFruitTeleport)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _ChorusFruitTeleport = (ChorusFruitTeleport)(this->VTable[45]);
+        break;
+    };
+
+    _ChorusFruitTeleport(this, tpPos);
+};
+
+auto Actor::lerpMotion(Vec3<float>* lerpTo) -> void {
+    using LerpMotion = void (__thiscall*)(Actor*, Vec3<float>*);
+    auto _LerpMotion = (LerpMotion)(this->VTable[0]);
+    
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _LerpMotion = (LerpMotion)(this->VTable[46]);
+        break;
+    };
+
+    _LerpMotion(this, lerpTo);
+};
+
 auto Actor::onGround(void) -> bool* {
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
