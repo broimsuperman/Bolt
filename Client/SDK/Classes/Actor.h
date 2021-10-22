@@ -61,6 +61,7 @@ public:
 private:
     virtual auto Function40(void) -> void;*/
 public:
+    auto outOfWorld(void) -> bool;
     auto remove(void) -> void;
     auto setPos(Vec3<float>*) -> void;
 public:
