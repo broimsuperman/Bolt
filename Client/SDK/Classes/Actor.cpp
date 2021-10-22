@@ -561,6 +561,45 @@ auto Actor::getNameTag(void) -> std::string {
     return *_GetNameTag(this);
 };
 
+auto Actor::getFormattedNameTag(void) -> std::string {
+    using GetFormattedNameTag = std::string* (__thiscall*)(Actor*);
+    auto _GetFormattedNameTag = (GetFormattedNameTag)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetFormattedNameTag = (GetFormattedNameTag)(this->VTable[65]);
+        break;
+    };
+
+    return *_GetFormattedNameTag(this);
+};
+
+auto Actor::filterFormattedNameTag(struct UIProfanityContext* uiProfanityContext) {
+    using FilterFormattedNameTag = void (__thiscall*)(Actor*, UIProfanityContext*);
+    auto _FilterFormattedNameTag = (FilterFormattedNameTag)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _FilterFormattedNameTag = (FilterFormattedNameTag)(this->VTable[66]);
+        break;
+    };
+
+    _FilterFormattedNameTag(this, uiProfanityContext);
+};
+
+auto Actor::setNameTag(std::string name) -> void {
+    using SetNameTag = void (__thiscall*)(Actor*, std::string*);
+    auto _SetNameTag = (SetNameTag)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SetNameTag = (SetNameTag)(this->VTable[67]);
+        break;
+    };
+
+    _SetNameTag(this, &name);
+};
+
 auto Actor::onGround(void) -> bool* {
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
