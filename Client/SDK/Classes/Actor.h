@@ -31,6 +31,11 @@ public:
     auto getYawSpeedInDegreesPerSecond(void) -> float;
     auto getInterpolatedWalkAnimSpeed(float) -> float;
     auto getWorldPosition(void) -> Vec3<float>*;
+    auto updateEntityInside(void) -> void;
+    auto updateEntityInside(AABB<float>*) -> void;
+    auto isFireImmune(void) -> bool;
+    auto blockedByShield(struct ActorDamageSource*, Actor*) -> void;
+    auto teleportTo(Vec3<float>*, bool, int, int) -> void;
 public:
     auto onGround(void) -> bool*;
 };
