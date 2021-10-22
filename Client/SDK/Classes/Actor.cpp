@@ -15,6 +15,19 @@ auto Actor::outOfWorld(void) -> bool {
     return _OutOfWorld(this);
 };
 
+auto Actor::_serverInitItemStackIds(void) -> void {
+    using ServerInitItemStackIds = void (__thiscall*)(Actor*);
+    ServerInitItemStackIds _ServerInitItemStackIds = (ServerInitItemStackIds)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _ServerInitItemStackIds = (ServerInitItemStackIds)(this->VTable[12]);
+        break;
+    };
+
+    _ServerInitItemStackIds(this);
+};
+
 auto Actor::remove(void) -> void {
     using Remove = void (__thiscall*)(Actor*);
     Remove _Remove = (Remove)(this->VTable[0]);
