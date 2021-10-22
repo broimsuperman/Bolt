@@ -639,6 +639,32 @@ auto Actor::isInWater(void) -> bool {
     return _IsInWater(this);
 };
 
+auto Actor::hasEnteredWater(void) -> bool {
+    using HasEnteredWater = bool (__thiscall*)(Actor*);
+    auto _HasEnteredWater = (HasEnteredWater)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _HasEnteredWater = (HasEnteredWater)(this->VTable[72]);
+        break;
+    };
+
+    return _HasEnteredWater(this);
+};
+
+auto Actor::isInLava(void) -> bool {
+    using IsInLava = bool (__thiscall*)(Actor*);
+    auto _IsInLava = (IsInLava)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _IsInLava = (IsInLava)(this->VTable[73]);
+        break;
+    };
+
+    return _IsInLava(this);
+};
+
 auto Actor::onGround(void) -> bool* {
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
