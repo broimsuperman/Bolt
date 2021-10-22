@@ -268,7 +268,7 @@ auto Actor::getWorldPosition(void) -> Vec3<float>* {
 
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
-            _GetWorldPosition = (GetWorldPosition)(this->VTable[37]);
+            _GetWorldPosition = (GetWorldPosition)(this->VTable[36]);
         break;
     };
 
