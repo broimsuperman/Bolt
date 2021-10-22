@@ -600,6 +600,45 @@ auto Actor::setNameTag(std::string name) -> void {
     _SetNameTag(this, &name);
 };
 
+auto Actor::setScoreTag(std::string scoreTag) -> void {
+    using SetScoreTag = void (__thiscall*)(Actor*, std::string*);
+    auto _SetScoreTag = (SetScoreTag)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SetScoreTag = (SetScoreTag)(this->VTable[69]);
+        break;
+    };
+
+    _SetScoreTag(this, &scoreTag);
+};
+
+auto Actor::getScoreTag(void) -> std::string {
+    using GetScoreTag = std::string* (__thiscall*)(Actor*);
+    auto _GetScoreTag = (GetScoreTag)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetScoreTag = (GetScoreTag)(this->VTable[70]);
+        break;
+    };
+
+    return *_GetScoreTag(this);
+};
+
+auto Actor::isInWater(void) -> bool {
+    using IsInWater = bool (__thiscall*)(Actor*);
+    auto _IsInWater = (IsInWater)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _IsInWater = (IsInWater)(this->VTable[71]);
+        break;
+    };
+
+    return _IsInWater(this);
+};
+
 auto Actor::onGround(void) -> bool* {
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
