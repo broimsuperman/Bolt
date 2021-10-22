@@ -47,6 +47,12 @@ public:
     auto startRiding(Actor*) -> bool;
     auto addPassenger(Actor*) -> void;
     auto flagPassengerToRemove(Actor*) -> void;
+    auto intersects(Vec3<float>*, Vec3<float>*) -> bool;
+    auto isInWall(void) -> bool;
+    auto isInvisible(void) -> bool;
+    auto canShowNameTag(void) -> bool;
+    auto setNameTagVisible(bool) -> void;
+    auto getNameTag(void) -> std::string;
 public:
     auto onGround(void) -> bool*;
 };
