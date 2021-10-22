@@ -379,6 +379,79 @@ auto Actor::lerpMotion(Vec3<float>* lerpTo) -> void {
     _LerpMotion(this, lerpTo);
 };
 
+auto Actor::tryCreateAddActorPacket(void) -> __int64 {
+    using TryCreateAddActorPacket = __int64 (__thiscall*)(Actor*);
+    auto _TryCreateAddActorPacket = (TryCreateAddActorPacket)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _TryCreateAddActorPacket = (TryCreateAddActorPacket)(this->VTable[47]);
+        break;
+    };
+
+    return _TryCreateAddActorPacket(this);
+};
+
+auto Actor::normalTick(void) -> void {
+    using NormalTick = void (__thiscall*)(Actor*);
+    auto _NormalTick = (NormalTick)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _NormalTick = (NormalTick)(this->VTable[48]);
+        break;
+    };
+
+    _NormalTick(this);
+};
+
+auto Actor::baseTick(void) -> void {
+    using BaseTick = void (__thiscall*)(Actor*);
+    auto _BaseTick = (BaseTick)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _BaseTick = (BaseTick)(this->VTable[49]);
+        break;
+    };
+
+    _BaseTick(this);
+};
+
+auto Actor::rideTick(void) -> void {
+    using RideTick = void (__thiscall*)(Actor*);
+    auto _RideTick = (RideTick)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _RideTick = (RideTick)(this->VTable[50]);
+        break;
+    };
+
+    _RideTick(this);
+};
+
+auto Actor::positionPassenger(Actor* entity) -> void {
+    using PositionPassenger = void (__thiscall*)(Actor*, Actor*);
+    auto _PositionPassenger = (PositionPassenger)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _PositionPassenger = (PositionPassenger)(this->VTable[51]);
+        break;
+    };
+
+    _PositionPassenger(this, entity);
+};
+
+auto Actor::startRiding(Actor* entity) -> bool {
+    //
+};
+
+auto Actor::addPassenger(Actor* entity) -> void {
+    //
+};
+
 auto Actor::onGround(void) -> bool* {
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
