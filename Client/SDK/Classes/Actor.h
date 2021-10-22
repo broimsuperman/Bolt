@@ -5,8 +5,10 @@
 #include "../../Utils/Utils.h"
 
 class Actor {
+private:
+    uintptr_t** VTable;
 public:
-    virtual auto hasComponent(const struct HashedString*) -> bool;
+    /*virtual auto hasComponent(const struct HashedString*) -> bool;
     virtual auto getLastHurtByMob(void) -> class Mob*;
     virtual auto setLastHurtByMob(class Mob*) -> void;
     virtual auto getLastHurtByPlayer(void) -> class Player*;
@@ -35,6 +37,32 @@ private:
     virtual auto Function19(void) -> void;
 public:
     virtual auto getPos(void) -> Vec3<float>*;
+    virtual auto getStateVectorComponent(void) -> Vec3<float>*;
+    virtual auto getPosOld(void) -> Vec3<float>*;
+    virtual auto getPosExtrapolated(float) -> Vec3<float>*;
+    virtual auto getAttachPos(enum ActorLocation, float) -> Vec3<float>*;
+    virtual auto getFiringPos(void) -> Vec3<float>*;
+    virtual auto setRot(Vec2<float>*) -> void;
+    virtual auto move(struct IActorMovementProxy*, Vec3<float>*) -> void;
+    virtual auto move(Vec3<float>*) -> void;
+    virtual auto getInterpolatedRidingPosition(float) -> Vec3<float>*;
+    virtual auto getInterpolatedBodyRot(float) -> float;
+private:
+    virtual auto Function31(void) -> void;
+    virtual auto Function32(void) -> void;
+public:
+    virtual auto getYawSpeedInDegreesPerSecond(void) -> float;
+    virtual auto getInterpolatedWalkAnimSpeed(float) -> float;
+    virtual auto getWorldPosition(void) -> Vec3<float>*;
+    virtual auto checkBlockCollisions(AABB<float>, std::function<void (class BlockSource &, class Block const &, class BlockPos const &, class Actor &)>) -> void;
+    virtual auto updateEntityInside(void) -> void;
+    virtual auto updateEntityInside(AABB<float>*) -> void;
+    virtual auto isFireImmune(void) -> bool;
+private:
+    virtual auto Function40(void) -> void;*/
+public:
+    auto remove(void) -> void;
+    auto setPos(Vec3<float>*) -> void;
 public:
     auto onGround(void) -> bool*;
 };

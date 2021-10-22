@@ -15,9 +15,11 @@ auto TestModule::onEnable(void) -> void {
     auto player = instance->getLocalPlayer();
 
     if(player == nullptr)
-        return;
+        return Utils::debugLogF("Local Player is invalid!");
     
     Utils::debugLogF("Going to teleport now...");
+
+    Sleep(500);
 
     auto tpPos = Vec3<float>(0.f, 12.f, 0.f);
     player->setPos(&tpPos);
