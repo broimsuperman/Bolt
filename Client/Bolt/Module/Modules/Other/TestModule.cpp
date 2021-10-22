@@ -12,16 +12,15 @@ auto TestModule::onEnable(void) -> void {
     if(instance == nullptr)
         return Utils::debugLogF("Client Instance is invalid!");
     
-    Utils::debugLogF(std::string("Client Instance: " + Utils::ptrToStr((uintptr_t)instance)).c_str());
-
-    Utils::debugLogF("Getting Player now..");
-
     auto player = instance->getLocalPlayer();
 
     if(player == nullptr)
-        return Utils::debugLogF("Local Player is invalid!");
+        return;
     
-    Utils::debugLogF(std::string("Local Player: " + Utils::ptrToStr((uintptr_t)player)).c_str());
+    Utils::debugLogF("Going to teleport now...");
+
+    auto tpPos = Vec3<float>(0.f, 12.f, 0.f);
+    player->setPos(&tpPos);
 };
 
 auto TestModule::onDisable(void) -> void {
