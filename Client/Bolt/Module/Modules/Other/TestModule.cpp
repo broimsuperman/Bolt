@@ -16,14 +16,6 @@ auto TestModule::onEnable(void) -> void {
 
     if(player == nullptr)
         return Utils::debugLogF("Local Player is invalid!");
-    
-    auto name = player->getNameTag();
-    Utils::debugLogF(std::string("Username: " + name).c_str());
-
-    player->setNameTag("Test");
-
-    name = player->getNameTag();
-    Utils::debugLogF(std::string("Username: " + name).c_str());
 };
 
 auto TestModule::onDisable(void) -> void {
@@ -41,5 +33,8 @@ auto TestModule::onTick(void) -> void {
     if(player == nullptr)
         return;
     
-    // TODO
+    auto lerpTo = Vec3<float>(0.f, 2.f, 0.f);
+
+    if(player->isInWater())
+        player->lerpMotion(&lerpTo);
 };
