@@ -938,6 +938,136 @@ auto Actor::attack(Actor* entity, enum ActorDamageCause actorDamageCause) -> boo
     return _Attack(this, entity, actorDamageCause);
 };
 
+auto Actor::performRangedAttack(Actor* entity, float f) -> void {
+    using PerformRangedAttack = void (__thiscall*)(Actor*, Actor*, float);
+    auto _PerformRangedAttack = (PerformRangedAttack)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _PerformRangedAttack = (PerformRangedAttack)(this->VTable[115]);
+        break;
+    };
+
+    return _PerformRangedAttack(this, entity, f);
+};
+
+auto Actor::getEquipmentCount(void) -> __int64 {
+    using GetEquipmentCount = _int64 (__thiscall*)(Actor*);
+    auto _GetEquipmentCount = (GetEquipmentCount)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetEquipmentCount = (GetEquipmentCount)(this->VTable[117]);
+        break;
+    };
+
+    return _GetEquipmentCount(this);
+};
+
+auto Actor::setOwner(struct ActorUniqueID* actorUniqueID) -> void {
+    using SetOwner = void (__thiscall*)(Actor*, ActorUniqueID*);
+    auto _SetOwner = (SetOwner)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SetOwner = (SetOwner)(this->VTable[118]);
+        break;
+    };
+
+    _SetOwner(this, actorUniqueID);
+};
+
+auto Actor::setSitting(bool state) -> void {
+    using SetSitting = void (__thiscall*)(Actor*, bool);
+    auto _SetSitting = (SetSitting)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SetSitting = (SetSitting)(this->VTable[119]);
+        break;
+    };
+
+    _SetSitting(this, state);
+};
+
+auto Actor::getInventorySize(void) -> __int64 {
+    using GetInventorySize = __int64 (__thiscall*)(Actor*);
+    auto _GetInventorySize = (GetInventorySize)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetInventorySize = (GetInventorySize)(this->VTable[122]);
+        break;
+    };
+
+    return _GetInventorySize(this);
+};
+
+auto Actor::getEquipSlots(void) -> __int64 {
+    using GetEquipSlots = __int64 (__thiscall*)(Actor*);
+    auto _GetEquipSlots = (GetEquipSlots)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetEquipSlots = (GetEquipSlots)(this->VTable[123]);
+        break;
+    };
+
+    return _GetEquipSlots(this);
+};
+
+auto Actor::getChestSlots(void) -> __int64 {
+    using GetChestSlots = __int64 (__thiscall*)(Actor*);
+    auto _GetChestSlots = (GetChestSlots)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetChestSlots = (GetChestSlots)(this->VTable[124]);
+        break;
+    };
+
+    return _GetChestSlots(this);
+};
+
+auto Actor::setStanding(bool standing) -> void {
+    using SetStanding = void (__thiscall*)(Actor*, bool);
+    auto _SetStanding = (SetStanding)(this->VTable[0]);
+    
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SetStanding = (SetStanding)(this->VTable[125]);
+        break;
+    };
+
+    _SetStanding(this, standing);
+};
+
+auto Actor::canPowerJump(void) -> bool {
+    using CanPowerJump = bool (__thiscall*)(Actor*);
+    auto _CanPowerJump = (CanPowerJump)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _CanPowerJump = (CanPowerJump)(this->VTable[126]);
+        break;
+    };
+
+    return _CanPowerJump(this);
+};
+
+auto Actor::setCanPowerJump(bool powerJumpState) -> void {
+    using SetCanPowerJump = void (__thiscall*)(Actor*, bool);
+    auto _SetCanPowerJump = (SetCanPowerJump)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SetCanPowerJump = (SetCanPowerJump)(this->VTable[127]);
+        break;
+    };
+
+    _SetCanPowerJump(this, powerJumpState);
+};
+
 auto Actor::onGround(void) -> bool* {
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
