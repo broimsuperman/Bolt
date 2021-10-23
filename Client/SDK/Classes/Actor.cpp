@@ -314,7 +314,7 @@ auto Actor::isFireImmune(void) -> bool {
     return _IsFireImmune(this);
 };
 
-auto Actor::blockedByShield(struct ActorDamageSource* damageSource, Actor* entity) -> void {
+auto Actor::blockedByShield(struct ActorDamageSource* actorDamageSource, Actor* entity) -> void {
     using BlockedByShield = void (__thiscall*)(Actor*, ActorDamageSource*, Actor*);
     auto _BlockedByShield = (BlockedByShield)(this->VTable[0]);
 
@@ -324,7 +324,7 @@ auto Actor::blockedByShield(struct ActorDamageSource* damageSource, Actor* entit
         break;
     };
 
-    _BlockedByShield(this, damageSource, entity);
+    _BlockedByShield(this, actorDamageSource, entity);
 };
 
 auto Actor::teleportTo(Vec3<float>* tpPos, bool paramB, int paramC, int paramD) -> void {
@@ -1066,6 +1066,123 @@ auto Actor::setCanPowerJump(bool powerJumpState) -> void {
     };
 
     _SetCanPowerJump(this, powerJumpState);
+};
+
+auto Actor::isEnchanted(void) -> bool {
+    using IsEnchanted = bool (__thiscall*)(Actor*);
+    auto _IsEnchanted = (IsEnchanted)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _IsEnchanted = (IsEnchanted)(this->VTable[129]);
+        break;
+    };
+
+    return _IsEnchanted(this);
+};
+
+auto Actor::shouldRender(void) -> bool {
+    using ShouldRender = bool (__thiscall*)(Actor*);
+    auto _ShouldRender = (ShouldRender)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _ShouldRender = (ShouldRender)(this->VTable[132]);
+        break;
+    };
+
+    return _ShouldRender(this);
+};
+
+auto Actor::playAmbientSound(void) -> void {
+    using PlayAmbientSound = void (__thiscall*)(Actor*);
+    auto _PlayAmbientSound = (PlayAmbientSound)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _PlayAmbientSound = (PlayAmbientSound)(this->VTable[133]);
+        break;
+    };
+
+    _PlayAmbientSound(this);
+};
+
+auto Actor::getAmbientSound(void) -> LevelSoundEvent {
+    using GetAmbientSound = LevelSoundEvent (__thiscall*)(Actor*);
+    auto _GetAmbientSound = (GetAmbientSound)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetAmbientSound = (GetAmbientSound)(this->VTable[134]);
+        break;
+    };
+
+    return _GetAmbientSound(this);
+};
+
+auto Actor::isInvulnerableTo(struct ActorDamageSource* actorDamageSource) -> bool {
+    using IsInvulnerableTo = bool (__thiscall*)(Actor*, ActorDamageSource*);
+    auto _IsInvulnerableTo = (IsInvulnerableTo)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _IsInvulnerableTo = (IsInvulnerableTo)(this->VTable[135]);
+        break;
+    };
+
+    return _IsInvulnerableTo(this, actorDamageSource);
+};
+
+auto Actor::getBlockDamageCause(class Block* block) -> ActorDamageCause {
+    using GetBlockDamageCause = ActorDamageCause (__thiscall*)(Actor*, Block*);
+    auto _GetBlockDamageCause = (GetBlockDamageCause)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetBlockDamageCause = (GetBlockDamageCause)(this->VTable[136]);
+        break;
+    };
+
+    return _GetBlockDamageCause(this, block);
+};
+
+auto Actor::actuallyHurt(int paramA, struct ActorDamageSource* actorDamageSource, bool paramC) -> void {
+    using ActuallyHurt = void (__thiscall*)(Actor*, int, ActorDamageSource*, bool);
+    auto _ActuallyHurt = (ActuallyHurt)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _ActuallyHurt = (ActuallyHurt)(this->VTable[137]);
+        break;
+    };
+
+    _ActuallyHurt(this, paramA, actorDamageSource, paramC);
+};
+
+auto Actor::doFireHurt(int v) -> bool {
+    using DoFireHurt = bool (__thiscall*)(Actor*, int);
+    auto _DoFireHurt = (DoFireHurt)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _DoFireHurt = (DoFireHurt)(this->VTable[139]);
+        break;
+    };
+
+    return _DoFireHurt(this, v);
+};
+
+auto Actor::feed(int v) -> void {
+    using Feed = void (__thiscall*)(Actor*, int);
+    auto _Feed = (Feed)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _Feed = (Feed)(this->VTable[142]);
+        break;
+    };
+
+    _Feed(this, v);
 };
 
 auto Actor::onGround(void) -> bool* {
