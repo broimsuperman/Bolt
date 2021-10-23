@@ -886,6 +886,58 @@ auto Actor::isOnHotBlock(void) -> bool {
     return _IsOnHotBlock(this);
 };
 
+auto Actor::isAffectedByWaterBottle(void) -> bool {
+    using IsAffectedByWaterBottle = bool (__thiscall*)(Actor*);
+    auto _IsAffectedByWaterBottle = (IsAffectedByWaterBottle)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _IsAffectedByWaterBottle = (IsAffectedByWaterBottle)(this->VTable[109]);
+        break;
+    };
+
+    return _IsAffectedByWaterBottle(this);
+};
+
+auto Actor::canAttack(Actor* entity, bool paramB) -> bool {
+    using CanAttack = bool (__thiscall*)(Actor*, Actor*, bool);
+    auto _CanAttack = (CanAttack)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _CanAttack = (CanAttack)(this->VTable[110]);
+        break;
+    };
+
+    return _CanAttack(this, entity, paramB);
+};
+
+auto Actor::setTarget(Actor* entity) -> void {
+    using SetTarget = void (__thiscall*)(Actor*, Actor*);
+    auto _SetTarget = (SetTarget)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SetTarget = (SetTarget)(this->VTable[111]);
+        break;
+    };
+
+    _SetTarget(this, entity);
+};
+
+auto Actor::attack(Actor* entity, enum ActorDamageCause actorDamageCause) -> bool {
+    using Attack = bool (__thiscall*)(Actor*, Actor*, ActorDamageCause);
+    auto _Attack = (Attack)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _Attack = (Attack)(this->VTable[114]);
+        break;
+    };
+
+    return _Attack(this, entity, actorDamageCause);
+};
+
 auto Actor::onGround(void) -> bool* {
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
