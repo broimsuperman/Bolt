@@ -1185,6 +1185,32 @@ auto Actor::feed(int v) -> void {
     _Feed(this, v);
 };
 
+auto Actor::handleEntityEvent(enum ActorEvent event, int paramB) -> void {
+    using HandleEntityEvent = void (__thiscall*)(Actor*, ActorEvent, int);
+    auto _HandleEntityEvent = (HandleEntityEvent)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _HandleEntityEvent = (HandleEntityEvent)(this->VTable[143]);
+        break;
+    };
+
+    _HandleEntityEvent(this, event, paramB);
+};
+
+auto Actor::getPickRadius(void) -> float {
+    using GetPickRadius = float (__thiscall*)(Actor*);
+    auto _GetPickRadius = (GetPickRadius)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetPickRadius = (GetPickRadius)(this->VTable[144]);
+        break;
+    };
+
+    return _GetPickRadius(this);
+};
+
 auto Actor::onGround(void) -> bool* {
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
