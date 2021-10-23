@@ -104,6 +104,8 @@ public:
     auto actuallyHurt(int, struct ActorDamageSource*, bool) -> void;
     auto doFireHurt(int) -> bool;
     auto feed(int) -> void;
+    auto handleEntityEvent(enum ActorEvent, int) -> void;
+    auto getPickRadius(void) -> float;
 public:
     auto onGround(void) -> bool*;
 };
