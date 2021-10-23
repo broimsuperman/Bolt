@@ -4,6 +4,9 @@
 #include "../../Mem/Mem.h"
 #include "../../Utils/Utils.h"
 
+enum LevelSoundEvent;
+enum ActorDamageCause;
+
 class Actor {
 private:
     uintptr_t** VTable;
@@ -92,6 +95,15 @@ public:
     auto setStanding(bool) -> void;
     auto canPowerJump(void) -> bool;
     auto setCanPowerJump(bool) -> void;
+    auto isEnchanted(void) -> bool;
+    auto shouldRender(void) -> bool;
+    auto playAmbientSound(void) -> void;
+    auto getAmbientSound(void) -> LevelSoundEvent;
+    auto isInvulnerableTo(struct ActorDamageSource*) -> bool;
+    auto getBlockDamageCause(class Block*) -> ActorDamageCause;
+    auto actuallyHurt(int, struct ActorDamageSource*, bool) -> void;
+    auto doFireHurt(int) -> bool;
+    auto feed(int) -> void;
 public:
     auto onGround(void) -> bool*;
 };
