@@ -665,6 +665,227 @@ auto Actor::isInLava(void) -> bool {
     return _IsInLava(this);
 };
 
+auto Actor::isUnderLiquid(enum MaterialType materialType) -> bool {
+    using IsUnderLiquid = bool(__thiscall*)(Actor*, MaterialType);
+    auto _IsUnderLiquid = (IsUnderLiquid)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _IsUnderLiquid = (IsUnderLiquid)(this->VTable[74]);
+        break;
+    };
+
+    return _IsUnderLiquid(this, materialType);
+};
+
+auto Actor::isOverWater(void) -> bool {
+    using IsOverWater = bool (__thiscall*)(Actor*);
+    auto _IsOverWater = (IsOverWater)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _IsOverWater = (IsOverWater)(this->VTable[75]);
+        break;
+    };
+
+    return _IsOverWater(this);
+};
+
+auto Actor::setBlockMovementSlowdownMultiplier(Vec3<float>* modifier) -> void {
+    using SetBlockMovementSlowdownMultiplier = void (__thiscall*)(Actor*, Vec3<float>*);
+    auto _SetBlockMovementSlowdownMultiplier = (SetBlockMovementSlowdownMultiplier)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SetBlockMovementSlowdownMultiplier = (SetBlockMovementSlowdownMultiplier)(this->VTable[76]);
+        break;
+    };
+
+    _SetBlockMovementSlowdownMultiplier(this, modifier);
+};
+
+auto Actor::resetBlockMovementSlowdownMultiplier(void) -> void {
+    using ResetBlockMovementSlowdownMultiplier = void (__thiscall*)(Actor*);
+    auto _ResetBlockMovementSlowdownMultiplier = (ResetBlockMovementSlowdownMultiplier)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _ResetBlockMovementSlowdownMultiplier = (ResetBlockMovementSlowdownMultiplier)(this->VTable[77]);
+        break;
+    };
+
+    _ResetBlockMovementSlowdownMultiplier(this);
+};
+
+auto Actor::getShadowHeightOffs(void) -> float {
+    using GetShadowHeightOffs = float (__thiscall*)(Actor*);
+    auto _GetShadowHeightOffs = (GetShadowHeightOffs)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetShadowHeightOffs = (GetShadowHeightOffs)(this->VTable[79]);
+        break;
+    };
+
+    return _GetShadowHeightOffs(this);
+};
+
+auto Actor::getShadowRadiusOffs(void) -> float {
+    using GetShadowRadiusOffs = float (__thiscall*)(Actor*);
+    auto _GetShadowRadiusOffs = (GetShadowRadiusOffs)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetShadowRadiusOffs = (GetShadowRadiusOffs)(this->VTable[80]);
+        break;
+    };
+
+    return _GetShadowRadiusOffs(this);
+};
+
+auto Actor::getHeadLookVector(float f) -> Vec3<float>* {
+    using GetHeadLookVector = Vec3<float>* (__thiscall*)(Actor*, float);
+    auto _GetHeadLookVector = (GetHeadLookVector)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetHeadLookVector = (GetHeadLookVector)(this->VTable[81]);
+        break;
+    };
+
+    return _GetHeadLookVector(this, f);
+};
+
+auto Actor::canSee(Vec3<float>* vec) -> bool {
+    using CanSee = bool (__thiscall*)(Actor*, Vec3<float>*);
+    auto _CanSee = (CanSee)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _CanSee = (CanSee)(this->VTable[83]);
+        break;
+    };
+
+    return _CanSee(this, vec);
+};
+
+auto Actor::canSee(Actor* entity) -> bool {
+    using CanSee = bool (__thiscall*)(Actor*, Actor*);
+    auto _CanSee = (CanSee)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _CanSee = (CanSee)(this->VTable[84]);
+        break;
+    };
+
+    return _CanSee(this, entity);
+};
+
+auto Actor::isSkyLit(float f) -> bool {
+    using IsSkyLit = bool (__thiscall*)(Actor*, float);
+    auto _IsSkyLit = (IsSkyLit)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _IsSkyLit = (IsSkyLit)(this->VTable[85]);
+        break;
+    };
+
+    return _IsSkyLit(this, f);
+};
+
+auto Actor::getBrightness(float f) -> float {
+    using GetBrightness = float (__thiscall*)(Actor*, float);
+    auto _GetBrightness = (GetBrightness)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetBrightness = (GetBrightness)(this->VTable[86]);
+        break;
+    };
+
+    return _GetBrightness(this, f);
+};
+
+auto Actor::isImmobile(void) -> bool {
+    using IsImmobile = bool (__thiscall*)(Actor*);
+    auto _IsImmobile = (IsImmobile)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _IsImmobile = (IsImmobile)(this->VTable[91]);
+        break;
+    };
+    
+    return _IsImmobile(this);
+};
+
+auto Actor::isSilent(void) -> bool {
+    using IsSilent = bool (__thiscall*)(Actor*);
+    auto _IsSilent = (IsSilent)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _IsSilent = (IsSilent)(this->VTable[92]);
+        break;
+    };
+
+    return _IsSilent(this);
+};
+
+auto Actor::setSneaking(bool setSneaking) -> void {
+    using SetSneaking = bool (__thiscall*)(Actor*, bool);
+    auto _SetSneaking = (SetSneaking)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SetSneaking = (SetSneaking)(this->VTable[98]);
+        break;
+    };
+
+    _SetSneaking(this, setSneaking);
+};
+
+auto Actor::isAlive(void) -> bool {
+    using IsAlive = bool (__thiscall*)(Actor*);
+    auto _IsAlive = (IsAlive)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _IsAlive = (IsAlive)(this->VTable[101]);
+        break;
+    };
+
+    return _IsAlive(this);
+};
+
+auto Actor::isOnFire(void) -> bool {
+    using IsOnFire = bool (__thiscall*)(Actor*);
+    auto _IsOnFire = (IsOnFire)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _IsOnFire = (IsOnFire)(this->VTable[102]);
+        break;
+    };
+
+    return _IsOnFire(this);
+};
+
+auto Actor::isOnHotBlock(void) -> bool {
+    using IsOnHotBlock = bool (__thiscall*)(Actor*);
+    auto _IsOnHotBlock = (IsOnHotBlock)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _IsOnHotBlock = (IsOnHotBlock)(this->VTable[103]);
+        break;
+    };
+
+    return _IsOnHotBlock(this);
+};
+
 auto Actor::onGround(void) -> bool* {
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
