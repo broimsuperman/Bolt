@@ -78,6 +78,10 @@ public:
     auto isAlive(void) -> bool;
     auto isOnFire(void) -> bool;
     auto isOnHotBlock(void) -> bool;
+    auto isAffectedByWaterBottle(void) -> bool;
+    auto canAttack(Actor*, bool) -> bool;
+    auto setTarget(Actor*) -> void;
+    auto attack(Actor*, enum ActorDamageCause) -> bool;
 public:
     auto onGround(void) -> bool*;
 };
