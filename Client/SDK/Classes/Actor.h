@@ -61,6 +61,23 @@ public:
     auto isInWater(void) -> bool;
     auto hasEnteredWater(void) -> bool;
     auto isInLava(void) -> bool;
+    auto isUnderLiquid(enum MaterialType) -> bool;
+    auto isOverWater(void) -> bool;
+    auto setBlockMovementSlowdownMultiplier(Vec3<float>*) -> void;
+    auto resetBlockMovementSlowdownMultiplier(void) -> void;
+    auto getShadowHeightOffs(void) -> float;
+    auto getShadowRadiusOffs(void) -> float;
+    auto getHeadLookVector(float) -> Vec3<float>*;
+    auto canSee(Vec3<float>*) -> bool;
+    auto canSee(Actor*) -> bool;
+    auto isSkyLit(float) -> bool;
+    auto getBrightness(float) -> float;
+    auto isImmobile(void) -> bool;
+    auto isSilent(void) -> bool;
+    auto setSneaking(bool) -> void;
+    auto isAlive(void) -> bool;
+    auto isOnFire(void) -> bool;
+    auto isOnHotBlock(void) -> bool;
 public:
     auto onGround(void) -> bool*;
 };
