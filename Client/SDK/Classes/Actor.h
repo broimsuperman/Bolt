@@ -136,7 +136,8 @@ public:
     auto getLiquidAABB(MaterialType) -> AABB<float>*;
     auto handleInsidePortal(Vec3<int>*) -> void;
     auto getPortalCooldown(void) -> __int64;
-    auto getDimensionId(void) -> int*;
+    auto getDimensionId(void) -> __int64;
+    auto changeDimension(__int64) -> void;
 public:
     auto onGround(void) -> bool*;
 };
