@@ -665,7 +665,7 @@ auto Actor::isInLava(void) -> bool {
     return _IsInLava(this);
 };
 
-auto Actor::isUnderLiquid(enum MaterialType materialType) -> bool {
+auto Actor::isUnderLiquid(MaterialType materialType) -> bool {
     using IsUnderLiquid = bool(__thiscall*)(Actor*, MaterialType);
     auto _IsUnderLiquid = (IsUnderLiquid)(this->VTable[0]);
 
@@ -1495,6 +1495,71 @@ auto Actor::thawFreezeEffect(void) -> void {
     };
 
     _ThawFreezeEffect(this);
+};
+
+auto Actor::isWearingLeatherArmor(void) -> bool {
+    using IsWearingLeatherArmor = bool (__thiscall*)(Actor*);
+    auto _IsWearingLeatherArmor = (IsWearingLeatherArmor)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _IsWearingLeatherArmor = (IsWearingLeatherArmor)(this->VTable[177]);
+        break;
+    };
+
+    return _IsWearingLeatherArmor(this);
+};
+
+auto Actor::getLiquidAABB(MaterialType materialType) -> AABB<float>* {
+    using GetLiquidAABB = AABB<float>* (__thiscall*)(Actor*, MaterialType);
+    auto _GetLiquidAABB = (GetLiquidAABB)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetLiquidAABB = (GetLiquidAABB)(this->VTable[178]);
+        break;
+    };
+
+    return _GetLiquidAABB(this, materialType);
+};
+
+auto Actor::handleInsidePortal(Vec3<int>* blockPos) -> void {
+    using HandleInsidePortal = void (__thiscall*)(Actor*, Vec3<int>*);
+    auto _HandleInsidePortal = (HandleInsidePortal)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _HandleInsidePortal = (HandleInsidePortal)(this->VTable[179]);
+        break;
+    };
+
+    _HandleInsidePortal(this, blockPos);
+};
+
+auto Actor::getPortalCooldown(void) -> __int64 {
+    using GetPortalCooldown = __int64 (__thiscall*)(Actor*);
+    auto _GetPortalCooldown = (GetPortalCooldown)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetPortalCooldown = (GetPortalCooldown)(this->VTable[180]);
+        break;
+    };
+
+    return _GetPortalCooldown(this);
+};
+
+auto Actor::getDimensionId(void) -> int* {
+    using GetDimensionId = int* (__thiscall*)(Actor*);
+    auto _GetDimensionId = (GetDimensionId)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetDimensionId = (GetDimensionId)(this->VTable[182]);
+        break;
+    };
+
+    return _GetDimensionId(this);
 };
 
 auto Actor::onGround(void) -> bool* {
