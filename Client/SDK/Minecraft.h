@@ -6,7 +6,8 @@
 
 enum class MC_VER {
     Unknown,
-    v1_17_40_6
+    v1_17_40_6,
+    v1_17_34_2
 };
 
 #include "Classes/ClientInstance.h"
