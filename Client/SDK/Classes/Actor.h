@@ -91,7 +91,7 @@ public:
     auto attack(Actor*, enum ActorDamageCause) -> bool;
     auto performRangedAttack(Actor*, float) -> void;
     auto getEquipmentCount(void) -> __int64;
-    auto setOwner(struct ActorUniqueID*) -> void;
+    auto setOwner(ActorUniqueID*) -> void;
     auto setSitting(bool) -> void;
     auto getInventorySize(void) -> __int64;
     auto getEquipSlots(void) -> __int64;
@@ -130,7 +130,8 @@ public:
     auto getEntityTypeId(void) -> uint8_t;
     auto setOnFire(int) -> void;
     auto extinguishFire(void) -> void;
-    auto getSourceUniqueID(void) -> ActorUniqueID;
+    auto getSourceUniqueID(void) -> const ActorUniqueID &;
+    auto thawFreezeEffect(void) -> void;
 public:
     auto onGround(void) -> bool*;
 };
