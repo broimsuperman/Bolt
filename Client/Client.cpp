@@ -6,6 +6,8 @@ Client::Client(std::string name, std::string version){
     Utils::rmDebugPath();
     Utils::debugLogF(std::string("Initializing Client with name: " + name).c_str());
 
+    Minecraft::setSdkToCurr();
+
     this->name = name;
     this->version = version;
 
