@@ -16,6 +16,8 @@ auto TestModule::onEnable(void) -> void {
 
     if(player == nullptr)
         return Utils::debugLogF("Local Player is invalid!");
+    
+    Utils::debugLogF(std::string("Entity ID: " + std::to_string(player->getEntityTypeId())).c_str());
 };
 
 auto TestModule::onDisable(void) -> void {
