@@ -122,6 +122,13 @@ public:
     auto getModelScale(void) -> float;
     auto getEquippedSlot(int) -> ItemStack*;
     auto getCarriedItem(void) -> ItemStack*;
+    auto setCarriedItem(ItemStack*) -> void;
+    auto setOffHandSlot(ItemStack*) -> void;
+    auto getEquippedTotem(void) -> ItemStack*;
+    auto consumeTotem(void) -> void;
+    auto getEntityTypeId(void) -> uint8_t;
+    auto setOnFire(int) -> void;
+    auto extinguishFire(void) -> void;
 public:
     auto onGround(void) -> bool*;
 };
