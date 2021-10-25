@@ -1,7 +1,7 @@
 #include "Minecraft.h"
 #include "Classes/ClientInstance.h"
 
-MC_VER Minecraft::sdkVer = MC_VER::v1_17_40_6;
+MC_VER Minecraft::sdkVer = MC_VER::Unknown;
 
 auto Minecraft::getClientInstance(void) -> ClientInstance* {
     switch(Minecraft::sdkVer){
@@ -36,4 +36,6 @@ auto Minecraft::setSdkToCurr(void) -> void {
         sdkVer = MC_VER::v1_17_40_6;
         return Utils::debugLogF("Set SDK Version to 1.17.40.6\n");
     };
+
+    sdkVer = MC_VER::Unknown;
 };
