@@ -1549,8 +1549,8 @@ auto Actor::getPortalCooldown(void) -> __int64 {
     return _GetPortalCooldown(this);
 };
 
-auto Actor::getDimensionId(void) -> int* {
-    using GetDimensionId = int* (__thiscall*)(Actor*);
+auto Actor::getDimensionId(void) -> __int64 {
+    using GetDimensionId = __int64 (__thiscall*)(Actor*);
     auto _GetDimensionId = (GetDimensionId)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
@@ -1560,6 +1560,19 @@ auto Actor::getDimensionId(void) -> int* {
     };
 
     return _GetDimensionId(this);
+};
+
+auto Actor::changeDimension(__int64 dimension) -> void {
+    using ChangeDimension = void (__thiscall*)(Actor*, __int64);
+    auto _ChangeDimension = (ChangeDimension)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _ChangeDimension = (ChangeDimension)(this->VTable[185]);
+        break;
+    };
+
+    _ChangeDimension(this, dimension);
 };
 
 auto Actor::onGround(void) -> bool* {
