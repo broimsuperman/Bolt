@@ -1502,6 +1502,9 @@ auto Actor::onGround(void) -> bool* {
         case MC_VER::v1_17_40_6:
             return (bool*)((uintptr_t)(this) + 0x1D8);
         break;
+        case MC_VER::v1_17_34_2:
+            return (bool*)((uintptr_t)(this) + 0x1D8);
+        break;
     };
     return (bool*)nullptr;
 };
