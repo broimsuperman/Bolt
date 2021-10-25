@@ -1211,6 +1211,175 @@ auto Actor::getPickRadius(void) -> float {
     return _GetPickRadius(this);
 };
 
+auto Actor::getActorRendererId(void) -> HashedString* {
+    using GetActorRendererId = HashedString* (__thiscall*)(Actor*);
+    auto _GetActorRendererId = (GetActorRendererId)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetActorRendererId = (GetActorRendererId)(this->VTable[145]);
+        break;
+    };
+
+    return _GetActorRendererId(this);
+};
+
+auto Actor::spawnAtLocation(ItemStack* item, float f) -> ItemActor* {
+    using SpawnAtLocation = ItemActor* (__thiscall*)(Actor*, ItemStack*, float);
+    auto _SpawnAtLocation = (SpawnAtLocation)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SpawnAtLocation = (SpawnAtLocation)(this->VTable[146]);
+        break;
+    };
+
+    return _SpawnAtLocation(this, item, f);
+};
+
+auto Actor::spawnAtLocation(Block* block, int paramB, float paramC) -> ItemActor* {
+    using SpawnAtLocation = ItemActor* (__thiscall*)(Actor*, Block*, int, float);
+    auto _SpawnAtLocation = (SpawnAtLocation)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SpawnAtLocation = (SpawnAtLocation)(this->VTable[147]);
+        break;
+    };
+
+    return _SpawnAtLocation(this, block, paramB, paramC);
+};
+
+auto Actor::spawnAtLocation(Block* block, int paramB) -> ItemActor* {
+    using SpawnAtLocation = ItemActor* (__thiscall*)(Actor*, Block*, int);
+    auto _SpawnAtLocation = (SpawnAtLocation)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SpawnAtLocation = (SpawnAtLocation)(this->VTable[148]);
+        break;
+    };
+
+    return _SpawnAtLocation(this, block, paramB);
+};
+
+auto Actor::spawnAtLocation(int paramA, int paramB, float paramC) -> ItemActor* {
+    using SpawnAtLocation = ItemActor* (__thiscall*)(Actor*, int, int, float);
+    auto _SpawnAtLocation = (SpawnAtLocation)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SpawnAtLocation = (SpawnAtLocation)(this->VTable[149]);
+        break;
+    };
+
+    return _SpawnAtLocation(this, paramA, paramB, paramC);
+};
+
+auto Actor::spawnAtLocation(int paramA, int paramB) -> ItemActor* {
+    using SpawnAtLocation = ItemActor* (__thiscall*)(Actor*, int, int);
+    auto _SpawnAtLocation = (SpawnAtLocation)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SpawnAtLocation = (SpawnAtLocation)(this->VTable[150]);
+        break;
+    };
+
+    return _SpawnAtLocation(this, paramA, paramB);
+};
+
+auto Actor::despawn(void) -> void {
+    using Despawn = void (__thiscall*)(Actor*);
+    auto _Despawn = (Despawn)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _Despawn = (Despawn)(this->VTable[151]);
+        break;
+    };
+
+    _Despawn(this);
+};
+
+auto Actor::killed(Actor* entity) -> void {
+    using Killed = void (__thiscall*)(Actor*, Actor*);
+    auto _Killed = (Killed)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _Killed = (Killed)(this->VTable[152]);
+        break;
+    };
+
+    _Killed(this, entity);
+};
+
+auto Actor::setArmorSlot(int slot, ItemStack* item) -> void {
+    using SetArmorSlot = void (__thiscall*)(Actor*, int, ItemStack*);
+    auto _SetArmorSlot = (SetArmorSlot)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SetArmorSlot = (SetArmorSlot)(this->VTable[154]);
+        break;
+    };
+
+    _SetArmorSlot(this, slot, item);
+};
+
+auto Actor::getArmor(int slot) -> ItemStack* {
+    using GetArmorSlot = ItemStack* (__thiscall*)(Actor*, int);
+    auto _GetArmorSlot = (GetArmorSlot)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetArmorSlot = (GetArmorSlot)(this->VTable[155]);
+        break;
+    };
+
+    return _GetArmorSlot(this, slot);
+};
+
+auto Actor::getModelScale(void) -> float {
+    using GetModelScale = float (__thiscall*)(Actor*);
+    auto _GetModelScale = (GetModelScale)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetModelScale = (GetModelScale)(this->VTable[158]);
+        break;
+    };
+
+    return _GetModelScale(this);
+};
+
+auto Actor::getEquippedSlot(int slot) -> ItemStack* {
+    using GetEquippedSlot = ItemStack* (__thiscall*)(Actor*, int);
+    auto _GetEquippedSlot = (GetEquippedSlot)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetEquippedSlot = (GetEquippedSlot)(this->VTable[159]);
+        break;
+    };
+
+    return _GetEquippedSlot(this, slot);
+};
+
+auto Actor::getCarriedItem(void) -> ItemStack* {
+    using GetCarriedItem = ItemStack* (__thiscall*)(Actor*);
+    auto _GetCarriedItem = (GetCarriedItem)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetCarriedItem = (GetCarriedItem)(this->VTable[161]);
+        break;
+    };
+
+    return _GetCarriedItem(this);
+};
+
 auto Actor::onGround(void) -> bool* {
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
