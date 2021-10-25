@@ -14,6 +14,8 @@ class Minecraft {
 public:
     static MC_VER sdkVer;
     static auto getClientInstance(void) -> ClientInstance*;
+    static auto getVersion(void) -> std::string;
+    static auto setSdkToCurr(void) -> void;
 };
 
 #endif /* CLIENT_SDK_MINECRAFT */
