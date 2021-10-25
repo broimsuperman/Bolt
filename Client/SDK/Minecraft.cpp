@@ -8,6 +8,9 @@ auto Minecraft::getClientInstance(void) -> ClientInstance* {
         case MC_VER::v1_17_40_6:
             return (ClientInstance*)Mem::findMultiLvlPtr((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x041FB270, { 0x0, 0x50, 0x0 });
         break;
+        case MC_VER::v1_17_34_2:
+            return (ClientInstance*)Mem::findMultiLvlPtr((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x041119F0, { 0x0, 0x50, 0x0 });
+        break;
     };
     return (ClientInstance*)nullptr;
 };
@@ -35,6 +38,11 @@ auto Minecraft::setSdkToCurr(void) -> void {
     if(version.rfind("1.17.40.6") != std::string::npos) {
         sdkVer = MC_VER::v1_17_40_6;
         return Utils::debugLogF("Set SDK Version to 1.17.40.6\n");
+    };
+
+    if(version.rfind("1.17.34") != std::string::npos){
+        sdkVer = MC_VER::v1_17_34_2;
+        return Utils::debugLogF("Set SDK Version to 1.17.34.2\n");
     };
 
     sdkVer = MC_VER::Unknown;
