@@ -9,6 +9,7 @@ enum ActorDamageCause;
 struct HashedString;
 class ItemActor;
 class ItemStack;
+struct ActorUniqueID;
 
 class Actor {
 private:
@@ -129,6 +130,7 @@ public:
     auto getEntityTypeId(void) -> uint8_t;
     auto setOnFire(int) -> void;
     auto extinguishFire(void) -> void;
+    auto getSourceUniqueID(void) -> ActorUniqueID;
 public:
     auto onGround(void) -> bool*;
 };
