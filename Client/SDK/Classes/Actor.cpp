@@ -1380,6 +1380,97 @@ auto Actor::getCarriedItem(void) -> ItemStack* {
     return _GetCarriedItem(this);
 };
 
+auto Actor::setCarriedItem(ItemStack* item) -> void {
+    using SetCarriedItem = void (__thiscall*)(Actor*, ItemStack*);
+    auto _SetCarriedItem = (SetCarriedItem)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SetCarriedItem = (SetCarriedItem)(this->VTable[162]);
+        break;
+    };
+
+    _SetCarriedItem(this, item);
+};
+
+auto Actor::setOffHandSlot(ItemStack* item) -> void {
+    using SetOffHandSlot = void (__thiscall*)(Actor*, ItemStack*);
+    auto _SetOffHandSlot = (SetOffHandSlot)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SetOffHandSlot = (SetOffHandSlot)(this->VTable[163]);
+        break;
+    };
+
+    _SetOffHandSlot(this, item);
+};
+
+auto Actor::getEquippedTotem(void) -> ItemStack* {
+    using GetEquppedTotem = ItemStack* (__thiscall*)(Actor*);
+    auto _GetEquppedTotem = (GetEquppedTotem)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetEquppedTotem = (GetEquppedTotem)(this->VTable[164]);
+        break;
+    };
+
+    return _GetEquppedTotem(this);
+};
+
+auto Actor::consumeTotem(void) -> void {
+    using ConsumeTotem = void (__thiscall*)(Actor*);
+    auto _ConsumeTotem = (ConsumeTotem)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _ConsumeTotem = (ConsumeTotem)(this->VTable[165]);
+        break;
+    };
+
+    _ConsumeTotem(this);
+};
+
+auto Actor::getEntityTypeId(void) -> uint8_t {
+    using GetEntityTypeId = uint8_t (__thiscall*)(Actor*);
+    auto _GetEntityTypeId = (GetEntityTypeId)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetEntityTypeId = (GetEntityTypeId)(this->VTable[170]);
+        break;
+    };
+
+    return _GetEntityTypeId(this);
+};
+
+auto Actor::setOnFire(int duration) -> void {
+    using SetOnFire = void (__thiscall*)(Actor*, int);
+    auto _SetOnFire = (SetOnFire)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SetOnFire = (SetOnFire)(this->VTable[173]);
+        break;
+    };
+
+    _SetOnFire(this, duration);
+};
+
+auto Actor::extinguishFire(void) -> void {
+    using ExtinguishFire = void (__thiscall*)(Actor*);
+    auto _ExtinguishFire = (ExtinguishFire)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _ExtinguishFire = (ExtinguishFire)(this->VTable[174]);
+        break;
+    };
+
+    _ExtinguishFire(this);
+};
+
 auto Actor::onGround(void) -> bool* {
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
