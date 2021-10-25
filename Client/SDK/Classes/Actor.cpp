@@ -1445,6 +1445,19 @@ auto Actor::getEntityTypeId(void) -> uint8_t {
     return _GetEntityTypeId(this);
 };
 
+auto Actor::getSourceUniqueID(void) -> ActorUniqueID {
+    using GetSourceUniqueID = ActorUniqueID (__thiscall*)(Actor*);
+    auto _GetSourceUniqueID = (GetSourceUniqueID)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetSourceUniqueID = (GetSourceUniqueID)(this->VTable[172]);
+        break;
+    };
+
+    return _GetSourceUniqueID(this);
+};
+
 auto Actor::setOnFire(int duration) -> void {
     using SetOnFire = void (__thiscall*)(Actor*, int);
     auto _SetOnFire = (SetOnFire)(this->VTable[0]);
