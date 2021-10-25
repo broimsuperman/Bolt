@@ -964,7 +964,7 @@ auto Actor::getEquipmentCount(void) -> __int64 {
     return _GetEquipmentCount(this);
 };
 
-auto Actor::setOwner(struct ActorUniqueID* actorUniqueID) -> void {
+auto Actor::setOwner(ActorUniqueID* actorUniqueID) -> void {
     using SetOwner = void (__thiscall*)(Actor*, ActorUniqueID*);
     auto _SetOwner = (SetOwner)(this->VTable[0]);
 
@@ -1445,7 +1445,7 @@ auto Actor::getEntityTypeId(void) -> uint8_t {
     return _GetEntityTypeId(this);
 };
 
-auto Actor::getSourceUniqueID(void) -> ActorUniqueID {
+auto Actor::getSourceUniqueID(void) -> const ActorUniqueID & {
     using GetSourceUniqueID = ActorUniqueID (__thiscall*)(Actor*);
     auto _GetSourceUniqueID = (GetSourceUniqueID)(this->VTable[0]);
 
@@ -1482,6 +1482,19 @@ auto Actor::extinguishFire(void) -> void {
     };
 
     _ExtinguishFire(this);
+};
+
+auto Actor::thawFreezeEffect(void) -> void {
+    using ThawFreezeEffect = void (__thiscall*)(Actor*);
+    auto _ThawFreezeEffect = (ThawFreezeEffect)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _ThawFreezeEffect = (ThawFreezeEffect)(this->VTable[175]);
+        break;
+    };
+
+    _ThawFreezeEffect(this);
 };
 
 auto Actor::onGround(void) -> bool* {
