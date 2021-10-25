@@ -6,6 +6,9 @@
 
 enum LevelSoundEvent;
 enum ActorDamageCause;
+struct HashedString;
+class ItemActor;
+class ItemStack;
 
 class Actor {
 private:
@@ -106,6 +109,19 @@ public:
     auto feed(int) -> void;
     auto handleEntityEvent(enum ActorEvent, int) -> void;
     auto getPickRadius(void) -> float;
+    auto getActorRendererId(void) -> HashedString*;
+    auto spawnAtLocation(class ItemStack*, float) -> ItemActor*;
+    auto spawnAtLocation(class Block*, int, float) -> ItemActor*;
+    auto spawnAtLocation(class Block*, int) -> ItemActor*;
+    auto spawnAtLocation(int, int, float) -> ItemActor*;
+    auto spawnAtLocation(int, int) -> ItemActor*;
+    auto despawn(void) -> void;
+    auto killed(Actor*) -> void;
+    auto setArmorSlot(int, ItemStack*) -> void;
+    auto getArmor(int) -> ItemStack*;
+    auto getModelScale(void) -> float;
+    auto getEquippedSlot(int) -> ItemStack*;
+    auto getCarriedItem(void) -> ItemStack*;
 public:
     auto onGround(void) -> bool*;
 };
