@@ -17,7 +17,7 @@ auto TestModule::onEnable(void) -> void {
     if(player == nullptr)
         return Utils::debugLogF("Local Player is invalid!");
     
-    Utils::debugLogF(std::string("Entity ID: " + std::to_string(player->getEntityTypeId())).c_str());
+    //Utils::debugLogF(std::string("Entity ID: " + std::to_string(player->getEntityTypeId())).c_str());
 };
 
 auto TestModule::onDisable(void) -> void {
@@ -35,8 +35,8 @@ auto TestModule::onTick(void) -> void {
     if(player == nullptr)
         return;
     
-    auto lerpTo = Vec3<float>(0.f, 2.f, 0.f);
+    /*auto lerpTo = Vec3<float>(0.f, 2.f, 0.f);
 
     if(player->isInWater())
-        player->lerpMotion(&lerpTo);
+        player->lerpMotion(&lerpTo);*/
 };
