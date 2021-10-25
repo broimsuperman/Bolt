@@ -6,12 +6,15 @@ Client::Client(std::string name, std::string version){
     Utils::rmDebugPath();
     Utils::debugLogF(std::string("Initializing Client with name: " + name).c_str());
 
-    Minecraft::setSdkToCurr();
-
     this->name = name;
     this->version = version;
 
-    this->manager = new Manager(this);
+    Minecraft::setSdkToCurr();
+
+    if(Minecraft::sdkVer == MC_VER::Unknown)
+        Utils::debugLogF("Unable to initialize Client as an unknown Game version was detected!");
+    else
+        this->manager = new Manager(this);
 };
 
 auto Client::getManager(void) -> Manager* {
