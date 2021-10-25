@@ -132,6 +132,11 @@ public:
     auto extinguishFire(void) -> void;
     auto getSourceUniqueID(void) -> const ActorUniqueID &;
     auto thawFreezeEffect(void) -> void;
+    auto isWearingLeatherArmor(void) -> bool;
+    auto getLiquidAABB(MaterialType) -> AABB<float>*;
+    auto handleInsidePortal(Vec3<int>*) -> void;
+    auto getPortalCooldown(void) -> __int64;
+    auto getDimensionId(void) -> int*;
 public:
     auto onGround(void) -> bool*;
 };
