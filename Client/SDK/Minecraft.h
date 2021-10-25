@@ -4,7 +4,8 @@
 #include "../Mem/Mem.h"
 #include "../Utils/Utils.h"
 
-enum MC_VER {
+enum class MC_VER {
+    Unknown,
     v1_17_40_6
 };
 
