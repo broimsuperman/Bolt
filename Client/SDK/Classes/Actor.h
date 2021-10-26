@@ -138,6 +138,13 @@ public:
     auto getPortalCooldown(void) -> __int64;
     auto getDimensionId(void) -> __int64;
     auto changeDimension(__int64) -> void;
+    auto checkFallDamage(float, bool) -> void;
+    auto causeFallDamage(float, float, struct ActorDamageSource &) -> void;
+    auto handleFallDistanceOnServer(float, float, bool) -> void;
+    auto playSynchronizedSound(LevelSoundEvent, Vec3<float>*, int, bool) -> void;
+    auto playSynchronizedSound(LevelSoundEvent, Vec3<float>*, Block*, bool) -> void;
+    auto canAddPassenger(Actor*) -> bool;
+    auto tickLeash(void) -> void;
 public:
     auto onGround(void) -> bool*;
 };
