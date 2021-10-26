@@ -571,7 +571,7 @@ auto Actor::addPassenger(Actor* entity) -> void {
             _AddPassenger = (AddPassenger)(this->VTable[54]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _AddPassenger = (AddPassenger)(this->VTable[55]);
         break;
     };
 
@@ -587,7 +587,7 @@ auto Actor::flagPassengerToRemove(Actor* entity) -> void {
             _FlagPassengerToRemove = (FlagPassengerToRemove)(this->VTable[55]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _FlagPassengerToRemove = (FlagPassengerToRemove)(this->VTable[56]);
         break;
     };
 
@@ -603,7 +603,7 @@ auto Actor::intersects(Vec3<float>* posA, Vec3<float>* posB) -> bool {
             _Intersects = (Intersects)(this->VTable[57]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _Intersects = (Intersects)(this->VTable[57]);
         break;
     };
 
@@ -619,7 +619,7 @@ auto Actor::isInWall(void) -> bool {
             _IsInWall = (IsInWall)(this->VTable[58]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _IsInWall = (IsInWall)(this->VTable[59]);
         break;
     };
 
@@ -635,7 +635,7 @@ auto Actor::isInvisible(void) -> bool {
             _IsInvisible = (IsInvisible)(this->VTable[59]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _IsInvisible = (IsInvisible)(this->VTable[60]);
         break;
     };
 
@@ -651,7 +651,7 @@ auto Actor::canShowNameTag(void) -> bool {
             _CanShowNameTag = (CanShowNameTag)(this->VTable[60]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _CanShowNameTag = (CanShowNameTag)(this->VTable[61]);
         break;
     };
 
@@ -667,7 +667,7 @@ auto Actor::setNameTagVisible(bool setVisible) -> void {
             _SetNameTagVisible = (SetNameTagVisible)(this->VTable[62]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _SetNameTagVisible = (SetNameTagVisible)(this->VTable[63]);
         break;
     };
 
@@ -683,7 +683,7 @@ auto Actor::getNameTag(void) -> std::string {
             _GetNameTag = (GetNameTag)(this->VTable[63]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _GetNameTag = (GetNameTag)(this->VTable[64]);
         break;
     };
 
@@ -699,7 +699,7 @@ auto Actor::getFormattedNameTag(void) -> std::string {
             _GetFormattedNameTag = (GetFormattedNameTag)(this->VTable[65]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _GetFormattedNameTag = (GetFormattedNameTag)(this->VTable[66]);
         break;
     };
 
@@ -715,7 +715,7 @@ auto Actor::filterFormattedNameTag(struct UIProfanityContext* uiProfanityContext
             _FilterFormattedNameTag = (FilterFormattedNameTag)(this->VTable[66]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _FilterFormattedNameTag = (FilterFormattedNameTag)(this->VTable[67]);
         break;
     };
 
