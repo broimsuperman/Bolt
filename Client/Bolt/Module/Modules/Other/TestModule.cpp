@@ -16,6 +16,8 @@ auto TestModule::onEnable(void) -> void {
 
     if(player == nullptr)
         return Utils::debugLogF("Local Player is invalid!");
+    
+    player->setSize(6.f, 2.f);
 };
 
 auto TestModule::onDisable(void) -> void {
