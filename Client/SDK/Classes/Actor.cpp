@@ -1952,6 +1952,58 @@ auto Actor::setSize(float width, float height) -> void {
     _SetSize(this, width, height);
 };
 
+auto Actor::wobble(void) -> void {
+    using Wobble = void (__thiscall*)(Actor*);
+    auto _Wobble = (Wobble)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _Wobble = (Wobble)(this->VTable[238]);
+        break;
+    };
+
+    _Wobble(this);
+};
+
+auto Actor::wasHurt(void) -> bool {
+    using WasHurt = bool (__thiscall*)(Actor*);
+    auto _WasHurt = (WasHurt)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _WasHurt = (WasHurt)(this->VTable[239]);
+        break;
+    };
+
+    return _WasHurt(this);
+};
+
+auto Actor::startSpinAttack(void) -> void {
+    using StartSpinAttack = void (__thiscall*)(Actor*);
+    auto _StartSpinAttack = (StartSpinAttack)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _StartSpinAttack = (StartSpinAttack)(this->VTable[240]);
+        break;
+    };
+
+    _StartSpinAttack(this);
+};
+
+auto Actor::setDamageNearbyMobs(bool paramA) -> void {
+    using SetDamageNearbyMobs = void (__thiscall*)(Actor*, bool);
+    auto _SetDamageNearbyMobs = (SetDamageNearbyMobs)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SetDamageNearbyMobs = (SetDamageNearbyMobs)(this->VTable[242]);
+        break;
+    };
+
+    _SetDamageNearbyMobs(this, paramA);
+};
+
 auto Actor::onGround(void) -> bool* {
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
