@@ -1499,7 +1499,7 @@ auto Actor::handleEntityEvent(enum ActorEvent event, int paramB) -> void {
             _HandleEntityEvent = (HandleEntityEvent)(this->VTable[143]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _HandleEntityEvent = (HandleEntityEvent)(this->VTable[144]);
         break;
     };
 
@@ -1515,7 +1515,7 @@ auto Actor::getPickRadius(void) -> float {
             _GetPickRadius = (GetPickRadius)(this->VTable[144]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _GetPickRadius = (GetPickRadius)(this->VTable[145]);
         break;
     };
 
@@ -1531,7 +1531,7 @@ auto Actor::getActorRendererId(void) -> HashedString* {
             _GetActorRendererId = (GetActorRendererId)(this->VTable[145]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _GetActorRendererId = (GetActorRendererId)(this->VTable[146]);
         break;
     };
 
@@ -1547,7 +1547,7 @@ auto Actor::spawnAtLocation(ItemStack* item, float f) -> ItemActor* {
             _SpawnAtLocation = (SpawnAtLocation)(this->VTable[146]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _SpawnAtLocation = (SpawnAtLocation)(this->VTable[147]);
         break;
     };
 
@@ -1563,7 +1563,7 @@ auto Actor::spawnAtLocation(Block* block, int paramB, float paramC) -> ItemActor
             _SpawnAtLocation = (SpawnAtLocation)(this->VTable[147]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _SpawnAtLocation = (SpawnAtLocation)(this->VTable[148]);
         break;
     };
 
@@ -1579,7 +1579,7 @@ auto Actor::spawnAtLocation(Block* block, int paramB) -> ItemActor* {
             _SpawnAtLocation = (SpawnAtLocation)(this->VTable[148]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _SpawnAtLocation = (SpawnAtLocation)(this->VTable[149]);
         break;
     };
 
@@ -1595,7 +1595,7 @@ auto Actor::spawnAtLocation(int paramA, int paramB, float paramC) -> ItemActor* 
             _SpawnAtLocation = (SpawnAtLocation)(this->VTable[149]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _SpawnAtLocation = (SpawnAtLocation)(this->VTable[150]);
         break;
     };
 
@@ -1611,7 +1611,7 @@ auto Actor::spawnAtLocation(int paramA, int paramB) -> ItemActor* {
             _SpawnAtLocation = (SpawnAtLocation)(this->VTable[150]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _SpawnAtLocation = (SpawnAtLocation)(this->VTable[151]);
         break;
     };
 
@@ -1627,7 +1627,7 @@ auto Actor::despawn(void) -> void {
             _Despawn = (Despawn)(this->VTable[151]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _Despawn = (Despawn)(this->VTable[152]);
         break;
     };
 
@@ -1643,7 +1643,7 @@ auto Actor::killed(Actor* entity) -> void {
             _Killed = (Killed)(this->VTable[152]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _Killed = (Killed)(this->VTable[153]);
         break;
     };
 
@@ -1659,7 +1659,7 @@ auto Actor::setArmorSlot(int slot, ItemStack* item) -> void {
             _SetArmorSlot = (SetArmorSlot)(this->VTable[154]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _SetArmorSlot = (SetArmorSlot)(this->VTable[155]);
         break;
     };
 
@@ -1675,7 +1675,7 @@ auto Actor::getArmor(int slot) -> ItemStack* {
             _GetArmorSlot = (GetArmorSlot)(this->VTable[155]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _GetArmorSlot = (GetArmorSlot)(this->VTable[156]);
         break;
     };
 
@@ -1691,7 +1691,7 @@ auto Actor::getModelScale(void) -> float {
             _GetModelScale = (GetModelScale)(this->VTable[158]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _GetModelScale = (GetModelScale)(this->VTable[159]);
         break;
     };
 
@@ -1707,7 +1707,7 @@ auto Actor::getEquippedSlot(int slot) -> ItemStack* {
             _GetEquippedSlot = (GetEquippedSlot)(this->VTable[159]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _GetEquippedSlot = (GetEquippedSlot)(this->VTable[160]);
         break;
     };
 
@@ -1723,7 +1723,7 @@ auto Actor::getCarriedItem(void) -> ItemStack* {
             _GetCarriedItem = (GetCarriedItem)(this->VTable[161]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _GetCarriedItem = (GetCarriedItem)(this->VTable[162]);
         break;
     };
 
@@ -1739,7 +1739,7 @@ auto Actor::setCarriedItem(ItemStack* item) -> void {
             _SetCarriedItem = (SetCarriedItem)(this->VTable[162]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _SetCarriedItem = (SetCarriedItem)(this->VTable[163]);
         break;
     };
 
@@ -1755,7 +1755,7 @@ auto Actor::setOffHandSlot(ItemStack* item) -> void {
             _SetOffHandSlot = (SetOffHandSlot)(this->VTable[163]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _SetOffHandSlot = (SetOffHandSlot)(this->VTable[164]);
         break;
     };
 
@@ -1771,7 +1771,7 @@ auto Actor::getEquippedTotem(void) -> ItemStack* {
             _GetEquppedTotem = (GetEquppedTotem)(this->VTable[164]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _GetEquppedTotem = (GetEquppedTotem)(this->VTable[165]);
         break;
     };
 
@@ -1787,7 +1787,7 @@ auto Actor::consumeTotem(void) -> void {
             _ConsumeTotem = (ConsumeTotem)(this->VTable[165]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _ConsumeTotem = (ConsumeTotem)(this->VTable[166]);
         break;
     };
 
@@ -1803,7 +1803,7 @@ auto Actor::getEntityTypeId(void) -> uint8_t {
             _GetEntityTypeId = (GetEntityTypeId)(this->VTable[170]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _GetEntityTypeId = (GetEntityTypeId)(this->VTable[171]);
         break;
     };
 
@@ -1819,7 +1819,7 @@ auto Actor::getSourceUniqueID(void) -> const ActorUniqueID & {
             _GetSourceUniqueID = (GetSourceUniqueID)(this->VTable[172]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _GetSourceUniqueID = (GetSourceUniqueID)(this->VTable[173]);
         break;
     };
 
@@ -1835,7 +1835,7 @@ auto Actor::setOnFire(int duration) -> void {
             _SetOnFire = (SetOnFire)(this->VTable[173]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _SetOnFire = (SetOnFire)(this->VTable[174]);
         break;
     };
 
@@ -1851,7 +1851,7 @@ auto Actor::extinguishFire(void) -> void {
             _ExtinguishFire = (ExtinguishFire)(this->VTable[174]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            /_ExtinguishFire = (ExtinguishFire)(this->VTable[175]);
         break;
     };
 
@@ -1867,7 +1867,7 @@ auto Actor::thawFreezeEffect(void) -> void {
             _ThawFreezeEffect = (ThawFreezeEffect)(this->VTable[175]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _ThawFreezeEffect = (ThawFreezeEffect)(this->VTable[176]);
         break;
     };
 
@@ -1883,7 +1883,7 @@ auto Actor::isWearingLeatherArmor(void) -> bool {
             _IsWearingLeatherArmor = (IsWearingLeatherArmor)(this->VTable[177]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _IsWearingLeatherArmor = (IsWearingLeatherArmor)(this->VTable[178]);
         break;
     };
 
@@ -1899,7 +1899,7 @@ auto Actor::getLiquidAABB(MaterialType materialType) -> AABB<float>* {
             _GetLiquidAABB = (GetLiquidAABB)(this->VTable[178]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _GetLiquidAABB = (GetLiquidAABB)(this->VTable[179]);
         break;
     };
 
@@ -1915,7 +1915,7 @@ auto Actor::handleInsidePortal(Vec3<int>* blockPos) -> void {
             _HandleInsidePortal = (HandleInsidePortal)(this->VTable[179]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _HandleInsidePortal = (HandleInsidePortal)(this->VTable[180]);
         break;
     };
 
@@ -1931,7 +1931,7 @@ auto Actor::getPortalCooldown(void) -> __int64 {
             _GetPortalCooldown = (GetPortalCooldown)(this->VTable[180]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _GetPortalCooldown = (GetPortalCooldown)(this->VTable[181]);
         break;
     };
 
@@ -1947,7 +1947,7 @@ auto Actor::getDimensionId(void) -> __int64 {
             _GetDimensionId = (GetDimensionId)(this->VTable[182]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _GetDimensionId = (GetDimensionId)(this->VTable[183]);
         break;
     };
 
@@ -1963,7 +1963,7 @@ auto Actor::changeDimension(__int64 dimension) -> void {
             _ChangeDimension = (ChangeDimension)(this->VTable[185]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _ChangeDimension = (ChangeDimension)(this->VTable[186]);
         break;
     };
 
@@ -1979,7 +1979,7 @@ auto Actor::checkFallDamage(float paramA, bool paramB) -> void {
             _CheckFallDamage = (CheckFallDamage)(this->VTable[187]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _CheckFallDamage = (CheckFallDamage)(this->VTable[188]);
         break;
     };
 
@@ -1995,7 +1995,7 @@ auto Actor::causeFallDamage(float paramA, float paramB, ActorDamageSource & acto
             _CauseFallDamage = (CauseFallDamage)(this->VTable[188]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _CauseFallDamage = (CauseFallDamage)(this->VTable[189]);
         break;
     };
 
@@ -2011,7 +2011,7 @@ auto Actor::handleFallDistanceOnServer(float paramA, float paramB, bool paramC) 
             _HandleFallDistanceOnServer = (HandleFallDistanceOnServer)(this->VTable[189]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _HandleFallDistanceOnServer = (HandleFallDistanceOnServer)(this->VTable[190]);
         break;
     };
 
@@ -2027,7 +2027,7 @@ auto Actor::playSynchronizedSound(LevelSoundEvent levelSoundEvent, Vec3<float>* 
             _PlaySynchronizedSound = (PlaySynchronizedSound)(this->VTable[190]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _PlaySynchronizedSound = (PlaySynchronizedSound)(this->VTable[191]);
         break;
     };
 
@@ -2043,7 +2043,7 @@ auto Actor::playSynchronizedSound(LevelSoundEvent levelSoundEvent, Vec3<float>* 
             _PlaySynchronizedSound = (PlaySynchronizedSound)(this->VTable[191]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _PlaySynchronizedSound = (PlaySynchronizedSound)(this->VTable[192]);
         break;
     };
 
@@ -2059,7 +2059,7 @@ auto Actor::canAddPassenger(Actor* entity) -> bool {
             _CanAddPassenger = (CanAddPassenger)(this->VTable[193]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _CanAddPassenger = (CanAddPassenger)(this->VTable[194]);
         break;
     };
 
@@ -2075,7 +2075,7 @@ auto Actor::tickLeash(void) -> void {
             _TickLeash = (TickLeash)(this->VTable[198]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _TickLeash = (TickLeash)(this->VTable[199]);
         break;
     };
 
@@ -2091,7 +2091,7 @@ auto Actor::sendMotionPacketIfNeeded(void) -> void {
             _SendMotionPacketIfNeeded = (SendMotionPacketIfNeeded)(this->VTable[199]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _SendMotionPacketIfNeeded = (SendMotionPacketIfNeeded)(this->VTable[200]);
         break;
     };
 
