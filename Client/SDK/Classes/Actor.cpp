@@ -2107,7 +2107,7 @@ auto Actor::stopRiding(bool paramA, bool paramB, bool paramC) -> void {
             _StopRiding = (StopRiding)(this->VTable[201]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _StopRiding = (StopRiding)(this->VTable[202]);
         break;
     };
 
@@ -2123,7 +2123,7 @@ auto Actor::startSwimming(void) -> void {
             _StartSwimming = (StartSwimming)(this->VTable[202]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _StartSwimming = (StartSwimming)(this->VTable[203]);
         break;
     };
 
@@ -2139,7 +2139,7 @@ auto Actor::stopSwimming(void) -> void {
             _StopSwimming = (StopSwimming)(this->VTable[203]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _StopSwimming = (StopSwimming)(this->VTable[204]);
         break;
     };
 
@@ -2155,7 +2155,7 @@ auto Actor::getCommandPermissionLevel(void) -> CommandPermissionLevel {
             _GetCommandPermissionLevel = (GetCommandPermissionLevel)(this->VTable[205]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _GetCommandPermissionLevel = (GetCommandPermissionLevel)(this->VTable[207]);
         break;
     };
 
@@ -2171,7 +2171,7 @@ auto Actor::isClientSide(void) -> bool {
             _IsClientSide = (IsClientSide)(this->VTable[206]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _IsClientSide = (IsClientSide)(this->VTable[207]);
         break;
     };
 
@@ -2187,7 +2187,7 @@ auto Actor::getMutableAttribute(Attribute* attribute) -> AttributeInstance* {
             _GetMutableAttribute = (GetMutableAttribute)(this->VTable[207]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _GetMutableAttribute = (GetMutableAttribute)(this->VTable[208]);
         break;
     };
 
@@ -2203,7 +2203,7 @@ auto Actor::getAttribute(AttributeInstance* attributeInstance) -> Attribute* {
             _GetAttribute = (GetAttribute)(this->VTable[208]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _GetAttribute = (GetAttribute)(this->VTable[209]);
         break;
     };
 
@@ -2219,7 +2219,7 @@ auto Actor::heal(int health) -> void {
             _Heal = (Heal)(this->VTable[210]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _Heal = (Heal)(this->VTable[211]);
         break;
     };
 
@@ -2235,7 +2235,7 @@ auto Actor::isInvertedHealAndHarm(void) -> bool {
             _IsInvertedHealAndHarm = (IsInvertedHealAndHarm)(this->VTable[211]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _IsInvertedHealAndHarm = (IsInvertedHealAndHarm)(this->VTable[212]);
         break;
     };
 
@@ -2251,7 +2251,7 @@ auto Actor::canBeAffected(MobEffectInstance* mobEffectInstance) -> bool {
             _CanBeAffected = (CanBeAffected)(this->VTable[212]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _CanBeAffected = (CanBeAffected)(this->VTable[213]);
         break;
     };
     
@@ -2267,7 +2267,7 @@ auto Actor::canBeAffected(int paramA) -> bool {
             _CanBeAffected = (CanBeAffected)(this->VTable[213]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _CanBeAffected = (CanBeAffected)(this->VTable[214]);
         break;
     };
     
@@ -2283,7 +2283,7 @@ auto Actor::canBeAffectedByArrow(MobEffectInstance* mobEffectInstance) -> bool {
             _CanBeAffectedByArrow = (CanBeAffectedByArrow)(this->VTable[214]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _CanBeAffectedByArrow = (CanBeAffectedByArrow)(this->VTable[215]);
         break;
     };
 
@@ -2299,7 +2299,7 @@ auto Actor::getAnimationComponent(void) -> AnimationComponent* {
             _GetAnimationComponent = (GetAnimationComponent)(this->VTable[218]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _GetAnimationComponent = (GetAnimationComponent)(this->VTable[219]);
         break;
     };
 
@@ -2315,7 +2315,7 @@ auto Actor::openContainerComponent(Player* player) -> void {
             _OpenContainerComponent = (OpenContainerComponent)(this->VTable[219]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _OpenContainerComponent = (OpenContainerComponent)(this->VTable[220]);
         break;
     };
 
@@ -2331,7 +2331,7 @@ auto Actor::useItem(ItemStackBase* itemStackBase, ItemUseMethod itemUseMethod, b
             _UseItem = (UseItem)(this->VTable[221]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _UseItem = (UseItem)(this->VTable[222]);
         break;
     };
 
@@ -2347,7 +2347,7 @@ auto Actor::getMapDecorationRotation(void) -> float {
             _GetMapDecorationRotation = (GetMapDecorationRotation)(this->VTable[225]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _GetMapDecorationRotation = (GetMapDecorationRotation)(this->VTable[226]);
         break;
     };
 
