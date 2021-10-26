@@ -17,7 +17,8 @@ auto TestModule::onEnable(void) -> void {
     if(player == nullptr)
         return Utils::debugLogF("Local Player is invalid!");
     
-    player->setSize(6.f, 2.f);
+    auto lerpTo = Vec3<float>(0.f, 1.f, 0.f);
+    player->lerpMotion(&lerpTo);
 };
 
 auto TestModule::onDisable(void) -> void {
