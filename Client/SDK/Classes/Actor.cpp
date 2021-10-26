@@ -1666,6 +1666,162 @@ auto Actor::tickLeash(void) -> void {
     _TickLeash(this);
 };
 
+auto Actor::sendMotionPacketIfNeeded(void) -> void {
+    using SendMotionPacketIfNeeded = void (__thiscall*)(Actor*);
+    auto _SendMotionPacketIfNeeded = (SendMotionPacketIfNeeded)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SendMotionPacketIfNeeded = (SendMotionPacketIfNeeded)(this->VTable[199]);
+        break;
+    };
+
+    _SendMotionPacketIfNeeded(this);
+};
+
+auto Actor::stopRiding(bool paramA, bool paramB, bool paramC) -> void {
+    using StopRiding = void (__thiscall*)(Actor*, bool, bool, bool);
+    auto _StopRiding = (StopRiding)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _StopRiding = (StopRiding)(this->VTable[201]);
+        break;
+    };
+
+    _StopRiding(this, paramA, paramB, paramC);
+};
+
+auto Actor::startSwimming(void) -> void {
+    using StartSwimming = void (__thiscall*)(Actor*);
+    auto _StartSwimming = (StartSwimming)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _StartSwimming = (StartSwimming)(this->VTable[202]);
+        break;
+    };
+
+    _StartSwimming(this);
+};
+
+auto Actor::stopSwimming(void) -> void {
+    using StopSwimming = void (__thiscall*)(Actor*);
+    auto _StopSwimming = (StopSwimming)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _StopSwimming = (StopSwimming)(this->VTable[203]);
+        break;
+    };
+
+    _StopSwimming(this);
+};
+
+auto Actor::getCommandPermissionLevel(void) -> CommandPermissionLevel {
+    using GetCommandPermissionLevel = CommandPermissionLevel (__thiscall*)(Actor*);
+    auto _GetCommandPermissionLevel = (GetCommandPermissionLevel)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetCommandPermissionLevel = (GetCommandPermissionLevel)(this->VTable[205]);
+        break;
+    };
+
+    return _GetCommandPermissionLevel(this);
+};
+
+auto Actor::isClientSide(void) -> bool {
+    using IsClientSide = bool (__thiscall*)(Actor*);
+    auto _IsClientSide = (IsClientSide)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _IsClientSide = (IsClientSide)(this->VTable[206]);
+        break;
+    };
+
+    return _IsClientSide(this);
+};
+
+auto Actor::getMutableAttribute(Attribute* attribute) -> AttributeInstance* {
+    using GetMutableAttribute = AttributeInstance* (__thiscall*)(Actor*, Attribute*);
+    auto _GetMutableAttribute = (GetMutableAttribute)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetMutableAttribute = (GetMutableAttribute)(this->VTable[207]);
+        break;
+    };
+
+    return _GetMutableAttribute(this, attribute);
+};
+
+auto Actor::getAttribute(AttributeInstance* attributeInstance) -> Attribute* {
+    using GetAttribute = Attribute* (__thiscall*)(Actor*, AttributeInstance*);
+    auto _GetAttribute = (GetAttribute)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetAttribute = (GetAttribute)(this->VTable[208]);
+        break;
+    };
+
+    return _GetAttribute(this, attributeInstance);
+};
+
+auto Actor::heal(int health) -> void {
+    using Heal = void (__thiscall*)(Actor*, int);
+    auto _Heal = (Heal)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _Heal = (Heal)(this->VTable[210]);
+        break;
+    };
+
+    _Heal(this, health);
+};
+
+auto Actor::isInvertedHealAndHarm(void) -> bool {
+    using IsInvertedHealAndHarm = bool (__thiscall*)(Actor*);
+    auto _IsInvertedHealAndHarm = (IsInvertedHealAndHarm)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _IsInvertedHealAndHarm = (IsInvertedHealAndHarm)(this->VTable[211]);
+        break;
+    };
+
+    return _IsInvertedHealAndHarm(this);
+};
+
+auto Actor::canBeAffected(MobEffectInstance* mobEffectInstance) -> bool {
+    using CanBeAffected = bool (__thiscall*)(Actor*, MobEffectInstance*);
+    auto _CanBeAffected = (CanBeAffected)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _CanBeAffected = (CanBeAffected)(this->VTable[212]);
+        break;
+    };
+    
+    return _CanBeAffected(this, mobEffectInstance);
+};
+
+auto Actor::canBeAffected(int paramA) -> bool {
+    using CanBeAffected = bool (__thiscall*)(Actor*, int);
+    auto _CanBeAffected = (CanBeAffected)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _CanBeAffected = (CanBeAffected)(this->VTable[213]);
+        break;
+    };
+    
+    return _CanBeAffected(this, paramA);
+};
+
 auto Actor::onGround(void) -> bool* {
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
