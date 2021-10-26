@@ -172,6 +172,10 @@ public:
     auto drop(ItemStack*) -> bool;
     auto getInteraction(Player*, struct ActorInteraction*, Vec3<float>*) -> bool;
     auto setSize(float, float) -> void;
+    auto wobble(void) -> void;
+    auto wasHurt(void) -> bool;
+    auto startSpinAttack(void) -> void;
+    auto setDamageNearbyMobs(bool) -> void;
 public:
     auto onGround(void) -> bool*;
 };
