@@ -105,6 +105,7 @@ public:
     auto setStanding(bool) -> void;
     auto canPowerJump(void) -> bool;
     auto setCanPowerJump(bool) -> void;
+    auto isJumping(void) -> bool;
     auto isEnchanted(void) -> bool;
     auto shouldRender(void) -> bool;
     auto playAmbientSound(void) -> void;
@@ -112,6 +113,7 @@ public:
     auto isInvulnerableTo(struct ActorDamageSource*) -> bool;
     auto getBlockDamageCause(class Block*) -> ActorDamageCause;
     auto actuallyHurt(int, struct ActorDamageSource*, bool) -> void;
+    auto animateHurt(void) -> void;
     auto doFireHurt(int) -> bool;
     auto feed(int) -> void;
     auto handleEntityEvent(enum ActorEvent, int) -> void;
