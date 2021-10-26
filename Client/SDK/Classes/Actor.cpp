@@ -1575,6 +1575,97 @@ auto Actor::changeDimension(__int64 dimension) -> void {
     _ChangeDimension(this, dimension);
 };
 
+auto Actor::checkFallDamage(float paramA, bool paramB) -> void {
+    using CheckFallDamage = void (__thiscall*)(Actor*, float, bool);
+    auto _CheckFallDamage = (CheckFallDamage)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _CheckFallDamage = (CheckFallDamage)(this->VTable[187]);
+        break;
+    };
+
+    _CheckFallDamage(this, paramA, paramB);
+};
+
+auto Actor::causeFallDamage(float paramA, float paramB, ActorDamageSource & actorDamageSource) -> void {
+    using CauseFallDamage = void (__thiscall*)(Actor*, float, float, ActorDamageSource&);
+    auto _CauseFallDamage = (CauseFallDamage)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _CauseFallDamage = (CauseFallDamage)(this->VTable[188]);
+        break;
+    };
+
+    return _CauseFallDamage(this, paramA, paramB, actorDamageSource);
+};
+
+auto Actor::handleFallDistanceOnServer(float paramA, float paramB, bool paramC) -> void {
+    using HandleFallDistanceOnServer = void (__thiscall*)(Actor*, float, float, bool);
+    auto _HandleFallDistanceOnServer = (HandleFallDistanceOnServer)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _HandleFallDistanceOnServer = (HandleFallDistanceOnServer)(this->VTable[189]);
+        break;
+    };
+
+    _HandleFallDistanceOnServer(this, paramA, paramB, paramC);
+};
+
+auto Actor::playSynchronizedSound(LevelSoundEvent levelSoundEvent, Vec3<float>* position, int paramC, bool paramD) -> void {
+    using PlaySynchronizedSound = void (__thiscall*)(Actor*, LevelSoundEvent, Vec3<float>*, int, bool);
+    auto _PlaySynchronizedSound = (PlaySynchronizedSound)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _PlaySynchronizedSound = (PlaySynchronizedSound)(this->VTable[190]);
+        break;
+    };
+
+    return _PlaySynchronizedSound(this, levelSoundEvent, position, paramC, paramD);
+};
+
+auto Actor::playSynchronizedSound(LevelSoundEvent levelSoundEvent, Vec3<float>* position, Block* block, bool paramD) -> void {
+    using PlaySynchronizedSound = void (__thiscall*)(Actor*, LevelSoundEvent, Vec3<float>*, Block*, bool);
+    auto _PlaySynchronizedSound = (PlaySynchronizedSound)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _PlaySynchronizedSound = (PlaySynchronizedSound)(this->VTable[191]);
+        break;
+    };
+
+    _PlaySynchronizedSound(this, levelSoundEvent, position, block, paramD);
+};
+
+auto Actor::canAddPassenger(Actor* entity) -> bool {
+    using CanAddPassenger = bool (__thiscall*)(Actor*, Actor*);
+    auto _CanAddPassenger = (CanAddPassenger)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _CanAddPassenger = (CanAddPassenger)(this->VTable[193]);
+        break;
+    };
+
+    return _CanAddPassenger(this, entity);
+};
+
+auto Actor::tickLeash(void) -> void {
+    using TickLeash = void(__thiscall*)(Actor*);
+    auto _TickLeash = (TickLeash)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _TickLeash = (TickLeash)(this->VTable[198]);
+        break;
+    };
+
+    _TickLeash(this);
+};
+
 auto Actor::onGround(void) -> bool* {
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
