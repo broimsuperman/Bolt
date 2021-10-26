@@ -13,6 +13,8 @@ struct ActorUniqueID;
 enum CommandPermissionLevel;
 struct Attribute;
 struct AttributeInstance;
+struct AnimationComponent;
+class Player;
 
 class Actor {
 private:
@@ -160,6 +162,16 @@ public:
     auto isInvertedHealAndHarm(void) -> bool;
     auto canBeAffected(struct MobEffectInstance*) -> bool;
     auto canBeAffected(int) -> bool;
+    auto canBeAffectedByArrow(MobEffectInstance*) -> bool;
+    auto getAnimationComponent(void) -> AnimationComponent*;
+    auto openContainerComponent(Player*) -> void;
+    auto useItem(class ItemStackBase*, enum ItemUseMethod, bool) -> void;
+    auto getMapDecorationRotation(void) -> float;
+    auto getPassengerYRotation(Actor*) -> float;
+    auto addItem(ItemStack*) -> bool;
+    auto drop(ItemStack*) -> bool;
+    auto getInteraction(Player*, struct ActorInteraction*, Vec3<float>*) -> bool;
+    auto setSize(float, float) -> void;
 public:
     auto onGround(void) -> bool*;
 };
