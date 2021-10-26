@@ -1314,6 +1314,22 @@ auto Actor::setCanPowerJump(bool powerJumpState) -> void {
     _SetCanPowerJump(this, powerJumpState);
 };
 
+auto Actor::isJumping(void) -> bool {
+    using IsJumping = bool (__thiscall*)(Actor*);
+    auto _IsJumping = (IsJumping)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            auto _IsJumping = (IsJumping)(this->VTable[128]);
+        break;
+        case MC_VER::v1_17_34_2:
+            auto _IsJumping = (IsJumping)(this->VTable[129]);
+        break;
+    };
+
+    return _IsJumping(this);
+};
+
 auto Actor::isEnchanted(void) -> bool {
     using IsEnchanted = bool (__thiscall*)(Actor*);
     auto _IsEnchanted = (IsEnchanted)(this->VTable[0]);
@@ -1339,7 +1355,7 @@ auto Actor::shouldRender(void) -> bool {
             _ShouldRender = (ShouldRender)(this->VTable[132]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _ShouldRender = (ShouldRender)(this->VTable[133]);
         break;
     };
 
@@ -1355,7 +1371,7 @@ auto Actor::playAmbientSound(void) -> void {
             _PlayAmbientSound = (PlayAmbientSound)(this->VTable[133]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _PlayAmbientSound = (PlayAmbientSound)(this->VTable[134]);
         break;
     };
 
@@ -1371,7 +1387,7 @@ auto Actor::getAmbientSound(void) -> LevelSoundEvent {
             _GetAmbientSound = (GetAmbientSound)(this->VTable[134]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _GetAmbientSound = (GetAmbientSound)(this->VTable[135]);
         break;
     };
 
@@ -1387,7 +1403,7 @@ auto Actor::isInvulnerableTo(struct ActorDamageSource* actorDamageSource) -> boo
             _IsInvulnerableTo = (IsInvulnerableTo)(this->VTable[135]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _IsInvulnerableTo = (IsInvulnerableTo)(this->VTable[136]);
         break;
     };
 
@@ -1403,7 +1419,7 @@ auto Actor::getBlockDamageCause(class Block* block) -> ActorDamageCause {
             _GetBlockDamageCause = (GetBlockDamageCause)(this->VTable[136]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _GetBlockDamageCause = (GetBlockDamageCause)(this->VTable[137]);
         break;
     };
 
@@ -1419,11 +1435,27 @@ auto Actor::actuallyHurt(int paramA, struct ActorDamageSource* actorDamageSource
             _ActuallyHurt = (ActuallyHurt)(this->VTable[137]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _ActuallyHurt = (ActuallyHurt)(this->VTable[138]);
         break;
     };
 
     _ActuallyHurt(this, paramA, actorDamageSource, paramC);
+};
+
+auto Actor::animateHurt(void) -> void {
+    using AnimateHurt = void (__thiscall*)(Actor*);
+    auto _AnimateHurt = (AnimateHurt)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _AnimateHurt = (AnimateHurt)(this->VTable[138]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _AnimateHurt = (AnimateHurt)(this->VTable[139]);
+        break;
+    };
+
+    _AnimateHurt(this);
 };
 
 auto Actor::doFireHurt(int v) -> bool {
@@ -1435,7 +1467,7 @@ auto Actor::doFireHurt(int v) -> bool {
             _DoFireHurt = (DoFireHurt)(this->VTable[139]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _DoFireHurt = (DoFireHurt)(this->VTable[140]);
         break;
     };
 
@@ -1451,7 +1483,7 @@ auto Actor::feed(int v) -> void {
             _Feed = (Feed)(this->VTable[142]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _Feed = (Feed)(this->VTable[143]);
         break;
     };
 
