@@ -1446,7 +1446,7 @@ auto Actor::getEntityTypeId(void) -> uint8_t {
 };
 
 auto Actor::getSourceUniqueID(void) -> const ActorUniqueID & {
-    using GetSourceUniqueID = ActorUniqueID (__thiscall*)(Actor*);
+    using GetSourceUniqueID = ActorUniqueID & (__thiscall*)(Actor*);
     auto _GetSourceUniqueID = (GetSourceUniqueID)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
@@ -1820,6 +1820,136 @@ auto Actor::canBeAffected(int paramA) -> bool {
     };
     
     return _CanBeAffected(this, paramA);
+};
+
+auto Actor::canBeAffectedByArrow(MobEffectInstance* mobEffectInstance) -> bool {
+    using CanBeAffectedByArrow = bool (__thiscall*)(Actor*, MobEffectInstance*);
+    auto _CanBeAffectedByArrow = (CanBeAffectedByArrow)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _CanBeAffectedByArrow = (CanBeAffectedByArrow)(this->VTable[214]);
+        break;
+    };
+
+    return _CanBeAffectedByArrow(this, mobEffectInstance);
+};
+
+auto Actor::getAnimationComponent(void) -> AnimationComponent* {
+    using GetAnimationComponent = AnimationComponent* (__thiscall*)(Actor*);
+    auto _GetAnimationComponent = (GetAnimationComponent)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetAnimationComponent = (GetAnimationComponent)(this->VTable[218]);
+        break;
+    };
+
+    return _GetAnimationComponent(this);
+};
+
+auto Actor::openContainerComponent(Player* player) -> void {
+    using OpenContainerComponent = void (__thiscall*)(Actor*, Player*);
+    auto _OpenContainerComponent = (OpenContainerComponent)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _OpenContainerComponent = (OpenContainerComponent)(this->VTable[219]);
+        break;
+    };
+
+    _OpenContainerComponent(this, player);
+};
+
+auto Actor::useItem(ItemStackBase* itemStackBase, ItemUseMethod itemUseMethod, bool paramC) -> void {
+    using UseItem = void (__thiscall*)(Actor*, ItemStackBase*, ItemUseMethod, bool);
+    auto _UseItem = (UseItem)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _UseItem = (UseItem)(this->VTable[221]);
+        break;
+    };
+
+    _UseItem(this, itemStackBase, itemUseMethod, paramC);
+};
+
+auto Actor::getMapDecorationRotation(void) -> float {
+    using GetMapDecorationRotation = float (__thiscall*)(Actor*);
+    auto _GetMapDecorationRotation = (GetMapDecorationRotation)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetMapDecorationRotation = (GetMapDecorationRotation)(this->VTable[225]);
+        break;
+    };
+
+    return _GetMapDecorationRotation(this);
+};
+
+auto Actor::getPassengerYRotation(Actor* entity) -> float {
+    using GetPassengerYRotation = float (__thiscall*)(Actor*, Actor*);
+    auto _GetPassengerYRotation = (GetPassengerYRotation)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetPassengerYRotation = (GetPassengerYRotation)(this->VTable[226]);
+        break;
+    };
+
+    return _GetPassengerYRotation(this, entity);
+};
+
+auto Actor::addItem(ItemStack* itemStack) -> bool {
+    using AddItem = bool (__thiscall*)(Actor*, ItemStack*);
+    auto _AddItem = (AddItem)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _AddItem = (AddItem)(this->VTable[231]);
+        break;
+    };
+
+    return _AddItem(this, itemStack);
+};
+
+auto Actor::drop(ItemStack* itemStack) -> bool {
+    using Drop = bool (__thiscall*)(Actor*, ItemStack*);
+    auto _Drop = (Drop)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _Drop = (Drop)(this->VTable[232]);
+        break;
+    };
+
+    return _Drop(this, itemStack);
+};
+
+auto Actor::getInteraction(Player* player, ActorInteraction* actorInteraction, Vec3<float>* position) -> bool {
+    using GetInteraction = bool (__thiscall*)(Actor*, Player*, ActorInteraction*, Vec3<float>*);
+    auto _GetInteraction = (GetInteraction)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetInteraction = (GetInteraction)(this->VTable[233]);
+        break;
+    };
+
+    return _GetInteraction(this, player, actorInteraction, position);
+};
+
+auto Actor::setSize(float width, float height) -> void {
+    using SetSize = void (__thiscall*)(Actor*, float, float);
+    auto _SetSize = (SetSize)(this->VTable[0]);
+    
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SetSize = (SetSize)(this->VTable[236]);
+        break;
+    };
+
+    _SetSize(this, width, height);
 };
 
 auto Actor::onGround(void) -> bool* {
