@@ -2004,6 +2004,227 @@ auto Actor::setDamageNearbyMobs(bool paramA) -> void {
     _SetDamageNearbyMobs(this, paramA);
 };
 
+auto Actor::reloadLootTable(EquipmentTableDefinition* equipmentTableDefinition) -> void {
+    using ReloadLootTable = void (__thiscall*)(Actor*, EquipmentTableDefinition*);
+    auto _ReloadLootTable = (ReloadLootTable)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _ReloadLootTable = (ReloadLootTable)(this->VTable[244]);
+        break;
+    };
+
+    _ReloadLootTable(this, equipmentTableDefinition);
+};
+
+auto Actor::reloadLootTable(void) -> void {
+    using ReloadLootTable = void (__thiscall*)(Actor*);
+    auto _ReloadLootTable = (ReloadLootTable)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _ReloadLootTable = (ReloadLootTable)(this->VTable[245]);
+        break;
+    };
+
+    _ReloadLootTable(this);
+};
+
+auto Actor::kill(void) -> void {
+    using Kill = void (__thiscall*)(Actor*);
+    auto _Kill = (Kill)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _Kill = (Kill)(this->VTable[247]);
+        break;
+    };
+
+    _Kill(this);
+};
+
+auto Actor::die(ActorDamageSource* actorDamageSource) -> void {
+    using Die = void (__thiscall*)(Actor*, ActorDamageSource*);
+    auto _Die = (Die)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _Die = (Die)(this->VTable[248]);
+        break;
+    };
+
+    _Die(this, actorDamageSource);
+};
+
+auto Actor::shouldDropDeathLoot(void) -> bool {
+    using ShouldDropDeathLoot = bool (__thiscall*)(Actor*);
+    auto _ShouldDropDeathLoot = (ShouldDropDeathLoot)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _ShouldDropDeathLoot = (ShouldDropDeathLoot)(this->VTable[249]);
+        break;
+    };
+
+    return _ShouldDropDeathLoot(this);
+};
+
+auto Actor::shouldTick(void) -> bool {
+    using ShouldTick = bool (__thiscall*)(Actor*);
+    auto _ShouldTick = (ShouldTick)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _ShouldTick = (ShouldTick)(this->VTable[250]);
+        break;
+    };
+
+    return _ShouldTick(this);
+};
+
+auto Actor::getNextStep(float f) -> float {
+    using GetNextStep = float (__thiscall*)(Actor*, float);
+    auto _GetNextStep = (GetNextStep)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetNextStep = (GetNextStep)(this->VTable[253]);
+        break;
+    };
+
+    return _GetNextStep(this, f);
+};
+
+auto Actor::getLootTable(void) -> LootTable* {
+    using GetLootTable = LootTable* (__thiscall*)(Actor*);
+    auto _GetLootTable = (GetLootTable)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetLootTable = (GetLootTable)(this->VTable[254]);
+        break;
+    };
+    
+    return _GetLootTable(this);
+};
+
+auto Actor::interpolatorTick(void) -> void {
+    using InterpolatorTick = void (__thiscall*)(Actor*);
+    auto _InterpolatorTick = (InterpolatorTick)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _InterpolatorTick = (InterpolatorTick)(this->VTable[255]);
+        break;
+    };
+
+    _InterpolatorTick(this);
+};
+
+auto Actor::shouldTryMakeStepSound(void) -> bool {
+    using ShouldTryMakeStepSound = bool (__thiscall*)(Actor*);
+    auto _ShouldTryMakeStepSound = (ShouldTryMakeStepSound)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _ShouldTryMakeStepSound = (ShouldTryMakeStepSound)(this->VTable[257]);
+        break;
+    };
+
+    return _ShouldTryMakeStepSound(this);
+};
+
+auto Actor::markHurt(void) -> void {
+    using MarkHurt = void (__thiscall*)(Actor*);
+    auto _MarkHurt = (MarkHurt)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _MarkHurt = (MarkHurt)(this->VTable[260]);
+        break;
+    };
+
+    _MarkHurt(this);
+};
+
+auto Actor::checkInsideBlocks(float f) -> void {
+    using CheckInsideBlocks = void (__thiscall*)(Actor*, float);
+    auto _CheckInsideBlocks = (CheckInsideBlocks)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _CheckInsideBlocks = (CheckInsideBlocks)(this->VTable[267]);
+        break;
+    };
+
+    _CheckInsideBlocks(this, f);
+};
+
+auto Actor::pushOutOfBlocks(Vec3<float>* blockPos) -> void {
+    using PushOutOfBlocks = void (__thiscall*)(Actor*, Vec3<float>*);
+    auto _PushOutOfBlocks = (PushOutOfBlocks)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _PushOutOfBlocks = (PushOutOfBlocks)(this->VTable[268]);
+        break;
+    };
+
+    _PushOutOfBlocks(this, blockPos);
+};
+
+auto Actor::updateWaterState(void) -> void {
+    using UpdateWaterState = void (__thiscall*)(Actor*);
+    auto _UpdateWaterState = (UpdateWaterState)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _UpdateWaterState = (UpdateWaterState)(this->VTable[269]);
+        break;
+    };
+
+    _UpdateWaterState(this);
+};
+
+auto Actor::doWaterSplashEffect(void) -> void {
+    using DoWaterSplashEffect = void (__thiscall*)(Actor*);
+    auto _DoWaterSplashEffect = (DoWaterSplashEffect)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _DoWaterSplashEffect = (DoWaterSplashEffect)(this->VTable[270]);
+        break;
+    };
+
+    _DoWaterSplashEffect(this);
+};
+
+auto Actor::spawnTrailBubbles(void) -> void {
+    using SpawnTrailBubbles = void (__thiscall*)(Actor*);
+    auto _SpawnTrailBubbles = (SpawnTrailBubbles)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SpawnTrailBubbles = (SpawnTrailBubbles)(this->VTable[271]);
+        break;
+    };
+
+    _SpawnTrailBubbles(this);
+};
+
+auto Actor::updateInsideBlock(void) -> void {
+    using UpdateInsideBlock = void (__thiscall*)(Actor*);
+    auto _UpdateInsideBlock = (UpdateInsideBlock)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _UpdateInsideBlock = (UpdateInsideBlock)(this->VTable[272]);
+        break;
+    };
+
+    _UpdateInsideBlock(this);
+};
+
 auto Actor::onGround(void) -> bool* {
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
