@@ -15,6 +15,7 @@ struct Attribute;
 struct AttributeInstance;
 struct AnimationComponent;
 class Player;
+struct LootTable;
 
 class Actor {
 private:
@@ -176,6 +177,23 @@ public:
     auto wasHurt(void) -> bool;
     auto startSpinAttack(void) -> void;
     auto setDamageNearbyMobs(bool) -> void;
+    auto reloadLootTable(struct EquipmentTableDefinition*) -> void;
+    auto reloadLootTable(void) -> void;
+    auto kill(void) -> void;
+    auto die(ActorDamageSource*) -> void;
+    auto shouldDropDeathLoot(void) -> bool;
+    auto shouldTick(void) -> bool;
+    auto getNextStep(float) -> float;
+    auto getLootTable(void) -> LootTable*;
+    auto interpolatorTick(void) -> void;
+    auto shouldTryMakeStepSound(void) -> bool;
+    auto markHurt(void) -> void;
+    auto checkInsideBlocks(float) -> void;
+    auto pushOutOfBlocks(Vec3<float>*) -> void;
+    auto updateWaterState(void) -> void;
+    auto doWaterSplashEffect(void) -> void;
+    auto spawnTrailBubbles(void) -> void;
+    auto updateInsideBlock(void) -> void;
 public:
     auto onGround(void) -> bool*;
 };
