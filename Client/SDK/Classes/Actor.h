@@ -10,6 +10,9 @@ struct HashedString;
 class ItemActor;
 class ItemStack;
 struct ActorUniqueID;
+enum CommandPermissionLevel;
+struct Attribute;
+struct AttributeInstance;
 
 class Actor {
 private:
@@ -145,6 +148,18 @@ public:
     auto playSynchronizedSound(LevelSoundEvent, Vec3<float>*, Block*, bool) -> void;
     auto canAddPassenger(Actor*) -> bool;
     auto tickLeash(void) -> void;
+    auto sendMotionPacketIfNeeded(void) -> void;
+    auto stopRiding(bool, bool, bool) -> void;
+    auto startSwimming(void) -> void;
+    auto stopSwimming(void) -> void;
+    auto getCommandPermissionLevel(void) -> CommandPermissionLevel;
+    auto isClientSide(void) -> bool;
+    auto getMutableAttribute(Attribute*) -> AttributeInstance*;
+    auto getAttribute(AttributeInstance*) -> Attribute*;
+    auto heal(int) -> void;
+    auto isInvertedHealAndHarm(void) -> bool;
+    auto canBeAffected(struct MobEffectInstance*) -> bool;
+    auto canBeAffected(int) -> bool;
 public:
     auto onGround(void) -> bool*;
 };
