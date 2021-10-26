@@ -1320,10 +1320,10 @@ auto Actor::isJumping(void) -> bool {
 
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
-            auto _IsJumping = (IsJumping)(this->VTable[128]);
+            _IsJumping = (IsJumping)(this->VTable[128]);
         break;
         case MC_VER::v1_17_34_2:
-            auto _IsJumping = (IsJumping)(this->VTable[129]);
+            _IsJumping = (IsJumping)(this->VTable[129]);
         break;
     };
 
@@ -1851,7 +1851,7 @@ auto Actor::extinguishFire(void) -> void {
             _ExtinguishFire = (ExtinguishFire)(this->VTable[174]);
         break;
         case MC_VER::v1_17_34_2:
-            /_ExtinguishFire = (ExtinguishFire)(this->VTable[175]);
+            _ExtinguishFire = (ExtinguishFire)(this->VTable[175]);
         break;
     };
 
@@ -2363,7 +2363,7 @@ auto Actor::getPassengerYRotation(Actor* entity) -> float {
             _GetPassengerYRotation = (GetPassengerYRotation)(this->VTable[226]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _GetPassengerYRotation = (GetPassengerYRotation)(this->VTable[227]);
         break;
     };
 
@@ -2379,7 +2379,7 @@ auto Actor::addItem(ItemStack* itemStack) -> bool {
             _AddItem = (AddItem)(this->VTable[231]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _AddItem = (AddItem)(this->VTable[232]);
         break;
     };
 
@@ -2395,7 +2395,7 @@ auto Actor::drop(ItemStack* itemStack) -> bool {
             _Drop = (Drop)(this->VTable[232]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _Drop = (Drop)(this->VTable[233]);
         break;
     };
 
@@ -2411,7 +2411,7 @@ auto Actor::getInteraction(Player* player, ActorInteraction* actorInteraction, V
             _GetInteraction = (GetInteraction)(this->VTable[233]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _GetInteraction = (GetInteraction)(this->VTable[234]);
         break;
     };
 
@@ -2427,7 +2427,7 @@ auto Actor::setSize(float width, float height) -> void {
             _SetSize = (SetSize)(this->VTable[236]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _SetSize = (SetSize)(this->VTable[237]);
         break;
     };
 
@@ -2443,7 +2443,7 @@ auto Actor::wobble(void) -> void {
             _Wobble = (Wobble)(this->VTable[238]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _Wobble = (Wobble)(this->VTable[239]);
         break;
     };
 
@@ -2459,7 +2459,7 @@ auto Actor::wasHurt(void) -> bool {
             _WasHurt = (WasHurt)(this->VTable[239]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _WasHurt = (WasHurt)(this->VTable[240]);
         break;
     };
 
@@ -2475,7 +2475,7 @@ auto Actor::startSpinAttack(void) -> void {
             _StartSpinAttack = (StartSpinAttack)(this->VTable[240]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _StartSpinAttack = (StartSpinAttack)(this->VTable[241]);
         break;
     };
 
@@ -2491,7 +2491,7 @@ auto Actor::setDamageNearbyMobs(bool paramA) -> void {
             _SetDamageNearbyMobs = (SetDamageNearbyMobs)(this->VTable[242]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _SetDamageNearbyMobs = (SetDamageNearbyMobs)(this->VTable[243]);
         break;
     };
 
@@ -2507,7 +2507,7 @@ auto Actor::reloadLootTable(EquipmentTableDefinition* equipmentTableDefinition) 
             _ReloadLootTable = (ReloadLootTable)(this->VTable[244]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _ReloadLootTable = (ReloadLootTable)(this->VTable[245]);
         break;
     };
 
@@ -2523,7 +2523,7 @@ auto Actor::reloadLootTable(void) -> void {
             _ReloadLootTable = (ReloadLootTable)(this->VTable[245]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _ReloadLootTable = (ReloadLootTable)(this->VTable[246]);
         break;
     };
 
@@ -2539,7 +2539,7 @@ auto Actor::kill(void) -> void {
             _Kill = (Kill)(this->VTable[247]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _Kill = (Kill)(this->VTable[248]);
         break;
     };
 
@@ -2555,7 +2555,7 @@ auto Actor::die(ActorDamageSource* actorDamageSource) -> void {
             _Die = (Die)(this->VTable[248]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _Die = (Die)(this->VTable[249]);
         break;
     };
 
@@ -2571,7 +2571,7 @@ auto Actor::shouldDropDeathLoot(void) -> bool {
             _ShouldDropDeathLoot = (ShouldDropDeathLoot)(this->VTable[249]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _ShouldDropDeathLoot = (ShouldDropDeathLoot)(this->VTable[250]);
         break;
     };
 
@@ -2587,7 +2587,7 @@ auto Actor::shouldTick(void) -> bool {
             _ShouldTick = (ShouldTick)(this->VTable[250]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _ShouldTick = (ShouldTick)(this->VTable[251]);
         break;
     };
 
@@ -2603,7 +2603,7 @@ auto Actor::getNextStep(float f) -> float {
             _GetNextStep = (GetNextStep)(this->VTable[253]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _GetNextStep = (GetNextStep)(this->VTable[254]);
         break;
     };
 
@@ -2619,7 +2619,7 @@ auto Actor::getLootTable(void) -> LootTable* {
             _GetLootTable = (GetLootTable)(this->VTable[254]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _GetLootTable = (GetLootTable)(this->VTable[255]);
         break;
     };
     
@@ -2635,7 +2635,7 @@ auto Actor::interpolatorTick(void) -> void {
             _InterpolatorTick = (InterpolatorTick)(this->VTable[255]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _InterpolatorTick = (InterpolatorTick)(this->VTable[256]);
         break;
     };
 
@@ -2651,7 +2651,7 @@ auto Actor::shouldTryMakeStepSound(void) -> bool {
             _ShouldTryMakeStepSound = (ShouldTryMakeStepSound)(this->VTable[257]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _ShouldTryMakeStepSound = (ShouldTryMakeStepSound)(this->VTable[258]);
         break;
     };
 
@@ -2667,7 +2667,7 @@ auto Actor::markHurt(void) -> void {
             _MarkHurt = (MarkHurt)(this->VTable[260]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _MarkHurt = (MarkHurt)(this->VTable[261]);
         break;
     };
 
@@ -2683,7 +2683,7 @@ auto Actor::checkInsideBlocks(float f) -> void {
             _CheckInsideBlocks = (CheckInsideBlocks)(this->VTable[267]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _CheckInsideBlocks = (CheckInsideBlocks)(this->VTable[268]);
         break;
     };
 
@@ -2699,7 +2699,7 @@ auto Actor::pushOutOfBlocks(Vec3<float>* blockPos) -> void {
             _PushOutOfBlocks = (PushOutOfBlocks)(this->VTable[268]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _PushOutOfBlocks = (PushOutOfBlocks)(this->VTable[269]);
         break;
     };
 
@@ -2715,7 +2715,7 @@ auto Actor::updateWaterState(void) -> void {
             _UpdateWaterState = (UpdateWaterState)(this->VTable[269]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _UpdateWaterState = (UpdateWaterState)(this->VTable[270]);
         break;
     };
 
@@ -2731,7 +2731,7 @@ auto Actor::doWaterSplashEffect(void) -> void {
             _DoWaterSplashEffect = (DoWaterSplashEffect)(this->VTable[270]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _DoWaterSplashEffect = (DoWaterSplashEffect)(this->VTable[271]);
         break;
     };
 
@@ -2747,7 +2747,7 @@ auto Actor::spawnTrailBubbles(void) -> void {
             _SpawnTrailBubbles = (SpawnTrailBubbles)(this->VTable[271]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _SpawnTrailBubbles = (SpawnTrailBubbles)(this->VTable[272]);
         break;
     };
 
@@ -2763,7 +2763,7 @@ auto Actor::updateInsideBlock(void) -> void {
             _UpdateInsideBlock = (UpdateInsideBlock)(this->VTable[272]);
         break;
         case MC_VER::v1_17_34_2:
-            //
+            _UpdateInsideBlock = (UpdateInsideBlock)(this->VTable[273]);
         break;
     };
 
