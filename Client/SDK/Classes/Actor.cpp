@@ -2354,6 +2354,22 @@ auto Actor::openContainerComponent(Player* player) -> void {
     _OpenContainerComponent(this, player);
 };
 
+auto Actor::swing(void) -> void {
+    using Swing = void (__thiscall*)(Actor*);
+    auto _Swing = (Swing)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _Swing = (Swing)(this->VTable[220]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _Swing = (Swing)(this->VTable[221]);
+        break;
+    };
+
+    _Swing(this);
+};
+
 auto Actor::useItem(ItemStackBase* itemStackBase, ItemUseMethod itemUseMethod, bool paramC) -> void {
     using UseItem = void (__thiscall*)(Actor*, ItemStackBase*, ItemUseMethod, bool);
     auto _UseItem = (UseItem)(this->VTable[0]);
@@ -2722,22 +2738,6 @@ auto Actor::getLootTable(void) -> LootTable* {
     return _GetLootTable(this);
 };
 
-auto Actor::interpolatorTick(void) -> void {
-    using InterpolatorTick = void (__thiscall*)(Actor*);
-    auto _InterpolatorTick = (InterpolatorTick)(this->VTable[0]);
-
-    switch(Minecraft::sdkVer){
-        case MC_VER::v1_17_40_6:
-            _InterpolatorTick = (InterpolatorTick)(this->VTable[255]);
-        break;
-        case MC_VER::v1_17_34_2:
-            _InterpolatorTick = (InterpolatorTick)(this->VTable[256]);
-        break;
-    };
-
-    _InterpolatorTick(this);
-};
-
 auto Actor::shouldTryMakeStepSound(void) -> bool {
     using ShouldTryMakeStepSound = bool (__thiscall*)(Actor*);
     auto _ShouldTryMakeStepSound = (ShouldTryMakeStepSound)(this->VTable[0]);
@@ -2747,7 +2747,7 @@ auto Actor::shouldTryMakeStepSound(void) -> bool {
             _ShouldTryMakeStepSound = (ShouldTryMakeStepSound)(this->VTable[257]);
         break;
         case MC_VER::v1_17_34_2:
-            _ShouldTryMakeStepSound = (ShouldTryMakeStepSound)(this->VTable[258]);
+            _ShouldTryMakeStepSound = (ShouldTryMakeStepSound)(this->VTable[257]);
         break;
     };
 
@@ -2763,7 +2763,7 @@ auto Actor::markHurt(void) -> void {
             _MarkHurt = (MarkHurt)(this->VTable[260]);
         break;
         case MC_VER::v1_17_34_2:
-            _MarkHurt = (MarkHurt)(this->VTable[261]);
+            _MarkHurt = (MarkHurt)(this->VTable[260]);
         break;
     };
 
@@ -2779,7 +2779,7 @@ auto Actor::checkInsideBlocks(float f) -> void {
             _CheckInsideBlocks = (CheckInsideBlocks)(this->VTable[267]);
         break;
         case MC_VER::v1_17_34_2:
-            _CheckInsideBlocks = (CheckInsideBlocks)(this->VTable[268]);
+            _CheckInsideBlocks = (CheckInsideBlocks)(this->VTable[267]);
         break;
     };
 
@@ -2795,7 +2795,7 @@ auto Actor::pushOutOfBlocks(Vec3<float>* blockPos) -> void {
             _PushOutOfBlocks = (PushOutOfBlocks)(this->VTable[268]);
         break;
         case MC_VER::v1_17_34_2:
-            _PushOutOfBlocks = (PushOutOfBlocks)(this->VTable[269]);
+            _PushOutOfBlocks = (PushOutOfBlocks)(this->VTable[268]);
         break;
     };
 
@@ -2811,7 +2811,7 @@ auto Actor::updateWaterState(void) -> void {
             _UpdateWaterState = (UpdateWaterState)(this->VTable[269]);
         break;
         case MC_VER::v1_17_34_2:
-            _UpdateWaterState = (UpdateWaterState)(this->VTable[270]);
+            _UpdateWaterState = (UpdateWaterState)(this->VTable[269]);
         break;
     };
 
@@ -2827,7 +2827,7 @@ auto Actor::doWaterSplashEffect(void) -> void {
             _DoWaterSplashEffect = (DoWaterSplashEffect)(this->VTable[270]);
         break;
         case MC_VER::v1_17_34_2:
-            _DoWaterSplashEffect = (DoWaterSplashEffect)(this->VTable[271]);
+            _DoWaterSplashEffect = (DoWaterSplashEffect)(this->VTable[270]);
         break;
     };
 
@@ -2843,7 +2843,7 @@ auto Actor::spawnTrailBubbles(void) -> void {
             _SpawnTrailBubbles = (SpawnTrailBubbles)(this->VTable[271]);
         break;
         case MC_VER::v1_17_34_2:
-            _SpawnTrailBubbles = (SpawnTrailBubbles)(this->VTable[272]);
+            _SpawnTrailBubbles = (SpawnTrailBubbles)(this->VTable[271]);
         break;
     };
 
@@ -2859,7 +2859,7 @@ auto Actor::updateInsideBlock(void) -> void {
             _UpdateInsideBlock = (UpdateInsideBlock)(this->VTable[272]);
         break;
         case MC_VER::v1_17_34_2:
-            _UpdateInsideBlock = (UpdateInsideBlock)(this->VTable[273]);
+            _UpdateInsideBlock = (UpdateInsideBlock)(this->VTable[272]);
         break;
     };
 
