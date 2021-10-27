@@ -170,6 +170,7 @@ public:
     auto canBeAffectedByArrow(MobEffectInstance*) -> bool;
     auto getAnimationComponent(void) -> AnimationComponent*;
     auto openContainerComponent(Player*) -> void;
+    auto swing(void) -> void;
     auto useItem(class ItemStackBase*, enum ItemUseMethod, bool) -> void;
     auto getMapDecorationRotation(void) -> float;
     auto getPassengerYRotation(Actor*) -> float;
@@ -193,7 +194,6 @@ public:
     auto shouldTick(void) -> bool;
     auto getNextStep(float) -> float;
     auto getLootTable(void) -> LootTable*;
-    auto interpolatorTick(void) -> void;
     auto shouldTryMakeStepSound(void) -> bool;
     auto markHurt(void) -> void;
     auto checkInsideBlocks(float) -> void;
