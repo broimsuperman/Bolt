@@ -4,6 +4,9 @@
 #include "../../Mem/Mem.h"
 #include "../../Utils/Utils.h"
 
+class Mob;
+class Player;
+
 enum LevelSoundEvent;
 enum ActorDamageCause;
 struct HashedString;
@@ -14,7 +17,6 @@ enum CommandPermissionLevel;
 struct Attribute;
 struct AttributeInstance;
 struct AnimationComponent;
-class Player;
 struct LootTable;
 
 class Actor {
