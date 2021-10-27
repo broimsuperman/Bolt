@@ -2402,6 +2402,70 @@ auto Actor::getPassengerYRotation(Actor* entity) -> float {
     return _GetPassengerYRotation(this, entity);
 };
 
+auto Actor::getYHeadRot(void) -> float {
+    using GetYHeadRot = float (__thiscall*)(Actor*);
+    auto _GetYHeadRot = (GetYHeadRot)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetYHeadRot = (GetYHeadRot)(this->VTable[227]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _GetYHeadRot = (GetYHeadRot)(this->VTable[228]);
+        break;
+    };
+
+    return _GetYHeadRot(this);
+};
+
+auto Actor::isWorldBuilder(void) -> bool {
+    using IsWorldBuilder = bool (__thiscall*)(Actor*);
+    auto _IsWorldBuilder = (IsWorldBuilder)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _IsWorldBuilder = (IsWorldBuilder)(this->VTable[228]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _IsWorldBuilder = (IsWorldBuilder)(this->VTable[229]);
+        break;
+    };
+
+    return _IsWorldBuilder(this);
+};
+
+auto Actor::isInCreativeMode(void) -> bool {
+    using IsInCreative = bool (__thiscall*)(Actor*);
+    auto _IsInCreative = (IsInCreative)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _IsInCreative = (IsInCreative)(this->VTable[229]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _IsInCreative = (IsInCreative)(this->VTable[230]);
+        break;
+    };
+
+    return _IsInCreative(this);
+};
+
+auto Actor::isAdventure(void) -> bool {
+    using IsAdventure = bool (__thiscall*)(Actor*);
+    auto _IsAdventure = (IsAdventure)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _IsAdventure = (IsAdventure)(this->VTable[230]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _IsAdventure = (IsAdventure)(this->VTable[231]);
+        break;
+    };
+
+    return _IsAdventure(this);
+};
+
 auto Actor::addItem(ItemStack* itemStack) -> bool {
     using AddItem = bool (__thiscall*)(Actor*, ItemStack*);
     auto _AddItem = (AddItem)(this->VTable[0]);
