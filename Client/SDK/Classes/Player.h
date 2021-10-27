@@ -3,9 +3,12 @@
 
 #include "Actor.h"
 
+#include "../../Mem/Mem.h"
+#include "../../Utils/Utils.h"
+
 class Player : public Actor {
 public:
-    //
+    auto knockback(Actor*, int, float, float, float, float, float) -> void;
 };
 
 #endif /* CLIENT_SDK_CLASSES_PLAYER */
