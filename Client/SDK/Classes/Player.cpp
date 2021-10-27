@@ -11,9 +11,25 @@ auto Player::knockback(Actor* entity, int paramA, float paramB, float paramC, fl
             _Knockback = (Knockback)(this->VTable[276]);
         break;
         case MC_VER::v1_17_34_2:
-            _Knockback = (Knockback)(this->VTable[277]);
+            _Knockback = (Knockback)(this->VTable[276]);
         break;
     };
 
     _Knockback(this, entity, paramA, paramB, paramC, paramD, paramE, paramF);
+};
+
+auto Player::setSprinting(bool setSprinting) -> void {
+    using SetSprinting = void (__thiscall*)(Actor*, bool);
+    auto _SetSprinting = (SetSprinting)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SetSprinting = (SetSprinting)(this->VTable[278]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _SetSprinting = (SetSprinting)(this->VTable[278]);
+        break;
+    };
+
+    _SetSprinting(this, setSprinting);
 };
