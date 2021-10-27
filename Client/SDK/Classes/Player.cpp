@@ -33,3 +33,35 @@ auto Player::setSprinting(bool setSprinting) -> void {
 
     _SetSprinting(this, setSprinting);
 };
+
+auto Player::getSpeed(void) -> float {
+    using GetSpeed = float (__thiscall*)(Actor*);
+    auto _GetSpeed = (GetSpeed)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetSpeed = (GetSpeed)(this->VTable[282]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _GetSpeed = (GetSpeed)(this->VTable[282]);
+        break;
+    };
+
+    return _GetSpeed(this);
+};
+
+auto Player::setSpeed(float f) -> void {
+    using SetSpeed = void (__thiscall*)(Actor*, float);
+    auto _SetSpeed = (SetSpeed)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SetSpeed = (SetSpeed)(this->VTable[283]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _SetSpeed = (SetSpeed)(this->VTable[283]);
+        break;
+    };
+
+    _SetSpeed(this, f);
+};
