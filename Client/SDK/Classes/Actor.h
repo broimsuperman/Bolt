@@ -18,7 +18,7 @@ class Player;
 struct LootTable;
 
 class Actor {
-private:
+public:
     uintptr_t** VTable;
 public:
     auto outOfWorld(void) -> bool;
@@ -173,6 +173,10 @@ public:
     auto useItem(class ItemStackBase*, enum ItemUseMethod, bool) -> void;
     auto getMapDecorationRotation(void) -> float;
     auto getPassengerYRotation(Actor*) -> float;
+    auto getYHeadRot(void) -> float;
+    auto isWorldBuilder(void) -> bool;
+    auto isInCreativeMode(void) -> bool;
+    auto isAdventure(void) -> bool;
     auto addItem(ItemStack*) -> bool;
     auto drop(ItemStack*) -> bool;
     auto getInteraction(Player*, struct ActorInteraction*, Vec3<float>*) -> bool;
