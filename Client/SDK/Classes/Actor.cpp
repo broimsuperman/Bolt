@@ -1026,6 +1026,38 @@ auto Actor::isSilent(void) -> bool {
     return _IsSilent(this);
 };
 
+auto Actor::isSleeping(void) -> bool {
+    using IsSleeping = bool (__thiscall*)(Actor*);
+    auto _IsSleeping = (IsSleeping)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _IsSleeping = (IsSleeping)(this->VTable[95]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _IsSleeping = (IsSleeping)(this->VTable[96]);
+        break;
+    };
+
+    return _IsSleeping(this);
+};
+
+auto Actor::setSleeping(bool setSleeping) -> void {
+    using SetSleeping = void (__thiscall*)(Actor*, bool);
+    auto _SetSleeping = (SetSleeping)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SetSleeping = (SetSleeping)(this->VTable[96]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _SetSleeping = (SetSleeping)(this->VTable[97]);
+        break;
+    };
+
+    _SetSleeping(this, setSleeping);
+};
+
 auto Actor::setSneaking(bool setSneaking) -> void {
     using SetSneaking = bool (__thiscall*)(Actor*, bool);
     auto _SetSneaking = (SetSneaking)(this->VTable[0]);
