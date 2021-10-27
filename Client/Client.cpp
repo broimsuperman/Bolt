@@ -4,6 +4,9 @@ Client::Client(std::string name, std::string version){
     Utils::setDebugPath(std::string(Utils::getDebugPath() + "\\" + name).c_str());
     
     Utils::rmDebugPath();
+
+    Sleep(1000);
+    
     Utils::debugLogF(std::string("Initializing Client with name: " + name).c_str());
 
     this->name = name;
