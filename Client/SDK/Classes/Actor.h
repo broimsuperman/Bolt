@@ -87,6 +87,8 @@ public:
     auto getBrightness(float) -> float;
     auto isImmobile(void) -> bool;
     auto isSilent(void) -> bool;
+    auto isSleeping(void) -> bool;
+    auto setSleeping(bool) -> void;
     auto setSneaking(bool) -> void;
     auto isAlive(void) -> bool;
     auto isOnFire(void) -> bool;
