@@ -4,9 +4,11 @@
 #include "../../Mem/Mem.h"
 #include "../../Utils/Utils.h"
 
+#include "Block.h"
+
 class BlockSource {
 public:
-    //
+    auto getBlock(Vec3<int>*) -> Block*;
 };
 
 #endif /* CLIENT_SDK_CLASSES_BLOCKSOURCE */
