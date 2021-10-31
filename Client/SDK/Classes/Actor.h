@@ -30,6 +30,8 @@ public:
     auto onGround(void) -> bool*;
     auto getFlightSpeed(void) -> float;
     auto setFlightSpeed(float) -> void;
+
+    auto _getDimensionId(void) -> int;
 public:
     auto getRegionConst(void) -> BlockSource*;
     auto getDimension(void) -> Dimension*;
