@@ -2,6 +2,51 @@
 
 #include "../Minecraft.h"
 
+auto Actor::getRegionConst(void) -> BlockSource* {
+    auto regionConst = (BlockSource*)nullptr;
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            regionConst = *(BlockSource**)((uintptr_t)(this) + 0x360);
+        break;
+        case MC_VER::v1_17_34_2:
+            regionConst = *(BlockSource**)((uintptr_t)(this) + 0x360);
+        break;
+    };
+
+    return regionConst;
+};
+
+auto Actor::getDimension(void) -> Dimension* {
+    auto dimension = (Dimension*)nullptr;
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            dimension = *(Dimension**)((uintptr_t)(this) + 0x368);
+        break;
+        case MC_VER::v1_17_34_2:
+            dimension = *(Dimension**)((uintptr_t)(this) + 0x368);
+        break;
+    };
+
+    return dimension;
+};
+
+auto Actor::getLevel(void) -> Level* {
+    auto level = (Level*)nullptr;
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            level = *(Level**)((uintptr_t)(this) + 0x370);
+        break;
+        case MC_VER::v1_17_34_2:
+            level = *(Level**)((uintptr_t)(this) + 0x370);
+        break;
+    };
+
+    return level;
+};
+
 auto Actor::outOfWorld(void) -> bool {
     using OutOfWorld = bool (__thiscall*)(Actor*);
     auto _OutOfWorld = (OutOfWorld)(this->VTable[0]);
