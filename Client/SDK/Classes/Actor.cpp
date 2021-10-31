@@ -44,6 +44,44 @@ auto Actor::setFlightSpeed(float f) -> void {
     *flightSpeed = f;
 };
 
+auto Actor::getMotion() -> Vec3<float> {
+    auto motionVec = (Vec3<float>*)nullptr;
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            motionVec = (Vec3<float>*)((uintptr_t)(this) + 0x4F8);
+        break;
+        case MC_VER::v1_17_34_2:
+            motionVec = (Vec3<float>*)((uintptr_t)(this) + 0x4F8);
+        break;
+    };
+
+    return *motionVec;
+};
+
+auto Actor::setMotion(Vec3<float> motion) -> void {
+    auto motionVec = (Vec3<float>*)nullptr;
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            motionVec = (Vec3<float>*)((uintptr_t)(this) + 0x4F8);
+        break;
+        case MC_VER::v1_17_34_2:
+            motionVec = (Vec3<float>*)((uintptr_t)(this) + 0x4F8);
+        break;
+    };
+
+    *motionVec = motion;
+};
+
+auto Actor::setMotion(float x = 0.f, float y = 0.f, float z = 0.f) -> void {
+    this->setMotion(Vec3<float>(x, y, z));
+};
+
+auto Actor::setMotion(float f) -> void {
+    this->setMotion(Vec3<float>(f, f, f));
+};
+
 auto Actor::_getDimensionId(void) -> int {
     int* dimensionId = (int*)nullptr;
 
