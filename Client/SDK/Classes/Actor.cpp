@@ -44,6 +44,21 @@ auto Actor::setFlightSpeed(float f) -> void {
     *flightSpeed = f;
 };
 
+auto Actor::_getDimensionId(void) -> int {
+    int* dimensionId = (int*)nullptr;
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            dimensionId = (int*)((uintptr_t)(this) + 0xE4);
+        break;
+        case MC_VER::v1_17_34_2:
+            dimensionId = (int*)((uintptr_t)(this) + 0xE4);
+        break;
+    };
+
+    return *dimensionId;
+};
+
 auto Actor::getRegionConst(void) -> BlockSource* {
     auto regionConst = (BlockSource*)nullptr;
 
