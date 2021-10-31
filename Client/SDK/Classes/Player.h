@@ -8,6 +8,11 @@
 
 struct ActorUniqueID;
 struct ChunkPos;
+enum BedSleepingResult;
+
+enum GameType { Survival = 0, Creative = 1, Adventure = 2, Default = 5 };
+
+struct IMinecraftEventing;
 
 class Player : public Actor {
 public:
@@ -88,6 +93,27 @@ public:
     auto hasResource(int) -> bool;
     auto completeUsingItem(void) -> void;
     auto setPermissions(int) -> void;
+    auto startDestroying(void) -> void;
+    auto stopDestroying(void) -> void;
+    auto canOpenContainerScreen(void) -> bool;
+    auto startSleepInBed(Vec3<int>*) -> BedSleepingResult;
+    auto stopSleepInBed(bool, bool) -> void;
+    auto canStartSleepInBed(void) -> bool;
+    auto getSleepTimer(void) -> __int64;
+    auto getPreviousTickSleepTimer(void) -> __int64;
+    auto registerTrackedBoss(ActorUniqueID &) -> void;
+    auto unRegisterTrackedBoss(ActorUniqueID &) -> void;
+    auto setPlayerGameType(GameType) -> void;
+    auto initHUDContainerManager(void) -> void;
+    auto _crit(Actor*) -> void;
+    auto getEventing(void) -> IMinecraftEventing*;
+    auto sendEventPacket(struct EventPacket*) -> void;
+    auto addExperience(int) -> void;
+    auto addLevels(int) -> void;
+    auto inventoryChanged(struct Container*, int, ItemStack*, ItemStack*, bool) -> void;
+    auto deleteContainerManager(void) -> void;
+    auto setFieldOfViewModifier(float) -> void;
+    auto startCooldown(const struct Item*) -> void;
 };
 
 #endif /* CLIENT_SDK_CLASSES_PLAYER */
