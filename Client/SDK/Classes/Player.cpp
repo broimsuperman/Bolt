@@ -1048,10 +1048,10 @@ auto Player::suspendRegion(void) -> void {
 
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
-            _SuspendRegion = (SuspendRegion)(this->VTable[400]);
+            _SuspendRegion = (SuspendRegion)(this->VTable[360]);
         break;
         case MC_VER::v1_17_34_2:
-            _SuspendRegion = (SuspendRegion)(this->VTable[400]);
+            _SuspendRegion = (SuspendRegion)(this->VTable[360]);
         break;
     };
 
@@ -1064,10 +1064,10 @@ auto Player::_fireWillChangeDimension(void) -> void {
 
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
-            _FireWillChangeDimension = (FireWillChangeDimension)(this->VTable[402]);
+            _FireWillChangeDimension = (FireWillChangeDimension)(this->VTable[362]);
         break;
         case MC_VER::v1_17_34_2:
-            _FireWillChangeDimension = (FireWillChangeDimension)(this->VTable[402]);
+            _FireWillChangeDimension = (FireWillChangeDimension)(this->VTable[362]);
         break;
     };
 
@@ -1080,10 +1080,10 @@ auto Player::_fireDimensionChanged(void) -> void {
 
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
-            _FireDimensionChanged = (FireDimensionChanged)(this->VTable[403]);
+            _FireDimensionChanged = (FireDimensionChanged)(this->VTable[463]);
         break;
         case MC_VER::v1_17_34_2:
-            _FireDimensionChanged = (FireDimensionChanged)(this->VTable[403]);
+            _FireDimensionChanged = (FireDimensionChanged)(this->VTable[363]);
         break;
     };
 
@@ -1096,10 +1096,10 @@ auto Player::tickWorld(Tick* tick) -> void {
 
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
-            _TickWorld = (TickWorld)(this->VTable[405]);
+            _TickWorld = (TickWorld)(this->VTable[365]);
         break;
         case MC_VER::v1_17_34_2:
-            _TickWorld = (TickWorld)(this->VTable[405]);
+            _TickWorld = (TickWorld)(this->VTable[365]);
         break;
     };
 
@@ -1112,10 +1112,10 @@ auto Player::getTickingOffsets(void) -> std::vector<ChunkPos*> {
 
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
-            _GetTickingOffsets = (GetTickingOffsets)(this->VTable[407]);
+            _GetTickingOffsets = (GetTickingOffsets)(this->VTable[367]);
         break;
         case MC_VER::v1_17_34_2:
-            _GetTickingOffsets = (GetTickingOffsets)(this->VTable[407]);
+            _GetTickingOffsets = (GetTickingOffsets)(this->VTable[367]);
         break;
     };
 
@@ -1128,10 +1128,10 @@ auto Player::moveView(void) -> void {
 
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
-            _MoveView = (MoveView)(this->VTable[408]);
+            _MoveView = (MoveView)(this->VTable[368]);
         break;
         case MC_VER::v1_17_34_2:
-            _MoveView = (MoveView)(this->VTable[408]);
+            _MoveView = (MoveView)(this->VTable[368]);
         break;
     };
 
@@ -1144,10 +1144,10 @@ auto Player::setName(std::string name) -> void {
 
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
-            _SetName = (SetName)(this->VTable[409]);
+            _SetName = (SetName)(this->VTable[369]);
         break;
         case MC_VER::v1_17_34_2:
-            _SetName = (SetName)(this->VTable[409]);
+            _SetName = (SetName)(this->VTable[369]);
         break;
     };
 
@@ -1160,10 +1160,10 @@ auto Player::respawn(void) -> void {
 
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
-            _Respawn = (Respawn)(this->VTable[413]);
+            _Respawn = (Respawn)(this->VTable[373]);
         break;
         case MC_VER::v1_17_34_2:
-            _Respawn = (Respawn)(this->VTable[413]);
+            _Respawn = (Respawn)(this->VTable[373]);
         break;
     };
 
@@ -1176,10 +1176,10 @@ auto Player::resetPos(bool paramA) -> void {
 
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
-            _ResetPos = (ResetPos)(this->VTable[415]);
+            _ResetPos = (ResetPos)(this->VTable[375]);
         break;
         case MC_VER::v1_17_34_2:
-            _ResetPos = (ResetPos)(this->VTable[415]);
+            _ResetPos = (ResetPos)(this->VTable[375]);
         break;
     };
 
@@ -1192,10 +1192,10 @@ auto Player::hasResource(int paramA) -> bool {
 
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
-            _HasResource = (HasResource)(this->VTable[417]);
+            _HasResource = (HasResource)(this->VTable[377]);
         break;
         case MC_VER::v1_17_34_2:
-            _HasResource = (HasResource)(this->VTable[417]);
+            _HasResource = (HasResource)(this->VTable[377]);
         break;
     };
 
@@ -1208,10 +1208,10 @@ auto Player::completeUsingItem(void) -> void {
 
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
-            _CompleteUsingItem = (CompleteUsingItem)(this->VTable[418]);
+            _CompleteUsingItem = (CompleteUsingItem)(this->VTable[378]);
         break;
         case MC_VER::v1_17_34_2:
-            _CompleteUsingItem = (CompleteUsingItem)(this->VTable[418]);
+            _CompleteUsingItem = (CompleteUsingItem)(this->VTable[378]);
         break;
     };
 
@@ -1224,12 +1224,348 @@ auto Player::setPermissions(int permissionsLevel) -> void {
 
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
-            _SetPermissions = (SetPermissions)(this->VTable[419]);
+            _SetPermissions = (SetPermissions)(this->VTable[379]);
         break;
         case MC_VER::v1_17_34_2:
-            _SetPermissions = (SetPermissions)(this->VTable[419]);
+            _SetPermissions = (SetPermissions)(this->VTable[379]);
         break;
     };
 
     _SetPermissions(this, permissionsLevel);
+};
+
+auto Player::startDestroying(void) -> void {
+    using StartDestroying = void (__thiscall*)(Actor*);
+    auto _StartDestroying = (StartDestroying)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _StartDestroying = (StartDestroying)(this->VTable[380]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _StartDestroying = (StartDestroying)(this->VTable[380]);
+        break;
+    };
+
+    _StartDestroying(this);
+};
+
+auto Player::stopDestroying(void) -> void {
+    using StopDestroying = void (__thiscall*)(Actor*);
+    auto _StopDestroying = (StopDestroying)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _StopDestroying = (StopDestroying)(this->VTable[381]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _StopDestroying = (StopDestroying)(this->VTable[381]);
+        break;
+    };
+
+    _StopDestroying(this);
+};
+
+auto Player::canOpenContainerScreen(void) -> bool {
+    using CanOpenContainerScreen = bool (__thiscall*)(Actor*);
+    auto _CanOpenContainerScreen = (CanOpenContainerScreen)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _CanOpenContainerScreen = (CanOpenContainerScreen)(this->VTable[385]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _CanOpenContainerScreen = (CanOpenContainerScreen)(this->VTable[385]);
+        break;
+    };
+
+    return _CanOpenContainerScreen(this);
+};
+
+auto Player::startSleepInBed(Vec3<int>* blockPos) -> BedSleepingResult {
+    using StartSleepInBed = BedSleepingResult (__thiscall*)(Actor*, Vec3<int>*);
+    auto _StartSleepInBed = (StartSleepInBed)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _StartSleepInBed = (StartSleepInBed)(this->VTable[394]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _StartSleepInBed = (StartSleepInBed)(this->VTable[394]);
+        break;
+    };
+
+    return _StartSleepInBed(this, blockPos);
+};
+
+auto Player::stopSleepInBed(bool paramA, bool paramB) -> void {
+    using StopSleepInBed = void (__thiscall*)(Actor*, bool, bool);
+    auto _StopSleepInBed = (StopSleepInBed)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _StopSleepInBed = (StopSleepInBed)(this->VTable[395]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _StopSleepInBed = (StopSleepInBed)(this->VTable[395]);
+        break;
+    };
+
+    _StopSleepInBed(this, paramA, paramB);
+};
+
+auto Player::canStartSleepInBed(void) -> bool {
+    using CanStartSleepInBed = bool (__thiscall*)(Actor*);
+    auto _CanStartSleepInBed = (CanStartSleepInBed)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _CanStartSleepInBed = (CanStartSleepInBed)(this->VTable[396]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _CanStartSleepInBed = (CanStartSleepInBed)(this->VTable[396]);
+        break;
+    };
+
+    return _CanStartSleepInBed(this);
+};
+
+auto Player::getSleepTimer(void) -> __int64 {
+    using GetSleepTimer = __int64 (__thiscall*)(Actor*);
+    auto _GetSleepTimer = (GetSleepTimer)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetSleepTimer = (GetSleepTimer)(this->VTable[397]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _GetSleepTimer = (GetSleepTimer)(this->VTable[397]);
+        break;
+    };
+
+    return _GetSleepTimer(this);
+};
+
+auto Player::getPreviousTickSleepTimer(void) -> __int64 {
+    using GetPreviousTickSleepTimer = __int64 (__thiscall*)(Actor*);
+    auto _GetPreviousTickSleepTimer = (GetPreviousTickSleepTimer)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetPreviousTickSleepTimer = (GetPreviousTickSleepTimer)(this->VTable[398]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _GetPreviousTickSleepTimer = (GetPreviousTickSleepTimer)(this->VTable[398]);
+        break;
+    };
+
+    return _GetPreviousTickSleepTimer(this);
+};
+
+auto Player::registerTrackedBoss(ActorUniqueID & actorUniqueID) -> void {
+    using RegisterTrackedBoss = void (__thiscall*)(Actor*, ActorUniqueID&);
+    auto _RegisterTrackedBoss = (RegisterTrackedBoss)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _RegisterTrackedBoss = (RegisterTrackedBoss)(this->VTable[405]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _RegisterTrackedBoss = (RegisterTrackedBoss)(this->VTable[405]);
+        break;
+    };
+
+    _RegisterTrackedBoss(this, actorUniqueID);
+};
+
+auto Player::unRegisterTrackedBoss(ActorUniqueID & actorUniqueID) -> void {
+    using UnRegisterTrackedBoss = void (__thiscall*)(Actor*, ActorUniqueID&);
+    auto _UnRegisterTrackedBoss = (UnRegisterTrackedBoss)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _UnRegisterTrackedBoss = (UnRegisterTrackedBoss)(this->VTable[406]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _UnRegisterTrackedBoss = (UnRegisterTrackedBoss)(this->VTable[406]);
+        break;
+    };
+
+    _UnRegisterTrackedBoss(this, actorUniqueID);
+};
+
+auto Player::setPlayerGameType(GameType gameType) -> void {
+    using SetPlayerGameType = void (__thiscall*)(Actor*, GameType);
+    auto _SetPlayerGameType = (SetPlayerGameType)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SetPlayerGameType = (SetPlayerGameType)(this->VTable[407]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _SetPlayerGameType = (SetPlayerGameType)(this->VTable[407]);
+        break;
+    };
+
+    _SetPlayerGameType(this, gameType);
+};
+
+auto Player::initHUDContainerManager(void) -> void {
+    using InitHUDContainerManager = void (__thiscall*)(Actor*);
+    auto _InitHUDContainerManager = (InitHUDContainerManager)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _InitHUDContainerManager = (InitHUDContainerManager)(this->VTable[408]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _InitHUDContainerManager = (InitHUDContainerManager)(this->VTable[408]);
+        break;
+    };
+
+    _InitHUDContainerManager(this);
+};
+
+auto Player::_crit(Actor* entity) -> void {
+    using Crit = void (__thiscall*)(Actor*, Actor*);
+    auto _Crit = (Crit)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _Crit = (Crit)(this->VTable[409]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _Crit = (Crit)(this->VTable[409]);
+        break;
+    };
+
+    _Crit(this, entity);
+};
+
+auto Player::getEventing(void) -> IMinecraftEventing* {
+    using GetEventing = IMinecraftEventing* (__thiscall*)(Actor*);
+    auto _GetEventing = (GetEventing)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetEventing = (GetEventing)(this->VTable[410]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _GetEventing = (GetEventing)(this->VTable[410]);
+        break;
+    };
+
+    return _GetEventing(this);
+};
+
+auto Player::sendEventPacket(EventPacket* eventPacket) -> void {
+    using SendEventPacket = void (__thiscall*)(Actor*, EventPacket*);
+    auto _SendEventPacket = (SendEventPacket)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SendEventPacket = (SendEventPacket)(this->VTable[412]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _SendEventPacket = (SendEventPacket)(this->VTable[412]);
+        break;
+    };
+
+    _SendEventPacket(this, eventPacket);
+};
+
+auto Player::addExperience(int xp) -> void {
+    using AddExperience = void (__thiscall*)(Actor*, int);
+    auto _AddExperience = (AddExperience)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _AddExperience = (AddExperience)(this->VTable[413]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _AddExperience = (AddExperience)(this->VTable[413]);
+        break;
+    };
+
+    _AddExperience(this, xp);
+};
+
+auto Player::addLevels(int levels) -> void {
+    using AddLevels = void (__thiscall*)(Actor*, int);
+    auto _AddLevels = (AddLevels)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _AddLevels = (AddLevels)(this->VTable[414]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _AddLevels = (AddLevels)(this->VTable[414]);
+        break;
+    };
+
+    _AddLevels(this, levels);
+};
+
+auto Player::inventoryChanged(Container* container, int paramB, ItemStack* itemStackA, ItemStack* itemStackB, bool paramE) -> void {
+    using InventoryChanged = void (__thiscall*)(Actor*, Container*, int, ItemStack*, ItemStack*, bool);
+    auto _InventoryChanged = (InventoryChanged)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _InventoryChanged = (InventoryChanged)(this->VTable[417]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _InventoryChanged = (InventoryChanged)(this->VTable[417]);
+        break;
+    };
+
+    _InventoryChanged(this, container, paramB, itemStackA, itemStackB, paramE);
+};
+
+auto Player::deleteContainerManager(void) -> void {
+    using DeleteContainerManager = void (__thiscall*)(Actor*);
+    auto _DeleteContainerManager = (DeleteContainerManager)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _DeleteContainerManager = (DeleteContainerManager)(this->VTable[419]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _DeleteContainerManager = (DeleteContainerManager)(this->VTable[419]);
+        break;
+    };
+
+    _DeleteContainerManager(this);
+};
+
+auto Player::setFieldOfViewModifier(float fov) -> void {
+    using SetFieldOfViewModifier = void (__thiscall*)(Actor*, float);
+    auto _SetFieldOfViewModifier = (SetFieldOfViewModifier)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _SetFieldOfViewModifier = (SetFieldOfViewModifier)(this->VTable[420]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _SetFieldOfViewModifier = (SetFieldOfViewModifier)(this->VTable[420]);
+        break;
+    };
+
+    _SetFieldOfViewModifier(this, fov);
+};
+
+auto Player::startCooldown(const Item* item) -> void {
+    using StartCooldown = void (__thiscall*)(Actor*, const Item*);
+    auto _StartCooldown = (StartCooldown)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _StartCooldown = (StartCooldown)(this->VTable[426]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _StartCooldown = (StartCooldown)(this->VTable[426]);
+        break;
+    };
+
+    _StartCooldown(this, item);
 };
