@@ -13,6 +13,7 @@ enum BedSleepingResult;
 enum GameType { Survival = 0, Creative = 1, Adventure = 2, Default = 5 };
 
 struct IMinecraftEventing;
+struct PlayerMovementSettings;
 
 class Player : public Actor {
 public:
@@ -114,6 +115,12 @@ public:
     auto deleteContainerManager(void) -> void;
     auto setFieldOfViewModifier(float) -> void;
     auto startCooldown(const struct Item*) -> void;
+    auto getItemCooldownLeft(unsigned __int64) -> __int64;
+    auto getItemCooldownLeft(HashedString*) -> __int64;
+    auto getMaxItemCooldownLeft(void) -> __int64;
+    auto isItemInCooldown(HashedString*) -> bool;
+    auto getXuid(void) -> std::string*;
+    auto getMovementSettings(void) -> PlayerMovementSettings*;
 };
 
 #endif /* CLIENT_SDK_CLASSES_PLAYER */

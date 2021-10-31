@@ -1569,3 +1569,96 @@ auto Player::startCooldown(const Item* item) -> void {
 
     _StartCooldown(this, item);
 };
+
+auto Player::getItemCooldownLeft(unsigned __int64 paramA) -> __int64 {
+    using GetItemCooldownLeft = __int64 (__thiscall*)(Actor*, unsigned __int64);
+    auto _GetItemCooldownLeft = (GetItemCooldownLeft)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetItemCooldownLeft = (GetItemCooldownLeft)(this->VTable[427]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _GetItemCooldownLeft = (GetItemCooldownLeft)(this->VTable[427]);
+        break;
+    };
+
+    return _GetItemCooldownLeft(this, paramA);
+};
+
+auto Player::getItemCooldownLeft(HashedString* hashedString) -> __int64 {
+    using GetItemCooldownLeft = __int64 (__thiscall*)(Actor*, HashedString*);
+    auto _GetItemCooldownLeft = (GetItemCooldownLeft)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetItemCooldownLeft = (GetItemCooldownLeft)(this->VTable[427]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _GetItemCooldownLeft = (GetItemCooldownLeft)(this->VTable[427]);
+        break;
+    };
+
+    return _GetItemCooldownLeft(this, hashedString);
+};
+
+auto Player::getMaxItemCooldownLeft(void) -> __int64 {
+    using GetMaxItemCooldownLeft = __int64 (__thiscall*)(Actor*);
+    auto _GetMaxItemCooldownLeft = (GetMaxItemCooldownLeft)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetMaxItemCooldownLeft = (GetMaxItemCooldownLeft)(this->VTable[428]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _GetMaxItemCooldownLeft = (GetMaxItemCooldownLeft)(this->VTable[428]);
+        break;
+    };
+
+    return _GetMaxItemCooldownLeft(this);
+};
+
+auto Player::isItemInCooldown(HashedString* hashedString) -> bool {
+    using IsItemInCooldown = bool (__thiscall*)(Actor*, HashedString*);
+    auto _IsItemInCooldown = (IsItemInCooldown)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _IsItemInCooldown = (IsItemInCooldown)(this->VTable[429]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _IsItemInCooldown = (IsItemInCooldown)(this->VTable[429]);
+        break;
+    };
+
+    return _IsItemInCooldown(this, hashedString);
+};
+
+auto Player::getXuid(void) -> std::string* {
+    using GetXuid = std::string* (__thiscall*)(Actor*);
+    auto _GetXuid = (GetXuid)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetXuid = (GetXuid)(this->VTable[439]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _GetXuid = (GetXuid)(this->VTable[439]);
+        break;
+    };
+
+    return _GetXuid(this);
+};
+
+auto Player::getMovementSettings(void) -> PlayerMovementSettings* {
+    using GetMovementSettings = PlayerMovementSettings* (__thiscall*)(Actor*);
+    auto _GetMovementSettings = (GetMovementSettings)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            _GetMovementSettings = (GetMovementSettings)(this->VTable[440]);
+        break;
+    };
+
+    return _GetMovementSettings(this);
+};
