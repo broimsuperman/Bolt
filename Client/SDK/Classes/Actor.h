@@ -31,7 +31,12 @@ public:
     auto getFlightSpeed(void) -> float;
     auto setFlightSpeed(float) -> void;
 
-    auto _getDimensionId(void) -> int;
+    auto getMotion() -> Vec3<float>;
+    auto setMotion(Vec3<float>) -> void;
+    auto setMotion(float, float, float) -> void;
+    auto setMotion(float) -> void;
+
+    auto _getDimensionId(void) -> int;;
 public:
     auto getRegionConst(void) -> BlockSource*;
     auto getDimension(void) -> Dimension*;
