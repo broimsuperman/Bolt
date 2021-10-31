@@ -3,4 +3,5 @@ target_sources(Bolt PRIVATE
         "Actor.cpp"
             "Player.cpp"
                 "MinecraftGame.cpp"
+                    "BlockSource.cpp"
 )
