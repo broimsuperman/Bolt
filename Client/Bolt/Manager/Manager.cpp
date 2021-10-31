@@ -35,6 +35,10 @@ auto Manager::getCategory(std::string name) -> Category* {
     return this->categories.back();
 };
 
+auto Manager::getCategories(void) -> std::vector<Category*> {
+    return this->categories;
+};
+
 auto Manager::initCategories(void) -> void {
     new Category(this, "Combat");
     new Category(this, "Movement");
@@ -94,4 +98,12 @@ auto Manager::tickCategories(void) -> void {
             category->tickModules();
         Sleep(1);
     };
+};
+
+auto Manager::setEntityList(std::vector<Actor*> newList) -> void {
+    this->entityList = newList;
+};
+
+auto Manager::getEntityList(void) -> std::vector<Actor*> {
+    return this->entityList;
 };
