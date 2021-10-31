@@ -4,6 +4,10 @@
 #include "../../Mem/Mem.h"
 #include "../../Utils/Utils.h"
 
+#include "BlockSource.h"
+#include "Dimension.h"
+#include "Level.h"
+
 class Mob;
 class Player;
 
@@ -22,6 +26,10 @@ struct LootTable;
 class Actor {
 public:
     uintptr_t** VTable;
+public:
+    auto getRegionConst(void) -> BlockSource*;
+    auto getDimension(void) -> Dimension*;
+    auto getLevel(void) -> Level*;
 public:
     auto outOfWorld(void) -> bool;
     
