@@ -75,9 +75,13 @@ auto Manager::initModules(void) -> void {
     new TestModule(this->getCategory("Other"));
 };
 
+#include "../Hook/Hooks/Actor/Actor.h"
+
 auto Manager::initHooks(void) -> void {
     if(MH_Initialize() == MH_OK){
         Utils::debugLogF("Initialized MinHook");
+
+        new Hook_Actor(this);
     }
     else {
         Utils::debugLogF("Failed to initialize MinHook");
