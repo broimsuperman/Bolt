@@ -2,6 +2,48 @@
 
 #include "../Minecraft.h"
 
+auto Actor::onGround(void) -> bool* {
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            return (bool*)((uintptr_t)(this) + 0x1D8);
+        break;
+        case MC_VER::v1_17_34_2:
+            return (bool*)((uintptr_t)(this) + 0x1D8);
+        break;
+    };
+    return (bool*)nullptr;
+};
+
+auto Actor::getFlightSpeed(void) -> float {
+    float* flightSpeed = (float*)nullptr;
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            flightSpeed = (float*)((uintptr_t)(this) + 0x7E0);
+        break;
+        case MC_VER::v1_17_34_2:
+            flightSpeed = (float*)((uintptr_t)(this) + 0x7D8);
+        break;
+    };
+
+    return *flightSpeed;
+};
+
+auto Actor::setFlightSpeed(float f) -> void {
+    float* flightSpeed = (float*)nullptr;
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            flightSpeed = (float*)((uintptr_t)(this) + 0x7E0);
+        break;
+        case MC_VER::v1_17_34_2:
+            flightSpeed = (float*)((uintptr_t)(this) + 0x7D8);
+        break;
+    };
+
+    *flightSpeed = f;
+};
+
 auto Actor::getRegionConst(void) -> BlockSource* {
     auto regionConst = (BlockSource*)nullptr;
 
@@ -2909,16 +2951,4 @@ auto Actor::updateInsideBlock(void) -> void {
     };
 
     _UpdateInsideBlock(this);
-};
-
-auto Actor::onGround(void) -> bool* {
-    switch(Minecraft::sdkVer){
-        case MC_VER::v1_17_40_6:
-            return (bool*)((uintptr_t)(this) + 0x1D8);
-        break;
-        case MC_VER::v1_17_34_2:
-            return (bool*)((uintptr_t)(this) + 0x1D8);
-        break;
-    };
-    return (bool*)nullptr;
 };

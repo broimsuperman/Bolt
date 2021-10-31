@@ -27,6 +27,10 @@ class Actor {
 public:
     uintptr_t** VTable;
 public:
+    auto onGround(void) -> bool*;
+    auto getFlightSpeed(void) -> float;
+    auto setFlightSpeed(float) -> void;
+public:
     auto getRegionConst(void) -> BlockSource*;
     auto getDimension(void) -> Dimension*;
     auto getLevel(void) -> Level*;
@@ -212,8 +216,6 @@ public:
     auto doWaterSplashEffect(void) -> void;
     auto spawnTrailBubbles(void) -> void;
     auto updateInsideBlock(void) -> void;
-public:
-    auto onGround(void) -> bool*;
 };
 
 #endif /* CLIENT_SDK_CLASSES_ACTOR */
