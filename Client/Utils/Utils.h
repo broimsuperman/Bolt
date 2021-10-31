@@ -4,6 +4,7 @@
 #include <Windows.h>
 #include <filesystem>
 #include <fstream>
+#include <bitset>
 #include <string>
 
 #include <functional>
