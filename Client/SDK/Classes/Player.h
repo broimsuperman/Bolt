@@ -6,6 +6,9 @@
 #include "../../Mem/Mem.h"
 #include "../../Utils/Utils.h"
 
+struct ActorUniqueID;
+struct ChunkPos;
+
 class Player : public Actor {
 public:
     auto knockback(Actor*, int, float, float, float, float, float) -> void;
@@ -32,6 +35,59 @@ public:
     auto getItemUseStartupProgress(void) -> float;
     auto getItemUseIntervalProgress(void) -> float;
     auto getItemUseIntervalAxis(void) -> __int64;
+    auto getMaxHeadXRot(void) -> float;
+    auto doHurtTarget(Actor*, ActorDamageCause*) -> bool;
+    auto leaveCaravan(void) -> void;
+    auto joinCaravan(Mob*) -> void;
+    auto hasCaravanTail(void) -> bool;
+    auto getCaravanHead(void) -> const ActorUniqueID &;
+    auto getArmorValue(void) -> __int64;
+    auto getArmorCoverPercentage(void) -> float;
+    auto hurtArmorSlots(ActorDamageSource*, int, std::bitset<4>*) -> __int64;
+    auto setDamagedArmor(int, ItemStack*) -> void;
+    auto sendArmor(std::bitset<4>*) -> __int64;
+    auto containerChanged(int) -> void;
+    auto updateEquipment(void) -> void;
+    auto clearEquipment(void) -> __int64;
+    auto getAllArmor(void) -> std::vector<ItemStack*>;
+    auto getAllArmorID(void) -> __int64;
+    auto getAllHand(void) -> __int64;
+    auto getAllEquipment(void) -> __int64;
+    auto getArmorTypeHash(void) -> __int64;
+    auto dropEquipmentOnDeath(void) -> void;
+    auto dropEquipmentOnDeath(ActorDamageSource*, int) -> void;
+    auto getDamageAfterMagicAbsorb(ActorDamageSource*, int) -> int;
+    auto createAIGoals(void) -> bool;
+    auto setItemSlot(int, ItemStack*) -> bool;
+    auto setTransitioningSitting(bool) -> void;
+    auto attackAnimation(Actor*, float) -> void;
+    auto ascendLadder(void) -> void;
+    auto ascendBlockByJumping(void) -> void;
+    auto descendBlockByCrouching(void) -> void;
+    auto dropContainer(void) -> void;
+    auto initBodyControl(void) -> __int64;
+    auto jumpFromGround(IMobMovementProxy*) -> void;
+    auto jumpFromGround(void) -> void;
+    auto newServerAiStep(void) -> void;
+    auto getDamageAfterEnchantReduction(ActorDamageSource*, int) -> __int64;
+    auto getDamageAfterArmorAbsorb(ActorDamageSource*, int) -> int;
+    auto dropBags(void) -> void;
+    auto tickDeath(void) -> void;
+    auto updateGliding(void) -> void;
+    auto prepareRegion(struct ChunkSource*) -> void;
+    auto destroyRegion(void) -> void;
+    auto suspendRegion(void) -> void;
+    auto _fireWillChangeDimension(void) -> void;
+    auto _fireDimensionChanged(void) -> void;
+    auto tickWorld(struct Tick*) -> void;
+    auto getTickingOffsets(void) -> std::vector<ChunkPos*>;
+    auto moveView(void) -> void;
+    auto setName(std::string) -> void;
+    auto respawn(void) -> void;
+    auto resetPos(bool) -> void;
+    auto hasResource(int) -> bool;
+    auto completeUsingItem(void) -> void;
+    auto setPermissions(int) -> void;
 };
 
 #endif /* CLIENT_SDK_CLASSES_PLAYER */
