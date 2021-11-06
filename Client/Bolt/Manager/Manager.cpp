@@ -62,7 +62,7 @@ auto Manager::initCategories(void) -> void {
 
 /* Visuals */
 
-//#include "../Module/Modules/Visuals/"
+#include "../Module/Modules/Visuals/TabGui.h"
 
 /* World */
 
@@ -75,6 +75,8 @@ auto Manager::initCategories(void) -> void {
 auto Manager::initModules(void) -> void {
     /* Movement */
     new AirJump(this->getCategory("Movement"));
+    /* Visuals */
+    new TabGui(this->getCategory("Visuals"));
     /* Other */
     new TestModule(this->getCategory("Other"));
 };
