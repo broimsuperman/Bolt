@@ -4,4 +4,5 @@ target_sources(Bolt PRIVATE
             "Player.cpp"
                 "MinecraftGame.cpp"
                     "BlockSource.cpp"
+                        "MinecraftUIRenderContext.cpp"
 )

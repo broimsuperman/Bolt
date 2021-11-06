@@ -60,6 +60,7 @@ struct CaretMeasureData {
 };
 
 class ClientInstance;
+class Font;
 
 class MinecraftUIRenderContext {
 public:
@@ -82,6 +83,22 @@ private:
 public:
     virtual auto drawRectangle(Vec4<float>, Color, float, int) -> void;
     virtual auto fillRectangle(Vec4<float>, Color, float) -> void;
+};
+
+class RenderUtils {
+private:
+    MinecraftUIRenderContext* ctx = nullptr;
+    Font* font = nullptr;
+public:
+    RenderUtils(MinecraftUIRenderContext*, Font*);
+public:
+    auto getCtx(void) -> MinecraftUIRenderContext*;
+    auto setCtx(MinecraftUIRenderContext*) -> void;
+
+    auto getFont(void) -> Font*;
+    auto setFont(Font*) -> void;
+public:
+    auto drawString(std::string, float, Vec2<float>, Color) -> void;
 };
 
 #endif /* CLIENT_SDK_CLASSES_MINECRAFTUIRENDERCONTEXT */

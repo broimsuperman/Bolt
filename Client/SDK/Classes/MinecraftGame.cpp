@@ -4,10 +4,10 @@
 auto MinecraftGame::getFont(void) -> Font* {
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_40_6:
-            return *(Font**)((uintptr_t)(this) + 0x110);
+            return *(Font**)((uintptr_t)(this) + 0x108);
         break;
         case MC_VER::v1_17_34_2:
-            return *(Font**)((uintptr_t)(this) + 0x110);
+            return *(Font**)((uintptr_t)(this) + 0x108);
         break;
     };
     return (Font*)nullptr;

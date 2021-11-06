@@ -31,6 +31,8 @@ public:
     virtual auto onDisable(void) -> void {};
 
     virtual auto onActorTick(Actor*) -> void {};
+
+    virtual auto onRender(RenderUtils*) -> void {};
 };
 
 #endif /* CLIENT_BOLT_MODULE_MODULE */

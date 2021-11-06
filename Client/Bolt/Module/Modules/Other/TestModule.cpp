@@ -33,3 +33,10 @@ auto TestModule::onTick(void) -> void {
     if(player == nullptr)
         return;
 };
+
+auto TestModule::onRender(RenderUtils* r) -> void {
+    if(r == nullptr)
+        return;
+    
+    r->drawString("Test", 1.f, Vec2<float>(10.f, 10.f), Color(255, 255, 255, 1));
+};
