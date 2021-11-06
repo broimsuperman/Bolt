@@ -33,6 +33,8 @@ public:
     virtual auto onActorTick(Actor*) -> void {};
 
     virtual auto onRender(RenderUtils*) -> void {};
+
+    virtual auto onKey(uint64_t, bool) -> void {};
 };
 
 #endif /* CLIENT_BOLT_MODULE_MODULE */
