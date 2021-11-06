@@ -36,7 +36,9 @@ public:
     auto setMotion(float, float, float) -> void;
     auto setMotion(float) -> void;
 
-    auto _getDimensionId(void) -> int;;
+    auto _getDimensionId(void) -> int;
+
+    auto getRuntimeID(void) -> __int64;
 public:
     auto getRegionConst(void) -> BlockSource*;
     auto getDimension(void) -> Dimension*;
