@@ -99,6 +99,11 @@ public:
     auto setFont(Font*) -> void;
 public:
     auto drawString(std::string, float, Vec2<float>, Color) -> void;
+
+    auto fillRectangle(Vec4<float>, Color) -> void;
+    auto drawRectangle(Vec4<float>, Color, int) -> void;
+public:
+    auto canDraw(void) -> bool;
 };
 
 #endif /* CLIENT_SDK_CLASSES_MINECRAFTUIRENDERCONTEXT */
