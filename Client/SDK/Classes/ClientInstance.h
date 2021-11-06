@@ -5,6 +5,8 @@
 #include "GameMode.h"
 #include "MinecraftGame.h"
 
+#include "MinecraftUIRenderContext.h"
+
 class ClientInstance {
 public:
     auto getLocalPlayer(void) -> Player*;
