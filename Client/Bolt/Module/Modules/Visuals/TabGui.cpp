@@ -25,8 +25,8 @@ auto TabGui::onRender(RenderUtils* r) -> void {
     if(client == nullptr)
         return;
     
-    int I = 0;
-    float categoryBoxW = 0.f;
+    auto I = 0;
+    auto categoryBoxW = 0.f;
 
     for(auto c : manager->getCategories()) { /* Get Category Box Width */
         auto curr = r->textLen(c->name, 1.f);
@@ -57,6 +57,41 @@ auto TabGui::onRender(RenderUtils* r) -> void {
             selectedCatOff += 0.4f;
     };
 
+    if(selectedCat) { /* Draw Modules Rectangle */
+        auto currCategory = manager->getCategories().at(indexCat);
+        auto moduleBoxW = r->textLen(currCategory->name, 1);
+
+        for(auto m : currCategory->getModules()) { /* Get Modules Box Width */
+            auto curr = r->textLen(m->name, 1);
+            if(curr > moduleBoxW)
+                moduleBoxW = curr;
+        };
+
+        r->fillRectangle(Vec4<float>(8.f + (categoryBoxW + 3.f), 0.f, (8.f + (categoryBoxW + 3.f)) + (moduleBoxW + 4.f), 10.f), bgColor);
+        r->drawRectangle(Vec4<float>(8.f + (categoryBoxW + 3.f), 0.f, (8.f + (categoryBoxW + 3.f)) + (moduleBoxW + 4.f), 10.f), outlineColor, 1);
+        r->drawString(std::string(currCategory->name + " ⚡"), 1.f, Vec2<float>(10.f + (categoryBoxW + 3.f), 0.f), textColor);
+
+        r->fillRectangle(Vec4<float>(8.f + (categoryBoxW + 3.f), 9.f, (8.f + (categoryBoxW + 3.f)) + (moduleBoxW + 4.f), (currCategory->getModules().size() * 10) + 12.f), bgColor);
+        r->drawRectangle(Vec4<float>(8.f + (categoryBoxW + 3.f), 9.f, (8.f + (categoryBoxW + 3.f)) + (moduleBoxW + 4.f), (currCategory->getModules().size() * 10) + 12.f), outlineColor, 1);
+
+        I = 0;
+        for(auto m : currCategory->getModules()) {
+            r->drawString(m->name, 1, Vec2<float>(10.f + (categoryBoxW + 3.f), I * 10 + 10.f), m->isEnabled ? selectedColor : textColor);
+            I++;
+        };
+
+        if(selectedMod && !currCategory->getModules().empty()) {
+            auto yOff = (indexMod * 10) + 19.f;
+            r->drawRectangle(Vec4<float>(10.f + (categoryBoxW + 3.f), yOff, selectedModOff, yOff + 1.f), selectedColor, 1);
+
+            if(selectedModOff <= 0.f)
+                selectedModOff = 10.f + (categoryBoxW + 3.f);
+            
+            if(selectedModOff <= (6.f + (categoryBoxW + 3.f)) + (moduleBoxW + 4.f))
+                selectedModOff += 0.4f;
+        };
+    };
+
     r->getCtx()->flushText(0);
 };
 
@@ -80,10 +115,12 @@ auto TabGui::onKey(uint64_t key, bool isDown) -> void {
     if(key == VK_RIGHT) {
         if(!selectedCat) {
             selectedCat = true;
+            selectedCatOff = 0.f;
         }
         else {
             if(!selectedMod) {
                 selectedMod = true;
+                selectedModOff = 0.f;
             }
             else {
                 if(currCategory == nullptr || currCategory->getModules().empty())
@@ -114,6 +151,9 @@ auto TabGui::onKey(uint64_t key, bool isDown) -> void {
         if(selectedMod) {
             indexMod++;
             selectedModOff = 0.f;
+
+            if(indexMod >= currCategory->getModules().size())
+                indexMod = 0;
         }
         else if(selectedCat) {
             indexCat++;
