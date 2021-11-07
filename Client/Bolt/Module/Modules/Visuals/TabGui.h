@@ -17,6 +17,8 @@ public:
 
     int indexCat = 0, indexMod = 0;
     bool selectedCat = false, selectedMod = false;
+
+    float selectedCatOff = 0.f, selectedModOff = 0.f;
 };
 
 #endif /* CLIENT_BOLT_MODULE_MODULES_VISUALS_TABGUI */
