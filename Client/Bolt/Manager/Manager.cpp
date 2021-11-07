@@ -55,6 +55,7 @@ auto Manager::initCategories(void) -> void {
 /* Movement */
 
 #include "../Module/Modules/Movement/AirJump.h"
+#include "../Module/Modules/Movement/AutoSprint.h"
 
 /* Player */
 
@@ -75,6 +76,7 @@ auto Manager::initCategories(void) -> void {
 auto Manager::initModules(void) -> void {
     /* Movement */
     new AirJump(this->getCategory("Movement"));
+    new AutoSprint(this->getCategory("Movement"));
     /* Visuals */
     new TabGui(this->getCategory("Visuals"));
     /* Other */
