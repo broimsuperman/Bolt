@@ -853,6 +853,9 @@ auto Actor::startRiding(Actor* entity) -> bool {
     auto _StartRiding = (StartRiding)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _StartRiding = (StartRiding)(this->VTable[53]);
+        break;
         case MC_VER::v1_17_40_6:
             _StartRiding = (StartRiding)(this->VTable[53]);
         break;
@@ -869,6 +872,9 @@ auto Actor::addPassenger(Actor* entity) -> void {
     auto _AddPassenger = (AddPassenger)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _AddPassenger = (AddPassenger)(this->VTable[54]);
+        break;
         case MC_VER::v1_17_40_6:
             _AddPassenger = (AddPassenger)(this->VTable[54]);
         break;
@@ -885,6 +891,9 @@ auto Actor::flagPassengerToRemove(Actor* entity) -> void {
     auto _FlagPassengerToRemove = (FlagPassengerToRemove)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _FlagPassengerToRemove = (FlagPassengerToRemove)(this->VTable[55]);
+        break;
         case MC_VER::v1_17_40_6:
             _FlagPassengerToRemove = (FlagPassengerToRemove)(this->VTable[55]);
         break;
@@ -901,6 +910,9 @@ auto Actor::intersects(Vec3<float>* posA, Vec3<float>* posB) -> bool {
     auto _Intersects = (Intersects)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _Intersects = (Intersects)(this->VTable[57]);
+        break;
         case MC_VER::v1_17_40_6:
             _Intersects = (Intersects)(this->VTable[57]);
         break;
@@ -917,6 +929,9 @@ auto Actor::isInWall(void) -> bool {
     auto _IsInWall = (IsInWall)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _IsInWall = (IsInWall)(this->VTable[58]);
+        break;
         case MC_VER::v1_17_40_6:
             _IsInWall = (IsInWall)(this->VTable[58]);
         break;
@@ -933,6 +948,9 @@ auto Actor::isInvisible(void) -> bool {
     auto _IsInvisible = (IsInvisible)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _IsInvisible = (IsInvisible)(this->VTable[59]);
+        break;
         case MC_VER::v1_17_40_6:
             _IsInvisible = (IsInvisible)(this->VTable[59]);
         break;
@@ -949,6 +967,9 @@ auto Actor::canShowNameTag(void) -> bool {
     auto _CanShowNameTag = (CanShowNameTag)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _CanShowNameTag = (CanShowNameTag)(this->VTable[60]);
+        break;
         case MC_VER::v1_17_40_6:
             _CanShowNameTag = (CanShowNameTag)(this->VTable[60]);
         break;
@@ -965,6 +986,9 @@ auto Actor::setNameTagVisible(bool setVisible) -> void {
     auto _SetNameTagVisible = (SetNameTagVisible)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _SetNameTagVisible = (SetNameTagVisible)(this->VTable[62]);
+        break;
         case MC_VER::v1_17_40_6:
             _SetNameTagVisible = (SetNameTagVisible)(this->VTable[62]);
         break;
@@ -981,6 +1005,9 @@ auto Actor::getNameTag(void) -> std::string {
     auto _GetNameTag = (GetNameTag)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _GetNameTag = (GetNameTag)(this->VTable[63]);
+        break;
         case MC_VER::v1_17_40_6:
             _GetNameTag = (GetNameTag)(this->VTable[63]);
         break;
@@ -997,6 +1024,9 @@ auto Actor::getFormattedNameTag(void) -> std::string {
     auto _GetFormattedNameTag = (GetFormattedNameTag)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _GetFormattedNameTag = (GetFormattedNameTag)(this->VTable[65]);
+        break;
         case MC_VER::v1_17_40_6:
             _GetFormattedNameTag = (GetFormattedNameTag)(this->VTable[65]);
         break;
