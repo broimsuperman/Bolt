@@ -7,6 +7,9 @@ auto Player::knockback(Actor* entity, int paramA, float paramB, float paramC, fl
     auto _Knockback = (Knockback)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _Knockback = (Knockback)(this->VTable[276]);
+        break;
         case MC_VER::v1_17_40_6:
             _Knockback = (Knockback)(this->VTable[276]);
         break;
@@ -23,6 +26,9 @@ auto Player::setSprinting(bool setSprinting) -> void {
     auto _SetSprinting = (SetSprinting)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _SetSprinting = (SetSprinting)(this->VTable[278]);
+        break;
         case MC_VER::v1_17_40_6:
             _SetSprinting = (SetSprinting)(this->VTable[278]);
         break;
@@ -39,6 +45,9 @@ auto Player::getSpeed(void) -> float {
     auto _GetSpeed = (GetSpeed)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _GetSpeed = (GetSpeed)(this->VTable[282]);
+        break;
         case MC_VER::v1_17_40_6:
             _GetSpeed = (GetSpeed)(this->VTable[282]);
         break;
@@ -55,6 +64,9 @@ auto Player::setSpeed(float f) -> void {
     auto _SetSpeed = (SetSpeed)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _SetSpeed = (SetSpeed)(this->VTable[283]);
+        break;
         case MC_VER::v1_17_40_6:
             _SetSpeed = (SetSpeed)(this->VTable[283]);
         break;
@@ -71,6 +83,9 @@ auto Player::getJumpPower(void) -> float {
     auto _GetJumpPower = (GetJumpPower)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _GetJumpPower = (GetJumpPower)(this->VTable[284]);
+        break;
         case MC_VER::v1_17_40_6:
             _GetJumpPower = (GetJumpPower)(this->VTable[284]);
         break;
@@ -87,6 +102,9 @@ auto Player::hurtEffects(ActorDamageSource* actorDamageSource, int paramB, bool 
     auto _HurtEffects = (HurtEffects)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _HurtEffects = (HurtEffects)(this->VTable[285]);
+        break;
         case MC_VER::v1_17_40_6:
             _HurtEffects = (HurtEffects)(this->VTable[285]);
         break;
