@@ -3,6 +3,7 @@
 
 #include <Windows.h>
 #include <Psapi.h>
+#include <cassert>
 #include <vector>
 
 #include <MinHook.h>

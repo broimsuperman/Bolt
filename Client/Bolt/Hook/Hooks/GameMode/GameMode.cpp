@@ -38,6 +38,7 @@ auto Hook_GameMode::init(Manager* manager) -> void {
 
     if(MH_CreateHook((void*)VTable[8], &GmCallback, reinterpret_cast<LPVOID*>(&_GameModeTick)) == MH_OK) {
         Utils::debugLogF("GameMode::tick Hook Creation: Success");
+        MH_EnableHook((void*)VTable[8]);
     } else {
         Utils::debugLogF("GameMode::tick Hook Creation: Failed");
     };

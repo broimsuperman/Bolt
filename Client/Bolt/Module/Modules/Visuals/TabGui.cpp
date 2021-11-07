@@ -54,7 +54,7 @@ auto TabGui::onRender(RenderUtils* r) -> void {
             selectedCatOff = 2.f;
         
         if(selectedCatOff <= (8.f + categoryBoxW))
-            selectedCatOff += 0.4f;
+            selectedCatOff += selectedModifier;
     };
 
     if(selectedCat) { /* Draw Modules Rectangle */
@@ -88,7 +88,10 @@ auto TabGui::onRender(RenderUtils* r) -> void {
                 selectedModOff = 10.f + (categoryBoxW + 3.f);
             
             if(selectedModOff <= (6.f + (categoryBoxW + 3.f)) + (moduleBoxW + 4.f))
-                selectedModOff += 0.4f;
+                selectedModOff += selectedModifier;
+        } else {
+            indexMod = 0;
+            selectedModOff = 0.f;
         };
     };
 
@@ -132,6 +135,7 @@ auto TabGui::onKey(uint64_t key, bool isDown) -> void {
                     return;
                 
                 mod->isEnabled = !mod->isEnabled;
+                selectedModOff = 0.f;
             };
         };
     };
@@ -149,6 +153,9 @@ auto TabGui::onKey(uint64_t key, bool isDown) -> void {
 
     if(key == VK_DOWN) {
         if(selectedMod) {
+            if(currCategory->getModules().empty())
+                return;
+            
             indexMod++;
             selectedModOff = 0.f;
 
@@ -166,6 +173,9 @@ auto TabGui::onKey(uint64_t key, bool isDown) -> void {
 
     if(key == VK_UP) {
         if(selectedMod) {
+            if(currCategory->getModules().empty())
+                return;
+            
             if(indexMod <= 0)
                 indexMod = currCategory->getModules().size();
             

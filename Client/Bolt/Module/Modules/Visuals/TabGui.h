@@ -19,6 +19,7 @@ public:
     int indexCat = 0, indexMod = 0;
     bool selectedCat = false, selectedMod = false;
 
+    float selectedModifier = 0.7f;
     float selectedCatOff = 0.f, selectedModOff = 0.f;
 };
 

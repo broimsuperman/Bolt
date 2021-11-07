@@ -72,6 +72,7 @@ auto Manager::initCategories(void) -> void {
 /* Other */
 
 #include "../Module/Modules/Other/TestModule.h"
+#include "../Module/Modules/Other/Uninject.h"
 
 auto Manager::initModules(void) -> void {
     /* Movement */
@@ -81,6 +82,7 @@ auto Manager::initModules(void) -> void {
     new TabGui(this->getCategory("Visuals"));
     /* Other */
     new TestModule(this->getCategory("Other"));
+    new Uninject(this->getCategory("Other"));
 };
 
 #include "../Hook/Hooks/Render/Render.h"
