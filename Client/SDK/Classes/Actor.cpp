@@ -143,6 +143,9 @@ auto Actor::getRuntimeID(void) -> __int64 {
         case MC_VER::v1_17_40_6:
             RuntimeID = (__int64*)((uintptr_t)(this) + 0x560);
         break;
+        case MC_VER::v1_17_34_2:
+            RuntimeID = (__int64*)((uintptr_t)(this) + 0x558);
+        break;
     };
 
     return *RuntimeID;
