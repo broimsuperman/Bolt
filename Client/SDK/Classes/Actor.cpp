@@ -359,6 +359,9 @@ auto Actor::getPos(void) -> Vec3<float>* {
     auto _GetPos = (GetPos)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _GetPos = (GetPos)(this->VTable[22]);
+        break;
         case MC_VER::v1_17_40_6:
             _GetPos = (GetPos)(this->VTable[22]);
         break;
@@ -375,6 +378,9 @@ auto Actor::getPosOld(void) -> Vec3<float>* {
     auto _GetPosOld = (GetPosOld)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _GetPosOld = (GetPosOld)(this->VTable[23]);
+        break;
         case MC_VER::v1_17_40_6:
             _GetPosOld = (GetPosOld)(this->VTable[23]);
         break;
