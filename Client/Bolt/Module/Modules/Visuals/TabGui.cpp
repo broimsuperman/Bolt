@@ -2,6 +2,7 @@
 
 #include "../../../Category/Category.h"
 #include "../../../Manager/Manager.h"
+#include "../../../Client/Client.h"
 
 auto TabGui::onRender(RenderUtils* r) -> void {
     if(r == nullptr || !r->canDraw())
@@ -19,6 +20,11 @@ auto TabGui::onRender(RenderUtils* r) -> void {
     if(manager == nullptr)
         return;
     
+    auto client = manager->getClient();
+
+    if(client == nullptr)
+        return;
+    
     int I = 0;
     float categoryBoxW = 0.f;
 
@@ -28,17 +34,27 @@ auto TabGui::onRender(RenderUtils* r) -> void {
             categoryBoxW = curr;
     };
 
-    r->fillRectangle(Vec4<float>(10.f, 9.f, 10.f + (categoryBoxW + 3.f), (manager->getCategories().size() * 10) + 12.f), bgColor);
-    r->drawRectangle(Vec4<float>(10.f, 9.f, 10.f + (categoryBoxW + 3.f), (manager->getCategories().size() * 10) + 12.f), outlineColor, 1);
+    r->fillRectangle(Vec4<float>(0.f, 0.f, 8.f + (categoryBoxW + 3.f), 10.f), bgColor);
+    r->drawRectangle(Vec4<float>(0.f, 0.f, 8.f + (categoryBoxW + 3.f), 10.f), outlineColor, 1);
+    r->drawString(std::string(client->name + " ⚡"), 1, Vec2<float>(2.f, 0.f), textColor);
+
+    r->fillRectangle(Vec4<float>(0.f, 9.f, 8.f + (categoryBoxW + 3.f), (manager->getCategories().size() * 10) + 12.f), bgColor);
+    r->drawRectangle(Vec4<float>(0.f, 9.f, 8.f + (categoryBoxW + 3.f), (manager->getCategories().size() * 10) + 12.f), outlineColor, 1);
 
     for(auto c : manager->getCategories()) {
-        r->drawString(c->name, 1.f, Vec2<float>(12.f, I * 10 + 10.f), textColor);
+        r->drawString(c->name, 1.f, Vec2<float>(2.f, I * 10 + 10.f), textColor);
         I++;
     };
 
     if(selectedCat) {
         auto yOff = (indexCat * 10) + 19.f;
-        r->drawRectangle(Vec4<float>(12.f, yOff, 10.f + categoryBoxW, yOff + 1.f), selectedColor, 1);
+        r->drawRectangle(Vec4<float>(2.f, yOff, selectedCatOff, yOff + 1.f), selectedColor, 1);
+
+        if(selectedCatOff <= 0.f)
+            selectedCatOff = 2.f;
+        
+        if(selectedCatOff <= (8.f + categoryBoxW))
+            selectedCatOff += 0.4f;
     };
 
     r->getCtx()->flushText(0);
@@ -56,28 +72,43 @@ auto TabGui::onKey(uint64_t key, bool isDown) -> void {
     if(key != VK_LEFT && key != VK_RIGHT && key != VK_UP && key != VK_DOWN)
         return;
     
+    auto manager = this->getCategory()->getManager();
+    auto categories = manager->getCategories();
+
+    auto currCategory = categories.at(indexCat);
+    
     if(key == VK_RIGHT) {
         if(!selectedCat) {
             selectedCat = true;
         }
         else {
-            selectedMod = true;
+            if(!selectedMod) {
+                selectedMod = true;
+            }
+            else {
+                if(currCategory == nullptr || currCategory->getModules().empty())
+                    return;
+                
+                auto mod = currCategory->getModules().at(indexMod);
+
+                if(mod == nullptr)
+                    return;
+                
+                mod->isEnabled = !mod->isEnabled;
+            };
         };
     };
 
     if(key == VK_LEFT) {
         if(selectedMod) {
             selectedMod = false;
+            selectedModOff = 0.f;
         }
         else {
             selectedCat = false;
+            selectedCatOff = 0.f;
         };
     };
-
-    auto manager = this->getCategory()->getManager();
-    auto categories = manager->getCategories();
-
-    auto currCategory = categories.at(indexCat);
 
     if(key == VK_DOWN) {
         if(selectedMod) {
