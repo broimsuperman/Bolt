@@ -14,6 +14,7 @@ public:
     auto onTick(void) -> void override;
 
     auto onRender(RenderUtils*) -> void override;
+    auto onGameMode(GameMode*) -> void override;
 };
 
 #endif /* CLIENT_BOLT_MODULE_MODULES_OTHER_TESTMODULE */
