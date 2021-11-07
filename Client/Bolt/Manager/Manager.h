@@ -12,7 +12,7 @@ private:
     Client* client = nullptr;
     std::vector<Category*> categories = std::vector<Category*>();
 
-    std::vector<class Actor*> entityList;
+    std::map<uint64_t, bool> keyMap = std::map<uint64_t, bool>();
 public:
     Manager(Client*);
 
@@ -28,8 +28,8 @@ public:
 
     auto tickCategories(void) -> void;
 
-    auto setEntityList(std::vector<Actor*>) -> void;
-    auto getEntityList(void) -> std::vector<Actor*>;
+    auto isHoldingKey(uint64_t) -> bool;
+    auto setKeyMapData(uint64_t, bool) -> void;
 };
 
 #endif /* CLIENT_BOLT_MANAGER_MANAGER */

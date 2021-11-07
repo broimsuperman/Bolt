@@ -15,6 +15,8 @@ Key _Key;
 
 auto KeyCallback(uint64_t key, bool isDown) -> void {
     if(keyManager != nullptr) {
+        keyManager->setKeyMapData(key, isDown);
+        
         auto instance = Minecraft::getClientInstance();
 
         for(auto c : keyManager->getCategories()) {

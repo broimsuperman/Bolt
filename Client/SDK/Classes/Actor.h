@@ -28,6 +28,8 @@ public:
     uintptr_t** VTable;
 public:
     auto onGround(void) -> bool*;
+    auto getBodyRot(void) -> Vec2<float>*;
+    
     auto getFlightSpeed(void) -> float;
     auto setFlightSpeed(float) -> void;
 

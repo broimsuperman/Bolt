@@ -23,6 +23,8 @@ public:
     auto getCategory(void) -> Category*;
 
     auto baseTick(void) -> void;
+    auto setState(bool) -> void;
+    auto setKey(uint64_t) -> void;
     
     virtual auto _onTick(void) -> void {};
     virtual auto onTick(void) -> void {};

@@ -56,6 +56,7 @@ auto Manager::initCategories(void) -> void {
 
 #include "../Module/Modules/Movement/AirJump.h"
 #include "../Module/Modules/Movement/AutoSprint.h"
+#include "../Module/Modules/Movement/Jetpack.h"
 
 /* Player */
 
@@ -78,6 +79,7 @@ auto Manager::initModules(void) -> void {
     /* Movement */
     new AirJump(this->getCategory("Movement"));
     new AutoSprint(this->getCategory("Movement"));
+    new Jetpack(this->getCategory("Movement"));
     /* Visuals */
     new TabGui(this->getCategory("Visuals"));
     /* Other */
@@ -117,10 +119,10 @@ auto Manager::tickCategories(void) -> void {
     };
 };
 
-auto Manager::setEntityList(std::vector<Actor*> newList) -> void {
-    this->entityList = newList;
+auto Manager::isHoldingKey(uint64_t key) -> bool {
+    return this->keyMap[key];
 };
 
-auto Manager::getEntityList(void) -> std::vector<Actor*> {
-    return this->entityList;
+auto Manager::setKeyMapData(uint64_t key, bool isDown) -> void {
+    this->keyMap[key] = isDown;
 };

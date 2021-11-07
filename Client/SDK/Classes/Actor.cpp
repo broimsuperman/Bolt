@@ -14,6 +14,21 @@ auto Actor::onGround(void) -> bool* {
     return (bool*)nullptr;
 };
 
+auto Actor::getBodyRot(void) -> Vec2<float>* {
+    auto bodyRot = (Vec2<float>*)nullptr;
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_40_6:
+            bodyRot = (Vec2<float>*)((uintptr_t)(this) + 0x138);
+        break;
+        case MC_VER::v1_17_34_2:
+            bodyRot = (Vec2<float>*)((uintptr_t)(this) + 0x138);
+        break;
+    };
+
+    return bodyRot;
+};
+
 auto Actor::getFlightSpeed(void) -> float {
     float* flightSpeed = (float*)nullptr;
 

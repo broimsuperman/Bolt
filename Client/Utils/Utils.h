@@ -3,11 +3,13 @@
 
 #include <Windows.h>
 #include <filesystem>
+#include <functional>
 #include <fstream>
 #include <bitset>
 #include <string>
+#include <map>
 
-#include <functional>
+#define PI 3.14159
 
 class Utils {
 private:
