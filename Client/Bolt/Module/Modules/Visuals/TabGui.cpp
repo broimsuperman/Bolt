@@ -25,8 +25,10 @@ auto TabGui::onRender(RenderUtils* r) -> void {
     if(client == nullptr)
         return;
     
+    auto brandLogo = std::string(client->name + " ⚡" + " " + Minecraft::getVersion());
+    
     auto I = 0;
-    auto categoryBoxW = 0.f;
+    auto categoryBoxW = r->textLen(brandLogo, 1);
 
     for(auto c : manager->getCategories()) { /* Get Category Box Width */
         auto curr = r->textLen(c->name, 1.f);
@@ -36,7 +38,7 @@ auto TabGui::onRender(RenderUtils* r) -> void {
 
     r->fillRectangle(Vec4<float>(0.f, 0.f, 8.f + (categoryBoxW + 3.f), 10.f), bgColor);
     r->drawRectangle(Vec4<float>(0.f, 0.f, 8.f + (categoryBoxW + 3.f), 10.f), outlineColor, 1);
-    r->drawString(std::string(client->name + " ⚡"), 1, Vec2<float>(2.f, 0.f), textColor);
+    r->drawString(brandLogo, 1, Vec2<float>(2.f, 0.f), textColor);
 
     r->fillRectangle(Vec4<float>(0.f, 9.f, 8.f + (categoryBoxW + 3.f), (manager->getCategories().size() * 10) + 12.f), bgColor);
     r->drawRectangle(Vec4<float>(0.f, 9.f, 8.f + (categoryBoxW + 3.f), (manager->getCategories().size() * 10) + 12.f), outlineColor, 1);
