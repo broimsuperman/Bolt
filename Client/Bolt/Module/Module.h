@@ -29,12 +29,11 @@ public:
     
     virtual auto onEnable(void) -> void {};
     virtual auto onDisable(void) -> void {};
-
-    virtual auto onActorTick(Actor*) -> void {};
-
+    
     virtual auto onRender(RenderUtils*) -> void {};
-
     virtual auto onKey(uint64_t, bool) -> void {};
+    
+    virtual auto onGameMode(GameMode*) -> void {};
 };
 
 #endif /* CLIENT_BOLT_MODULE_MODULE */

@@ -82,7 +82,8 @@ auto Manager::initModules(void) -> void {
 };
 
 #include "../Hook/Hooks/Render/Render.h"
-#include "../Hook/Hooks//Key/Key.h"
+#include "../Hook/Hooks/Key/Key.h"
+#include "../Hook/Hooks/GameMode/GameMode.h"
 #include "../Hook/Hooks/Actor/Actor.h"
 
 auto Manager::initHooks(void) -> void {
@@ -92,8 +93,12 @@ auto Manager::initHooks(void) -> void {
         new Hook_Render(this);
         
         new Hook_Key(this);
+
+        new Hook_GameMode(this);
         
         new Hook_Actor(this);
+
+        Utils::debugLogF("\n");
     }
     else {
         Utils::debugLogF("Failed to initialize MinHook");
