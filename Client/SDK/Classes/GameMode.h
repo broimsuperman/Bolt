@@ -5,6 +5,8 @@
 #include "../../Utils/Utils.h"
 
 class GameMode {
+public:
+    Player* player;
 private:
     virtual ~GameMode();
 public:
