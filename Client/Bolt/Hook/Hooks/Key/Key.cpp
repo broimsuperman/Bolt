@@ -15,10 +15,17 @@ Key _Key;
 
 auto KeyCallback(uint64_t key, bool isDown) -> void {
     if(keyManager != nullptr) {
+        auto instance = Minecraft::getClientInstance();
+
         for(auto c : keyManager->getCategories()) {
             for(auto m : c->getModules()) {
+                
                 if(m->isEnabled)
                     m->onKey(key, isDown);
+                
+                if(instance != nullptr && instance->getMinecraftGame() != nullptr && instance->getMinecraftGame()->canUseKeys())
+                    if(isDown && key == m->key)
+                        m->isEnabled = !m->isEnabled;
             };
         };
     };
