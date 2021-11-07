@@ -82,6 +82,7 @@ auto TabGui::onKey(uint64_t key, bool isDown) -> void {
     if(key == VK_DOWN) {
         if(selectedMod) {
             indexMod++;
+            selectedModOff = 0.f;
         }
         else if(selectedCat) {
             indexCat++;
@@ -89,6 +90,23 @@ auto TabGui::onKey(uint64_t key, bool isDown) -> void {
 
             if(indexCat >= categories.size())
                 indexCat = 0;
+        };
+    };
+
+    if(key == VK_UP) {
+        if(selectedMod) {
+            if(indexMod <= 0)
+                indexMod = currCategory->getModules().size();
+            
+            indexMod--;
+            selectedModOff = 0.f;
+        }
+        else if(selectedCat) {
+            if(indexCat <= 0)
+                indexCat = categories.size();
+            
+            indexCat--;
+            selectedCatOff = 0.f;
         };
     };
 };
