@@ -7,7 +7,7 @@ auto TabGui::onRender(RenderUtils* r) -> void {
     if(r == nullptr || !r->canDraw())
         return;
     
-    auto bgColor = Color(26, 26, 26, alpha);
+    auto bgColor = Color(22, 22, 22, alpha);
     auto textColor = Color(30, 200, 200, alpha);
     auto outlineColor = Color(52, 159, 235, alpha);
     auto selectedColor = Color(50, 235, 140, alpha);
@@ -28,8 +28,8 @@ auto TabGui::onRender(RenderUtils* r) -> void {
             categoryBoxW = curr;
     };
 
-    r->fillRectangle(Vec4<float>(10.f, 9.f, 10.f + (categoryBoxW + 3.f), (manager->getCategories().size() * 10) + 11.f), bgColor);
-    r->drawRectangle(Vec4<float>(10.f, 9.f, 10.f + (categoryBoxW + 3.f), (manager->getCategories().size() * 10) + 11.f), outlineColor, 1);
+    r->fillRectangle(Vec4<float>(10.f, 9.f, 10.f + (categoryBoxW + 3.f), (manager->getCategories().size() * 10) + 12.f), bgColor);
+    r->drawRectangle(Vec4<float>(10.f, 9.f, 10.f + (categoryBoxW + 3.f), (manager->getCategories().size() * 10) + 12.f), outlineColor, 1);
 
     for(auto c : manager->getCategories()) {
         r->drawString(c->name, 1.f, Vec2<float>(12.f, I * 10 + 10.f), textColor);
@@ -71,6 +71,24 @@ auto TabGui::onKey(uint64_t key, bool isDown) -> void {
         }
         else {
             selectedCat = false;
+        };
+    };
+
+    auto manager = this->getCategory()->getManager();
+    auto categories = manager->getCategories();
+
+    auto currCategory = categories.at(indexCat);
+
+    if(key == VK_DOWN) {
+        if(selectedMod) {
+            indexMod++;
+        }
+        else if(selectedCat) {
+            indexCat++;
+            selectedCatOff = 0.f;
+
+            if(indexCat >= categories.size())
+                indexCat = 0;
         };
     };
 };
