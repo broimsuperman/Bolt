@@ -88,11 +88,11 @@ auto Manager::initModules(void) -> void {
 auto Manager::initHooks(void) -> void {
     if(MH_Initialize() == MH_OK){
         Utils::debugLogF("Initialized MinHook");
-
+        
         new Hook_Render(this);
-
+        
         new Hook_Key(this);
-
+        
         new Hook_Actor(this);
     }
     else {

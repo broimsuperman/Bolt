@@ -39,4 +39,6 @@ auto Hook_Key::init(Manager* manager) -> void {
     } else {
         Utils::debugLogF("Key Hook Creation: Failed");
     };
+    
+    Sleep(100);
 };

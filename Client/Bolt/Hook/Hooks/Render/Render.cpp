@@ -55,4 +55,6 @@ auto Hook_Render::init(Manager* manager) -> void {
     } else {
         Utils::debugLogF("MinecraftUIRenderContext Hook Creation: Failed");
     };
+    
+    Sleep(100);
 };

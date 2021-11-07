@@ -104,6 +104,7 @@ public:
     auto drawRectangle(Vec4<float>, Color, int) -> void;
 public:
     auto canDraw(void) -> bool;
+    auto textLen(std::string, float) -> float;
 };
 
 #endif /* CLIENT_SDK_CLASSES_MINECRAFTUIRENDERCONTEXT */

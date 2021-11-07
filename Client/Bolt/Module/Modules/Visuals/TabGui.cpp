@@ -7,13 +7,76 @@ auto TabGui::onRender(RenderUtils* r) -> void {
     if(r == nullptr || !r->canDraw())
         return;
     
+    auto bgColor = Color(26, 26, 26, alpha);
+    auto textColor = Color(30, 200, 200, alpha);
+    auto outlineColor = Color(52, 159, 235, alpha);
+    auto selectedColor = Color(50, 235, 140, alpha);
+    
     this->applyAlpha();
     
-    r->drawString("TabGui", 1.f, Vec2<float>(10.f, 10.f), Color(60, 12, 110, this->alpha));
+    auto manager = this->getCategory()->getManager();
+
+    if(manager == nullptr)
+        return;
+    
+    int I = 0;
+    float categoryBoxW = 0.f;
+
+    for(auto c : manager->getCategories()) { /* Get Category Box Width */
+        auto curr = r->textLen(c->name, 1.f);
+        if(curr > categoryBoxW)
+            categoryBoxW = curr;
+    };
+
+    r->fillRectangle(Vec4<float>(10.f, 9.f, 10.f + (categoryBoxW + 3.f), (manager->getCategories().size() * 10) + 11.f), bgColor);
+    r->drawRectangle(Vec4<float>(10.f, 9.f, 10.f + (categoryBoxW + 3.f), (manager->getCategories().size() * 10) + 11.f), outlineColor, 1);
+
+    for(auto c : manager->getCategories()) {
+        r->drawString(c->name, 1.f, Vec2<float>(12.f, I * 10 + 10.f), textColor);
+        I++;
+    };
+
+    if(selectedCat) {
+        auto yOff = (indexCat * 10) + 19.f;
+        r->drawRectangle(Vec4<float>(12.f, yOff, 10.f + categoryBoxW, yOff + 1.f), selectedColor, 1);
+    };
+
+    r->getCtx()->flushText(0);
+};
+
+auto TabGui::onKey(uint64_t key, bool isDown) -> void {
+    if(!isDown)
+        return;
+    
+    auto instance = Minecraft::getClientInstance();
+
+    if(instance == nullptr || instance->getMinecraftGame() == nullptr || !instance->getMinecraftGame()->canUseKeys())
+        return;
+    
+    if(key != VK_LEFT && key != VK_RIGHT && key != VK_UP && key != VK_DOWN)
+        return;
+    
+    if(key == VK_RIGHT) {
+        if(!selectedCat) {
+            selectedCat = true;
+        }
+        else {
+            selectedMod = true;
+        };
+    };
+
+    if(key == VK_LEFT) {
+        if(selectedMod) {
+            selectedMod = false;
+        }
+        else {
+            selectedCat = false;
+        };
+    };
 };
 
 auto TabGui::applyAlpha(void) -> void {
-    float modifier = 0.005f;
+    float modifier = 0.004f;
 
     auto decreaseAlpha = [&]() {
         if(alpha > 0.f)

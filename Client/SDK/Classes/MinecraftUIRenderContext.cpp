@@ -54,3 +54,10 @@ auto RenderUtils::drawRectangle(Vec4<float> position, Color color, int lineWidth
 auto RenderUtils::canDraw(void) -> bool {
     return this->ctx != nullptr && this->font != nullptr; 
 };
+
+auto RenderUtils::textLen(std::string text, float size) -> float {
+    if(!this->canDraw())
+        return 0.f;
+    
+    return this->ctx->getLineLength(this->font, &text, size, false);
+};
