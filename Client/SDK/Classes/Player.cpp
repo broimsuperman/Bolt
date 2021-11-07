@@ -121,6 +121,9 @@ auto Player::getMeleeWeaponDamageBonus(Mob* mob) -> __int64 {
     auto _GetMeleeWeaponDamageBonus = (GetMeleeWeaponDamageBonus)(this->VTable[0]);
     
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _GetMeleeWeaponDamageBonus = (GetMeleeWeaponDamageBonus)(this->VTable[286]);
+        break;
         case MC_VER::v1_17_40_6:
             _GetMeleeWeaponDamageBonus = (GetMeleeWeaponDamageBonus)(this->VTable[286]);
         break;
@@ -137,6 +140,9 @@ auto Player::getMeleeKnockbackBonus(void) -> __int64 {
     auto _GetMeleeKnockbackBonus = (GetMeleeKnockbackBonus)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _GetMeleeKnockbackBonus = (GetMeleeKnockbackBonus)(this->VTable[287]);
+        break;
         case MC_VER::v1_17_40_6:
             _GetMeleeKnockbackBonus = (GetMeleeKnockbackBonus)(this->VTable[287]);
         break;
@@ -153,6 +159,9 @@ auto Player::travel(IMobMovementProxy* iMobMovementProxy, float paramB, float pa
     auto _Travel = (Travel)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _Travel = (Travel)(this->VTable[288]);
+        break;
         case MC_VER::v1_17_40_6:
             _Travel = (Travel)(this->VTable[288]);
         break;
@@ -169,6 +178,9 @@ auto Player::travel(float paramA, float paramB, float paramC) -> void {
     auto _Travel = (Travel)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _Travel = (Travel)(this->VTable[289]);
+        break;
         case MC_VER::v1_17_40_6:
             _Travel = (Travel)(this->VTable[289]);
         break;
@@ -185,6 +197,9 @@ auto Player::applyFinalFriction(float paramA, bool paramB) -> void {
     auto _ApplyFinalFriction = (ApplyFinalFriction)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _ApplyFinalFriction = (ApplyFinalFriction)(this->VTable[290]);
+        break;
         case MC_VER::v1_17_40_6:
             _ApplyFinalFriction = (ApplyFinalFriction)(this->VTable[290]);
         break;
@@ -201,6 +216,9 @@ auto Player::updateWalkAnim(void) -> void {
     auto _UpdateWalkAnim = (UpdateWalkAnim)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _UpdateWalkAnim = (UpdateWalkAnim)(this->VTable[291]);
+        break;
         case MC_VER::v1_17_40_6:
             _UpdateWalkAnim = (UpdateWalkAnim)(this->VTable[291]);
         break;
@@ -217,6 +235,9 @@ auto Player::aiStep(IMobMovementProxy* iMobMovementProxy) -> void {
     auto _AiStep = (AiStep)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _AiStep = (AiStep)(this->VTable[292]);
+        break;
         case MC_VER::v1_17_40_6:
             _AiStep = (AiStep)(this->VTable[292]);
         break;
@@ -233,6 +254,9 @@ auto Player::aiStep(void) -> void {
     auto _AiStep = (AiStep)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _AiStep = (AiStep)(this->VTable[293]);
+        break;
         case MC_VER::v1_17_40_6:
             _AiStep = (AiStep)(this->VTable[293]);
         break;
@@ -249,6 +273,9 @@ auto Player::pushActors(void) -> void {
     auto _PushActors = (PushActors)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _PushActors = (PushActors)(this->VTable[294]);
+        break;
         case MC_VER::v1_17_40_6:
             _PushActors = (PushActors)(this->VTable[294]);
         break;
@@ -265,6 +292,9 @@ auto Player::lookAt(Actor* entity, float paramB, float paramC) -> void {
     auto _LookAt = (LookAt)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _LookAt = (LookAt)(this->VTable[295]);
+        break;
         case MC_VER::v1_17_40_6:
             _LookAt = (LookAt)(this->VTable[295]);
         break;
@@ -281,6 +311,9 @@ auto Player::isLookingAtAnEntity(void) -> bool {
     auto _IsLookingAtAnEntity = (IsLookingAtAnEntity)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _IsLookingAtAnEntity = (IsLookingAtAnEntity)(this->VTable[296]);
+        break;
         case MC_VER::v1_17_40_6:
             _IsLookingAtAnEntity = (IsLookingAtAnEntity)(this->VTable[296]);
         break;
@@ -297,6 +330,9 @@ auto Player::checkSpawnRules(bool checkSpawnRules) -> bool {
     auto _CheckSpawnRules = (CheckSpawnRules)(this->VTable[0]);
     
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _CheckSpawnRules = (CheckSpawnRules)(this->VTable[297]);
+        break;
         case MC_VER::v1_17_40_6:
             _CheckSpawnRules = (CheckSpawnRules)(this->VTable[297]);
         break;
@@ -313,6 +349,9 @@ auto Player::checkSpawnObstruction(void) -> bool {
     auto _CheckSpawnObstruction = (CheckSpawnObstruction)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _CheckSpawnObstruction = (CheckSpawnObstruction)(this->VTable[298]);
+        break;
         case MC_VER::v1_17_40_6:
             _CheckSpawnObstruction = (CheckSpawnObstruction)(this->VTable[298]);
         break;
@@ -329,6 +368,9 @@ auto Player::getAttackAnim(float f) -> float {
     auto _GetAttackAnim = (GetAttackAnim)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _GetAttackAnim = (GetAttackAnim)(this->VTable[299]);
+        break;
         case MC_VER::v1_17_40_6:
             _GetAttackAnim = (GetAttackAnim)(this->VTable[299]);
         break;
@@ -345,6 +387,9 @@ auto Player::getItemUseDuration(void) -> __int64 {
     auto _GetItemUseDuration = (GetItemUseDuration)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _GetItemUseDuration = (GetItemUseDuration)(this->VTable[300]);
+        break;
         case MC_VER::v1_17_40_6:
             _GetItemUseDuration = (GetItemUseDuration)(this->VTable[300]);
         break;
@@ -361,6 +406,9 @@ auto Player::getItemUseStartupProgress(void) -> float {
     auto _GetItemUseStartupProgress = (GetItemUseStartupProgress)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _GetItemUseStartupProgress = (GetItemUseStartupProgress)(this->VTable[301]);
+        break;
         case MC_VER::v1_17_40_6:
             _GetItemUseStartupProgress = (GetItemUseStartupProgress)(this->VTable[301]);
         break;
@@ -377,6 +425,9 @@ auto Player::getItemUseIntervalProgress(void) -> float {
     auto _GetItemUseIntervalProgress = (GetItemUseIntervalProgress)(this->VTable[0]);
     
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _GetItemUseIntervalProgress = (GetItemUseIntervalProgress)(this->VTable[302]);
+        break;
         case MC_VER::v1_17_40_6:
             _GetItemUseIntervalProgress = (GetItemUseIntervalProgress)(this->VTable[302]);
         break;
@@ -393,6 +444,9 @@ auto Player::getItemUseIntervalAxis(void) -> __int64 {
     auto _GetItemUseIntervalAxis = (GetItemUseIntervalAxis)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _GetItemUseIntervalAxis = (GetItemUseIntervalAxis)(this->VTable[303]);
+        break;
         case MC_VER::v1_17_40_6:
             _GetItemUseIntervalAxis = (GetItemUseIntervalAxis)(this->VTable[303]);
         break;
@@ -409,6 +463,9 @@ auto Player::getMaxHeadXRot(void) -> float {
     auto _GetMaxHeadXRot = (GetMaxHeadXRot)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _GetMaxHeadXRot = (GetMaxHeadXRot)(this->VTable[306]);
+        break;
         case MC_VER::v1_17_40_6:
             _GetMaxHeadXRot = (GetMaxHeadXRot)(this->VTable[306]);
         break;
@@ -425,6 +482,9 @@ auto Player::doHurtTarget(Actor* entity, ActorDamageCause* actorDamageCause) -> 
     auto _DoHurtTarget = (DoHurtTarget)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _DoHurtTarget = (DoHurtTarget)(this->VTable[308]);
+        break;
         case MC_VER::v1_17_40_6:
             _DoHurtTarget = (DoHurtTarget)(this->VTable[308]);
         break;
@@ -441,6 +501,9 @@ auto Player::leaveCaravan(void) -> void {
     auto _LeaveCaravan = (LeaveCaravan)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _LeaveCaravan = (LeaveCaravan)(this->VTable[310]);
+        break;
         case MC_VER::v1_17_40_6:
             _LeaveCaravan = (LeaveCaravan)(this->VTable[310]);
         break;
@@ -457,6 +520,9 @@ auto Player::joinCaravan(Mob* mob) -> void {
     auto _JoinCaravan = (JoinCaravan)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _JoinCaravan = (JoinCaravan)(this->VTable[311]);
+        break;
         case MC_VER::v1_17_40_6:
             _JoinCaravan = (JoinCaravan)(this->VTable[311]);
         break;
@@ -473,6 +539,9 @@ auto Player::hasCaravanTail(void) -> bool {
     auto _HasCaravanTail = (HasCaravanTail)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _HasCaravanTail = (HasCaravanTail)(this->VTable[312]);
+        break;
         case MC_VER::v1_17_40_6:
             _HasCaravanTail = (HasCaravanTail)(this->VTable[312]);
         break;
@@ -489,6 +558,9 @@ auto Player::getCaravanHead(void) -> const ActorUniqueID & {
     auto _GetCaravanHead = (GetCaravanHead)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _GetCaravanHead = (GetCaravanHead)(this->VTable[313]);
+        break;
         case MC_VER::v1_17_40_6:
             _GetCaravanHead = (GetCaravanHead)(this->VTable[313]);
         break;
@@ -505,6 +577,9 @@ auto Player::getArmorValue(void) -> __int64 {
     auto _GetArmorValue = (GetArmorValue)(this->VTable[0]);
     
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _GetArmorValue = (GetArmorValue)(this->VTable[314]);
+        break;
         case MC_VER::v1_17_40_6:
             _GetArmorValue = (GetArmorValue)(this->VTable[314]);
         break;
@@ -521,6 +596,9 @@ auto Player::getArmorCoverPercentage(void) -> float {
     auto _GetArmorCoverPercentage = (GetArmorCoverPercentage)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _GetArmorCoverPercentage = (GetArmorCoverPercentage)(this->VTable[315]);
+        break;
         case MC_VER::v1_17_40_6:
             _GetArmorCoverPercentage = (GetArmorCoverPercentage)(this->VTable[315]);
         break;
@@ -537,6 +615,9 @@ auto Player::hurtArmorSlots(ActorDamageSource* actorDamageSource, int paramB, st
     auto _HurtArmorSlots = (HurtArmorSlots)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _HurtArmorSlots = (HurtArmorSlots)(this->VTable[316]);
+        break;
         case MC_VER::v1_17_40_6:
             _HurtArmorSlots = (HurtArmorSlots)(this->VTable[316]);
         break;
@@ -553,6 +634,9 @@ auto Player::setDamagedArmor(int armorSlot, ItemStack* itemStack) -> void {
     auto _SetDamagedArmor = (SetDamagedArmor)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _SetDamagedArmor = (SetDamagedArmor)(this->VTable[317]);
+        break;
         case MC_VER::v1_17_40_6:
             _SetDamagedArmor = (SetDamagedArmor)(this->VTable[317]);
         break;
@@ -569,6 +653,9 @@ auto Player::sendArmor(std::bitset<4>* armorSlots) -> __int64 {
     auto _SendArmor = (SendArmor)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _SendArmor = (SendArmor)(this->VTable[319]);
+        break;
         case MC_VER::v1_17_40_6:
             _SendArmor = (SendArmor)(this->VTable[319]);
         break;
@@ -585,6 +672,9 @@ auto Player::containerChanged(int paramA) -> void {
     auto _ContainerChanged = (ContainerChanged)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _ContainerChanged = (ContainerChanged)(this->VTable[320]);
+        break;
         case MC_VER::v1_17_40_6:
             _ContainerChanged = (ContainerChanged)(this->VTable[320]);
         break;
@@ -601,6 +691,9 @@ auto Player::updateEquipment(void) -> void {
     auto _UpdateEquipment = (UpdateEquipment)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _UpdateEquipment = (UpdateEquipment)(this->VTable[321]);
+        break;
         case MC_VER::v1_17_40_6:
             _UpdateEquipment = (UpdateEquipment)(this->VTable[321]);
         break;
@@ -617,6 +710,9 @@ auto Player::clearEquipment(void) -> __int64 {
     auto _ClearEquipment = (ClearEquipment)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _ClearEquipment = (ClearEquipment)(this->VTable[322]);
+        break;
         case MC_VER::v1_17_40_6:
             _ClearEquipment = (ClearEquipment)(this->VTable[322]);
         break;
@@ -633,6 +729,9 @@ auto Player::getAllArmor(void) -> std::vector<ItemStack*> {
     auto _GetAllArmor = (GetAllArmor)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _GetAllArmor = (GetAllArmor)(this->VTable[323]);
+        break;
         case MC_VER::v1_17_40_6:
             _GetAllArmor = (GetAllArmor)(this->VTable[323]);
         break;
@@ -649,6 +748,9 @@ auto Player::getAllArmorID(void) -> __int64 {
     auto _GetAllArmorID = (GetAllArmorID)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _GetAllArmorID = (GetAllArmorID)(this->VTable[324]);
+        break;
         case MC_VER::v1_17_40_6:
             _GetAllArmorID = (GetAllArmorID)(this->VTable[324]);
         break;
@@ -665,6 +767,9 @@ auto Player::getAllHand(void) -> __int64 {
     auto _GetAllHand = (GetAllHand)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _GetAllHand = (GetAllHand)(this->VTable[325]);
+        break;
         case MC_VER::v1_17_40_6:
             _GetAllHand = (GetAllHand)(this->VTable[325]);
         break;
@@ -681,6 +786,9 @@ auto Player::getAllEquipment(void) -> __int64 {
     auto _GetAllEquipment = (GetAllEquipment)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _GetAllEquipment = (GetAllEquipment)(this->VTable[326]);
+        break;
         case MC_VER::v1_17_40_6:
             _GetAllEquipment = (GetAllEquipment)(this->VTable[326]);
         break;
@@ -697,6 +805,9 @@ auto Player::getArmorTypeHash(void) -> __int64 {
     auto _GetArmorTypeHash = (GetArmorTypeHash)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _GetArmorTypeHash = (GetArmorTypeHash)(this->VTable[327]);
+        break;
         case MC_VER::v1_17_40_6:
             _GetArmorTypeHash = (GetArmorTypeHash)(this->VTable[327]);
         break;
@@ -713,6 +824,9 @@ auto Player::dropEquipmentOnDeath(void) -> void {
     auto _DropEquipmentOnDeath = (DropEquipmentOnDeath)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _DropEquipmentOnDeath = (DropEquipmentOnDeath)(this->VTable[328]);
+        break;
         case MC_VER::v1_17_40_6:
             _DropEquipmentOnDeath = (DropEquipmentOnDeath)(this->VTable[328]);
         break;
@@ -729,6 +843,9 @@ auto Player::dropEquipmentOnDeath(ActorDamageSource* actorDamageSource, int para
     auto _DropEquipmentOnDeath = (DropEquipmentOnDeath)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _DropEquipmentOnDeath = (DropEquipmentOnDeath)(this->VTable[329]);
+        break;
         case MC_VER::v1_17_40_6:
             _DropEquipmentOnDeath = (DropEquipmentOnDeath)(this->VTable[329]);
         break;
@@ -745,6 +862,9 @@ auto Player::getDamageAfterMagicAbsorb(ActorDamageSource* actorDamageSource, int
     auto _GetDamageAfterMagicAbsorb = (GetDamageAfterMagicAbsorb)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _GetDamageAfterMagicAbsorb = (GetDamageAfterMagicAbsorb)(this->VTable[332]);
+        break;
         case MC_VER::v1_17_40_6:
             _GetDamageAfterMagicAbsorb = (GetDamageAfterMagicAbsorb)(this->VTable[332]);
         break;
@@ -761,6 +881,9 @@ auto Player::createAIGoals(void) -> bool {
     auto _CreateAIGoals = (CreateAIGoals)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _CreateAIGoals = (CreateAIGoals)(this->VTable[333]);
+        break;
         case MC_VER::v1_17_40_6:
             _CreateAIGoals = (CreateAIGoals)(this->VTable[333]);
         break;
