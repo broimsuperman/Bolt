@@ -1592,6 +1592,25 @@ auto Actor::setTarget(Actor* entity) -> void {
     _SetTarget(this, entity);
 };
 
+auto Actor::isValidTarget(Actor* entity) -> bool {
+    using IsValidTarget = bool (__thiscall*)(Actor*, Actor*);
+    auto _IsValidTarget = (IsValidTarget)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _IsValidTarget = (IsValidTarget)(this->VTable[113]);
+        break;
+        case MC_VER::v1_17_40_6:
+            _IsValidTarget = (IsValidTarget)(this->VTable[113]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _IsValidTarget = (IsValidTarget)(this->VTable[114]);
+        break;
+    };
+
+    return _IsValidTarget(this, entity);
+};
+
 auto Actor::attack(Actor* entity, enum ActorDamageCause actorDamageCause) -> bool {
     using Attack = bool (__thiscall*)(Actor*, Actor*, ActorDamageCause);
     auto _Attack = (Attack)(this->VTable[0]);

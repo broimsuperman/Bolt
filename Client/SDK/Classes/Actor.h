@@ -121,6 +121,7 @@ public:
     auto isAffectedByWaterBottle(void) -> bool;
     auto canAttack(Actor*, bool) -> bool;
     auto setTarget(Actor*) -> void;
+    auto isValidTarget(Actor*) -> bool;
     auto attack(Actor*, enum ActorDamageCause) -> bool;
     auto performRangedAttack(Actor*, float) -> void;
     auto getEquipmentCount(void) -> __int64;

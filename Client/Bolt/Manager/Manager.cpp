@@ -50,7 +50,7 @@ auto Manager::initCategories(void) -> void {
 
 /* Combat */
 
-//#include "../Module/Modules/Combat/"
+#include "../Module/Modules/Combat/Killaura.h"
 
 /* Movement */
 
@@ -76,12 +76,17 @@ auto Manager::initCategories(void) -> void {
 #include "../Module/Modules/Other/Uninject.h"
 
 auto Manager::initModules(void) -> void {
+    /* Combat */
+    new Killaura(this->getCategory("Combat"));
+    
     /* Movement */
     new AirJump(this->getCategory("Movement"));
     new AutoSprint(this->getCategory("Movement"));
     new Jetpack(this->getCategory("Movement"));
+    
     /* Visuals */
     new TabGui(this->getCategory("Visuals"));
+    
     /* Other */
     new TestModule(this->getCategory("Other"));
     new Uninject(this->getCategory("Other"));
@@ -125,12 +130,4 @@ auto Manager::isHoldingKey(uint64_t key) -> bool {
 
 auto Manager::setKeyMapData(uint64_t key, bool isDown) -> void {
     this->keyMap[key] = isDown;
-};
-
-auto Manager::getActorList(void) -> std::vector<Actor*> {
-    return this->actorList;
-};
-
-auto Manager::setActorList(std::vector<Actor*> list) -> void {
-    this->actorList = list;
 };

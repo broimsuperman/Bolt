@@ -38,6 +38,8 @@ public:
     virtual auto onKey(uint64_t, bool) -> void {};
     
     virtual auto onGameMode(GameMode*) -> void {};
+
+    virtual auto onActorTick(Actor*) -> void {};
 };
 
 #endif /* CLIENT_BOLT_MODULE_MODULE */
