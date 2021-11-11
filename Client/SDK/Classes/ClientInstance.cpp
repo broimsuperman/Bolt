@@ -30,3 +30,18 @@ auto ClientInstance::getMinecraftGame(void) -> MinecraftGame* {
     };
     return (MinecraftGame*)nullptr;
 };
+
+auto ClientInstance::getGuiData(void) -> GuiData* {
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            return *(GuiData**)((uintptr_t)(this) + 0x4E8);
+        break;
+        case MC_VER::v1_17_40_6:
+            return *(GuiData**)((uintptr_t)(this) + 0x4E8);
+        break;
+        case MC_VER::v1_17_34_2:
+            return *(GuiData**)((uintptr_t)(this) + 0x4E8);
+        break;
+    };
+    return (GuiData*)nullptr;
+};
