@@ -126,3 +126,11 @@ auto Manager::isHoldingKey(uint64_t key) -> bool {
 auto Manager::setKeyMapData(uint64_t key, bool isDown) -> void {
     this->keyMap[key] = isDown;
 };
+
+auto Manager::getActorList(void) -> std::vector<Actor*> {
+    return this->actorList;
+};
+
+auto Manager::setActorList(std::vector<Actor*> list) -> void {
+    this->actorList = list;
+};
