@@ -7,6 +7,7 @@
 #include "../../SDK/Minecraft.h"
 
 class Category;
+class Manager;
 
 class Module {
 private:
@@ -21,6 +22,7 @@ public:
     Module(Category*, std::string);
 
     auto getCategory(void) -> Category*;
+    auto getManager(void) -> Manager*;
 
     auto baseTick(void) -> void;
     auto setState(bool) -> void;
