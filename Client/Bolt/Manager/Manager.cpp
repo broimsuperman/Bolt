@@ -56,6 +56,8 @@ auto Manager::initCategories(void) -> void {
 
 #include "../Module/Modules/Movement/AirJump.h"
 #include "../Module/Modules/Movement/AutoSprint.h"
+#include "../Module/Modules/Movement/AirSpeed.h"
+#include "../Module/Modules/Movement/Jesus.h"
 #include "../Module/Modules/Movement/Jetpack.h"
 
 /* Player */
@@ -83,6 +85,8 @@ auto Manager::initModules(void) -> void {
     /* Movement */
     new AirJump(this->getCategory("Movement"));
     new AutoSprint(this->getCategory("Movement"));
+    new AirSpeed(this->getCategory("Movement"));
+    new Jesus(this->getCategory("Movement"));
     new Jetpack(this->getCategory("Movement"));
     
     /* Visuals */

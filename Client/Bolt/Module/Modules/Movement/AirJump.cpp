@@ -1,5 +1,9 @@
 #include "AirJump.h"
 
+#include "../../../Category/Category.h"
+#include "../../../Manager/Manager.h"
+#include "../../../Client/Client.h"
+
 auto AirJump::onTick(void) -> void {
     auto instance = Minecraft::getClientInstance();
 
@@ -11,5 +15,6 @@ auto AirJump::onTick(void) -> void {
     if(player == nullptr)
         return;
     
-    *player->onGround() = true;
+    if(this->getManager()->isHoldingKey(VK_SPACE))
+        *player->onGround() = true;
 };
