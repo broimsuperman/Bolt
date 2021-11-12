@@ -65,6 +65,7 @@ auto Manager::initCategories(void) -> void {
 /* Visuals */
 
 #include "../Module/Modules/Visuals/TabGui.h"
+#include "../Module/Modules/Visuals/ModuleList.h"
 
 /* World */
 
@@ -86,6 +87,7 @@ auto Manager::initModules(void) -> void {
     
     /* Visuals */
     new TabGui(this->getCategory("Visuals"));
+    new ModuleList(this->getCategory("Visuals"));
     
     /* Other */
     new TestModule(this->getCategory("Other"));

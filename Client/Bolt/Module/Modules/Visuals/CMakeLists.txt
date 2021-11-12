@@ -1,3 +1,4 @@
 target_sources(Bolt PRIVATE
-    "TabGui.cpp"
+    "TabGui.cpp"    
+        "ModuleList.cpp"
 )
