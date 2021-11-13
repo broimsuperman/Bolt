@@ -10,7 +10,7 @@ Hook_GameMode::Hook_GameMode(Manager* manager) {
     this->init(manager);
 };
 
-typedef void(__thiscall* GameModeTick)(GameMode*);
+typedef void (__thiscall* GameModeTick)(GameMode*);
 GameModeTick _GameModeTick;
 
 auto GmCallback(GameMode* GM) -> void {
@@ -23,6 +23,21 @@ auto GmCallback(GameMode* GM) -> void {
         };
     };
     _GameModeTick(GM);
+};
+
+typedef void (__thiscall* Attack)(GameMode*, Actor*);
+Attack _Attack;
+
+auto AttackCallback(GameMode* GM, Actor* victim) -> void {
+    if(gmManager != nullptr){
+        for(auto c : gmManager->getCategories()) {
+            for(auto m : c->getModules()) {
+                if(m->isEnabled)
+                    m->onPlayerAttack(GM, victim);
+            };
+        };
+    };
+    _Attack(GM, victim);
 };
 
 auto Hook_GameMode::init(Manager* manager) -> void {
@@ -41,6 +56,13 @@ auto Hook_GameMode::init(Manager* manager) -> void {
         MH_EnableHook((void*)VTable[8]);
     } else {
         Utils::debugLogF("GameMode::tick Hook Creation: Failed");
+    };
+
+    if(MH_CreateHook((void*)VTable[13], &AttackCallback, reinterpret_cast<LPVOID*>(&_Attack)) == MH_OK) {
+        Utils::debugLogF("GameMode::attack Hook Creation: Success");
+        MH_EnableHook((void*)VTable[13]);
+    } else {
+        Utils::debugLogF("GameMode::attack Hook Creation: Failed");
     };
 
     Sleep(100);

@@ -38,6 +38,7 @@ public:
     virtual auto onKey(uint64_t, bool) -> void {};
     
     virtual auto onGameMode(GameMode*) -> void {};
+    virtual auto onPlayerAttack(GameMode*, Actor*) -> void {};
 
     virtual auto onActorTick(Actor*) -> void {};
     virtual auto onLerpMotion(Actor*, Vec3<float>*, bool*) -> void {};
