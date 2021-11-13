@@ -4,6 +4,7 @@ target_sources(Bolt PRIVATE
             "Player.cpp"
                 "MinecraftGame.cpp"
                     "BlockSource.cpp"
-                        "MinecraftUIRenderContext.cpp"
-                            "Packet.cpp"
+                        "Packet.cpp"
+                            "MinecraftUIRenderContext.cpp"
+                                "LoopbackPacketSender.cpp"
 )
