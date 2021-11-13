@@ -11,7 +11,7 @@ public:
 public:
     auto onGameMode(GameMode*) -> void override;
 private:
-    float speed = 0.15f;
+    float speed = 0.17f;
 };
 
 #endif /* CLIENT_BOLT_MODULE_MODULES_MOVEMENT_AIRSPEED */
