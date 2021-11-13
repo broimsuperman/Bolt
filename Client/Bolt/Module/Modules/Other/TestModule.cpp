@@ -16,6 +16,24 @@ auto TestModule::onEnable(void) -> void {
 
     if(player == nullptr)
         return Utils::debugLogF("Local Player is invalid!");
+    
+    auto loopback = instance->getLoopbackPacketSender();
+
+    if(loopback == nullptr)
+        return Utils::debugLogF("Loopback Packet Sender is invalid!");
+    
+    auto networkHandker = loopback->getNetworkHandler();
+
+    if(networkHandker == nullptr)
+        return Utils::debugLogF("Network Handler is invalid!");
+    
+    auto raknet = networkHandker->getRakNet();
+
+    if(raknet == nullptr)   
+        return Utils::debugLogF("Raknet is invalid!");
+    
+    Utils::debugLogF(std::string("Server IP: " + raknet->getIP()).c_str());
+    Utils::debugLogF(std::string("Server Dynamic IP: " + raknet->getDynamicIP()).c_str());
 };
 
 auto TestModule::onDisable(void) -> void {
