@@ -51,6 +51,7 @@ auto Manager::initCategories(void) -> void {
 /* Combat */
 
 #include "../Module/Modules/Combat/Killaura.h"
+#include "../Module/Modules/Combat/BoostHit.h"
 
 /* Movement */
 
@@ -86,6 +87,7 @@ auto Manager::initCategories(void) -> void {
 auto Manager::initModules(void) -> void {
     /* Combat */
     new Killaura(this->getCategory("Combat"));
+    new BoostHit(this->getCategory("Combat"));
     
     /* Movement */
     new AirJump(this->getCategory("Movement"));

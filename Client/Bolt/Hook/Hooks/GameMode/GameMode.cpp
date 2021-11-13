@@ -58,9 +58,9 @@ auto Hook_GameMode::init(Manager* manager) -> void {
         Utils::debugLogF("GameMode::tick Hook Creation: Failed");
     };
 
-    if(MH_CreateHook((void*)VTable[13], &AttackCallback, reinterpret_cast<LPVOID*>(&_Attack)) == MH_OK) {
+    if(MH_CreateHook((void*)VTable[14], &AttackCallback, reinterpret_cast<LPVOID*>(&_Attack)) == MH_OK) {
         Utils::debugLogF("GameMode::attack Hook Creation: Success");
-        MH_EnableHook((void*)VTable[13]);
+        MH_EnableHook((void*)VTable[14]);
     } else {
         Utils::debugLogF("GameMode::attack Hook Creation: Failed");
     };
