@@ -62,7 +62,7 @@ auto Manager::initCategories(void) -> void {
 
 /* Player */
 
-//#include "../Module/Modules/Player/"
+#include "../Module/Modules/Player/Coords.h"
 
 /* Visuals */
 
@@ -88,6 +88,10 @@ auto Manager::initModules(void) -> void {
     new AirSpeed(this->getCategory("Movement"));
     new Jesus(this->getCategory("Movement"));
     new Jetpack(this->getCategory("Movement"));
+
+    /* Player */
+
+    new Coords(this->getCategory("Player"));
     
     /* Visuals */
     new TabGui(this->getCategory("Visuals"));

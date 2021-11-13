@@ -9,7 +9,7 @@ public:
         /*this->isEnabled = true;*/
     };
 
-    auto onTick(void) -> void override;
+    auto onKey(uint64_t, bool) -> void override;
 };
 
 #endif /* CLIENT_BOLT_MODULE_MODULES_MOVEMENT_AIRJUMP */

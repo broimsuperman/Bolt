@@ -4,17 +4,21 @@
 #include "../../../Manager/Manager.h"
 #include "../../../Client/Client.h"
 
-auto AirJump::onTick(void) -> void {
-    auto instance = Minecraft::getClientInstance();
-
-    if(instance == nullptr)
+auto AirJump::onKey(uint64_t key, bool isDown) -> void {
+    if(!isDown)
         return;
     
-    auto player = instance->getLocalPlayer();
+    if(key != VK_SPACE)
+        return;
+    
+    auto instance = Minecraft::getClientInstance();
+    auto player = (Player*)nullptr;
 
+    if(instance != nullptr)
+        player = instance->getLocalPlayer();
+    
     if(player == nullptr)
         return;
     
-    if(this->getManager()->isHoldingKey(VK_SPACE))
-        *player->onGround() = true;
+    player->jumpFromGround();
 };
