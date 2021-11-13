@@ -13,12 +13,16 @@ auto AirJump::onKey(uint64_t key, bool isDown) -> void {
     
     auto instance = Minecraft::getClientInstance();
     auto player = (Player*)nullptr;
+    auto mcGame = (MinecraftGame*)nullptr;
 
-    if(instance != nullptr)
+    if(instance != nullptr) {
         player = instance->getLocalPlayer();
+        mcGame = instance->getMinecraftGame();
+    };
     
-    if(player == nullptr)
+    if(player == nullptr || mcGame == nullptr)
         return;
     
-    player->jumpFromGround();
+    if(mcGame->canUseKeys())
+        player->jumpFromGround();
 };
