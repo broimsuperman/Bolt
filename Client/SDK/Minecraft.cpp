@@ -35,9 +35,6 @@ auto Minecraft::getVersion(void) -> std::string {
 auto Minecraft::setSdkToCurr(void) -> void {
     auto version = getVersion();
     
-    if(version.length() <= 0)
-        return;
-    
     if(version.rfind("1.17.41.1") != std::string::npos) {
         sdkVer = MC_VER::v1_17_41_1;
         return Utils::debugLogF("Set SDK Version to 1.17.41.1\n");
@@ -53,5 +50,6 @@ auto Minecraft::setSdkToCurr(void) -> void {
         return Utils::debugLogF("Set SDK Version to 1.17.34.2\n");
     };
 
-    sdkVer = MC_VER::Unknown;
+    sdkVer = MC_VER::v1_17_41_1;
+    return Utils::debugLogF("Could not automatically detect game version, set to 1.17.41.1\n");
 };
