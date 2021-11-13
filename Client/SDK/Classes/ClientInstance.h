@@ -6,8 +6,10 @@
 #include "MinecraftGame.h"
 #include "GuiData.h"
 
-#include "MinecraftUIRenderContext.h"
 #include "LoopbackPacketSender.h"
+#include "Packet.h"
+
+#include "MinecraftUIRenderContext.h"
 
 class ClientInstance {
 public:
