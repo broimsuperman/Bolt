@@ -40,6 +40,8 @@ public:
     virtual auto onGameMode(GameMode*) -> void {};
 
     virtual auto onActorTick(Actor*) -> void {};
+
+    virtual auto onPacket(Packet*, bool*) -> void {};
 };
 
 #endif /* CLIENT_BOLT_MODULE_MODULE */
