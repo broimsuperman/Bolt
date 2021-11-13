@@ -9,7 +9,7 @@ auto LagSpoof::onPacket(Packet* packet, bool* cancel) -> void {
         if(packetCounts[name] == NULL)
             packetCounts[name] = 1;
         
-        if(packetCounts[name] >= 4) {
+        if(packetCounts[name] >= 5) {
             packetCounts[name] = 1;
             *cancel = false;
         } else {

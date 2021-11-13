@@ -3,5 +3,6 @@ target_sources(Bolt PRIVATE
         "MineplexFlight.cpp"
             "NoPacket.cpp"
                 "LagSpoof.cpp"
-                    "Uninject.cpp"
+                    "PacketLogger.cpp"
+                        "Uninject.cpp"
 )
