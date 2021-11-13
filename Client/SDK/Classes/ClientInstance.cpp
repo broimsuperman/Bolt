@@ -45,3 +45,18 @@ auto ClientInstance::getGuiData(void) -> GuiData* {
     };
     return (GuiData*)nullptr;
 };
+
+auto ClientInstance::getLoopbackPacketSender(void) -> LoopbackPacketSender* {
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            return *(LoopbackPacketSender**)((uintptr_t)(this) + 0xD0);
+        break;
+        case MC_VER::v1_17_40_6:
+            return *(LoopbackPacketSender**)((uintptr_t)(this) + 0xD0);
+        break;
+        case MC_VER::v1_17_34_2:
+            return *(LoopbackPacketSender**)((uintptr_t)(this) + 0xD0);
+        break;
+    };
+    return *(LoopbackPacketSender**)nullptr;
+};
