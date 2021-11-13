@@ -12,6 +12,9 @@ auto RakNetInstance::getIP(void) -> std::string {
         case MC_VER::v1_17_40_6:
             serverIP = std::string((char*)((uintptr_t)(this) + 0x3D0));
         break;
+        case MC_VER::v1_17_34_2:
+            serverIP = std::string((char*)((uintptr_t)(this) + 0x3D0));
+        break;
     };
 
     return serverIP;
@@ -27,6 +30,9 @@ auto RakNetInstance::getDynamicIP(void) -> std::string {
         case MC_VER::v1_17_40_6:
             dynamicIP = std::string(*(char**)((uintptr_t)(this) + 0x3F0));
         break;
+        case MC_VER::v1_17_34_2:
+            dynamicIP = std::string(*(char**)((uintptr_t)(this) + 0x3F0));
+        break;
     };
 
     return dynamicIP;
@@ -40,6 +46,9 @@ auto NetworkHandler::getRakNet(void) -> RakNetInstance* {
         case MC_VER::v1_17_40_6:
             return *( RakNetInstance**)((uintptr_t)(this) + 0x58);
         break;
+        case MC_VER::v1_17_34_2:
+            return *( RakNetInstance**)((uintptr_t)(this) + 0x58);
+        break;
     };
     return *( RakNetInstance**)nullptr;
 };
@@ -50,6 +59,9 @@ auto LoopbackPacketSender::getNetworkHandler(void) -> NetworkHandler* {
             return *(NetworkHandler**)((uintptr_t)(this) + 0x10);
         break;
         case MC_VER::v1_17_40_6:
+            return *(NetworkHandler**)((uintptr_t)(this) + 0x10);
+        break;
+        case MC_VER::v1_17_34_2:
             return *(NetworkHandler**)((uintptr_t)(this) + 0x10);
         break;
     };
