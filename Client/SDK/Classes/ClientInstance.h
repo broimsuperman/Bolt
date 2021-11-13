@@ -7,12 +7,15 @@
 #include "GuiData.h"
 
 #include "MinecraftUIRenderContext.h"
+#include "LoopbackPacketSender.h"
 
 class ClientInstance {
 public:
     auto getLocalPlayer(void) -> Player*;
     auto getMinecraftGame(void) -> MinecraftGame*;
     auto getGuiData(void) -> GuiData*;
+
+    auto getLoopbackPacketSender(void) -> LoopbackPacketSender*;
 };
 
 #endif /* CLIENT_SDK_CLASSES_CLIENTINSTANCE */
