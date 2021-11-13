@@ -63,6 +63,7 @@ auto Manager::initCategories(void) -> void {
 /* Player */
 
 #include "../Module/Modules/Player/Coords.h"
+#include "../Module/Modules/Player/NoKnockback.h"
 
 /* Visuals */
 
@@ -93,6 +94,7 @@ auto Manager::initModules(void) -> void {
     /* Player */
 
     new Coords(this->getCategory("Player"));
+    new NoKnockBack(this->getCategory("Player"));
     
     /* Visuals */
     new TabGui(this->getCategory("Visuals"));
