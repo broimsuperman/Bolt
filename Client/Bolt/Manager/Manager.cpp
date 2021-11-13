@@ -105,6 +105,7 @@ auto Manager::initModules(void) -> void {
 };
 
 #include "../Hook/Hooks/Render/Render.h"
+#include "../Hook/Hooks/LoopbackPacketSender/LoopbackPacketSender.h"
 #include "../Hook/Hooks/Key/Key.h"
 #include "../Hook/Hooks/GameMode/GameMode.h"
 #include "../Hook/Hooks/Actor/Actor.h"
@@ -114,6 +115,8 @@ auto Manager::initHooks(void) -> void {
         Utils::debugLogF("Initialized MinHook");
         
         new Hook_Render(this);
+
+        new Hook_LoopbackPacketSender(this);
         
         new Hook_Key(this);
 
