@@ -33,6 +33,25 @@ auto ActorTickCallback(Actor* entity, void* a2, void* a3) -> void {
     _ActorTick(entity, a2, a3);
 };
 
+typedef void (__thiscall* LerpMotion)(Actor*, Vec3<float>*);
+LerpMotion _LerpMotion;
+
+auto LerpCallback(Actor* entity, Vec3<float>* motion) -> void {
+    bool cancel = false;
+
+    if(actorManager != nullptr) {
+        for(auto c : actorManager->getCategories()) {
+            for(auto m : c->getModules()) {
+                if(m->isEnabled)
+                    m->onLerpMotion(entity, motion, &cancel);
+            };
+        };
+    };
+
+    if(!cancel)
+        _LerpMotion(entity, motion);
+};
+
 auto Hook_Actor::init(Manager* manager) -> void {
     actorManager = manager;
 
@@ -51,14 +70,26 @@ auto Hook_Actor::init(Manager* manager) -> void {
     };
 
     if(addr == NULL)
-        return Utils::debugLogF("address needed for Actor tick is NULL!");
-    
-    if(MH_CreateHook((void*)addr, &ActorTickCallback, reinterpret_cast<LPVOID*>(&_ActorTick)) == MH_OK){
-        Utils::debugLogF("Actor tick Hook Creation: Success");
-        MH_EnableHook((void*)addr);
-    } else {
-        Utils::debugLogF("Actor tick Hook Creation: Failed");
-    };
+        Utils::debugLogF("address needed for Actor tick is NULL!");
+    else
+        if(MH_CreateHook((void*)addr, &ActorTickCallback, reinterpret_cast<LPVOID*>(&_ActorTick)) == MH_OK){
+            Utils::debugLogF("Actor tick Hook Creation: Success");
+            MH_EnableHook((void*)addr);
+        } else {
+            Utils::debugLogF("Actor tick Hook Creation: Failed");
+        };
+
+    uintptr_t lerpSig = Mem::findSig("8B 02 89 81 ? ? ? ? 8B 42 04 89 81 ? ? ? ? 8B 42 08 89 81 ? ? ? ? C3");
+
+    if(lerpSig == NULL)
+        Utils::debugLogF("address needed for Actor::lerpMotion is NULL!");
+    else
+        if(MH_CreateHook((void*)lerpSig, &LerpCallback, reinterpret_cast<LPVOID*>(&_LerpMotion)) == MH_OK){
+            Utils::debugLogF("Lerp Motion Hook Creation: Success");
+            MH_EnableHook((void*)lerpSig);
+        } else {
+            Utils::debugLogF("Lerp Motion Hook Creation: Failed");
+        };
 
     Sleep(1000);
 };
