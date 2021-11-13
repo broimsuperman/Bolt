@@ -2,9 +2,15 @@
 
 #include "../Minecraft.h"
 
-auto Packet::getName(void) -> std::string {
-    using GetName = std::string (__thiscall*)(Packet*);
-    auto _GetName = (GetName)(this->VTable[1]);
+class _Packet {
+private:
+    virtual ~_Packet();
+private:
+    virtual auto Function0(void) -> void;
+public:
+    virtual auto getName(void) -> std::string;
+};
 
-    return _GetName(this);
+auto Packet::getName(void) -> std::string {
+    return ((_Packet*)(this))->getName();
 };
