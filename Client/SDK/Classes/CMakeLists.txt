@@ -5,4 +5,5 @@ target_sources(Bolt PRIVATE
                 "MinecraftGame.cpp"
                     "BlockSource.cpp"
                         "MinecraftUIRenderContext.cpp"
+                            "Packet.cpp"
 )
