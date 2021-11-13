@@ -6,7 +6,7 @@
 class NoPacket : public Module {
 public:
     NoPacket(Category* category) : Module(category, "NoPacket") {
-        this->setKey(0x58); /* X */
+        //this->setKey(0x58); /* X */
     };
     auto onPacket(Packet*, bool*) -> void override;
 };
