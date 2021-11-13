@@ -42,6 +42,4 @@ auto TestModule::onRender(RenderUtils* r) -> void {
 auto TestModule::onGameMode(GameMode* GM) -> void {
     if(GM == nullptr || GM->player == nullptr)
         return;
-    
-    GM->player->handleFallDistanceOnServer(0, 0, false);
 };
