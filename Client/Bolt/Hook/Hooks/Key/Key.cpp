@@ -25,7 +25,7 @@ auto KeyCallback(uint64_t key, bool isDown) -> void {
                 if(m->isEnabled)
                     m->onKey(key, isDown);
                 
-                if(instance != nullptr && instance->getMinecraftGame() != nullptr && instance->getMinecraftGame()->canUseKeys())
+                if(m->key != NULL && instance != nullptr && instance->getMinecraftGame() != nullptr && instance->getMinecraftGame()->canUseKeys())
                     if(isDown && key == m->key)
                         m->isEnabled = !m->isEnabled;
             };
