@@ -18,6 +18,10 @@ auto KeyCallback(uint64_t key, bool isDown) -> void {
         keyManager->setKeyMapData(key, isDown);
         
         auto instance = Minecraft::getClientInstance();
+        auto mcGame = (MinecraftGame*)nullptr;
+
+        if(instance != nullptr)
+            mcGame = instance->getMinecraftGame();
 
         for(auto c : keyManager->getCategories()) {
             for(auto m : c->getModules()) {
@@ -25,9 +29,11 @@ auto KeyCallback(uint64_t key, bool isDown) -> void {
                 if(m->isEnabled)
                     m->onKey(key, isDown);
                 
-                if(m->key != NULL && instance != nullptr && instance->getMinecraftGame() != nullptr && instance->getMinecraftGame()->canUseKeys())
-                    if(isDown && key == m->key)
-                        m->isEnabled = !m->isEnabled;
+                if(!isDown || instance == nullptr || mcGame == nullptr || !mcGame->canUseKeys())
+                    continue;
+                
+                if(m->key == key)
+                    m->isEnabled = !m->isEnabled;
             };
         };
     };
