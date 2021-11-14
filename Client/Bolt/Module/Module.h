@@ -37,6 +37,7 @@ public:
     virtual auto onRender(RenderUtils*) -> void {};
     virtual auto onKey(uint64_t, bool) -> void {};
     
+    virtual auto onDestroyBlock(GameMode*, Vec3<int>*, UCHAR, bool*) -> void {};
     virtual auto onGameMode(GameMode*) -> void {};
     virtual auto onPlayerAttack(GameMode*, Actor*) -> void {};
 
