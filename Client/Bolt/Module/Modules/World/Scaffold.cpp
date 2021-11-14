@@ -33,7 +33,7 @@ auto Scaffold::onGameMode(GameMode* GM) -> void {
 };
 
 auto Scaffold::tryScaffold(GameMode* GM, Vec3<float> blockBelow) -> bool {
-    if(GM == nullptr  || GM->player == nullptr)
+    if(GM == nullptr  || GM->player == nullptr || GM->player->getCarriedItem() == nullptr)
         return false;
     
     blockBelow = Vec3<float>(floorf(blockBelow.x), floorf(blockBelow.y), floorf(blockBelow.z));
@@ -78,8 +78,6 @@ auto Scaffold::tryScaffold(GameMode* GM, Vec3<float> blockBelow) -> bool {
     
     if(foundBlock) {
         GM->startBuildBlock(&blok, I);
-        player->swing();
-        
         return foundBlock;
     };
     return false;
