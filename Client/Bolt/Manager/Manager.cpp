@@ -74,7 +74,7 @@ auto Manager::initCategories(void) -> void {
 
 /* World */
 
-//#include "../Module/Modules/World/"
+#include "../Module/Modules/World/Instabreak.h"
 
 /* Other */
 
@@ -106,6 +106,10 @@ auto Manager::initModules(void) -> void {
     /* Visuals */
     new TabGui(this->getCategory("Visuals"));
     new ModuleList(this->getCategory("Visuals"));
+
+    /* World */
+
+    new Instabreak(this->getCategory("World"));
     
     /* Other */
     new TestModule(this->getCategory("Other"));
