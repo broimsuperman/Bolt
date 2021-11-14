@@ -45,12 +45,24 @@ auto Scaffold::tryScaffold(GameMode* GM, Vec3<float> blockBelow) -> bool {
     auto blok = Vec3<int>(Vec3<int>((int)blockBelow.x, (int)blockBelow.y, (int)blockBelow.z));
     
     auto player = GM->player;
+    auto region = player->getRegionConst();
 
-    auto block = player->getRegionConst()->getBlock(&blok);
+    if(region == nullptr)
+        return false;
+
+    auto block = region->getBlock(&blok);
+
+    if(block == nullptr)
+        return false;
+    
     auto legacy = (block != nullptr && block->blockLegacy != nullptr ? block->blockLegacy : nullptr);
+
+    if(legacy == nullptr)
+        return false;
+    
     auto material = (legacy != nullptr ? legacy->getMaterial() : nullptr);
 
-    if(block == nullptr || legacy == nullptr || material == nullptr)
+    if(material == nullptr)
         return false;
     
     if(!material->isReplaceable)
