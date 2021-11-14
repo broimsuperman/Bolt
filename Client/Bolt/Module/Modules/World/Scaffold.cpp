@@ -5,6 +5,11 @@ auto Scaffold::onGameMode(GameMode* GM) -> void {
         return;
     
     auto player = GM->player;
+
+    auto carriedItem = player->getCarriedItem();
+
+    if(carriedItem == nullptr || carriedItem->isNull() || !carriedItem->isBlock())
+        return;
     
     auto myPos = *player->getPos();
     auto blockBelow = Vec3<float>(myPos.x, myPos.y - 2.3f, myPos.z);
@@ -33,7 +38,7 @@ auto Scaffold::onGameMode(GameMode* GM) -> void {
 };
 
 auto Scaffold::tryScaffold(GameMode* GM, Vec3<float> blockBelow) -> bool {
-    if(GM == nullptr  || GM->player == nullptr || GM->player->getCarriedItem() == nullptr)
+    if(GM == nullptr  || GM->player == nullptr)
         return false;
     
     blockBelow = Vec3<float>(floorf(blockBelow.x), floorf(blockBelow.y), floorf(blockBelow.z));
