@@ -76,6 +76,7 @@ auto Manager::initCategories(void) -> void {
 
 #include "../Module/Modules/World/Instabreak.h"
 #include "../Module/Modules/World/Nuker.h"
+#include "../Module/Modules/World/Scaffold.h"
 
 /* Other */
 
@@ -112,6 +113,7 @@ auto Manager::initModules(void) -> void {
 
     new Instabreak(this->getCategory("World"));
     new Nuker(this->getCategory("World"));
+    new Scaffold(this->getCategory("World"));
     
     /* Other */
     new TestModule(this->getCategory("Other"));

@@ -28,7 +28,11 @@ public:
 private:
     char pad_0038[160];  //0x0038
 public:
-	Material* *material; //0x00D8
+	//Material* material;  //0x00D8
+	
+	auto getMaterial(void) -> Material* {
+		return *(Material**)((uintptr_t)(this) + 0xD8);
+	};
 };
 
 class Block {
