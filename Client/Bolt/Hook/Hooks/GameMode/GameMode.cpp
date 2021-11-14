@@ -40,6 +40,36 @@ auto AttackCallback(GameMode* GM, Actor* victim) -> void {
     _Attack(GM, victim);
 };
 
+typedef void (__thiscall* StartDestroyBlock)(GameMode*, Vec3<int>*, UCHAR, bool*);
+StartDestroyBlock _StartDestroyBlock;
+
+auto StartDestroyBlockCallback(GameMode* GM, Vec3<int>* blockPos, UCHAR blockFace, bool* idk) -> void {
+    if(gmManager != nullptr){
+        for(auto c : gmManager->getCategories()) {
+            for(auto m : c->getModules()) {
+                if(m->isEnabled)
+                    m->onDestroyBlock(GM, blockPos, blockFace, idk);
+            };
+        };
+    };
+    _StartDestroyBlock(GM, blockPos, blockFace, idk);
+};
+
+typedef void (__thiscall* ContinueDestroyBlock)(GameMode*, Vec3<int>*, UCHAR, bool*);
+ContinueDestroyBlock _ContinueDestroyBlock;
+
+auto ContinueDestroyBlockCallback(GameMode* GM, Vec3<int>* blockPos, UCHAR blockFace, bool* idk) -> void {
+    if(gmManager != nullptr){
+        for(auto c : gmManager->getCategories()) {
+            for(auto m : c->getModules()) {
+                if(m->isEnabled)
+                    m->onDestroyBlock(GM, blockPos, blockFace, idk);
+            };
+        };
+    };
+    _ContinueDestroyBlock(GM, blockPos, blockFace, idk);
+};
+
 auto Hook_GameMode::init(Manager* manager) -> void {
     gmManager = manager;
 
@@ -50,6 +80,20 @@ auto Hook_GameMode::init(Manager* manager) -> void {
     
     int offset = *reinterpret_cast<int*>(sig + 3);
     uintptr_t** VTable = reinterpret_cast<uintptr_t**>(sig + offset + 7);
+
+    if(MH_CreateHook((void*)VTable[1], &StartDestroyBlockCallback, reinterpret_cast<LPVOID*>(&_StartDestroyBlock)) == MH_OK) {
+        Utils::debugLogF("GameMode::startDestroyBlock Hook Creation: Success");
+        MH_EnableHook((void*)VTable[1]);
+    } else {
+        Utils::debugLogF("GameMode::startDestroyBlock Hook Creation: Failed");
+    };
+
+    if(MH_CreateHook((void*)VTable[3], &ContinueDestroyBlockCallback, reinterpret_cast<LPVOID*>(&_ContinueDestroyBlock)) == MH_OK) {
+        Utils::debugLogF("GameMode::continueDestroyBlock Hook Creation: Success");
+        MH_EnableHook((void*)VTable[3]);
+    } else {
+        Utils::debugLogF("GameMode::continueDestroyBlock Hook Creation: Failed");
+    };
 
     if(MH_CreateHook((void*)VTable[8], &GmCallback, reinterpret_cast<LPVOID*>(&_GameModeTick)) == MH_OK) {
         Utils::debugLogF("GameMode::tick Hook Creation: Success");
