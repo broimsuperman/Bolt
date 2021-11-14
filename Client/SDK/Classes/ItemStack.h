@@ -21,9 +21,18 @@ public:
     };
     
     auto isBlock(void) -> bool {
-        using IsBlock = bool (__thiscall*)(ItemStack*);
-        auto _IsBlock = (IsBlock)(Mem::findSig("48 83 EC 28 48 8B 41 08 48 85 C0 ? ? 48 8B 08"));
-        return _IsBlock(this);
+        return *(uintptr_t**)((uintptr_t)(this) + 0x18) != nullptr;
+    };
+
+    auto isNull(void) -> bool {
+        using IsNull = bool (__thiscall*)(ItemStack*);
+        auto _IsNull = (IsNull)(Mem::findSig("80 79 23 00 74 5F 48 8B 51 08 45 33 C0"));
+        return _IsNull(this);
+    };
+    auto isFullStack(void) -> bool {
+        using IsFullStack = bool (__thiscall*)(ItemStack*);
+        auto _IsFullStack = (IsFullStack)(Mem::findSig("40 53 48 83 EC ? 48 8B D9 E8 ? ? ? ? ? ? ? 0F ? C0 48"));
+        return _IsFullStack(this);
     };
 };
 
