@@ -6,7 +6,7 @@
 class LagSpoof : public Module {
 public:
     LagSpoof(Category* category) : Module(category, "LagSpoof") {
-        this->setKey(0x58); /* X */
+        //this->setKey(0x58); /* X */
     };
     auto onPacket(Packet*, bool*) -> void override;
 };

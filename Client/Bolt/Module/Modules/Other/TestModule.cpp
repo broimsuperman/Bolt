@@ -16,6 +16,9 @@ auto TestModule::onEnable(void) -> void {
 
     if(player == nullptr)
         return Utils::debugLogF("Local Player is invalid!");
+    
+    auto carriedItem = player->getCarriedItem();
+    Utils::debugLogF(std::string("Is Block: " + std::string(carriedItem->isBlock() ? "TRUE" : "FALSE")).c_str());
 };
 
 auto TestModule::onDisable(void) -> void {

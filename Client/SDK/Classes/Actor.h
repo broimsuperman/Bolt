@@ -8,6 +8,8 @@
 #include "Dimension.h"
 #include "Level.h"
 
+#include "ItemStack.h"
+
 class Mob;
 class Player;
 
@@ -15,7 +17,6 @@ enum LevelSoundEvent;
 enum ActorDamageCause;
 struct HashedString;
 class ItemActor;
-class ItemStack;
 struct ActorUniqueID;
 enum CommandPermissionLevel;
 struct Attribute;
