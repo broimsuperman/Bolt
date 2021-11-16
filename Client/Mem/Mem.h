@@ -14,9 +14,8 @@
 
 class Mem {
 public:
-    static auto findSig(const char*) -> uintptr_t;
-    static auto findSigInMod(const char*, const char*) -> uintptr_t;
-    static auto findMultiLvlPtr(uintptr_t, std::vector<unsigned int>) -> uintptr_t;
+    static auto findSig(const char* sig, const char* mod = "Minecraft.Windows.exe") -> uintptr_t;
+    static auto findMultiLvlPtr(uintptr_t baseAddr, std::vector<unsigned int> offsets) -> uintptr_t;
 };
 
 #endif /* CLIENT_MEM_MEM */
