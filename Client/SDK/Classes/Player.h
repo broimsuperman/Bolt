@@ -83,6 +83,7 @@ public:
     auto prepareRegion(struct ChunkSource*) -> void;
     auto destroyRegion(void) -> void;
     auto suspendRegion(void) -> void;
+    auto resendAllChunks(void) -> void;
     auto _fireWillChangeDimension(void) -> void;
     auto _fireDimensionChanged(void) -> void;
     auto tickWorld(struct Tick*) -> void;

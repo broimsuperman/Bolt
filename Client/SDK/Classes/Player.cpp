@@ -1256,6 +1256,25 @@ auto Player::suspendRegion(void) -> void {
     _SuspendRegion(this);
 };
 
+auto Player::resendAllChunks(void) -> void {
+    using ResendAllChunks = void (__thiscall*)(Actor*);
+    auto _ResendAllChunks = (ResendAllChunks)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _ResendAllChunks = (ResendAllChunks)(this->VTable[361]);
+        break;
+        case MC_VER::v1_17_40_6:
+            _ResendAllChunks = (ResendAllChunks)(this->VTable[361]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _ResendAllChunks = (ResendAllChunks)(this->VTable[361]);
+        break;
+    };
+
+    _ResendAllChunks(this);
+};
+
 auto Player::_fireWillChangeDimension(void) -> void {
     using FireWillChangeDimension = void (__thiscall*)(Actor*);
     auto _FireWillChangeDimension = (FireWillChangeDimension)(this->VTable[0]);
