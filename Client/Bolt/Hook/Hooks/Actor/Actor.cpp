@@ -90,6 +90,4 @@ auto Hook_Actor::init(Manager* manager) -> void {
         } else {
             Utils::debugLogF("Lerp Motion Hook Creation: Failed");
         };
-
-    Sleep(1000);
 };

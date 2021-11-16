@@ -108,6 +108,4 @@ auto Hook_GameMode::init(Manager* manager) -> void {
     } else {
         Utils::debugLogF("GameMode::attack Hook Creation: Failed");
     };
-
-    Sleep(100);
 };
