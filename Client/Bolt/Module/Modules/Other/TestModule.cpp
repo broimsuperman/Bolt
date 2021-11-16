@@ -17,7 +17,8 @@ auto TestModule::onEnable(void) -> void {
     if(player == nullptr)
         return Utils::debugLogF("Local Player is invalid!");
     
-    player->displayClientMessage("123");
+    this->displayToChat("§7Opening Inventory...");
+    player->openInventory();
 };
 
 auto TestModule::onDisable(void) -> void {
