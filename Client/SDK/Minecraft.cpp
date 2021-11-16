@@ -30,7 +30,7 @@ auto Minecraft::getVersion(void) -> std::string {
             return std::string("1.17.34.2");
         break;
     };
-    
+
     return std::string("Unknown Version");
 };
 
@@ -38,19 +38,21 @@ auto Minecraft::setSdkToCurr(void) -> void {
     
     std::vector<uintptr_t> versions = std::vector<uintptr_t>();
 
-    versions.push_back((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x3C4B768); /* 1.17.41.1 */
-    versions.push_back((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x4009DF3); /* 1.17.40.6 */
-    versions.push_back((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x3F22F63); /* 1.17.34.2 */
+    versions.push_back(Mem::findSig("31 ? 31 ? 2E 34 ? 00 0F")); /* 1.17.41.1 + 1.17.40.6 */
+    versions.push_back(Mem::findSig("31 ? 31 ? 2E ? 34")); /* 1.17.34.2 */
     
     for(auto curr : versions) {
+        if(curr == NULL)
+            continue;
+        
         auto version = std::string(reinterpret_cast<char*>(curr));
 
-        if(version.rfind("1.17.41.1") != std::string::npos) {
+        if(version.rfind("1.17.41") != std::string::npos) {
             sdkVer = MC_VER::v1_17_41_1;
             return Utils::debugLogF("Set SDK Version to 1.17.41.1\n");
         };
         
-        if(version.rfind("1.17.40.6") != std::string::npos) {
+        if(version.rfind("1.17.40") != std::string::npos) {
             sdkVer = MC_VER::v1_17_40_6;
             return Utils::debugLogF("Set SDK Version to 1.17.40.6\n");
         };
