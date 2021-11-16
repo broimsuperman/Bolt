@@ -19,10 +19,12 @@ auto Minecraft::getClientInstance(void) -> ClientInstance* {
 };
 
 auto Minecraft::getVersion(void) -> std::string {
-    auto base = (uintptr_t)(GetModuleHandleA("ucrtbase.dll"));
-    auto ver = base + 0xF12CB;
+    auto sig = Mem::findSigInMod("31 2E 31 37 2E 34 ? 2E 31 5C 4D ?", "ucrtbase.dll");
 
-    auto versionString = std::string(reinterpret_cast<char*>(ver));
+    if(!sig)
+        return std::string("");
+    
+    auto versionString = std::string(reinterpret_cast<char*>(sig));
 
     if(versionString.find("\\") != std::string::npos){
         int index = versionString.rfind("\\");
