@@ -3,22 +3,25 @@
 std::string Utils::debugPath = std::string(Utils::getAppDataDir()) + std::string("\\..\\Local\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\RoamingState");
 
 void Utils::debugLogF(const char* out, const char* fileName){
-    auto filePath = std::string(getDebugPath() + "\\" + fileName).c_str();
-    auto parentDir = std::filesystem::path(filePath).parent_path();
+    try {
+        auto filePath = std::string(getDebugPath() + "\\" + fileName).c_str();
+        auto parentDir = std::filesystem::path(filePath).parent_path();
 
-    if(!std::filesystem::exists(parentDir))
-        std::filesystem::create_directories(parentDir);
-    
-    CloseHandle(CreateFileA(filePath, GENERIC_WRITE | GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL));
+        if(!std::filesystem::exists(parentDir))
+            std::filesystem::create_directories(parentDir);
+        
+        CloseHandle(CreateFileA(filePath, GENERIC_WRITE | GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL));
 
-    std::ofstream File;
-    File.open(filePath, std::ios::app);
-
-    if(!File.is_open())
+        std::ofstream File;
+        File.open(filePath, std::ios::app);
+        
+        if(File.is_open()) {
+            File << out << "\n" << std::endl;
+            File.close();
+        };
+    } catch(std::exception e) {
         return;
-    
-    File << out << std::endl;
-    File.close();
+    };
 };
 
 std::string Utils::getAppDataDir(void){
