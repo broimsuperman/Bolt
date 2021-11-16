@@ -1,6 +1,7 @@
 #include "Module.h"
 #include "../Category/Category.h"
 #include "../Manager/Manager.h"
+#include "../../Client.h"
 
 Module::Module(Category* category, std::string name){
     this->category = category;
@@ -26,10 +27,18 @@ auto Module::baseTick(void) -> void {
     if(this->wasEnabled != this->isEnabled){
         this->wasEnabled = this->isEnabled;
 
-        if(this->isEnabled)
+        if(this->logState) {
+            auto msg = std::string(this->isEnabled ? "Enabled" : "Disabled");
+
+            if(!this->displayToChat(msg))
+                Utils::debugLogF(msg.c_str());
+        };
+
+        if(this->isEnabled) {
             this->onEnable();
-        else
+        } else {
             this->onDisable();
+        };
     };
 
     this->_onTick();
@@ -44,4 +53,27 @@ auto Module::setState(bool state) -> void {
 
 auto Module::setKey(uint64_t key) -> void {
     this->key = key;
+};
+
+auto Module::setLogState(bool state) -> void {
+    this->logState = state;
+};
+
+auto Module::displayToChat(std::string message) -> bool {
+    auto clientName = std::string("Client");
+
+    if(getManager() != nullptr && getManager()->getClient() != nullptr)
+        clientName = getManager()->getClient()->name;
+    
+    auto instance = Minecraft::getClientInstance();
+    auto player = (Player*)nullptr;
+
+    auto msg = std::string(clientName + ": " + message);
+
+    if(player == nullptr)
+        return false;
+    else
+        player->displayClientMessage(msg);
+    
+    return true;
 };
