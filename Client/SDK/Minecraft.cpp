@@ -19,37 +19,46 @@ auto Minecraft::getClientInstance(void) -> ClientInstance* {
 };
 
 auto Minecraft::getVersion(void) -> std::string {
-    auto sig = Mem::findSig("31 2E ? 37 2E ? ? 2E ? 5C 4D", "ucrtbase.dll");
-
-    if(!sig)
-        return std::string("");
-    
-    auto versionString = std::string(reinterpret_cast<char*>(sig));
-
-    if(versionString.find("\\") != std::string::npos){
-        int index = versionString.rfind("\\");
-        return versionString.substr(0, index);
+    switch(Minecraft::sdkVer) {
+        case MC_VER::v1_17_41_1:
+            return std::string("1.17.41.1");
+        break;
+        case MC_VER::v1_17_40_6:
+            return std::string("1.17.40.6");
+        break;
+        case MC_VER::v1_17_34_2:
+            return std::string("1.17.34.2");
+        break;
     };
-
-    return versionString;
+    
+    return std::string("Unknown Version");
 };
 
 auto Minecraft::setSdkToCurr(void) -> void {
-    auto version = getVersion();
     
-    if(version.rfind("1.17.41.1") != std::string::npos) {
-        sdkVer = MC_VER::v1_17_41_1;
-        return Utils::debugLogF("Set SDK Version to 1.17.41.1\n");
-    };
-    
-    if(version.rfind("1.17.40.6") != std::string::npos) {
-        sdkVer = MC_VER::v1_17_40_6;
-        return Utils::debugLogF("Set SDK Version to 1.17.40.6\n");
-    };
+    std::vector<uintptr_t> versions = std::vector<uintptr_t>();
 
-    if(version.rfind("1.17.34") != std::string::npos){
-        sdkVer = MC_VER::v1_17_34_2;
-        return Utils::debugLogF("Set SDK Version to 1.17.34.2\n");
+    versions.push_back((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x3C4B768); /* 1.17.41.1 */
+    versions.push_back((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x4009DF3); /* 1.17.40.6 */
+    versions.push_back((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x3F22F63); /* 1.17.34.2 */
+    
+    for(auto curr : versions) {
+        auto version = std::string(reinterpret_cast<char*>(curr));
+
+        if(version.rfind("1.17.41.1") != std::string::npos) {
+            sdkVer = MC_VER::v1_17_41_1;
+            return Utils::debugLogF("Set SDK Version to 1.17.41.1\n");
+        };
+        
+        if(version.rfind("1.17.40.6") != std::string::npos) {
+            sdkVer = MC_VER::v1_17_40_6;
+            return Utils::debugLogF("Set SDK Version to 1.17.40.6\n");
+        };
+
+        if(version.rfind("1.17.34") != std::string::npos){
+            sdkVer = MC_VER::v1_17_34_2;
+            return Utils::debugLogF("Set SDK Version to 1.17.34.2\n");
+        };
     };
 
     sdkVer = MC_VER::v1_17_41_1;
