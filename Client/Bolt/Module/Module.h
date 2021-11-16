@@ -15,7 +15,7 @@ private:
 public:
     std::string name;
 
-    bool wasEnabled = false, isEnabled = false;
+    bool wasEnabled = false, isEnabled = false, logState = true;
 
     uint64_t key = NULL;
 
@@ -25,8 +25,12 @@ public:
     auto getManager(void) -> Manager*;
 
     auto baseTick(void) -> void;
+    
     auto setState(bool) -> void;
     auto setKey(uint64_t) -> void;
+    auto setLogState(bool) -> void;
+
+    auto displayToChat(std::string) -> bool;
     
     virtual auto _onTick(void) -> void {};
     virtual auto onTick(void) -> void {};
