@@ -7,6 +7,7 @@ class DirectionalPhase : public Module {
 public:
     DirectionalPhase(Category* category) : Module(category, "Directional Phase") {
         this->setKey(0x47); /* G */
+        this->setLogState(false);
     };
     auto onTick(void) -> void override;
     auto onGameMode(GameMode*) -> void override;
