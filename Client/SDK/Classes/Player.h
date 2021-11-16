@@ -96,7 +96,10 @@ public:
     auto setPermissions(int) -> void;
     auto startDestroying(void) -> void;
     auto stopDestroying(void) -> void;
+    auto openTrading(ActorUniqueID const &, bool) -> void;
     auto canOpenContainerScreen(void) -> bool;
+    auto openInventory(void) -> void;
+    auto displayClientMessage(std::string) -> void;
     auto startSleepInBed(Vec3<int>*) -> BedSleepingResult;
     auto stopSleepInBed(bool, bool) -> void;
     auto canStartSleepInBed(void) -> bool;
