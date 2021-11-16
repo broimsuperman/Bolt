@@ -15,6 +15,7 @@
 class Mem {
 public:
     static auto findSig(const char*) -> uintptr_t;
+    static auto findSigInMod(const char*, const char*) -> uintptr_t;
     static auto findMultiLvlPtr(uintptr_t, std::vector<unsigned int>) -> uintptr_t;
 };
 
