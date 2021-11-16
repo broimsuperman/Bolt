@@ -8,9 +8,10 @@ Manager::Manager(Client* client){
 
     this->client = client;
 
+    this->initHooks();
+
     this->initCategories();
     this->initModules();
-    this->initHooks();
     
     this->tickCategories();
 };
