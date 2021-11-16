@@ -7,6 +7,7 @@ class Jetpack : public Module {
 public:
     Jetpack(Category* category) : Module(category, "Jetpack") {
         this->setKey(0x46);
+        this->setLogState(false);
     };
 
     auto onTick(void) -> void override;
