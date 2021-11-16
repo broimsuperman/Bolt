@@ -33,10 +33,7 @@ auto Module::baseTick(void) -> void {
             if(getManager() != nullptr && getManager()->getClient() != nullptr)
                 clientName = getManager()->getClient()->name;
                     
-            auto msg = std::string(clientName + ": " + (this->isEnabled ? "Enabled" : "Disabled") + " " + this->name);
-
-            if(!this->displayToChat(msg))
-                Utils::debugLogF(msg.c_str());
+            this->displayToChat(std::string((this->isEnabled ? "§aEnabled" : "§6Disabled")) + " " + this->name);
         };
 
         if(this->isEnabled) {
@@ -68,13 +65,18 @@ auto Module::displayToChat(std::string message) -> bool {
     auto instance = Minecraft::getClientInstance();
     auto player = (Player*)nullptr;
 
-    if(instance != nullptr)
-        player = instance->getLocalPlayer();
+    auto manager = getManager();
+    auto client = (Client*)nullptr;
 
-    if(player == nullptr)
+    if(instance != nullptr && manager != nullptr) {
+        player = instance->getLocalPlayer();
+        client = manager->getClient();
+    };
+
+    if(player == nullptr || client == nullptr)
         return false;
     else
-        player->displayClientMessage(message);
+        player->displayClientMessage(std::string("§3" + client->name + "§f: " + message));
     
     return true;
 };
