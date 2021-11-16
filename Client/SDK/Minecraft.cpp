@@ -19,7 +19,7 @@ auto Minecraft::getClientInstance(void) -> ClientInstance* {
 };
 
 auto Minecraft::getVersion(void) -> std::string {
-    auto sig = Mem::findSigInMod("31 2E 31 37 2E 34 ? 2E 31 5C 4D ?", "ucrtbase.dll");
+    auto sig = Mem::findSig("31 2E ? 37 2E ? ? 2E ? 5C 4D", "ucrtbase.dll");
 
     if(!sig)
         return std::string("");
