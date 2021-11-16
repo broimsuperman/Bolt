@@ -6,6 +6,7 @@
 
 class Client;
 class Category;
+class Module;
 class Actor;
 
 class Manager {
@@ -17,10 +18,20 @@ public:
     Manager(Client*);
 
     auto getClient(void) -> Client*;
-    
-    auto addCategory(Category*) -> void;
     auto getCategory(std::string) -> Category*;
+    auto addCategory(Category*) -> void;
     auto getCategories(void) -> std::vector<Category*>;
+
+    template<typename T>
+    auto getModule(void) -> T* {
+        for(auto c : this->getCategories()) {
+            for(auto m : c->getModules()) {
+                if(dynamic_cast<T*>(m) != nullptr)
+                    return (T*)m;
+            };
+        };
+        return nullptr;
+    };
     
     auto initCategories(void) -> void;
     auto initModules(void) -> void;
