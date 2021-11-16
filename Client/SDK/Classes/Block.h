@@ -33,6 +33,16 @@ public:
 	auto getMaterial(void) -> Material* {
 		return *(Material**)((uintptr_t)(this) + 0xD8);
 	};
+
+	auto getBlockItemId(void) -> __int16 {
+		using GetBlockItemId = __int16 (__thiscall*)(BlockLegacy*);
+		static auto _GetBlockItemId = (GetBlockItemId)nullptr;
+
+		if(_GetBlockItemId == nullptr)
+			_GetBlockItemId = (GetBlockItemId)Mem::findSig("0F B7 91 ? ? ? ? B8 ? ? ? ? 66 3B D0 72 09");
+		
+		return _GetBlockItemId(this);
+	};
 };
 
 class Block {

@@ -83,6 +83,7 @@ auto Manager::initCategories(void) -> void {
 
 #include "../Module/Modules/Other/TestModule.h"
 #include "../Module/Modules/Other/MineplexFlight.h"
+#include "../Module/Modules/Other/CakeAura.h"
 #include "../Module/Modules/Other/NoPacket.h"
 #include "../Module/Modules/Other/LagSpoof.h"
 #include "../Module/Modules/Other/PacketLogger.h"
@@ -119,6 +120,7 @@ auto Manager::initModules(void) -> void {
     /* Other */
     new TestModule(this->getCategory("Other"));
     new MineplexFlight(this->getCategory("Other"));
+    new CakeAura(this->getCategory("Other"));
     new NoPacket(this->getCategory("Other"));
     new LagSpoof(this->getCategory("Other"));
     new PacketLogger(this->getCategory("Other"));
