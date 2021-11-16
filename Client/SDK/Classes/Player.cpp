@@ -1503,6 +1503,25 @@ auto Player::stopDestroying(void) -> void {
     _StopDestroying(this);
 };
 
+auto Player::openTrading(ActorUniqueID const & actorUniqueID, bool paramB) -> void {
+    using OpenTrading = void (__thiscall*)(Actor*, ActorUniqueID const &, bool);
+    auto _OpenTrading = (OpenTrading)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_34_2:
+            _OpenTrading = (OpenTrading)(this->VTable[384]);
+        break;
+        case MC_VER::v1_17_40_6:
+            _OpenTrading = (OpenTrading)(this->VTable[384]);
+        break;
+        case MC_VER::v1_17_41_1:
+            _OpenTrading = (OpenTrading)(this->VTable[384]);
+        break;
+    };
+
+    _OpenTrading(this, actorUniqueID, paramB);
+};
+
 auto Player::canOpenContainerScreen(void) -> bool {
     using CanOpenContainerScreen = bool (__thiscall*)(Actor*);
     auto _CanOpenContainerScreen = (CanOpenContainerScreen)(this->VTable[0]);
@@ -1520,6 +1539,44 @@ auto Player::canOpenContainerScreen(void) -> bool {
     };
 
     return _CanOpenContainerScreen(this);
+};
+
+auto Player::openInventory(void) -> void {
+    using OpenInventory = void (__thiscall*)(Actor*);
+    auto _OpenInventory = (OpenInventory)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _OpenInventory = (OpenInventory)(this->VTable[388]);
+        break;
+        case MC_VER::v1_17_40_6:
+            _OpenInventory = (OpenInventory)(this->VTable[388]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _OpenInventory = (OpenInventory)(this->VTable[388]);
+        break;
+    };
+
+    _OpenInventory(this);
+};
+
+auto Player::displayClientMessage(std::string message) -> void {
+    using DisplayClientMessage = void (__thiscall*)(Actor*, std::string*);
+    auto _DisplayClientMessage = (DisplayClientMessage)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            _DisplayClientMessage = (DisplayClientMessage)(this->VTable[390]);
+        break;
+        case MC_VER::v1_17_40_6:
+            _DisplayClientMessage = (DisplayClientMessage)(this->VTable[390]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _DisplayClientMessage = (DisplayClientMessage)(this->VTable[390]);
+        break;
+    };
+
+    _DisplayClientMessage(this, &message);
 };
 
 auto Player::startSleepInBed(Vec3<int>* blockPos) -> BedSleepingResult {
