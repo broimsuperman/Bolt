@@ -14,22 +14,17 @@ typedef void (__thiscall* ActorTick)(Actor*, void*, void*);
 ActorTick _ActorTick;
 
 auto ActorTickCallback(Actor* entity, void* a2, void* a3) -> void {
-
-    auto instance = Minecraft::getClientInstance();
-    auto player = (Player*)nullptr;
-
-    if(instance != nullptr)
-        player = instance->getLocalPlayer();
-    
     if(actorManager != nullptr) {
+        actorManager->addToEntityList(entity);
         for(auto c : actorManager->getCategories()) {
             for(auto m : c->getModules()) {
-                if(m->isEnabled)
+                if(m->isEnabled) {
                     m->onActorTick(entity);
+                    m->onActorTick(actorManager->getEntityList());
+                };
             };
         };
     };
-
     _ActorTick(entity, a2, a3);
 };
 

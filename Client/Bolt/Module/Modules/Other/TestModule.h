@@ -15,6 +15,8 @@ public:
 
     auto onRender(RenderUtils*) -> void override;
     auto onGameMode(GameMode*) -> void override;
+
+    auto onActorTick(std::vector<Actor*>) -> void;
 };
 
 #endif /* CLIENT_BOLT_MODULE_MODULES_OTHER_TESTMODULE */

@@ -169,3 +169,63 @@ auto Manager::isHoldingKey(uint64_t key) -> bool {
 auto Manager::setKeyMapData(uint64_t key, bool isDown) -> void {
     this->keyMap[key] = isDown;
 };
+
+auto Manager::addToEntityList(Actor* entity) -> void {
+    if(std::find(entityList.begin(), entityList.end(), entity) != entityList.end())
+        return;
+    
+    if(entity == nullptr || entity->VTable == nullptr || entity->VTable[0] == nullptr)
+        return;
+    
+    if(entity->getEntityTypeId() <= 0)
+        return;
+    
+    if(entity->getEntityTypeId() == 63)
+        return;
+    
+    bool doesExist = false;
+    auto entityID = entity->getRuntimeID();
+
+    for(auto e : entityList) {
+        if(e == nullptr || e->VTable == nullptr)
+            continue;
+        
+        if(e->getRuntimeID() == entityID)
+            doesExist = true;
+        
+        if(doesExist)
+            break;
+    };
+    
+    if(!doesExist)
+        this->entityList.push_back(entity);
+    
+    this->sortEntityList();
+};
+
+auto Manager::sortEntityList(void) -> void {
+    auto list = std::vector<Actor*>();
+
+    for(auto e : entityList) {
+        if(e == nullptr || e->VTable == nullptr)
+            continue;
+        
+        if(e->getRuntimeID() == NULL)
+            continue;
+        
+        if(!e->isAlive())
+            continue;
+        
+        list.push_back(e);
+    };
+
+    entityList.clear();
+
+    for(auto e : list) {
+        entityList.push_back(e);
+    };
+};
+
+auto Manager::getEntityList(void) -> std::vector<Actor*> {
+    return this->entityList;
+};

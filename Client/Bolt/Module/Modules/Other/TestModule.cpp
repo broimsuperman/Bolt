@@ -16,9 +16,11 @@ auto TestModule::onEnable(void) -> void {
 
     if(player == nullptr)
         return Utils::debugLogF("Local Player is invalid!");
-    
-    this->displayToChat("§7Opening Inventory...");
-    player->openInventory();
+};
+
+auto TestModule::onActorTick(std::vector<Actor*> entityList) -> void {
+    this->displayToChat(std::string("Entities: " + std::to_string(entityList.size())));
+    this->isEnabled = false;
 };
 
 auto TestModule::onDisable(void) -> void {
