@@ -1,4 +1,5 @@
 #include "Manager.h"
+
 #include "../../Client.h"
 #include "../Category/Category.h"
 #include "../Module/Module.h"
@@ -53,6 +54,7 @@ auto Manager::initCategories(void) -> void {
 
 #include "../Module/Modules/Combat/Killaura.h"
 #include "../Module/Modules/Combat/BoostHit.h"
+#include "../Module/Modules/Combat/Hitbox.h"
 
 /* Movement */
 
@@ -93,6 +95,7 @@ auto Manager::initModules(void) -> void {
     /* Combat */
     new Killaura(this->getCategory("Combat"));
     new BoostHit(this->getCategory("Combat"));
+    new Hitbox(this->getCategory("Combat"));
     
     /* Movement */
     new AirJump(this->getCategory("Movement"));
