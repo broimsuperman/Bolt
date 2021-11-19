@@ -8,8 +8,9 @@ public:
     Hitbox(Category* category) : Module(category, "Hitbox") {
         //
     };
+    auto onActorTick(std::vector<Actor*>) -> void override;
+    auto onTick(void) -> void override;
     auto onDisable(void) -> void override;
-    auto onActorTick(std::vector<Actor*>) -> void;
 private:
     float width = 3.f;
     float height = 2.f;
