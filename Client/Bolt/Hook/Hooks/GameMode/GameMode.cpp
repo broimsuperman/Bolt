@@ -15,6 +15,7 @@ GameModeTick _GameModeTick;
 
 auto GmCallback(GameMode* GM) -> void {
     if(gmManager != nullptr) {
+        gmManager->sortEntityList();
         for(auto c : gmManager->getCategories()) {
             for(auto m : c->getModules()) {
                 if(m->isEnabled)

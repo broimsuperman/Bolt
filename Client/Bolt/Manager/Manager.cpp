@@ -174,6 +174,49 @@ auto Manager::setKeyMapData(uint64_t key, bool isDown) -> void {
 };
 
 auto Manager::addToEntityList(Actor* entity) -> void {
+    auto sortPlayer = [&]() {
+        auto instance = Minecraft::getClientInstance();
+
+        if(instance == nullptr)
+            return;
+        
+        auto player = instance->getLocalPlayer();
+
+        if(player == nullptr)
+            return;
+        
+        if(entity->getRuntimeID() == player->getRuntimeID())
+            return;
+        
+        auto nametag = entity->getNameTag();
+        
+        if(nametag.rfind(player->getNameTag()) != std::string::npos)
+            return;
+        
+        bool addPlayer = true;
+        
+        for(auto e : entityList) {
+            bool doesExist = false;
+            auto entityID = entity->getRuntimeID();
+
+            for(auto e : entityList) {
+                if(e == nullptr || e->VTable == nullptr)
+                    continue;
+                
+                if(e->getRuntimeID() == entityID)
+                    doesExist = true;
+                
+                if(doesExist)
+                    break;
+            };
+            
+            if(!doesExist)
+                this->entityList.push_back(entity);
+        };
+
+        this->sortEntityList();
+    };
+
     if(std::find(entityList.begin(), entityList.end(), entity) != entityList.end())
         return;
     
@@ -184,7 +227,7 @@ auto Manager::addToEntityList(Actor* entity) -> void {
         return;
     
     if(entity->getEntityTypeId() == 63)
-        return;
+        return sortPlayer();
     
     bool doesExist = false;
     auto entityID = entity->getRuntimeID();
@@ -202,8 +245,6 @@ auto Manager::addToEntityList(Actor* entity) -> void {
     
     if(!doesExist)
         this->entityList.push_back(entity);
-    
-    this->sortEntityList();
 };
 
 auto Manager::sortEntityList(void) -> void {
@@ -222,11 +263,7 @@ auto Manager::sortEntityList(void) -> void {
         list.push_back(e);
     };
 
-    entityList.clear();
-
-    for(auto e : list) {
-        entityList.push_back(e);
-    };
+    entityList = list;
 };
 
 auto Manager::getEntityList(void) -> std::vector<Actor*> {
