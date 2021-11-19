@@ -174,14 +174,15 @@ auto Manager::setKeyMapData(uint64_t key, bool isDown) -> void {
 };
 
 auto Manager::addToEntityList(Actor* entity) -> void {
+    auto instance = Minecraft::getClientInstance();
+    auto player = (Player*)nullptr;
+
     auto sortPlayer = [&]() {
         auto instance = Minecraft::getClientInstance();
 
         if(instance == nullptr)
             return;
         
-        auto player = instance->getLocalPlayer();
-
         if(player == nullptr)
             return;
         
@@ -190,10 +191,8 @@ auto Manager::addToEntityList(Actor* entity) -> void {
         
         auto nametag = entity->getNameTag();
         
-        if(nametag.rfind(player->getNameTag()) != std::string::npos)
+        if(nametag.length() <= 0 || nametag.rfind(player->getNameTag()) != std::string::npos)
             return;
-        
-        bool addPlayer = true;
         
         for(auto e : entityList) {
             bool doesExist = false;
@@ -213,9 +212,13 @@ auto Manager::addToEntityList(Actor* entity) -> void {
             if(!doesExist)
                 this->entityList.push_back(entity);
         };
-
-        this->sortEntityList();
     };
+
+    if(instance != nullptr)
+        player = instance->getLocalPlayer();
+    
+    if(player == nullptr)
+        return entityList.clear();
 
     if(std::find(entityList.begin(), entityList.end(), entity) != entityList.end())
         return;
@@ -248,6 +251,15 @@ auto Manager::addToEntityList(Actor* entity) -> void {
 };
 
 auto Manager::sortEntityList(void) -> void {
+    auto instance = Minecraft::getClientInstance();
+    auto player = (Player*)nullptr;
+
+    if(instance != nullptr)
+        player = instance->getLocalPlayer();
+    
+    if(player == nullptr)
+        return entityList.clear();
+
     auto list = std::vector<Actor*>();
 
     for(auto e : entityList) {
