@@ -34,6 +34,9 @@ public:
     auto getFlightSpeed(void) -> float;
     auto setFlightSpeed(float) -> void;
 
+    auto isFlying(void) -> bool;
+    auto setFlyState(bool) -> void;
+
     auto getMotion() -> Vec3<float>;
     auto setMotion(Vec3<float>) -> void;
     auto setMotion(float, float, float) -> void;

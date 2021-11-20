@@ -71,6 +71,43 @@ auto Actor::setFlightSpeed(float f) -> void {
     *flightSpeed = f;
 };
 
+auto Actor::isFlying(void) -> bool {
+    bool* flyingState = (bool*)nullptr;
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            flyingState = (bool*)((uintptr_t)(this) + 0x980);
+        break;
+        case MC_VER::v1_17_40_6:
+            flyingState = (bool*)((uintptr_t)(this) + 0x980);
+        break;
+        case MC_VER::v1_17_34_2:
+            flyingState = (bool*)((uintptr_t)(this) + 0x980);
+        break;
+    };
+
+    return *flyingState;
+};
+
+auto Actor::setFlyState(bool state) -> void {
+    bool* flyingState = (bool*)nullptr;
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            flyingState = (bool*)((uintptr_t)(this) + 0x980);
+        break;
+        case MC_VER::v1_17_40_6:
+            flyingState = (bool*)((uintptr_t)(this) + 0x980);
+        break;
+        case MC_VER::v1_17_34_2:
+            flyingState = (bool*)((uintptr_t)(this) + 0x980);
+        break;
+    };
+
+    if(flyingState != nullptr)
+        *flyingState = state;
+};
+
 auto Actor::getMotion() -> Vec3<float> {
     auto motionVec = (Vec3<float>*)nullptr;
 
