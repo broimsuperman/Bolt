@@ -8,12 +8,11 @@ public:
     Hitbox(Category* category) : Module(category, "Hitbox") {
         //
     };
-    auto onActorTick(std::vector<Actor*>) -> void override;
     auto onTick(void) -> void override;
     auto onDisable(void) -> void override;
+    auto onGameMode(GameMode*) -> void override;
 private:
-    float width = 3.f;
-    float height = 2.f;
+    Vec2<float> hitboxRadius = Vec2<float>(2.f, 4.f);
 };
 
 #endif /* CLIENT_BOLT_MODULE_MODULES_COMBAT_HITBOX */

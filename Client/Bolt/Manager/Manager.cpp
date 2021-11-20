@@ -173,111 +173,38 @@ auto Manager::setKeyMapData(uint64_t key, bool isDown) -> void {
     this->keyMap[key] = isDown;
 };
 
-auto Manager::addToEntityList(Actor* entity) -> void {
-    auto instance = Minecraft::getClientInstance();
-    auto player = (Player*)nullptr;
-
-    auto sortPlayer = [&]() {
-        auto instance = Minecraft::getClientInstance();
-
-        if(instance == nullptr)
-            return;
-        
-        if(player == nullptr)
-            return;
-        
-        if(entity->getRuntimeID() == player->getRuntimeID())
-            return;
-        
-        auto nametag = entity->getNameTag();
-        
-        if(nametag.length() <= 0 || nametag.rfind(player->getNameTag()) != std::string::npos)
-            return;
-        
-        for(auto e : entityList) {
-            bool doesExist = false;
-            auto entityID = entity->getRuntimeID();
-
-            for(auto e : entityList) {
-                if(e == nullptr || e->VTable == nullptr)
-                    continue;
-                
-                if(e->getRuntimeID() == entityID)
-                    doesExist = true;
-                
-                if(doesExist)
-                    break;
-            };
-            
-            if(!doesExist)
-                this->entityList.push_back(entity);
-        };
-    };
-
-    if(instance != nullptr)
-        player = instance->getLocalPlayer();
-    
-    if(player == nullptr)
-        return entityList.clear();
-
-    if(std::find(entityList.begin(), entityList.end(), entity) != entityList.end())
-        return;
-    
-    if(entity == nullptr || entity->VTable == nullptr || entity->VTable[0] == nullptr)
-        return;
-    
-    if(entity->getEntityTypeId() <= 0)
-        return;
-    
-    if(entity->getEntityTypeId() == 63)
-        return sortPlayer();
-    
-    bool doesExist = false;
-    auto entityID = entity->getRuntimeID();
-
-    for(auto e : entityList) {
-        if(e == nullptr || e->VTable == nullptr)
-            continue;
-        
-        if(e->getRuntimeID() == entityID)
-            doesExist = true;
-        
-        if(doesExist)
-            break;
-    };
-    
-    if(!doesExist)
-        this->entityList.push_back(entity);
+auto Manager::addEntityToMap(__int64 entityRuntimeId, Actor* entity) -> void {
+    this->entityMap[entityRuntimeId] = entity;
 };
 
-auto Manager::sortEntityList(void) -> void {
-    auto instance = Minecraft::getClientInstance();
-    auto player = (Player*)nullptr;
-
-    if(instance != nullptr)
-        player = instance->getLocalPlayer();
+auto Manager::cleanEntityMap(GameMode* GM) -> void {
+    if(GM == nullptr || GM->player == nullptr)
+        return entityMap.clear();
     
-    if(player == nullptr)
-        return entityList.clear();
+    auto newMap = std::map<__int64, Actor*>();
 
-    auto list = std::vector<Actor*>();
-
-    for(auto e : entityList) {
-        if(e == nullptr || e->VTable == nullptr)
+    for(auto [runtimeId, entity] : entityMap) {
+        if(entity == nullptr || entity->VTable == nullptr)
             continue;
         
-        if(e->getRuntimeID() == NULL)
+        if(entity->getRuntimeID() <= 0)
             continue;
         
-        if(!e->isAlive())
+        if(entity->getEntityTypeId() <= 0)
             continue;
         
-        list.push_back(e);
+        if(!entity->isAlive())
+            continue;
+        
+        if(!GM->player->canAttack(entity, false))
+            continue;
+        
+        newMap[entity->getRuntimeID()] = entity;
     };
 
-    entityList = list;
+    entityMap = newMap;
 };
 
-auto Manager::getEntityList(void) -> std::vector<Actor*> {
-    return this->entityList;
+auto Manager::getEntityMap(void) -> std::map<__int64, Actor*> {
+    return this->entityMap;
 };

@@ -46,7 +46,6 @@ public:
     virtual auto onPlayerAttack(GameMode*, Actor*) -> void {};
 
     virtual auto onActorTick(Actor*) -> void {};
-    virtual auto onActorTick(std::vector<Actor*>) -> void {};
     virtual auto onLerpMotion(Actor*, Vec3<float>*, bool*) -> void {};
 
     virtual auto onPacket(Packet*, bool*) -> void {};

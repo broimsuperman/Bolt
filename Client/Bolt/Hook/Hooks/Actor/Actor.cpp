@@ -15,16 +15,18 @@ ActorTick _ActorTick;
 
 auto ActorTickCallback(Actor* entity, void* a2, void* a3) -> void {
     if(actorManager != nullptr) {
-        actorManager->addToEntityList(entity);
+        
+        actorManager->addEntityToMap(entity->getRuntimeID(), entity);
+
         for(auto c : actorManager->getCategories()) {
             for(auto m : c->getModules()) {
                 if(m->isEnabled) {
                     m->onActorTick(entity);
-                    m->onActorTick(actorManager->getEntityList());
                 };
             };
         };
     };
+
     _ActorTick(entity, a2, a3);
 };
 

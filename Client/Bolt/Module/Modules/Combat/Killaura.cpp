@@ -66,7 +66,7 @@ auto Killaura::onGameMode(GameMode* GM) -> void {
 auto Killaura::onActorTick(Actor* entity) -> void {
     auto instance = Minecraft::getClientInstance();
 
-    if(instance == nullptr)
+    if(instance == nullptr || instance->getLocalPlayer() == nullptr)
         return;
     
     auto player = instance->getLocalPlayer();
