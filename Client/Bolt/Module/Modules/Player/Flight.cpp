@@ -1,14 +1,17 @@
 #include "Flight.h"
 
-auto lastState = (UCHAR)-1;
+auto lastState = false;
+bool gotState = false;
 
 auto Flight::onGameMode(GameMode* GM) -> void {
-    if(GM == nullptr || GM->player)
+    if(GM == nullptr || GM->player == nullptr)
         return;
     
-    if(lastState < 0)
+    if(!gotState) {
         lastState = GM->player->isFlying();
-    
+        gotState = true;
+    };
+
     GM->player->setFlyState(true);
 };
 
@@ -19,9 +22,6 @@ auto Flight::onDisable(void) -> void {
     if(instance != nullptr)
         player = instance->getLocalPlayer();
     
-    if(lastState <= 0)
-        return;
-    
     player->setFlyState(lastState);
-    lastState = (UCHAR)-1;
+    gotState = false;
 };
