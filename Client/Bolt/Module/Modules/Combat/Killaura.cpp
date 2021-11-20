@@ -16,6 +16,8 @@ auto Killaura::onGameMode(GameMode* GM) -> void {
     
     auto player = GM->player;
     auto myPos = *player->getPos();
+
+    int count = 0;
     
     for(auto [runtimeId, entity] : this->getManager()->getEntityMap()) {
         if(runtimeId == player->getRuntimeID())
@@ -32,6 +34,10 @@ auto Killaura::onGameMode(GameMode* GM) -> void {
         if(dist <= 8.f) {
             GM->attack(entity);
             player->swing();
+            count++;
         };
+
+        if(count >= 12)
+            break;
     };
 };
