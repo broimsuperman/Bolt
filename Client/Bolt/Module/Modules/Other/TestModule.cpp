@@ -17,8 +17,10 @@ auto TestModule::onEnable(void) -> void {
     if(player == nullptr)
         return Utils::debugLogF("Local Player is invalid!");
 
-    this->displayToChat(std::string("Entities: " + std::to_string(this->getManager()->getEntityMap().size())));
-    this->setState(false);
+    auto supplies = player->getSupplies();
+    auto itemA = supplies->getItem(0);
+
+    this->displayToChat(std::to_string(itemA->isBlock()));
 };
 
 auto TestModule::onDisable(void) -> void {

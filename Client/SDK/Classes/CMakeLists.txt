@@ -7,4 +7,5 @@ target_sources(Bolt PRIVATE
                         "Packet.cpp"
                             "MinecraftUIRenderContext.cpp"
                                 "LoopbackPacketSender.cpp"
+                                    "PlayerInventory.cpp"
 )

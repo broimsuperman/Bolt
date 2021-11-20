@@ -1,6 +1,9 @@
 #ifndef CLIENT_SDK_CLASSES_ITEMSTACK
 #define CLIENT_SDK_CLASSES_ITEMSTACK
 
+#include "../../Mem/Mem.h"
+#include "../../Utils/Utils.h"
+
 class Item {
 public:
     //

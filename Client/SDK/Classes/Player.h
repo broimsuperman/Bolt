@@ -2,6 +2,7 @@
 #define CLIENT_SDK_CLASSES_PLAYER
 
 #include "Actor.h"
+#include "PlayerInventory.h"
 
 #include "../../Mem/Mem.h"
 #include "../../Utils/Utils.h"
@@ -16,6 +17,8 @@ struct IMinecraftEventing;
 struct PlayerMovementSettings;
 
 class Player : public Actor {
+public:
+    auto getSupplies(void) -> PlayerInventory*;
 public:
     auto knockback(Actor*, int, float, float, float, float, float) -> void;
     auto setSprinting(bool) -> void;
