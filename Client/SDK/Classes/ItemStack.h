@@ -6,7 +6,8 @@
 
 class Item {
 public:
-    //
+    auto setStackedByData(bool) -> void;
+    auto setMaxStackSize(UCHAR) -> void;
 };
 
 class ItemStack {

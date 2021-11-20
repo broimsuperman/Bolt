@@ -8,4 +8,5 @@ target_sources(Bolt PRIVATE
                             "MinecraftUIRenderContext.cpp"
                                 "LoopbackPacketSender.cpp"
                                     "PlayerInventory.cpp"
+                                        "ItemStack.cpp"
 )
