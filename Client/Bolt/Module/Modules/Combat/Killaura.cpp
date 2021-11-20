@@ -23,6 +23,12 @@ auto Killaura::onGameMode(GameMode* GM) -> void {
         if(runtimeId == player->getRuntimeID())
             continue;
         
+        if(entity == nullptr || entity->VTable == nullptr)
+            continue;
+        
+        if(!entity->isAlive())
+            continue;
+        
         auto pos = *entity->getPos();
         
         auto dX = myPos.x - pos.x;
