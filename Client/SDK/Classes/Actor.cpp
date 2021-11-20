@@ -82,7 +82,7 @@ auto Actor::isFlying(void) -> bool {
             flyingState = (bool*)((uintptr_t)(this) + 0x980);
         break;
         case MC_VER::v1_17_34_2:
-            flyingState = (bool*)((uintptr_t)(this) + 0x980);
+            flyingState = (bool*)((uintptr_t)(this) + 0x9A0);
         break;
     };
 
@@ -100,7 +100,7 @@ auto Actor::setFlyState(bool state) -> void {
             flyingState = (bool*)((uintptr_t)(this) + 0x980);
         break;
         case MC_VER::v1_17_34_2:
-            flyingState = (bool*)((uintptr_t)(this) + 0x980);
+            flyingState = (bool*)((uintptr_t)(this) + 0x9A0);
         break;
     };
 
