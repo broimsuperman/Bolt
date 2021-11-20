@@ -16,15 +16,8 @@ auto TestModule::onEnable(void) -> void {
 
     if(player == nullptr)
         return Utils::debugLogF("Local Player is invalid!");
-    
-    auto entityMap = this->getManager()->getEntityMap();
-    auto list = std::vector<Actor*>();
 
-    for(auto [runtimeId, entity] : entityMap) {
-        list.push_back(entity);
-    };
-
-    this->displayToChat(std::string("Entities: " + std::to_string(list.size())));
+    this->displayToChat(std::string("Entities: " + std::to_string(this->getManager()->getEntityMap().size())));
     this->setState(false);
 };
 
