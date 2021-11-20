@@ -5,8 +5,6 @@
 #include "../../../Client/Client.h"
 
 auto TestModule::onEnable(void) -> void {
-    //Utils::debugLogF("Test Module has been Enabled!");
-
     auto instance = Minecraft::getClientInstance();
 
     if(instance == nullptr)
@@ -18,13 +16,23 @@ auto TestModule::onEnable(void) -> void {
         return Utils::debugLogF("Local Player is invalid!");
 
     auto supplies = player->getSupplies();
-    auto itemA = supplies->getItem(0);
 
-    this->displayToChat(std::to_string(itemA->isBlock()));
-};
+    if(supplies == nullptr)
+        return this->setState(false);
+    
+    auto inventory = supplies->getInventory();
 
-auto TestModule::onDisable(void) -> void {
-    //Utils::debugLogF("Test Module has been Disabled!");
+    if(inventory == nullptr)
+        return this->setState(false);
+    
+    auto itemA = inventory->getItem(0);
+
+    if(itemA == nullptr || itemA->isNull())
+        this->displayToChat("Item invalid!");
+    else
+        this->displayToChat(std::to_string(itemA->isBlock()));
+    
+    this->setState(false);
 };
 
 auto TestModule::onTick(void) -> void {

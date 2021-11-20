@@ -10,7 +10,6 @@ public:
     };
 
     auto onEnable(void) -> void override;
-    auto onDisable(void) -> void override;
     auto onTick(void) -> void override;
 
     auto onRender(RenderUtils*) -> void override;
