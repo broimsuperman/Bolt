@@ -7,12 +7,8 @@ auto collisions = std::map<uint8_t, Vec2<float>>();
 
 auto Hitbox::onTick(void) -> void {
     auto instance = Minecraft::getClientInstance();
-    auto player = (Player*)nullptr;
-
-    if(instance != nullptr)
-        player = instance->getLocalPlayer();
     
-    if(player == nullptr)
+    if(instance == nullptr || instance->getLocalPlayer() == nullptr)
         return this->setState(false);
 };
 
