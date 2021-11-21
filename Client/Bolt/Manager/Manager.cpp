@@ -206,7 +206,11 @@ auto Manager::cleanEntityMap(GameMode* GM) -> void {
         newMap[entity->getRuntimeID()] = entity;
     };
 
-    entityMap = newMap;
+    this->entityMap = newMap;
+};
+
+auto Manager::emptyEntityMap(void) -> void {
+    this->entityMap.clear();
 };
 
 auto Manager::getEntityMap(void) -> std::map<__int64, Actor*> {

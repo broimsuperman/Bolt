@@ -48,6 +48,7 @@ public:
 
     auto addEntityToMap(__int64, Actor*) -> void;
     auto cleanEntityMap(GameMode*) -> void;
+    auto emptyEntityMap(void) -> void;
     auto getEntityMap(void) -> std::map<__int64, Actor*>;
 };
 
