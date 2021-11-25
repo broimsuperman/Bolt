@@ -190,3 +190,171 @@ auto Item::setHandEquipped(void) -> Item* {
 
     return _SetHandEquipped(this);
 };
+
+auto Item::setUseAnimation(UseAnimation useAnimation) -> Item* {
+    using SetUseAnimation = Item* (__thiscall*)(Item*, UseAnimation);
+    auto _SetUseAnimation = (SetUseAnimation)nullptr;
+
+    if(_SetUseAnimation == nullptr) {
+        switch(Minecraft::sdkVer) {
+            case MC_VER::v1_17_41_1:
+                _SetUseAnimation = (SetUseAnimation)(this->VTable[28]);
+            break;
+            case MC_VER::v1_17_40_6:
+                _SetUseAnimation = (SetUseAnimation)(this->VTable[28]);
+            break;
+            case MC_VER::v1_17_34_2:
+                _SetUseAnimation = (SetUseAnimation)(this->VTable[28]);
+            break;
+        };
+    };
+
+    return _SetUseAnimation(this, useAnimation);
+};
+
+auto Item::setMaxUseDuration(int paramA) -> Item* {
+    using SetMaxUseDuration = Item* (__thiscall*)(Item*, int);
+    auto _SetMaxUseDuration = (SetMaxUseDuration)nullptr;
+
+    if(_SetMaxUseDuration == nullptr) {
+        switch(Minecraft::sdkVer) {
+            case MC_VER::v1_17_41_1:
+                _SetMaxUseDuration = (SetMaxUseDuration)(this->VTable[29]);
+            break;
+            case MC_VER::v1_17_40_6:
+                _SetMaxUseDuration = (SetMaxUseDuration)(this->VTable[29]);
+            break;
+            case MC_VER::v1_17_34_2:
+                _SetMaxUseDuration = (SetMaxUseDuration)(this->VTable[29]);
+            break;
+        };
+    };
+
+    return _SetMaxUseDuration(this, paramA);
+};
+
+auto Item::setRequiresWorldBuilder(bool paramA) -> Item* {
+    using SetRequiresWorldBuilder = Item* (__thiscall*)(Item*, bool);
+    auto _SetRequiresWorldBuilder = (SetRequiresWorldBuilder)nullptr;
+
+    if(_SetRequiresWorldBuilder == nullptr) {
+        switch(Minecraft::sdkVer) {
+            case MC_VER::v1_17_41_1:
+                _SetRequiresWorldBuilder = (SetRequiresWorldBuilder)(this->VTable[30]);
+            break;
+            case MC_VER::v1_17_40_6:
+                _SetRequiresWorldBuilder = (SetRequiresWorldBuilder)(this->VTable[30]);
+            break;
+            case MC_VER::v1_17_34_2:
+                _SetRequiresWorldBuilder = (SetRequiresWorldBuilder)(this->VTable[30]);
+            break;
+        };
+    };
+
+    return _SetRequiresWorldBuilder(this, paramA);
+};
+
+auto Item::setExplodable(bool paramA) -> Item* {
+    using SetExplodable = Item* (__thiscall*)(Item*, bool);
+    auto _SetExplodable = (SetExplodable)nullptr;
+
+    if(_SetExplodable == nullptr) {
+        switch(Minecraft::sdkVer) {
+            case MC_VER::v1_17_41_1:
+                _SetExplodable = (SetExplodable)(this->VTable[31]);
+            break;
+            case MC_VER::v1_17_40_6:
+                _SetExplodable = (SetExplodable)(this->VTable[31]);
+            break;
+            case MC_VER::v1_17_34_2:
+                _SetExplodable = (SetExplodable)(this->VTable[31]);
+            break;
+        };
+    };
+
+    return _SetExplodable(this, paramA);
+};
+
+auto Item::setFireResistant(bool paramA) -> Item* {
+    using SetFireResistant = Item* (__thiscall*)(Item*, bool);
+    auto _SetFireResistant = (SetFireResistant)nullptr;
+
+    if(_SetFireResistant == nullptr) {
+        switch(Minecraft::sdkVer) {
+            case MC_VER::v1_17_41_1:
+                _SetFireResistant = (SetFireResistant)(this->VTable[32]);
+            break;
+            case MC_VER::v1_17_40_6:
+                _SetFireResistant = (SetFireResistant)(this->VTable[32]);
+            break;
+            case MC_VER::v1_17_34_2:
+                _SetFireResistant = (SetFireResistant)(this->VTable[32]);
+            break;
+        };
+    };
+
+    return _SetFireResistant(this, paramA);
+};
+
+auto Item::setIsGlint(bool paramA) -> Item* {
+    using SetIsGlint = Item* (__thiscall*)(Item*, bool);
+    auto _SetIsGlint = (SetIsGlint)nullptr;
+
+    if(_SetIsGlint == nullptr) {
+        switch(Minecraft::sdkVer) {
+            case MC_VER::v1_17_41_1:
+                _SetIsGlint = (SetIsGlint)(this->VTable[33]);
+            break;
+            case MC_VER::v1_17_40_6:
+                _SetIsGlint = (SetIsGlint)(this->VTable[33]);
+            break;
+            case MC_VER::v1_17_34_2:
+                _SetIsGlint = (SetIsGlint)(this->VTable[33]);
+            break;
+        };
+    };
+
+    return _SetIsGlint(this, paramA);
+};
+
+auto Item::setShouldDespawn(bool paramA) -> Item* {
+    using SetShouldDespawn = Item* (__thiscall*)(Item*, bool);
+    auto _SetShouldDespawn = (SetShouldDespawn)nullptr;
+
+    if(_SetShouldDespawn == nullptr) {
+        switch(Minecraft::sdkVer) {
+            case MC_VER::v1_17_41_1:
+                _SetShouldDespawn = (SetShouldDespawn)(this->VTable[34]);
+            break;
+            case MC_VER::v1_17_40_6:
+                _SetShouldDespawn = (SetShouldDespawn)(this->VTable[34]);
+            break;
+            case MC_VER::v1_17_34_2:
+                _SetShouldDespawn = (SetShouldDespawn)(this->VTable[34]);
+            break;
+        };
+    };
+
+    return _SetShouldDespawn(this, paramA);
+};
+
+auto Item::getDamageChance(int paramA) -> __int64 {
+    using GetDamageChance = __int64 (__thiscall*)(Item*, int);
+    auto _GetDamageChance = (GetDamageChance)nullptr;
+
+    if(_GetDamageChance == nullptr) {
+        switch(Minecraft::sdkVer) {
+            case MC_VER::v1_17_41_1:
+                _GetDamageChance = (GetDamageChance)(this->VTable[60]);
+            break;
+            case MC_VER::v1_17_40_6:
+                _GetDamageChance = (GetDamageChance)(this->VTable[60]);
+            break;
+            case MC_VER::v1_17_34_2:
+                _GetDamageChance = (GetDamageChance)(this->VTable[60]);
+            break;
+        };
+    };
+
+    return _GetDamageChance(this, paramA);
+};
