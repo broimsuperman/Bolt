@@ -6,6 +6,7 @@
 
 struct ICameraItemComponent;
 struct IFoodItemComponent;
+enum UseAnimation;
 
 class Item {
 public:
@@ -20,6 +21,14 @@ public:
     auto setStackedByData(bool) -> Item*;
     auto setMaxDamage(int) -> Item*;
     auto setHandEquipped(void) -> Item*;
+    auto setUseAnimation(UseAnimation) -> Item*;
+    auto setMaxUseDuration(int) -> Item*;
+    auto setRequiresWorldBuilder(bool) -> Item*;
+    auto setExplodable(bool) -> Item*;
+    auto setFireResistant(bool) -> Item*;
+    auto setIsGlint(bool) -> Item*;
+    auto setShouldDespawn(bool) -> Item*;
+    auto getDamageChance(int) -> __int64;
 };
 
 class ItemStack {
