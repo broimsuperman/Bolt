@@ -6,8 +6,10 @@
 
 class Item {
 public:
-    auto setStackedByData(bool) -> void;
+    uintptr_t** VTable;
+public:
     auto setMaxStackSize(UCHAR) -> void;
+    auto setStackedByData(bool) -> void;
 };
 
 class ItemStack {
