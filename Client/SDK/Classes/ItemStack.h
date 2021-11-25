@@ -4,12 +4,22 @@
 #include "../../Mem/Mem.h"
 #include "../../Utils/Utils.h"
 
+struct ICameraItemComponent;
+struct IFoodItemComponent;
+
 class Item {
 public:
     uintptr_t** VTable;
 public:
-    auto setMaxStackSize(UCHAR) -> void;
-    auto setStackedByData(bool) -> void;
+    auto isCamera(void) -> bool;
+    auto isDamageable(void) -> bool;
+    auto isFood(void) -> bool;
+    auto getCamera(void) -> ICameraItemComponent*;
+    auto getFood(void) -> IFoodItemComponent*;
+    auto setMaxStackSize(UCHAR) -> Item*;
+    auto setStackedByData(bool) -> Item*;
+    auto setMaxDamage(int) -> Item*;
+    auto setHandEquipped(void) -> Item*;
 };
 
 class ItemStack {
