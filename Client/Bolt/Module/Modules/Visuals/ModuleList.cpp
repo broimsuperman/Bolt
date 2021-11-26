@@ -4,19 +4,6 @@
 #include "../../../Manager/Manager.h"
 #include "../../../Client/Client.h"
 
-class TComp {
-public:
-    Module* module;
-    float xOff;
-    float len;
-
-    TComp(Module* mod, float xOff, float len){
-        this->module = mod;
-        this->xOff = xOff;
-        this->len = len;
-    };
-};
-
 struct compare {
     inline bool operator()(const std::string& first,
             const std::string& second) const
@@ -25,77 +12,88 @@ struct compare {
     }
 };
 
-auto comps = std::vector<TComp*>();
+class ModuleListTextData {
+public:
+    ModuleListTextData(Module* mod, float xOff, float textLen) {
+        this->mod = mod;
+        this->xOff = xOff;
+        this->textLen = textLen;
+    };
+public:
+    Module* mod;
+    float xOff = 0.f;
+    float textLen = 0.f;
+    float animModifier = 0.6f;
+public:
+    auto updateXOff(float resX) -> void {
+        if(this->mod == nullptr)
+            return;
+        
+        if(this->xOff < (resX - this->textLen) || this->xOff > resX)
+            this->xOff = (this->mod->isEnabled ? resX - this->textLen : resX);
+        
+        if(this->mod->isEnabled && this->xOff > (resX - this->textLen))
+            this->xOff -= this->animModifier;
+        else
+            if(!this->mod->isEnabled && this->xOff < resX)
+                this->xOff += this->animModifier;
+    };
+};
+
+std::map<std::string, ModuleListTextData*> moduleListTextMap = std::map<std::string, ModuleListTextData*>();
 
 auto ModuleList::onRender(RenderUtils* r) -> void {
     if(r == nullptr || !r->canDraw())
         return;
     
-    auto instance = Minecraft::getClientInstance();
-    auto guiData = (GuiData*)(instance != nullptr ? instance->getGuiData() : nullptr);
+    this->applyAlpha();
 
-    if(instance == nullptr || guiData == nullptr)
+    auto ctx = r->getCtx();
+    auto manager = this->getManager();
+
+    if(ctx == nullptr || ctx->clientInstance == nullptr || manager == nullptr)
         return;
     
+    auto instance = ctx->clientInstance;
+    auto guiData = instance->getGuiData();
+
     auto res = guiData->scaledRes;
-    
-    if(comps.empty()) {
-        auto strings = std::vector<std::string>();
 
-        for(auto c : getManager()->getCategories()) {
-            for(auto m : c->getModules()) {
-                strings.push_back(m->name);
-            };
-        };
+    auto mainColor = Color(52, 235, 183, alpha);
+    auto bgColor = Color(23, 23, 23, alpha);
 
-        compare c;
-        std::sort(strings.begin(), strings.end(), c);
+    std::vector<std::string> moduleNames = std::vector<std::string>();
 
-        for(auto s : strings) {
-            for(auto c : getManager()->getCategories()) {
-                for(auto m : c->getModules()) {
-                    if(s.rfind(m->name) != std::string::npos) {
-                        comps.push_back(new TComp(m, res.x, r->textLen(m->name, 1) + 2.f));
-                    };
-                };
-            };
+    for(auto c : manager->getCategories()) {
+        for(auto m : c->getModules()) {
+            moduleNames.push_back(m->name);
         };
     };
 
-    applyAlpha();
+    compare c;
+    std::sort(moduleNames.begin(), moduleNames.end(), c);
 
-    if(alpha <= 0.f)
-        return;
-    
-    float modifier = 0.5f;
     int I = 0;
+    for(auto moduleName : moduleNames) {
+        auto curr = moduleListTextMap[moduleName];
 
-    for(auto c : comps){
-        auto mod = c->module;
-
-        if(mod->isEnabled){
-            if(c->xOff > (res.x - (c->len + 3.f)))
-                c->xOff -= modifier;
-        }
-        else {
-            if(c->xOff < res.x)
-                c->xOff += modifier;
+        if(curr == nullptr) {
+            moduleListTextMap[moduleName] = new ModuleListTextData(manager->getModule(moduleName), res.x, r->textLen(moduleName, 1));
+            curr = moduleListTextMap[moduleName];
         };
 
-        if(c->xOff < (res.x - (c->len + 3.f)) || c->xOff > res.x){
-            if(mod->isEnabled)
-                c->xOff = (res.x - (c->len + 3.f));
-            else
-                c->xOff = res.x;
-        };
+        curr->updateXOff(res.x);
 
-        if(c->xOff < res.x){
-            auto textPos = Vec2<float>(c->xOff, (I * 13) + 5);
-            r->fillRectangle(Vec4<float>(textPos.x - 3.f, textPos.y - 2.f, res.x - 2, (I * 13) + 16.f), Color(36, 36, 36, alpha));
-            r->drawRectangle(Vec4<float>(textPos.x - 3.f, textPos.y - 2.f, res.x - 2, (I * 13) + 16.f), Color(65, 214, 217, alpha), 1);
-            r->drawString(mod->name, 1, textPos, Color(65, 214, 217, alpha));
-            I++;
-        };
+        if(curr->xOff >= res.x)
+            continue;
+        
+        auto rectPos = Vec4<float>((curr->xOff < res.x ? curr->xOff - 3 : curr->xOff), I * 10, res.x, I * 10 + 10);
+        
+        r->fillRectangle(rectPos, bgColor);
+        r->drawRectangle(rectPos, mainColor, 1);
+        r->drawString(moduleName, 1, Vec2<float>(rectPos.x + 1.5, rectPos.y + 0.5), mainColor);
+
+        I++;
     };
 
     r->getCtx()->flushText(0);
