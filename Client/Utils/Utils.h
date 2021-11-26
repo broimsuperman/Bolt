@@ -26,6 +26,14 @@ public:
 
     static auto ptrToStr(uintptr_t) -> std::string;
     static auto randomFloat(float, float) -> float;
+
+    template<typename T>
+    static auto randomNum(T min, T max) -> T {
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::uniform_real_distribution<>dis(min, max);
+        return dis(gen);
+    };
 };
 
 template<typename T>
