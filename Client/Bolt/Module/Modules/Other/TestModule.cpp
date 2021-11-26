@@ -21,3 +21,11 @@ auto TestModule::onGameMode(GameMode* GM) -> void {
     if(GM == nullptr || GM->player == nullptr)
         return;
 };
+
+auto TestModule::onPacket(Packet* packet, bool* cancel) -> void {
+    auto name = packet->getName();
+
+    if(name.rfind("Text") != std::string::npos) {
+        this->displayToChat("VTable: " + Utils::ptrToStr((uintptr_t)packet->VTable));
+    };
+};
