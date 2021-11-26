@@ -91,6 +91,7 @@ auto Manager::initCategories(void) -> void {
 #include "../Module/Modules/Other/NoPacket.h"
 #include "../Module/Modules/Other/LagSpoof.h"
 #include "../Module/Modules/Other/PacketLogger.h"
+#include "../Module/Modules/Other/Spammer.h"
 #include "../Module/Modules/Other/Uninject.h"
 
 auto Manager::initModules(void) -> void {
@@ -131,6 +132,7 @@ auto Manager::initModules(void) -> void {
     new NoPacket(this->getCategory("Other"));
     new LagSpoof(this->getCategory("Other"));
     new PacketLogger(this->getCategory("Other"));
+    new Spammer(this->getCategory("Other"));
     new Uninject(this->getCategory("Other"));
 };
 

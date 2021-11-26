@@ -6,5 +6,6 @@ target_sources(Bolt PRIVATE
                     "NoPacket.cpp"
                         "LagSpoof.cpp"
                             "PacketLogger.cpp"
-                                "Uninject.cpp"
+                                "Spammer.cpp"
+                                    "Uninject.cpp"
 )

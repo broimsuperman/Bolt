@@ -20,12 +20,17 @@ auto TestModule::onRender(RenderUtils* r) -> void {
 auto TestModule::onGameMode(GameMode* GM) -> void {
     if(GM == nullptr || GM->player == nullptr)
         return;
+    
+    auto textPacket = new TextPacket();
+    textPacket->type = 1;
+    textPacket->messageContents = std::string("Hello, World!");
+    Minecraft::getClientInstance()->getLoopbackPacketSender()->send(textPacket);
+
+    delete textPacket;
+
+    this->setState(false);
 };
 
 auto TestModule::onPacket(Packet* packet, bool* cancel) -> void {
-    auto name = packet->getName();
-
-    if(name.rfind("Text") != std::string::npos) {
-        this->displayToChat("VTable: " + Utils::ptrToStr((uintptr_t)packet->VTable));
-    };
+    //
 };

@@ -2,7 +2,7 @@
 
 std::string Utils::debugPath = std::string(Utils::getAppDataDir()) + std::string("\\..\\Local\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\RoamingState");
 
-void Utils::debugLogF(const char* out, const char* fileName){
+auto Utils::debugLogF(const char* out, const char* fileName) -> void {
     try {
         auto filePath = std::string(getDebugPath() + "\\" + fileName).c_str();
         auto parentDir = std::filesystem::path(filePath).parent_path();
@@ -24,7 +24,7 @@ void Utils::debugLogF(const char* out, const char* fileName){
     };
 };
 
-std::string Utils::getAppDataDir(void){
+auto Utils::getAppDataDir(void) -> std::string {
     char* path = NULL;
     size_t length;
 
@@ -33,21 +33,28 @@ std::string Utils::getAppDataDir(void){
     return std::string(path);
 };
 
-void Utils::setDebugPath(const char* path){
+auto Utils::setDebugPath(const char* path) -> void {
     debugPath = std::string(path);
 };
 
-std::string Utils::getDebugPath(void){
+auto Utils::getDebugPath(void) -> std::string {
     return debugPath;
 };
 
-void Utils::rmDebugPath(void){
+auto Utils::rmDebugPath(void) -> void {
     auto path = std::filesystem::path(Utils::debugPath);
     std::filesystem::remove_all(path);
 };
 
-std::string Utils::ptrToStr(uintptr_t ptr){
+auto Utils::ptrToStr(uintptr_t ptr) -> std::string {
     std::ostringstream o;
     o << std::hex << ptr << std::endl;
     return o.str();
+};
+
+auto Utils::randomFloat(float min, float max) -> float {
+    std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_real_distribution<>dis(min, max);
+	return dis(gen);
 };

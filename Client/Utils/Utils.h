@@ -7,6 +7,8 @@
 #include <fstream>
 #include <bitset>
 #include <string>
+#include <random>
+#include <chrono>
 #include <map>
 
 #define PI 3.141592653589793
@@ -23,6 +25,7 @@ public:
     static auto rmDebugPath(void) -> void;
 
     static auto ptrToStr(uintptr_t) -> std::string;
+    static auto randomFloat(float, float) -> float;
 };
 
 template<typename T>
