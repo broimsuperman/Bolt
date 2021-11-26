@@ -21,7 +21,7 @@ auto Spammer::onGameMode(GameMode* GM) -> void {
     auto msg = this->message;
 
     if(this->randomChars)
-        msg = std::string("[" + std::to_string((int)Utils::randomFloat(0, 100)) + "] " + msg + " [" + std::to_string((int)Utils::randomFloat(0, 100)) + "]");
+        msg = std::string("[" + std::to_string(Utils::randomNum<int>(0, 100)) + "] " + msg + " [" + std::to_string(Utils::randomNum<int>(0, 100)) + "]");
     
     auto textPacket = new TextPacket();
     textPacket->authorName = player->getNameTag();
