@@ -5,7 +5,7 @@
 
 class MineplexFlight : public Module {
 public:
-    MineplexFlight(Category* category) : Module(category, "MineplexFlight") {
+    MineplexFlight(Category* category) : Module(category, "Mineplex Flight") {
         //
     };
     auto onGameMode(GameMode*) -> void override;
