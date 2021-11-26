@@ -5,7 +5,7 @@
 
 class StackableItems : public Module {
 public:
-    StackableItems(Category* category) : Module(category, "StackableItems") {
+    StackableItems(Category* category) : Module(category, "Stackable Items") {
         //
     };
     auto onGameMode(GameMode*) -> void override;
