@@ -14,6 +14,7 @@ public:
 
     auto onRender(RenderUtils*) -> void override;
     auto onGameMode(GameMode*) -> void override;
+    auto onPacket(Packet*, bool*) -> void override;
 };
 
 #endif /* CLIENT_BOLT_MODULE_MODULES_OTHER_TESTMODULE */
