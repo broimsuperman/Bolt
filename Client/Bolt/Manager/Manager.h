@@ -36,6 +36,8 @@ public:
         };
         return nullptr;
     };
+
+    auto getModule(std::string) -> Module*;
     
     auto initCategories(void) -> void;
     auto initModules(void) -> void;
