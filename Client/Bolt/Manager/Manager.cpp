@@ -41,6 +41,16 @@ auto Manager::getCategories(void) -> std::vector<Category*> {
     return this->categories;
 };
 
+auto Manager::getModule(std::string moduleName) -> Module* {
+    for(auto c : this->getCategories()) {
+        for(auto m : c->getModules()) {
+            if(m->name.rfind(moduleName) != std::string::npos)
+                return m;
+        };
+    };
+    return nullptr;
+};
+
 auto Manager::initCategories(void) -> void {
     new Category(this, "Combat");
     new Category(this, "Movement");
