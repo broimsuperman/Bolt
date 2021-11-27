@@ -21,3 +21,8 @@ auto BlockSource::getBlock(Vec3<int>* blockPos) -> Block* {
 
     return _GetBlock(this, blockPos);
 };
+
+auto BlockSource::getBlock(Vec3<float>* blockPos) -> Block* {
+    auto blockPosInt = Vec3<int>((int)blockPos->x, (int)blockPos->y, (int)blockPos->z);
+    return this->getBlock(&blockPosInt);
+};
