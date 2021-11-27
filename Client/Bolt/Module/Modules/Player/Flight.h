@@ -8,6 +8,7 @@ public:
     Flight(Category* category) : Module(category, "Flight") {
         //
     };
+    auto onTick(void) -> void override;
     auto onGameMode(GameMode*) -> void override;
     auto onDisable(void) -> void override;
 };
