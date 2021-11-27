@@ -6,13 +6,14 @@
 #include "../World/Scaffold.h"
 
 auto Surround::onGameMode(GameMode* GM) -> void {
-    if(GM == nullptr || GM->player == nullptr)
+    if(std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now() - savedTime) < std::chrono::milliseconds(100))
         return;
     
-    auto scaffoldMod = this->getManager()->getModule<Scaffold>();
+    if(GM == nullptr || GM->player == nullptr)
+        return;
 
     if(scaffoldMod == nullptr)
-        return;
+        scaffoldMod = this->getManager()->getModule<Scaffold>();
     
     auto player = GM->player;
     auto myPos = *player->getPos();
@@ -70,29 +71,58 @@ auto Surround::onGameMode(GameMode* GM) -> void {
         auto dist = sqrt(dX * dX + dY * dY + dZ * dZ);
 
         if(dist == distances[0]) {
-            auto rangeXZ = 1.6f;
-            auto rangeY = 2;
-            pos.y -= 2.f;
+            static auto blockSides = std::vector<Vec3<int>>();
 
-            for(auto x = -rangeXZ; x < rangeXZ; x += 0.2f) {
-                for(auto y = -1; y < (rangeY * 2); y++) {
-                    for(auto z = -rangeXZ; z < rangeXZ; z += 0.2f) {
+            if(blockSides.empty()) {
+                blockSides.push_back(Vec3<int>(0, -1, 0));
+                blockSides.push_back(Vec3<int>(0, 1, 0));
+
+                blockSides.push_back(Vec3<int>(0, 0, -1));
+                blockSides.push_back(Vec3<int>(0, 0, 1));
+
+                blockSides.push_back(Vec3<int>(-1, 0, 0));
+                blockSides.push_back(Vec3<int>(1, 0, 0));
+            };
+            
+            auto range = 2.f;
+            pos.y += (range / 2);
+
+            auto motion = entity->getMotion();
+            auto speed = sqrtf(motion.x * motion.x + motion.z * motion.z);
+
+            auto squaredLen = motion.x * motion.x + motion.y * motion.y + motion.z * motion.z;
+            auto magnitude = sqrtf(squaredLen);
+
+            auto norm = Vec3<float>(motion.x / magnitude, motion.y / magnitude, motion.z / magnitude);
+
+            for(auto x = -range; x < range; x += 0.2f) {
+                for(auto y = -range; y < range; y += 0.2f) {
+                    for(auto z = -range; z < range; z += 0.2f) {
+                        
                         auto blockPos = Vec3<float>(pos.x + x, pos.y + y, pos.z + z);
-                        auto block = player->getRegionConst()->getBlock(&blockPos);
 
-                        if(!block->blockLegacy->getMaterial()->isAlwaysDestroyable)
-                            continue;
-                        
-                        if(blockPos.y <= 0)
-                            continue;
-                        
-                        tryScaffold(GM, blockPos);
+                        if(!scaffoldMod->tryScaffold(GM, blockPos)) {
+                            if(speed > 0.05f) {
+                                blockPos.z -= norm.z * 0.4f;
+                                if(!scaffoldMod->tryScaffold(GM, blockPos)) {
+                                    blockPos.x -= norm.x * 0.4f;
+                                    if(!scaffoldMod->tryScaffold(GM, blockPos)) {
+                                        blockPos.z += norm.z;
+                                        blockPos.x += norm.x;
+                                        scaffoldMod->tryScaffold(GM, blockPos);
+                                    };
+                                };
+                            };
+                        };
                     };
                 };
             };
+
             break;
         };
     };
+
+    savedTime = std::chrono::high_resolution_clock::now();
 };
 
 auto Surround::tryScaffold(GameMode* GM, Vec3<float> blockBelow) -> bool {
