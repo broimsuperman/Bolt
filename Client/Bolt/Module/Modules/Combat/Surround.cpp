@@ -70,14 +70,18 @@ auto Surround::onGameMode(GameMode* GM) -> void {
         auto dist = sqrt(dX * dX + dY * dY + dZ * dZ);
 
         if(dist == distances[0]) {
-            auto rangeXZ = 3.f;
+            auto rangeXZ = 1.6f;
             auto rangeY = 2;
             pos.y -= 2.f;
 
             for(auto x = -rangeXZ; x < rangeXZ; x += 0.2f) {
-                for(auto y = -(rangeY / 2); y < (rangeY * 2); y++) {
+                for(auto y = -1; y < (rangeY * 2); y++) {
                     for(auto z = -rangeXZ; z < rangeXZ; z += 0.2f) {
                         auto blockPos = Vec3<float>(pos.x + x, pos.y + y, pos.z + z);
+                        auto block = player->getRegionConst()->getBlock(&blockPos);
+
+                        if(!block->blockLegacy->getMaterial()->isAlwaysDestroyable)
+                            continue;
                         
                         if(blockPos.y <= 0)
                             continue;
