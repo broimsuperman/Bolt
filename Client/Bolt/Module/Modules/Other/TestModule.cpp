@@ -5,7 +5,18 @@
 #include "../../../Client/Client.h"
 
 auto TestModule::onEnable(void) -> void {
-    return;
+    auto instance = Minecraft::getClientInstance();
+
+    if(instance == nullptr)
+        return;
+    
+    this->displayToChat("1...");
+    instance->releaseMouse();
+    
+    Sleep(2000);
+
+    this->displayToChat("2...");
+    instance->grabMouse();
 };
 
 auto TestModule::onTick(void) -> void {
@@ -21,14 +32,14 @@ auto TestModule::onGameMode(GameMode* GM) -> void {
     if(GM == nullptr || GM->player == nullptr)
         return;
     
-    auto textPacket = new TextPacket();
+    /*auto textPacket = new TextPacket();
     textPacket->type = 1;
     textPacket->messageContents = std::string("Hello, World!");
     Minecraft::getClientInstance()->getLoopbackPacketSender()->send(textPacket);
 
     delete textPacket;
 
-    this->setState(false);
+    this->setState(false);*/
 };
 
 auto TestModule::onPacket(Packet* packet, bool* cancel) -> void {
