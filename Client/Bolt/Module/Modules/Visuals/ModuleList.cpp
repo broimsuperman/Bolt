@@ -23,7 +23,7 @@ public:
     Module* mod;
     float xOff = 0.f;
     float textLen = 0.f;
-    float animModifier = 0.6f;
+    float animModifier = 0.4f;
 public:
     auto updateXOff(float resX) -> void {
         if(this->mod == nullptr)
