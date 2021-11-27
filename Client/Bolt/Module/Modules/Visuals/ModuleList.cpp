@@ -59,7 +59,8 @@ auto ModuleList::onRender(RenderUtils* r) -> void {
 
     auto res = guiData->scaledRes;
 
-    auto mainColor = Color(52, 235, 183, alpha);
+    auto outlineColor = Color(52, 159, 235, alpha);
+    auto textColor = Color(30, 200, 200, alpha);
     auto bgColor = Color(23, 23, 23, alpha);
 
     std::vector<std::string> moduleNames = std::vector<std::string>();
@@ -90,8 +91,8 @@ auto ModuleList::onRender(RenderUtils* r) -> void {
         auto rectPos = Vec4<float>((curr->xOff < res.x ? curr->xOff - 3 : curr->xOff), I * 12, res.x, I * 12 + 13);
         
         r->fillRectangle(rectPos, bgColor);
-        r->drawRectangle(rectPos, mainColor, 1);
-        r->drawString(moduleName, 1, Vec2<float>(rectPos.x + 2, rectPos.y + 2), mainColor);
+        r->drawRectangle(rectPos, outlineColor, 1);
+        r->drawString(moduleName, 1, Vec2<float>(rectPos.x + 2, rectPos.y + 2), textColor);
 
         I++;
     };
