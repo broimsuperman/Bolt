@@ -92,7 +92,7 @@ auto ModuleList::onRender(RenderUtils* r) -> void {
         
         r->fillRectangle(rectPos, bgColor);
         r->drawRectangle(rectPos, outlineColor, 1);
-        r->drawString(moduleName, 1, Vec2<float>(rectPos.x + 2.8f, rectPos.y + 2), textColor);
+        r->drawString(moduleName, 1, Vec2<float>(rectPos.x + 3.f, rectPos.y + 2), textColor);
 
         I++;
     };
