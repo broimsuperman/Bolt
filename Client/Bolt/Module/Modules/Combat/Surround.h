@@ -12,6 +12,7 @@ public:
     auto tryScaffold(GameMode*, Vec3<float>) -> bool;
 public:
     std::chrono::time_point<std::chrono::steady_clock> savedTime = std::chrono::high_resolution_clock::now();
+    class Scaffold* scaffoldMod;
 };
 
 #endif /* CLIENT_BOLT_MODULE_MODULES_COMBAT_SURROUND */
