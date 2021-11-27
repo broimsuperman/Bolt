@@ -87,11 +87,11 @@ auto ModuleList::onRender(RenderUtils* r) -> void {
         if(curr->xOff >= res.x)
             continue;
         
-        auto rectPos = Vec4<float>((curr->xOff < res.x ? curr->xOff - 3 : curr->xOff), I * 10, res.x, I * 10 + 10);
+        auto rectPos = Vec4<float>((curr->xOff < res.x ? curr->xOff - 3 : curr->xOff), I * 11, res.x, I * 11 + 11);
         
         r->fillRectangle(rectPos, bgColor);
         r->drawRectangle(rectPos, mainColor, 1);
-        r->drawString(moduleName, 1, Vec2<float>(rectPos.x + 1.5, rectPos.y + 0.5), mainColor);
+        r->drawString(moduleName, 1, Vec2<float>(rectPos.x + 1.5, rectPos.y + 1), mainColor);
 
         I++;
     };
