@@ -3,6 +3,13 @@
 auto lastState = false;
 bool gotState = false;
 
+auto Flight::onTick(void) -> void {
+    auto instance = Minecraft::getClientInstance();
+    
+    if(instance == nullptr || instance->getLocalPlayer() == nullptr)
+        return this->setState(false);
+};
+
 auto Flight::onGameMode(GameMode* GM) -> void {
     if(GM == nullptr || GM->player == nullptr)
         return;
@@ -22,6 +29,8 @@ auto Flight::onDisable(void) -> void {
     if(instance != nullptr)
         player = instance->getLocalPlayer();
     
-    player->setFlyState(lastState);
+    if(instance->getLocalPlayer() != nullptr)
+        player->setFlyState(lastState);
+    
     gotState = false;
 };
