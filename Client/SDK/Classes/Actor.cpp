@@ -199,7 +199,7 @@ auto Actor::getXboxGamertag(void) -> std::string {
             gamertag = (std::string*)((uintptr_t)(this) + 0x8E0);
         break;
         case MC_VER::v1_17_34_2:
-            gamertag = (std::string*)((uintptr_t)(this) + 0x8E0);
+            gamertag = (std::string*)((uintptr_t)(this) + 0x900);
         break;
     };
 
