@@ -124,14 +124,13 @@ auto ClientInstance::getFov(void) -> Vec2<float> {
 
     switch(Minecraft::sdkVer) {
         case MC_VER::v1_17_41_1:
-            //fov = Vec2<float>(*(float*)((uintptr_t)(this) + 0x670), *(float*)((uintptr_t)(this) + 0x684));
             fov = Vec2<float>(*(float*)((uintptr_t)(this) + 0x670), *(float*)((uintptr_t)(this) + 0x684));
         break;
         case MC_VER::v1_17_40_6:
-            fov = Vec2<float>(*(float*)((uintptr_t)(this) + 0x660), *(float*)((uintptr_t)(this) + 0x674));
+            fov = Vec2<float>(*(float*)((uintptr_t)(this) + 0x670), *(float*)((uintptr_t)(this) + 0x684));
         break;
         case MC_VER::v1_17_34_2:
-            fov = Vec2<float>(*(float*)((uintptr_t)(this) + 0x660), *(float*)((uintptr_t)(this) + 0x674));
+            fov = Vec2<float>(*(float*)((uintptr_t)(this) + 0x670), *(float*)((uintptr_t)(this) + 0x684));
         break;
     };
 

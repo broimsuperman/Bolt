@@ -45,6 +45,7 @@ public:
     auto _getDimensionId(void) -> int;
 
     auto getRuntimeID(void) -> __int64;
+    auto getXboxGamertag(void) -> std::string;
 public:
     auto getRegionConst(void) -> BlockSource*;
     auto getDimension(void) -> Dimension*;

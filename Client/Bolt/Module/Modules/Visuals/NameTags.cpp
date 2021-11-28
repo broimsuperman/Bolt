@@ -1,0 +1,70 @@
+#include "NameTags.h"
+
+#include "../../../Category/Category.h"
+#include "../../../Manager/Manager.h"
+#include "../../../Client/Client.h"
+
+auto NameTags::onRender(RenderUtils* r) -> void {
+    if(r == nullptr || !r->canDraw())
+        return;
+    
+    auto instance = Minecraft::getClientInstance();
+    auto player = (Player*)(instance != nullptr ? instance->getLocalPlayer() : nullptr);
+    auto mcGame = (MinecraftGame*)(instance != nullptr ? instance->getMinecraftGame() : nullptr);
+
+    if(player == nullptr || mcGame == nullptr)
+        return;
+    
+    auto myPos = *player->getPos();
+
+    for(auto [runtimeId, entity] : this->getManager()->getEntityMap()) {
+        if(runtimeId == player->getRuntimeID())
+            continue;
+        
+        if(entity == nullptr || entity->VTable == nullptr)
+            continue;
+        
+        if(entity->getEntityTypeId() != 63 || !entity->isAlive())
+            continue;
+        
+        auto pos = *entity->getPos();
+        auto gamertag = entity->getXboxGamertag();
+        pos.y += 1.3f;
+
+        auto screenCoords = r->gameToScreenPos(pos);
+
+        if(screenCoords.x <= 0 || screenCoords.y <= 0)
+            continue;
+        
+        if(gamertag.length() <= 0)
+            continue;
+
+        auto dX = pos.x - myPos.x;
+        auto dY = pos.y - myPos.y;
+        auto dZ = pos.z - myPos.z;
+
+        auto dist = sqrt(dX * dX + dY * dY + dZ * dZ);
+
+        if(dist >= 200)
+            continue;
+        
+        auto alpha = (mcGame->canUseKeys() ? 1.f : 0.f);
+        
+        auto outlineColor = Color(52, 159, 235, alpha);
+        auto textColor = Color(30, 200, 200, alpha);
+        auto bgColor = Color(23, 23, 23, alpha);
+        
+        auto text = std::string(gamertag + " || " + std::to_string((int)dist));
+        auto textSize = fmax(0.6f, 3.f / dist);
+
+        auto textWidth = r->textLen(text, textSize);
+        auto textHeight = 10.f * textSize;
+
+        auto textPos = screenCoords;
+        textPos.y -= textHeight;
+        textPos.x -= (textWidth / 2.f);
+
+        r->drawString(text, textSize, textPos, textColor);
+    };
+    r->getCtx()->flushText(0);
+};

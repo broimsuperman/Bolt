@@ -188,6 +188,24 @@ auto Actor::getRuntimeID(void) -> __int64 {
     return *RuntimeID;
 };
 
+auto Actor::getXboxGamertag(void) -> std::string {
+    auto gamertag = (std::string*)nullptr;
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_17_41_1:
+            gamertag = (std::string*)((uintptr_t)(this) + 0x8E0);
+        break;
+        case MC_VER::v1_17_40_6:
+            gamertag = (std::string*)((uintptr_t)(this) + 0x8E0);
+        break;
+        case MC_VER::v1_17_34_2:
+            gamertag = (std::string*)((uintptr_t)(this) + 0x8E0);
+        break;
+    };
+
+    return *gamertag;
+};
+
 auto Actor::getRegionConst(void) -> BlockSource* {
     auto regionConst = (BlockSource*)nullptr;
 
