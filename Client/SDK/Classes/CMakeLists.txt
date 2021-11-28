@@ -9,4 +9,5 @@ target_sources(Bolt PRIVATE
                                 "LoopbackPacketSender.cpp"
                                     "PlayerInventory.cpp"
                                         "ItemStack.cpp"
+                                            "LevelRenderer.cpp"
 )

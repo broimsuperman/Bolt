@@ -1,5 +1,7 @@
 #include "MinecraftUIRenderContext.h"
 
+#include "../Minecraft.h"
+
 RenderUtils::RenderUtils(MinecraftUIRenderContext* ctx, Font* font) {
     this->ctx = ctx;
     this->font = font;
@@ -60,4 +62,37 @@ auto RenderUtils::textLen(std::string text, float size) -> float {
         return 0.f;
     
     return this->ctx->getLineLength(this->font, &text, size, false);
+};
+
+/* World2Screen Stuff */
+
+auto RenderUtils::gameToScreenPos(Vec3<float> inGamePos) -> Vec2<float> {
+    auto screenPos = Vec2<float>();
+
+    if(!this->canDraw())
+        return screenPos;
+    
+    auto instance = Minecraft::getClientInstance();
+    auto levelRenderer = (LevelRenderer*)nullptr;
+    auto guiData = (GuiData*)nullptr;
+    
+    auto badrefdef = (glmatrixf*)nullptr;
+
+    if(instance != nullptr) {
+        levelRenderer = instance->getLevelRenderer();
+        guiData = instance->getGuiData();
+        badrefdef = instance->getRefDef();
+    };
+
+    if(levelRenderer == nullptr || guiData == nullptr || badrefdef == nullptr)
+        return screenPos;
+    
+    auto fov = instance->getFov();
+    auto refdef = instance->getRefDef();
+    auto origin = levelRenderer->getOrigin();
+    auto matrixPtr = std::shared_ptr<glmatrixf>(refdef->correct());
+
+    matrixPtr->OWorldToScreen(origin, inGamePos, screenPos, fov, guiData->scaledRes);
+    
+    return screenPos;
 };

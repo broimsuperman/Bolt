@@ -46,6 +46,24 @@ auto ClientInstance::getGuiData(void) -> GuiData* {
     return (GuiData*)nullptr;
 };
 
+auto ClientInstance::getLevelRenderer(void) -> LevelRenderer* {
+    auto levelRenderer = (LevelRenderer*)nullptr;
+
+    switch(Minecraft::sdkVer) {
+        case MC_VER::v1_17_41_1:
+            levelRenderer = *(LevelRenderer**)((uintptr_t)(this) + 0xC0);
+        break;
+        case MC_VER::v1_17_40_6:
+            levelRenderer = *(LevelRenderer**)((uintptr_t)(this) + 0xC0);
+        break;
+        case MC_VER::v1_17_34_2:
+            levelRenderer = *(LevelRenderer**)((uintptr_t)(this) + 0xC0);
+        break;
+    };
+
+    return levelRenderer;
+};
+
 auto ClientInstance::getLoopbackPacketSender(void) -> LoopbackPacketSender* {
     switch(Minecraft::sdkVer){
         case MC_VER::v1_17_41_1:
@@ -99,4 +117,38 @@ auto ClientInstance::releaseMouse(void) -> void {
         };
 
     _ReleaseMouse(this);
+};
+
+auto ClientInstance::getFov(void) -> Vec2<float> {
+    auto fov = Vec2<float>();
+
+    switch(Minecraft::sdkVer) {
+        case MC_VER::v1_17_41_1:
+            //fov = Vec2<float>(*(float*)((uintptr_t)(this) + 0x670), *(float*)((uintptr_t)(this) + 0x684));
+            fov = Vec2<float>(*(float*)((uintptr_t)(this) + 0x670), *(float*)((uintptr_t)(this) + 0x684));
+        break;
+        case MC_VER::v1_17_40_6:
+            fov = Vec2<float>(*(float*)((uintptr_t)(this) + 0x660), *(float*)((uintptr_t)(this) + 0x674));
+        break;
+        case MC_VER::v1_17_34_2:
+            fov = Vec2<float>(*(float*)((uintptr_t)(this) + 0x660), *(float*)((uintptr_t)(this) + 0x674));
+        break;
+    };
+
+    return fov;
+};
+
+auto ClientInstance::getRefDef(void) -> glmatrixf* {
+    switch(Minecraft::sdkVer) {
+        case MC_VER::v1_17_41_1:
+            return (glmatrixf*)((uintptr_t)(this) + 0x2F0);
+        break;
+        case MC_VER::v1_17_40_6:
+            return (glmatrixf*)((uintptr_t)(this) + 0x2F0);
+        break;
+        case MC_VER::v1_17_34_2:
+            return (glmatrixf*)((uintptr_t)(this) + 0x2F0);
+        break;
+    };
+    return nullptr;
 };

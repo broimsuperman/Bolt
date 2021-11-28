@@ -105,6 +105,9 @@ public:
 public:
     auto canDraw(void) -> bool;
     auto textLen(std::string, float) -> float;
+public:
+    auto gameToScreenPos(Vec3<float>) -> Vec2<float>;
+    auto drawNameTag(class Player*, float) -> bool;
 };
 
 #endif /* CLIENT_SDK_CLASSES_MINECRAFTUIRENDERCONTEXT */
