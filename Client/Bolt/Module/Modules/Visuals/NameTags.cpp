@@ -69,12 +69,12 @@ auto NameTags::onRender(RenderUtils* r) -> void {
         r->drawString(text, textSize, textPos, textColor);
 
         rectPos.x = textPos.x - 1.f * textSize;
-		rectPos.y = textPos.y - 1.f * textSize;
-		rectPos.z = textPos.x + textWidth + 1.f * textSize;
-		rectPos.w = textPos.y + textHeight + 2.f * textSize;
+	rectPos.y = textPos.y - 1.f * textSize;
+	rectPos.z = textPos.x + textWidth + 1.f * textSize;
+	rectPos.w = textPos.y + textHeight + 2.f * textSize;
 		
         Vec4<float> subRectPos = rectPos;
-		subRectPos.y = subRectPos.w - 1.f * textSize;
+	subRectPos.y = subRectPos.w - 1.f * textSize;
 
         r->fillRectangle(rectPos, bgColor);
         r->drawRectangle(subRectPos, outlineColor, 1);
