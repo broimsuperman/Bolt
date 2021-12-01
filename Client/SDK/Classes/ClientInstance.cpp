@@ -135,6 +135,9 @@ auto ClientInstance::getFov(void) -> Vec2<float> {
     auto fov = Vec2<float>();
 
     switch(Minecraft::sdkVer) {
+        case MC_VER::v1_18_0_02:
+            fov = Vec2<float>(*(float*)((uintptr_t)(this) + 0x658), *(float*)((uintptr_t)(this) + 0x66C));
+        break;
         case MC_VER::v1_17_41_1:
             fov = Vec2<float>(*(float*)((uintptr_t)(this) + 0x670), *(float*)((uintptr_t)(this) + 0x684));
         break;
@@ -151,6 +154,9 @@ auto ClientInstance::getFov(void) -> Vec2<float> {
 
 auto ClientInstance::getRefDef(void) -> glmatrixf* {
     switch(Minecraft::sdkVer) {
+        case MC_VER::v1_18_0_02:
+            return (glmatrixf*)((uintptr_t)(this) + 0x2D8);
+        break;
         case MC_VER::v1_17_41_1:
             return (glmatrixf*)((uintptr_t)(this) + 0x2F0);
         break;
