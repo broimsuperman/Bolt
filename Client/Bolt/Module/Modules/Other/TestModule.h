@@ -6,7 +6,7 @@
 class TestModule : public Module {
 public:
     TestModule(Category* category) : Module(category, "Test Module") {
-        this->setState(true);
+        /*this->setState(true);*/
     };
 
     auto onEnable(void) -> void override;
