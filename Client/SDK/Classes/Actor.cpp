@@ -1253,6 +1253,9 @@ auto Actor::getFormattedNameTag(void) -> std::string {
     auto _GetFormattedNameTag = (GetFormattedNameTag)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetFormattedNameTag = (GetFormattedNameTag)(this->VTable[65]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetFormattedNameTag = (GetFormattedNameTag)(this->VTable[65]);
         break;
@@ -1272,6 +1275,9 @@ auto Actor::filterFormattedNameTag(struct UIProfanityContext* uiProfanityContext
     auto _FilterFormattedNameTag = (FilterFormattedNameTag)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _FilterFormattedNameTag = (FilterFormattedNameTag)(this->VTable[66]);
+        break;
         case MC_VER::v1_17_41_1:
             _FilterFormattedNameTag = (FilterFormattedNameTag)(this->VTable[66]);
         break;
@@ -1291,6 +1297,9 @@ auto Actor::setNameTag(std::string name) -> void {
     auto _SetNameTag = (SetNameTag)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SetNameTag = (SetNameTag)(this->VTable[67]);
+        break;
         case MC_VER::v1_17_41_1:
             _SetNameTag = (SetNameTag)(this->VTable[67]);
         break;
@@ -1310,6 +1319,9 @@ auto Actor::setScoreTag(std::string scoreTag) -> void {
     auto _SetScoreTag = (SetScoreTag)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SetScoreTag = (SetScoreTag)(this->VTable[69]);
+        break;
         case MC_VER::v1_17_41_1:
             _SetScoreTag = (SetScoreTag)(this->VTable[69]);
         break;
@@ -1329,6 +1341,9 @@ auto Actor::getScoreTag(void) -> std::string {
     auto _GetScoreTag = (GetScoreTag)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetScoreTag = (GetScoreTag)(this->VTable[70]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetScoreTag = (GetScoreTag)(this->VTable[70]);
         break;
@@ -1348,6 +1363,9 @@ auto Actor::isInWater(void) -> bool {
     auto _IsInWater = (IsInWater)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _IsInWater = (IsInWater)(this->VTable[71]);
+        break;
         case MC_VER::v1_17_41_1:
             _IsInWater = (IsInWater)(this->VTable[71]);
         break;
@@ -1367,6 +1385,9 @@ auto Actor::hasEnteredWater(void) -> bool {
     auto _HasEnteredWater = (HasEnteredWater)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _HasEnteredWater = (HasEnteredWater)(this->VTable[72]);
+        break;
         case MC_VER::v1_17_41_1:
             _HasEnteredWater = (HasEnteredWater)(this->VTable[72]);
         break;
@@ -1386,6 +1407,9 @@ auto Actor::isInLava(void) -> bool {
     auto _IsInLava = (IsInLava)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _IsInLava = (IsInLava)(this->VTable[73]);
+        break;
         case MC_VER::v1_17_41_1:
             _IsInLava = (IsInLava)(this->VTable[73]);
         break;
@@ -1405,6 +1429,9 @@ auto Actor::isUnderLiquid(MaterialType materialType) -> bool {
     auto _IsUnderLiquid = (IsUnderLiquid)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _IsUnderLiquid = (IsUnderLiquid)(this->VTable[74]);
+        break;
         case MC_VER::v1_17_41_1:
             _IsUnderLiquid = (IsUnderLiquid)(this->VTable[74]);
         break;
@@ -1424,6 +1451,9 @@ auto Actor::isOverWater(void) -> bool {
     auto _IsOverWater = (IsOverWater)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _IsOverWater = (IsOverWater)(this->VTable[75]);
+        break;
         case MC_VER::v1_17_41_1:
             _IsOverWater = (IsOverWater)(this->VTable[75]);
         break;
