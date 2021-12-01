@@ -549,6 +549,9 @@ auto Actor::getAttachPos(enum ActorLocation actorLocation, float f) -> Vec3<floa
     auto _GetAttachPos = (GetAttachPos)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetAttachPos = (GetAttachPos)(this->VTable[25]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetAttachPos = (GetAttachPos)(this->VTable[25]);
         break;
@@ -568,6 +571,9 @@ auto Actor::getFiringPos(void) -> Vec3<float>* {
     auto _GetFiringPos = (GetFiringPos)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetFiringPos = (GetFiringPos)(this->VTable[26]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetFiringPos = (GetFiringPos)(this->VTable[26]);
         break;
@@ -587,6 +593,9 @@ auto Actor::setRot(Vec2<float>* bodyRot) -> void {
     auto _SetRot = (SetRot)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SetRot = (SetRot)(this->VTable[27]);
+        break;
         case MC_VER::v1_17_41_1:
             _SetRot = (SetRot)(this->VTable[27]);
         break;
@@ -606,6 +615,9 @@ auto Actor::move(struct IActorMovementProxy* proxy, Vec3<float>* moveVec) -> voi
     auto _Move = (Move)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _Move = (Move)(this->VTable[28]);
+        break;
         case MC_VER::v1_17_41_1:
             _Move = (Move)(this->VTable[28]);
         break;
@@ -625,6 +637,9 @@ auto Actor::move(Vec3<float>* moveVec) -> void {
     auto _Move = (Move)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _Move = (Move)(this->VTable[29]);
+        break;
         case MC_VER::v1_17_41_1:
             _Move = (Move)(this->VTable[29]);
         break;
@@ -644,6 +659,9 @@ auto Actor::getInterpolatedRidingPosition(float f) -> Vec3<float>* {
     auto _GetInterpolatedRidingPosition = (GetInterpolatedRidingPosition)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetInterpolatedRidingPosition = (GetInterpolatedRidingPosition)(this->VTable[30]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetInterpolatedRidingPosition = (GetInterpolatedRidingPosition)(this->VTable[30]);
         break;
@@ -663,6 +681,9 @@ auto Actor::getInterpolatedBodyRot(float f) -> float {
     auto _GetInterpolatedBodyRot = (GetInterpolatedBodyRot)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetInterpolatedBodyRot = (GetInterpolatedBodyRot)(this->VTable[31]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetInterpolatedBodyRot = (GetInterpolatedBodyRot)(this->VTable[31]);
         break;
@@ -682,6 +703,9 @@ auto Actor::getYawSpeedInDegreesPerSecond(void) -> float {
     auto _GetYawSpeedInDegreesPerSecond = (GetYawSpeedInDegreesPerSecond)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetYawSpeedInDegreesPerSecond = (GetYawSpeedInDegreesPerSecond)(this->VTable[34]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetYawSpeedInDegreesPerSecond = (GetYawSpeedInDegreesPerSecond)(this->VTable[34]);
         break;
