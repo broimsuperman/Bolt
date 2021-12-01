@@ -39,6 +39,9 @@ auto ClientInstance::getMinecraftGame(void) -> MinecraftGame* {
 
 auto ClientInstance::getGuiData(void) -> GuiData* {
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            return *(GuiData**)((uintptr_t)(this) + 0x4D0);
+        break;
         case MC_VER::v1_17_41_1:
             return *(GuiData**)((uintptr_t)(this) + 0x4E8);
         break;
@@ -56,6 +59,9 @@ auto ClientInstance::getLevelRenderer(void) -> LevelRenderer* {
     auto levelRenderer = (LevelRenderer*)nullptr;
 
     switch(Minecraft::sdkVer) {
+        case MC_VER::v1_18_0_02:
+            levelRenderer = *(LevelRenderer**)((uintptr_t)(this) + 0xD0);
+        break;
         case MC_VER::v1_17_41_1:
             levelRenderer = *(LevelRenderer**)((uintptr_t)(this) + 0xC0);
         break;
