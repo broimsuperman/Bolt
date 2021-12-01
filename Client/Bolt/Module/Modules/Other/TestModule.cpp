@@ -16,16 +16,30 @@ auto TestModule::onRender(RenderUtils* r) -> void {
     if(r == nullptr || !r->canDraw())
         return;
     
+    auto instance = Minecraft::getClientInstance();
+    auto player = (instance != nullptr ? instance->getLocalPlayer() : nullptr);
+
+    if(player == nullptr)
+        return;
+    
+    auto inGamePos = Vec3<float>(0, -58.f, 0);
+    auto screenCoords = r->gameToScreenPos(inGamePos);
+
+    if(screenCoords.x <= 0 || screenCoords.y <= 0)
+        return;
+    
     auto textSize = .8f;
     auto text = std::string("Hello, World!");
-    auto textWidth = r->textLen(text, textSize);
 
-    auto textPos = Vec2<float>(24, 24);
-    auto rectPos = Vec4<float>(textPos.x - 2, textPos.y - 2, textPos.x + (textWidth + 2), textPos.y + 12);
+    auto width = r->textLen(text, textSize);
+    auto height = 10.f * textSize;
 
-    r->fillRectangle(rectPos, Color(23, 23, 23, .4));
-    r->drawRectangle(rectPos, Color(52, 235, 94, .4), 1);
+    auto textPos = screenCoords;
+    auto rectPos = Vec4<float>(textPos.x - 2, textPos.y - 2, (textPos.x + width) + 2, (textPos.y + height) + 2);
 
+    r->fillRectangle(rectPos, Color(23, 23, 23, .4f));
+    r->drawRectangle(rectPos, Color(66, 239, 245, .8f), 1);
+    
     r->drawString(text, textSize, textPos, Color(255, 255, 255));
     r->getCtx()->flushText(0);
 };
