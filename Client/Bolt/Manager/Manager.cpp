@@ -108,44 +108,44 @@ auto Manager::initCategories(void) -> void {
 
 auto Manager::initModules(void) -> void {
     /* Combat */
-    //new Killaura(this->getCategory("Combat"));
-    //new BoostHit(this->getCategory("Combat"));
-    //new Hitbox(this->getCategory("Combat"));
-    //new Surround(this->getCategory("Combat"));
+    new Killaura(this->getCategory("Combat"));
+    new BoostHit(this->getCategory("Combat"));
+    new Hitbox(this->getCategory("Combat"));
+    new Surround(this->getCategory("Combat"));
     
     /* Movement */
-    //new AirJump(this->getCategory("Movement"));
-    //new AutoSprint(this->getCategory("Movement"));
-    //new AirSpeed(this->getCategory("Movement"));
-    //new Jesus(this->getCategory("Movement"));
-    //new Jetpack(this->getCategory("Movement"));
-    //new DirectionalPhase(this->getCategory("Movement"));
+    new AirJump(this->getCategory("Movement"));
+    new AutoSprint(this->getCategory("Movement"));
+    new AirSpeed(this->getCategory("Movement"));
+    new Jesus(this->getCategory("Movement"));
+    new Jetpack(this->getCategory("Movement"));
+    new DirectionalPhase(this->getCategory("Movement"));
 
     /* Player */
 
-    //new Coords(this->getCategory("Player"));
-    //new NoKnockBack(this->getCategory("Player"));
-    //new Flight(this->getCategory("Player"));
+    new Coords(this->getCategory("Player"));
+    new NoKnockBack(this->getCategory("Player"));
+    new Flight(this->getCategory("Player"));
     
     /* Visuals */
     new TabGui(this->getCategory("Visuals"));
     new ModuleList(this->getCategory("Visuals"));
-    //new NameTags(this->getCategory("Visuals"));
+    new NameTags(this->getCategory("Visuals"));
 
     /* World */
 
-    //new Instabreak(this->getCategory("World"));
-    //new Nuker(this->getCategory("World"));
-    //new Scaffold(this->getCategory("World"));
+    new Instabreak(this->getCategory("World"));
+    new Nuker(this->getCategory("World"));
+    new Scaffold(this->getCategory("World"));
     
     /* Other */
     new TestModule(this->getCategory("Other"));
-    //new StackableItems(this->getCategory("Other"));
+    new StackableItems(this->getCategory("Other"));
     //new MineplexFlight(this->getCategory("Other"));
-    //new CakeAura(this->getCategory("Other"));
-    //new NoPacket(this->getCategory("Other"));
+    new CakeAura(this->getCategory("Other"));
+    new NoPacket(this->getCategory("Other"));
     //new LagSpoof(this->getCategory("Other"));
-    //new PacketLogger(this->getCategory("Other"));
+    new PacketLogger(this->getCategory("Other"));
     //new Spammer(this->getCategory("Other"));
     new Uninject(this->getCategory("Other"));
 };
@@ -166,9 +166,9 @@ auto Manager::initHooks(void) -> void {
         
         new Hook_Key(this);
 
-        //new Hook_GameMode(this);
+        new Hook_GameMode(this);
         
-        //new Hook_Actor(this);
+        new Hook_Actor(this);
 
         Utils::debugLogF("\n");
     }
