@@ -18,12 +18,15 @@ auto TestModule::onRender(RenderUtils* r) -> void {
     
     auto textSize = .8f;
     auto text = std::string("Hello, World!");
-    auto textWidth = r->textLen(text, textSize) + 4;
+    auto textWidth = r->textLen(text, textSize);
 
-    r->fillRectangle(Vec4<float>(10, 10, 10 + textWidth, 10 + 12.f), Color(23, 23, 23, .4));
-    r->drawRectangle(Vec4<float>(10, 10, 10 + textWidth, 10 + 12.f), Color(52, 235, 94, .4), 1);
+    auto textPos = Vec2<float>(24, 24);
+    auto rectPos = Vec4<float>(textPos.x - 2, textPos.y - 2, textPos.x + (textWidth + 2), textPos.y + 12);
 
-    r->drawString(text, textSize, Vec2<float>(10 + 2, 12), Color(255, 255, 255));
+    r->fillRectangle(rectPos, Color(23, 23, 23, .4));
+    r->drawRectangle(rectPos, Color(52, 235, 94, .4), 1);
+
+    r->drawString(text, textSize, textPos, Color(255, 255, 255));
     r->getCtx()->flushText(0);
 };
 
