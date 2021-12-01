@@ -169,8 +169,6 @@ public:
     auto getEquippedTotem(void) -> ItemStack*;
     auto consumeTotem(void) -> void;
     auto getEntityTypeId(void) -> uint8_t;
-    auto setOnFire(int) -> void;
-    auto extinguishFire(void) -> void;
     auto getSourceUniqueID(void) -> const ActorUniqueID &;
     auto thawFreezeEffect(void) -> void;
     auto isWearingLeatherArmor(void) -> bool;
