@@ -3277,6 +3277,9 @@ auto Actor::getCommandPermissionLevel(void) -> CommandPermissionLevel {
     auto _GetCommandPermissionLevel = (GetCommandPermissionLevel)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetCommandPermissionLevel = (GetCommandPermissionLevel)(this->VTable[204]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetCommandPermissionLevel = (GetCommandPermissionLevel)(this->VTable[205]);
         break;
@@ -3296,6 +3299,9 @@ auto Actor::isClientSide(void) -> bool {
     auto _IsClientSide = (IsClientSide)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _IsClientSide = (IsClientSide)(this->VTable[205]);
+        break;
         case MC_VER::v1_17_41_1:
             _IsClientSide = (IsClientSide)(this->VTable[206]);
         break;
