@@ -58,6 +58,22 @@ public:
         this->y = y;
         this->z = z;
     };
+
+	auto add(T x, T y, T z) -> Vec3<T> {
+        return Vec3<T>(this->x + x, this->y + y, this->z + z);
+    };
+
+	auto add(Vec3<T>& vec) -> Vec3<T> {
+        return Vec3<T>(this->x + vec.x, this->y + vec.y, this->z + vec.z);
+    };
+
+    auto add(T v) -> Vec3<T> {
+        return Vec3<T>(this->x + v, this->y + v, this->z + v);
+    };
+
+	auto sub(T x, T y, T z) -> Vec3<T> {
+        return Vec3<T>(this->x + x, this->y + y, this->z + z);
+    };
     
     auto sub(Vec3<T>& vec) -> Vec3<T> {
         return Vec3<T>(this->x - vec.x, this->y - vec.y, this->z - vec.z);
@@ -67,12 +83,28 @@ public:
         return Vec3<T>(this->x - v, this->y - v, this->z - v);
     };
 
+	auto div(T x, T y, T z) -> Vec3<T> {
+        return Vec3<T>(this->x / x, this->y / y, this->z / z);
+    };
+
     auto div(Vec3<T>& vec) -> Vec3<T> {
         return Vec3<T>(this->x / vec.x, this->y / vec.y, this->z / vec.z);
     };
 
     auto div(T v) -> Vec3<T> {
         return Vec3<T>(this->x / v, this->y / v, this->z / v);
+    };
+
+	auto mul(T x, T y, T z) -> Vec3<T> {
+        return Vec3<T>(this->x * x, this->y * y, this->z * z);
+    };
+
+    auto mul(Vec3<T>& vec) -> Vec3<T> {
+        return Vec3<T>(this->x * vec.x, this->y * vec.y, this->z * vec.z);
+    };
+
+    auto mul(T v) -> Vec3<T> {
+        return Vec3<T>(this->x * v, this->y * v, this->z * v);
     };
 };
 
