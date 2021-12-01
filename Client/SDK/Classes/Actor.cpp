@@ -1473,6 +1473,9 @@ auto Actor::setBlockMovementSlowdownMultiplier(Vec3<float>* modifier) -> void {
     auto _SetBlockMovementSlowdownMultiplier = (SetBlockMovementSlowdownMultiplier)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SetBlockMovementSlowdownMultiplier = (SetBlockMovementSlowdownMultiplier)(this->VTable[76]);
+        break;
         case MC_VER::v1_17_41_1:
             _SetBlockMovementSlowdownMultiplier = (SetBlockMovementSlowdownMultiplier)(this->VTable[76]);
         break;
@@ -1492,6 +1495,9 @@ auto Actor::resetBlockMovementSlowdownMultiplier(void) -> void {
     auto _ResetBlockMovementSlowdownMultiplier = (ResetBlockMovementSlowdownMultiplier)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _ResetBlockMovementSlowdownMultiplier = (ResetBlockMovementSlowdownMultiplier)(this->VTable[77]);
+        break;
         case MC_VER::v1_17_41_1:
             _ResetBlockMovementSlowdownMultiplier = (ResetBlockMovementSlowdownMultiplier)(this->VTable[77]);
         break;
@@ -1511,6 +1517,9 @@ auto Actor::getShadowHeightOffs(void) -> float {
     auto _GetShadowHeightOffs = (GetShadowHeightOffs)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetShadowHeightOffs = (GetShadowHeightOffs)(this->VTable[79]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetShadowHeightOffs = (GetShadowHeightOffs)(this->VTable[79]);
         break;
@@ -1530,6 +1539,9 @@ auto Actor::getShadowRadiusOffs(void) -> float {
     auto _GetShadowRadiusOffs = (GetShadowRadiusOffs)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetShadowRadiusOffs = (GetShadowRadiusOffs)(this->VTable[80]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetShadowRadiusOffs = (GetShadowRadiusOffs)(this->VTable[80]);
         break;
@@ -1549,6 +1561,9 @@ auto Actor::getHeadLookVector(float f) -> Vec3<float>* {
     auto _GetHeadLookVector = (GetHeadLookVector)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetHeadLookVector = (GetHeadLookVector)(this->VTable[81]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetHeadLookVector = (GetHeadLookVector)(this->VTable[81]);
         break;
@@ -1568,6 +1583,9 @@ auto Actor::canSee(Vec3<float>* vec) -> bool {
     auto _CanSee = (CanSee)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _CanSee = (CanSee)(this->VTable[83]);
+        break;
         case MC_VER::v1_17_41_1:
             _CanSee = (CanSee)(this->VTable[83]);
         break;
@@ -1587,6 +1605,9 @@ auto Actor::canSee(Actor* entity) -> bool {
     auto _CanSee = (CanSee)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _CanSee = (CanSee)(this->VTable[84]);
+        break;
         case MC_VER::v1_17_41_1:
             _CanSee = (CanSee)(this->VTable[84]);
         break;
@@ -1606,6 +1627,9 @@ auto Actor::isSkyLit(float f) -> bool {
     auto _IsSkyLit = (IsSkyLit)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _IsSkyLit = (IsSkyLit)(this->VTable[85]);
+        break;
         case MC_VER::v1_17_41_1:
             _IsSkyLit = (IsSkyLit)(this->VTable[85]);
         break;
@@ -1625,6 +1649,9 @@ auto Actor::getBrightness(float f) -> float {
     auto _GetBrightness = (GetBrightness)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetBrightness = (GetBrightness)(this->VTable[86]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetBrightness = (GetBrightness)(this->VTable[86]);
         break;
@@ -1644,6 +1671,9 @@ auto Actor::isImmobile(void) -> bool {
     auto _IsImmobile = (IsImmobile)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _IsImmobile = (IsImmobile)(this->VTable[91]);
+        break;
         case MC_VER::v1_17_41_1:
             _IsImmobile = (IsImmobile)(this->VTable[91]);
         break;
@@ -1663,6 +1693,9 @@ auto Actor::isSilent(void) -> bool {
     auto _IsSilent = (IsSilent)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _IsSilent = (IsSilent)(this->VTable[92]);
+        break;
         case MC_VER::v1_17_41_1:
             _IsSilent = (IsSilent)(this->VTable[92]);
         break;
@@ -1682,6 +1715,9 @@ auto Actor::isSleeping(void) -> bool {
     auto _IsSleeping = (IsSleeping)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _IsSleeping = (IsSleeping)(this->VTable[95]);
+        break;
         case MC_VER::v1_17_41_1:
             _IsSleeping = (IsSleeping)(this->VTable[95]);
         break;
@@ -1701,6 +1737,9 @@ auto Actor::setSleeping(bool setSleeping) -> void {
     auto _SetSleeping = (SetSleeping)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SetSleeping = (SetSleeping)(this->VTable[96]);
+        break;
         case MC_VER::v1_17_41_1:
             _SetSleeping = (SetSleeping)(this->VTable[96]);
         break;
@@ -1720,6 +1759,9 @@ auto Actor::setSneaking(bool setSneaking) -> void {
     auto _SetSneaking = (SetSneaking)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SetSneaking = (SetSneaking)(this->VTable[98]);
+        break;
         case MC_VER::v1_17_41_1:
             _SetSneaking = (SetSneaking)(this->VTable[98]);
         break;
@@ -1739,6 +1781,9 @@ auto Actor::isAlive(void) -> bool {
     auto _IsAlive = (IsAlive)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _IsAlive = (IsAlive)(this->VTable[101]);
+        break;
         case MC_VER::v1_17_41_1:
             _IsAlive = (IsAlive)(this->VTable[101]);
         break;
@@ -1758,6 +1803,9 @@ auto Actor::isOnFire(void) -> bool {
     auto _IsOnFire = (IsOnFire)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _IsOnFire = (IsOnFire)(this->VTable[102]);
+        break;
         case MC_VER::v1_17_41_1:
             _IsOnFire = (IsOnFire)(this->VTable[102]);
         break;
@@ -1777,6 +1825,9 @@ auto Actor::isOnHotBlock(void) -> bool {
     auto _IsOnHotBlock = (IsOnHotBlock)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _IsOnHotBlock = (IsOnHotBlock)(this->VTable[103]);
+        break;
         case MC_VER::v1_17_41_1:
             _IsOnHotBlock = (IsOnHotBlock)(this->VTable[103]);
         break;
@@ -1796,6 +1847,9 @@ auto Actor::isAffectedByWaterBottle(void) -> bool {
     auto _IsAffectedByWaterBottle = (IsAffectedByWaterBottle)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _IsAffectedByWaterBottle = (IsAffectedByWaterBottle)(this->VTable[109]);
+        break;
         case MC_VER::v1_17_41_1:
             _IsAffectedByWaterBottle = (IsAffectedByWaterBottle)(this->VTable[109]);
         break;
@@ -1815,6 +1869,9 @@ auto Actor::canAttack(Actor* entity, bool paramB) -> bool {
     auto _CanAttack = (CanAttack)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _CanAttack = (CanAttack)(this->VTable[110]);
+        break;
         case MC_VER::v1_17_41_1:
             _CanAttack = (CanAttack)(this->VTable[110]);
         break;
@@ -1834,6 +1891,9 @@ auto Actor::setTarget(Actor* entity) -> void {
     auto _SetTarget = (SetTarget)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SetTarget = (SetTarget)(this->VTable[111]);
+        break;
         case MC_VER::v1_17_41_1:
             _SetTarget = (SetTarget)(this->VTable[111]);
         break;
@@ -1853,6 +1913,9 @@ auto Actor::isValidTarget(Actor* entity) -> bool {
     auto _IsValidTarget = (IsValidTarget)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _IsValidTarget = (IsValidTarget)(this->VTable[113]);
+        break;
         case MC_VER::v1_17_41_1:
             _IsValidTarget = (IsValidTarget)(this->VTable[113]);
         break;
@@ -1872,6 +1935,9 @@ auto Actor::attack(Actor* entity, enum ActorDamageCause actorDamageCause) -> boo
     auto _Attack = (Attack)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _Attack = (Attack)(this->VTable[114]);
+        break;
         case MC_VER::v1_17_41_1:
             _Attack = (Attack)(this->VTable[114]);
         break;
@@ -1891,6 +1957,9 @@ auto Actor::performRangedAttack(Actor* entity, float f) -> void {
     auto _PerformRangedAttack = (PerformRangedAttack)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _PerformRangedAttack = (PerformRangedAttack)(this->VTable[115]);
+        break;
         case MC_VER::v1_17_41_1:
             _PerformRangedAttack = (PerformRangedAttack)(this->VTable[115]);
         break;
@@ -1910,6 +1979,9 @@ auto Actor::getEquipmentCount(void) -> __int64 {
     auto _GetEquipmentCount = (GetEquipmentCount)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetEquipmentCount = (GetEquipmentCount)(this->VTable[117]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetEquipmentCount = (GetEquipmentCount)(this->VTable[117]);
         break;
@@ -1929,6 +2001,9 @@ auto Actor::setOwner(ActorUniqueID* actorUniqueID) -> void {
     auto _SetOwner = (SetOwner)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SetOwner = (SetOwner)(this->VTable[118]);
+        break;
         case MC_VER::v1_17_41_1:
             _SetOwner = (SetOwner)(this->VTable[118]);
         break;
@@ -1948,6 +2023,9 @@ auto Actor::setSitting(bool state) -> void {
     auto _SetSitting = (SetSitting)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SetSitting = (SetSitting)(this->VTable[119]);
+        break;
         case MC_VER::v1_17_41_1:
             _SetSitting = (SetSitting)(this->VTable[119]);
         break;
@@ -1967,6 +2045,9 @@ auto Actor::getInventorySize(void) -> __int64 {
     auto _GetInventorySize = (GetInventorySize)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetInventorySize = (GetInventorySize)(this->VTable[122]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetInventorySize = (GetInventorySize)(this->VTable[122]);
         break;
@@ -1986,6 +2067,9 @@ auto Actor::getEquipSlots(void) -> __int64 {
     auto _GetEquipSlots = (GetEquipSlots)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetEquipSlots = (GetEquipSlots)(this->VTable[123]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetEquipSlots = (GetEquipSlots)(this->VTable[123]);
         break;
@@ -2005,6 +2089,9 @@ auto Actor::getChestSlots(void) -> __int64 {
     auto _GetChestSlots = (GetChestSlots)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetChestSlots = (GetChestSlots)(this->VTable[124]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetChestSlots = (GetChestSlots)(this->VTable[124]);
         break;
@@ -2024,6 +2111,9 @@ auto Actor::setStanding(bool standing) -> void {
     auto _SetStanding = (SetStanding)(this->VTable[0]);
     
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SetStanding = (SetStanding)(this->VTable[125]);
+        break;
         case MC_VER::v1_17_41_1:
             _SetStanding = (SetStanding)(this->VTable[125]);
         break;
@@ -2043,6 +2133,9 @@ auto Actor::canPowerJump(void) -> bool {
     auto _CanPowerJump = (CanPowerJump)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _CanPowerJump = (CanPowerJump)(this->VTable[126]);
+        break;
         case MC_VER::v1_17_41_1:
             _CanPowerJump = (CanPowerJump)(this->VTable[126]);
         break;
@@ -2062,6 +2155,9 @@ auto Actor::setCanPowerJump(bool powerJumpState) -> void {
     auto _SetCanPowerJump = (SetCanPowerJump)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SetCanPowerJump = (SetCanPowerJump)(this->VTable[127]);
+        break;
         case MC_VER::v1_17_41_1:
             _SetCanPowerJump = (SetCanPowerJump)(this->VTable[127]);
         break;
@@ -2081,6 +2177,9 @@ auto Actor::isJumping(void) -> bool {
     auto _IsJumping = (IsJumping)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _IsJumping = (IsJumping)(this->VTable[128]);
+        break;
         case MC_VER::v1_17_41_1:
             _IsJumping = (IsJumping)(this->VTable[128]);
         break;
@@ -2100,6 +2199,9 @@ auto Actor::isEnchanted(void) -> bool {
     auto _IsEnchanted = (IsEnchanted)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _IsEnchanted = (IsEnchanted)(this->VTable[129]);
+        break;
         case MC_VER::v1_17_41_1:
             _IsEnchanted = (IsEnchanted)(this->VTable[129]);
         break;
@@ -2119,6 +2221,9 @@ auto Actor::shouldRender(void) -> bool {
     auto _ShouldRender = (ShouldRender)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _ShouldRender = (ShouldRender)(this->VTable[131]);
+        break;
         case MC_VER::v1_17_41_1:
             _ShouldRender = (ShouldRender)(this->VTable[132]);
         break;
@@ -2138,6 +2243,9 @@ auto Actor::playAmbientSound(void) -> void {
     auto _PlayAmbientSound = (PlayAmbientSound)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _PlayAmbientSound = (PlayAmbientSound)(this->VTable[132]);
+        break;
         case MC_VER::v1_17_41_1:
             _PlayAmbientSound = (PlayAmbientSound)(this->VTable[133]);
         break;
@@ -2157,6 +2265,9 @@ auto Actor::getAmbientSound(void) -> LevelSoundEvent {
     auto _GetAmbientSound = (GetAmbientSound)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetAmbientSound = (GetAmbientSound)(this->VTable[133]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetAmbientSound = (GetAmbientSound)(this->VTable[134]);
         break;
@@ -2176,6 +2287,9 @@ auto Actor::isInvulnerableTo(struct ActorDamageSource* actorDamageSource) -> boo
     auto _IsInvulnerableTo = (IsInvulnerableTo)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _IsInvulnerableTo = (IsInvulnerableTo)(this->VTable[134]);
+        break;
         case MC_VER::v1_17_41_1:
             _IsInvulnerableTo = (IsInvulnerableTo)(this->VTable[135]);
         break;
@@ -2195,6 +2309,9 @@ auto Actor::getBlockDamageCause(class Block* block) -> ActorDamageCause {
     auto _GetBlockDamageCause = (GetBlockDamageCause)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetBlockDamageCause = (GetBlockDamageCause)(this->VTable[135]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetBlockDamageCause = (GetBlockDamageCause)(this->VTable[136]);
         break;
@@ -2214,6 +2331,9 @@ auto Actor::actuallyHurt(int paramA, struct ActorDamageSource* actorDamageSource
     auto _ActuallyHurt = (ActuallyHurt)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _ActuallyHurt = (ActuallyHurt)(this->VTable[136]);
+        break;
         case MC_VER::v1_17_41_1:
             _ActuallyHurt = (ActuallyHurt)(this->VTable[137]);
         break;
@@ -2233,6 +2353,9 @@ auto Actor::animateHurt(void) -> void {
     auto _AnimateHurt = (AnimateHurt)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _AnimateHurt = (AnimateHurt)(this->VTable[137]);
+        break;
         case MC_VER::v1_17_41_1:
             _AnimateHurt = (AnimateHurt)(this->VTable[138]);
         break;
@@ -2252,6 +2375,9 @@ auto Actor::doFireHurt(int v) -> bool {
     auto _DoFireHurt = (DoFireHurt)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _DoFireHurt = (DoFireHurt)(this->VTable[138]);
+        break;
         case MC_VER::v1_17_41_1:
             _DoFireHurt = (DoFireHurt)(this->VTable[139]);
         break;
@@ -2271,6 +2397,9 @@ auto Actor::feed(int v) -> void {
     auto _Feed = (Feed)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _Feed = (Feed)(this->VTable[141]);
+        break;
         case MC_VER::v1_17_41_1:
             _Feed = (Feed)(this->VTable[142]);
         break;
@@ -2290,6 +2419,9 @@ auto Actor::handleEntityEvent(enum ActorEvent event, int paramB) -> void {
     auto _HandleEntityEvent = (HandleEntityEvent)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _HandleEntityEvent = (HandleEntityEvent)(this->VTable[142]);
+        break;
         case MC_VER::v1_17_41_1:
             _HandleEntityEvent = (HandleEntityEvent)(this->VTable[143]);
         break;
@@ -2309,6 +2441,9 @@ auto Actor::getPickRadius(void) -> float {
     auto _GetPickRadius = (GetPickRadius)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetPickRadius = (GetPickRadius)(this->VTable[143]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetPickRadius = (GetPickRadius)(this->VTable[144]);
         break;
@@ -2328,6 +2463,9 @@ auto Actor::getActorRendererId(void) -> HashedString* {
     auto _GetActorRendererId = (GetActorRendererId)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetActorRendererId = (GetActorRendererId)(this->VTable[144]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetActorRendererId = (GetActorRendererId)(this->VTable[145]);
         break;
@@ -2347,6 +2485,9 @@ auto Actor::spawnAtLocation(ItemStack* item, float f) -> ItemActor* {
     auto _SpawnAtLocation = (SpawnAtLocation)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SpawnAtLocation = (SpawnAtLocation)(this->VTable[145]);
+        break;
         case MC_VER::v1_17_41_1:
             _SpawnAtLocation = (SpawnAtLocation)(this->VTable[146]);
         break;
@@ -2366,6 +2507,9 @@ auto Actor::spawnAtLocation(Block* block, int paramB, float paramC) -> ItemActor
     auto _SpawnAtLocation = (SpawnAtLocation)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SpawnAtLocation = (SpawnAtLocation)(this->VTable[146]);
+        break;
         case MC_VER::v1_17_41_1:
             _SpawnAtLocation = (SpawnAtLocation)(this->VTable[147]);
         break;
@@ -2385,6 +2529,9 @@ auto Actor::spawnAtLocation(Block* block, int paramB) -> ItemActor* {
     auto _SpawnAtLocation = (SpawnAtLocation)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SpawnAtLocation = (SpawnAtLocation)(this->VTable[147]);
+        break;
         case MC_VER::v1_17_41_1:
             _SpawnAtLocation = (SpawnAtLocation)(this->VTable[148]);
         break;
@@ -2404,6 +2551,9 @@ auto Actor::spawnAtLocation(int paramA, int paramB, float paramC) -> ItemActor* 
     auto _SpawnAtLocation = (SpawnAtLocation)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SpawnAtLocation = (SpawnAtLocation)(this->VTable[148]);
+        break;
         case MC_VER::v1_17_41_1:
             _SpawnAtLocation = (SpawnAtLocation)(this->VTable[149]);
         break;
@@ -2423,6 +2573,9 @@ auto Actor::spawnAtLocation(int paramA, int paramB) -> ItemActor* {
     auto _SpawnAtLocation = (SpawnAtLocation)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SpawnAtLocation = (SpawnAtLocation)(this->VTable[149]);
+        break;
         case MC_VER::v1_17_41_1:
             _SpawnAtLocation = (SpawnAtLocation)(this->VTable[150]);
         break;
@@ -2442,6 +2595,9 @@ auto Actor::despawn(void) -> void {
     auto _Despawn = (Despawn)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _Despawn = (Despawn)(this->VTable[150]);
+        break;
         case MC_VER::v1_17_41_1:
             _Despawn = (Despawn)(this->VTable[151]);
         break;
@@ -2461,6 +2617,9 @@ auto Actor::killed(Actor* entity) -> void {
     auto _Killed = (Killed)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _Killed = (Killed)(this->VTable[151]);
+        break;
         case MC_VER::v1_17_41_1:
             _Killed = (Killed)(this->VTable[152]);
         break;
@@ -2480,6 +2639,9 @@ auto Actor::setArmorSlot(int slot, ItemStack* item) -> void {
     auto _SetArmorSlot = (SetArmorSlot)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SetArmorSlot = (SetArmorSlot)(this->VTable[153]);
+        break;
         case MC_VER::v1_17_41_1:
             _SetArmorSlot = (SetArmorSlot)(this->VTable[154]);
         break;
@@ -2499,6 +2661,9 @@ auto Actor::getArmor(int slot) -> ItemStack* {
     auto _GetArmorSlot = (GetArmorSlot)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetArmorSlot = (GetArmorSlot)(this->VTable[154]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetArmorSlot = (GetArmorSlot)(this->VTable[155]);
         break;
@@ -2518,6 +2683,9 @@ auto Actor::getModelScale(void) -> float {
     auto _GetModelScale = (GetModelScale)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetModelScale = (GetModelScale)(this->VTable[158]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetModelScale = (GetModelScale)(this->VTable[158]);
         break;
@@ -2537,6 +2705,9 @@ auto Actor::getEquippedSlot(int slot) -> ItemStack* {
     auto _GetEquippedSlot = (GetEquippedSlot)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetEquippedSlot = (GetEquippedSlot)(this->VTable[159]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetEquippedSlot = (GetEquippedSlot)(this->VTable[159]);
         break;
@@ -2556,6 +2727,9 @@ auto Actor::getCarriedItem(void) -> ItemStack* {
     auto _GetCarriedItem = (GetCarriedItem)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetCarriedItem = (GetCarriedItem)(this->VTable[161]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetCarriedItem = (GetCarriedItem)(this->VTable[161]);
         break;
@@ -2575,6 +2749,9 @@ auto Actor::setCarriedItem(ItemStack* item) -> void {
     auto _SetCarriedItem = (SetCarriedItem)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SetCarriedItem = (SetCarriedItem)(this->VTable[162]);
+        break;
         case MC_VER::v1_17_41_1:
             _SetCarriedItem = (SetCarriedItem)(this->VTable[162]);
         break;
@@ -2594,6 +2771,9 @@ auto Actor::setOffHandSlot(ItemStack* item) -> void {
     auto _SetOffHandSlot = (SetOffHandSlot)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SetOffHandSlot = (SetOffHandSlot)(this->VTable[163]);
+        break;
         case MC_VER::v1_17_41_1:
             _SetOffHandSlot = (SetOffHandSlot)(this->VTable[163]);
         break;
