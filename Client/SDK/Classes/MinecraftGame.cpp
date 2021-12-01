@@ -22,7 +22,7 @@ auto MinecraftGame::getFont(void) -> Font* {
 auto MinecraftGame::canUseKeys(void) -> bool {
     switch(Minecraft::sdkVer){
         case MC_VER::v1_18_0_02:
-            return *(bool*)((uintptr_t)(this) + 0x2F8);
+            return *(bool*)((uintptr_t)(this) + 0x300);
         break;
         case MC_VER::v1_17_41_1:
             return *(bool*)((uintptr_t)(this) + 0x2F8);
