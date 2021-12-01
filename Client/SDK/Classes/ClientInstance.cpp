@@ -3,6 +3,9 @@
 
 auto ClientInstance::getLocalPlayer(void) -> Player* {
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            return *(Player**)((uintptr_t)(this) + 0x148);
+        break;
         case MC_VER::v1_17_41_1:
             return *(Player**)((uintptr_t)(this) + 0x138);
         break;
@@ -18,6 +21,9 @@ auto ClientInstance::getLocalPlayer(void) -> Player* {
 
 auto ClientInstance::getMinecraftGame(void) -> MinecraftGame* {
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            return *(MinecraftGame**)((uintptr_t)(this) + 0xA8);
+        break;
         case MC_VER::v1_17_41_1:
             return *(MinecraftGame**)((uintptr_t)(this) + 0xA8);
         break;
