@@ -129,7 +129,7 @@ auto Manager::initModules(void) -> void {
     
     /* Visuals */
     new TabGui(this->getCategory("Visuals"));
-    //new ModuleList(this->getCategory("Visuals"));
+    new ModuleList(this->getCategory("Visuals"));
     //new NameTags(this->getCategory("Visuals"));
 
     /* World */
@@ -147,7 +147,7 @@ auto Manager::initModules(void) -> void {
     //new LagSpoof(this->getCategory("Other"));
     //new PacketLogger(this->getCategory("Other"));
     //new Spammer(this->getCategory("Other"));
-    //new Uninject(this->getCategory("Other"));
+    new Uninject(this->getCategory("Other"));
 };
 
 #include "../Hook/Hooks/Render/Render.h"
