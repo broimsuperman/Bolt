@@ -174,6 +174,9 @@ auto Actor::getRuntimeID(void) -> __int64 {
     auto RuntimeID = (__int64*)nullptr;
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            RuntimeID = (__int64*)((uintptr_t)(this) + 0x558);
+        break;
         case MC_VER::v1_17_41_1:
             RuntimeID = (__int64*)((uintptr_t)(this) + 0x560);
         break;
