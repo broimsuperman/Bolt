@@ -6,6 +6,9 @@ auto Player::getSupplies(void) -> PlayerInventory* {
     auto supplies = (PlayerInventory*)nullptr;
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            supplies = *(PlayerInventory**)((uintptr_t)(this) + 0xB88);
+        break;
         case MC_VER::v1_17_41_1:
             supplies = *(PlayerInventory**)((uintptr_t)(this) + 0xB90);
         break;
