@@ -3719,7 +3719,7 @@ auto Actor::drop(ItemStack* itemStack) -> bool {
     switch(Minecraft::sdkVer){
         case MC_VER::v1_18_0_02:
             _Drop = (Drop)(this->VTable[231]);
-        break
+        break;
         case MC_VER::v1_17_41_1:
             _Drop = (Drop)(this->VTable[232]);
         break;
