@@ -8,6 +8,9 @@ auto BlockSource::getBlock(Vec3<int>* blockPos) -> Block* {
 
     if(_GetBlock == nullptr)
         switch(Minecraft::sdkVer){
+            case MC_VER::v1_18_0_02:
+                _GetBlock = (GetBlock)(Mem::findSig("48 89 5C 24 ? 57 48 83 EC 20 48 8B F9 48 8B DA 8B 4A 04 0F BF 47 3A"));
+            break;
             case MC_VER::v1_17_41_1:
                 _GetBlock = (GetBlock)(Mem::findSig("48 89 5C 24 ? 57 48 83 EC 20 48 8B F9 48 8B DA 8B 4A 04 0F BF 47 3A"));
             break;
