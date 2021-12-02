@@ -3321,6 +3321,9 @@ auto Actor::getMutableAttribute(Attribute* attribute) -> AttributeInstance* {
     auto _GetMutableAttribute = (GetMutableAttribute)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetMutableAttribute = (GetMutableAttribute)(this->VTable[206]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetMutableAttribute = (GetMutableAttribute)(this->VTable[207]);
         break;
@@ -3340,6 +3343,9 @@ auto Actor::getAttribute(AttributeInstance* attributeInstance) -> Attribute* {
     auto _GetAttribute = (GetAttribute)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetAttribute = (GetAttribute)(this->VTable[207]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetAttribute = (GetAttribute)(this->VTable[208]);
         break;
@@ -3359,6 +3365,9 @@ auto Actor::heal(int health) -> void {
     auto _Heal = (Heal)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _Heal = (Heal)(this->VTable[209]);
+        break;
         case MC_VER::v1_17_41_1:
             _Heal = (Heal)(this->VTable[210]);
         break;
@@ -3378,6 +3387,9 @@ auto Actor::isInvertedHealAndHarm(void) -> bool {
     auto _IsInvertedHealAndHarm = (IsInvertedHealAndHarm)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _IsInvertedHealAndHarm = (IsInvertedHealAndHarm)(this->VTable[210]);
+        break;
         case MC_VER::v1_17_41_1:
             _IsInvertedHealAndHarm = (IsInvertedHealAndHarm)(this->VTable[211]);
         break;
@@ -3397,6 +3409,9 @@ auto Actor::canBeAffected(MobEffectInstance* mobEffectInstance) -> bool {
     auto _CanBeAffected = (CanBeAffected)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _CanBeAffected = (CanBeAffected)(this->VTable[211]);
+        break;
         case MC_VER::v1_17_41_1:
             _CanBeAffected = (CanBeAffected)(this->VTable[212]);
         break;
@@ -3416,6 +3431,9 @@ auto Actor::canBeAffected(int paramA) -> bool {
     auto _CanBeAffected = (CanBeAffected)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _CanBeAffected = (CanBeAffected)(this->VTable[212]);
+        break;
         case MC_VER::v1_17_41_1:
             _CanBeAffected = (CanBeAffected)(this->VTable[213]);
         break;
@@ -3435,6 +3453,9 @@ auto Actor::canBeAffectedByArrow(MobEffectInstance* mobEffectInstance) -> bool {
     auto _CanBeAffectedByArrow = (CanBeAffectedByArrow)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _CanBeAffectedByArrow = (CanBeAffectedByArrow)(this->VTable[213]);
+        break;
         case MC_VER::v1_17_41_1:
             _CanBeAffectedByArrow = (CanBeAffectedByArrow)(this->VTable[214]);
         break;
@@ -3454,6 +3475,9 @@ auto Actor::getAnimationComponent(void) -> AnimationComponent* {
     auto _GetAnimationComponent = (GetAnimationComponent)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetAnimationComponent = (GetAnimationComponent)(this->VTable[217]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetAnimationComponent = (GetAnimationComponent)(this->VTable[218]);
         break;
@@ -3473,6 +3497,9 @@ auto Actor::openContainerComponent(Player* player) -> void {
     auto _OpenContainerComponent = (OpenContainerComponent)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _OpenContainerComponent = (OpenContainerComponent)(this->VTable[218]);
+        break;
         case MC_VER::v1_17_41_1:
             _OpenContainerComponent = (OpenContainerComponent)(this->VTable[219]);
         break;
@@ -3492,6 +3519,9 @@ auto Actor::swing(void) -> void {
     auto _Swing = (Swing)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _Swing = (Swing)(this->VTable[219]);
+        break;
         case MC_VER::v1_17_41_1:
             _Swing = (Swing)(this->VTable[220]);
         break;
