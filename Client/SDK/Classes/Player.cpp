@@ -2450,10 +2450,10 @@ auto Player::getMovementSettings(void) -> PlayerMovementSettings* {
     switch(Minecraft::sdkVer){
         case MC_VER::v1_18_0_02:
             _GetMovementSettings = (GetMovementSettings)(this->VTable[440]);
-        break;|
+        break;
         case MC_VER::v1_17_41_1:
             _GetMovementSettings = (GetMovementSettings)(this->VTable[441]);
-        break;|
+        break;
         case MC_VER::v1_17_40_6:
             _GetMovementSettings = (GetMovementSettings)(this->VTable[441]);
         break;
