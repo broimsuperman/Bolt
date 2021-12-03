@@ -8,6 +8,9 @@ auto Inventory::getItem(int slot) -> ItemStack* {
 
     if(_GetItem == nullptr)
         switch(Minecraft::sdkVer) {
+            case MC_VER::v1_18_0_02:
+                _GetItem = (GetItem)(this->VTable[5]);
+            break;
             case MC_VER::v1_17_41_1:
                 _GetItem = (GetItem)(this->VTable[5]);
             break;
@@ -26,6 +29,9 @@ auto PlayerInventory::getInventory(void) -> Inventory* { // PlayerInventory::get
     auto inventory = (Inventory*)nullptr;
 
     switch(Minecraft::sdkVer) {
+        case MC_VER::v1_18_0_02:
+            inventory = *(Inventory**)((uintptr_t)(this) + 0xB0);
+        break;
         case MC_VER::v1_17_41_1:
             inventory = *(Inventory**)((uintptr_t)(this) + 0xB0);
         break;
