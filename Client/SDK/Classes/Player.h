@@ -19,6 +19,8 @@ struct PlayerMovementSettings;
 struct InventoryTransaction;
 struct MoveInputHandler;
 
+class Packet;
+
 class Player : public Actor {
 public:
     auto getSupplies(void) -> PlayerInventory*;
