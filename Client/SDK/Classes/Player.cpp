@@ -996,6 +996,9 @@ auto Player::dropEquipmentOnDeath(ActorDamageSource* actorDamageSource, int para
     auto _DropEquipmentOnDeath = (DropEquipmentOnDeath)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _DropEquipmentOnDeath = (DropEquipmentOnDeath)(this->VTable[327]);
+        break;
         case MC_VER::v1_17_41_1:
             _DropEquipmentOnDeath = (DropEquipmentOnDeath)(this->VTable[329]);
         break;
@@ -1015,6 +1018,9 @@ auto Player::getDamageAfterMagicAbsorb(ActorDamageSource* actorDamageSource, int
     auto _GetDamageAfterMagicAbsorb = (GetDamageAfterMagicAbsorb)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetDamageAfterMagicAbsorb = (GetDamageAfterMagicAbsorb)(this->VTable[330]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetDamageAfterMagicAbsorb = (GetDamageAfterMagicAbsorb)(this->VTable[332]);
         break;
@@ -1034,6 +1040,9 @@ auto Player::createAIGoals(void) -> bool {
     auto _CreateAIGoals = (CreateAIGoals)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _CreateAIGoals = (CreateAIGoals)(this->VTable[331]);
+        break;
         case MC_VER::v1_17_41_1:
             _CreateAIGoals = (CreateAIGoals)(this->VTable[333]);
         break;
@@ -1053,6 +1062,9 @@ auto Player::setItemSlot(int equipmentSlot, ItemStack* itemStack) -> bool {
     auto _SetItemSlot = (SetItemSlot)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SetItemSlot = (SetItemSlot)(this->VTable[333]);
+        break;
         case MC_VER::v1_17_41_1:
             _SetItemSlot = (SetItemSlot)(this->VTable[335]);
         break;
@@ -1072,6 +1084,9 @@ auto Player::setTransitioningSitting(bool transitionSitting) -> void {
     auto _SetTransitioningSitting = (SetTransitioningSitting)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SetTransitioningSitting = (SetTransitioningSitting)(this->VTable[334]);
+        break;
         case MC_VER::v1_17_41_1:
             _SetTransitioningSitting = (SetTransitioningSitting)(this->VTable[336]);
         break;
@@ -1091,6 +1106,9 @@ auto Player::attackAnimation(Actor* entity, float progress) -> void {
     auto _AttackAnimation = (AttackAnimation)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _AttackAnimation = (AttackAnimation)(this->VTable[335]);
+        break;
         case MC_VER::v1_17_41_1:
             _AttackAnimation = (AttackAnimation)(this->VTable[337]);
         break;
@@ -1110,6 +1128,9 @@ auto Player::ascendLadder(void) -> void {
     auto _AscendLadder = (AscendLadder)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _AscendLadder = (AscendLadder)(this->VTable[340]);
+        break;
         case MC_VER::v1_17_41_1:
             _AscendLadder = (AscendLadder)(this->VTable[342]);
         break;
@@ -1129,6 +1150,9 @@ auto Player::ascendBlockByJumping(void) -> void {
     auto _AscendBlockByJumping = (AscendBlockByJumping)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _AscendBlockByJumping = (AscendBlockByJumping)(this->VTable[341]);
+        break;
         case MC_VER::v1_17_41_1:
             _AscendBlockByJumping = (AscendBlockByJumping)(this->VTable[343]);
         break;
@@ -1148,6 +1172,9 @@ auto Player::descendBlockByCrouching(void) -> void {
     auto _DescendBlockByCrouching = (DescendBlockByCrouching)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _DescendBlockByCrouching = (DescendBlockByCrouching)(this->VTable[342]);
+        break;
         case MC_VER::v1_17_41_1:
             _DescendBlockByCrouching = (DescendBlockByCrouching)(this->VTable[344]);
         break;
@@ -1167,6 +1194,9 @@ auto Player::dropContainer(void) -> void {
     auto _DropContainer = (DropContainer)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _DropContainer = (DropContainer)(this->VTable[343]);
+        break;
         case MC_VER::v1_17_41_1:
             _DropContainer = (DropContainer)(this->VTable[345]);
         break;
@@ -1186,6 +1216,9 @@ auto Player::initBodyControl(void) -> __int64 {
     auto _InitBodyControl = (InitBodyControl)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _InitBodyControl = (InitBodyControl)(this->VTable[344]);
+        break;
         case MC_VER::v1_17_41_1:
             _InitBodyControl = (InitBodyControl)(this->VTable[346]);
         break;
@@ -1205,6 +1238,9 @@ auto Player::jumpFromGround(IMobMovementProxy* iMobMovementProxy) -> void {
     auto _JumpFromGround = (JumpFromGround)(this->VTable[0]);
     
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _JumpFromGround = (JumpFromGround)(this->VTable[345]);
+        break;
         case MC_VER::v1_17_41_1:
             _JumpFromGround = (JumpFromGround)(this->VTable[347]);
         break;
@@ -1224,6 +1260,9 @@ auto Player::jumpFromGround(void) -> void {
     auto _JumpFromGround = (JumpFromGround)(this->VTable[0]);
     
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _JumpFromGround = (JumpFromGround)(this->VTable[346]);
+        break;
         case MC_VER::v1_17_41_1:
             _JumpFromGround = (JumpFromGround)(this->VTable[348]);
         break;
