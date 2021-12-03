@@ -1942,6 +1942,9 @@ auto Player::getSleepTimer(void) -> __int64 {
     auto _GetSleepTimer = (GetSleepTimer)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetSleepTimer = (GetSleepTimer)(this->VTable[396]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetSleepTimer = (GetSleepTimer)(this->VTable[397]);
         break;
@@ -1961,6 +1964,9 @@ auto Player::getPreviousTickSleepTimer(void) -> __int64 {
     auto _GetPreviousTickSleepTimer = (GetPreviousTickSleepTimer)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetPreviousTickSleepTimer = (GetPreviousTickSleepTimer)(this->VTable[397]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetPreviousTickSleepTimer = (GetPreviousTickSleepTimer)(this->VTable[398]);
         break;
@@ -1980,6 +1986,9 @@ auto Player::registerTrackedBoss(ActorUniqueID & actorUniqueID) -> void {
     auto _RegisterTrackedBoss = (RegisterTrackedBoss)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _RegisterTrackedBoss = (RegisterTrackedBoss)(this->VTable[404]);
+        break;
         case MC_VER::v1_17_41_1:
             _RegisterTrackedBoss = (RegisterTrackedBoss)(this->VTable[405]);
         break;
@@ -1999,6 +2008,9 @@ auto Player::unRegisterTrackedBoss(ActorUniqueID & actorUniqueID) -> void {
     auto _UnRegisterTrackedBoss = (UnRegisterTrackedBoss)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _UnRegisterTrackedBoss = (UnRegisterTrackedBoss)(this->VTable[405]);
+        break;
         case MC_VER::v1_17_41_1:
             _UnRegisterTrackedBoss = (UnRegisterTrackedBoss)(this->VTable[406]);
         break;
@@ -2018,6 +2030,9 @@ auto Player::setPlayerGameType(GameType gameType) -> void {
     auto _SetPlayerGameType = (SetPlayerGameType)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SetPlayerGameType = (SetPlayerGameType)(this->VTable[406]);
+        break;
         case MC_VER::v1_17_41_1:
             _SetPlayerGameType = (SetPlayerGameType)(this->VTable[407]);
         break;
@@ -2037,6 +2052,9 @@ auto Player::initHUDContainerManager(void) -> void {
     auto _InitHUDContainerManager = (InitHUDContainerManager)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _InitHUDContainerManager = (InitHUDContainerManager)(this->VTable[407]);
+        break;
         case MC_VER::v1_17_41_1:
             _InitHUDContainerManager = (InitHUDContainerManager)(this->VTable[408]);
         break;
@@ -2056,6 +2074,9 @@ auto Player::_crit(Actor* entity) -> void {
     auto _Crit = (Crit)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _Crit = (Crit)(this->VTable[408]);
+        break;
         case MC_VER::v1_17_41_1:
             _Crit = (Crit)(this->VTable[409]);
         break;
@@ -2075,6 +2096,9 @@ auto Player::getEventing(void) -> IMinecraftEventing* {
     auto _GetEventing = (GetEventing)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetEventing = (GetEventing)(this->VTable[409]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetEventing = (GetEventing)(this->VTable[410]);
         break;
@@ -2094,6 +2118,9 @@ auto Player::sendEventPacket(EventPacket* eventPacket) -> void {
     auto _SendEventPacket = (SendEventPacket)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SendEventPacket = (SendEventPacket)(this->VTable[411]);
+        break;
         case MC_VER::v1_17_41_1:
             _SendEventPacket = (SendEventPacket)(this->VTable[412]);
         break;
@@ -2113,6 +2140,9 @@ auto Player::addExperience(int xp) -> void {
     auto _AddExperience = (AddExperience)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _AddExperience = (AddExperience)(this->VTable[412]);
+        break;
         case MC_VER::v1_17_41_1:
             _AddExperience = (AddExperience)(this->VTable[413]);
         break;
@@ -2132,6 +2162,9 @@ auto Player::addLevels(int levels) -> void {
     auto _AddLevels = (AddLevels)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _AddLevels = (AddLevels)(this->VTable[413]);
+        break;
         case MC_VER::v1_17_41_1:
             _AddLevels = (AddLevels)(this->VTable[414]);
         break;
@@ -2151,6 +2184,9 @@ auto Player::inventoryChanged(Container* container, int paramB, ItemStack* itemS
     auto _InventoryChanged = (InventoryChanged)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _InventoryChanged = (InventoryChanged)(this->VTable[416]);
+        break;
         case MC_VER::v1_17_41_1:
             _InventoryChanged = (InventoryChanged)(this->VTable[417]);
         break;
@@ -2170,6 +2206,9 @@ auto Player::deleteContainerManager(void) -> void {
     auto _DeleteContainerManager = (DeleteContainerManager)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _DeleteContainerManager = (DeleteContainerManager)(this->VTable[418]);
+        break;
         case MC_VER::v1_17_41_1:
             _DeleteContainerManager = (DeleteContainerManager)(this->VTable[419]);
         break;
@@ -2189,6 +2228,9 @@ auto Player::setFieldOfViewModifier(float fov) -> void {
     auto _SetFieldOfViewModifier = (SetFieldOfViewModifier)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SetFieldOfViewModifier = (SetFieldOfViewModifier)(this->VTable[419]);
+        break;
         case MC_VER::v1_17_41_1:
             _SetFieldOfViewModifier = (SetFieldOfViewModifier)(this->VTable[420]);
         break;
@@ -2208,6 +2250,9 @@ auto Player::startCooldown(const Item* item) -> void {
     auto _StartCooldown = (StartCooldown)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _StartCooldown = (StartCooldown)(this->VTable[425]);
+        break;
         case MC_VER::v1_17_41_1:
             _StartCooldown = (StartCooldown)(this->VTable[426]);
         break;
@@ -2227,6 +2272,9 @@ auto Player::getItemCooldownLeft(unsigned __int64 paramA) -> __int64 {
     auto _GetItemCooldownLeft = (GetItemCooldownLeft)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetItemCooldownLeft = (GetItemCooldownLeft)(this->VTable[426]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetItemCooldownLeft = (GetItemCooldownLeft)(this->VTable[427]);
         break;
@@ -2246,6 +2294,9 @@ auto Player::getItemCooldownLeft(HashedString* hashedString) -> __int64 {
     auto _GetItemCooldownLeft = (GetItemCooldownLeft)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetItemCooldownLeft = (GetItemCooldownLeft)(this->VTable[427]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetItemCooldownLeft = (GetItemCooldownLeft)(this->VTable[428]);
         break;
@@ -2265,6 +2316,9 @@ auto Player::getMaxItemCooldownLeft(void) -> __int64 {
     auto _GetMaxItemCooldownLeft = (GetMaxItemCooldownLeft)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetMaxItemCooldownLeft = (GetMaxItemCooldownLeft)(this->VTable[428]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetMaxItemCooldownLeft = (GetMaxItemCooldownLeft)(this->VTable[429]);
         break;
@@ -2284,6 +2338,9 @@ auto Player::isItemInCooldown(HashedString* hashedString) -> bool {
     auto _IsItemInCooldown = (IsItemInCooldown)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _IsItemInCooldown = (IsItemInCooldown)(this->VTable[429]);
+        break;
         case MC_VER::v1_17_41_1:
             _IsItemInCooldown = (IsItemInCooldown)(this->VTable[430]);
         break;
@@ -2303,6 +2360,9 @@ auto Player::getXuid(void) -> std::string* {
     auto _GetXuid = (GetXuid)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetXuid = (GetXuid)(this->VTable[439]);
+        break;
         case MC_VER::v1_17_41_1:
             _GetXuid = (GetXuid)(this->VTable[440]);
         break;
@@ -2322,9 +2382,12 @@ auto Player::getMovementSettings(void) -> PlayerMovementSettings* {
     auto _GetMovementSettings = (GetMovementSettings)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetMovementSettings = (GetMovementSettings)(this->VTable[440]);
+        break;|
         case MC_VER::v1_17_41_1:
             _GetMovementSettings = (GetMovementSettings)(this->VTable[441]);
-        break;
+        break;|
         case MC_VER::v1_17_40_6:
             _GetMovementSettings = (GetMovementSettings)(this->VTable[441]);
         break;
