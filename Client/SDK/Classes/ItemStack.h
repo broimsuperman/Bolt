@@ -28,7 +28,6 @@ public:
     auto setFireResistant(bool) -> Item*;
     auto setIsGlint(bool) -> Item*;
     auto setShouldDespawn(bool) -> Item*;
-    auto getDamageChance(int) -> __int64;
 };
 
 class ItemStack {
@@ -66,6 +65,7 @@ public:
         
         return _IsNull(this);
     };
+    
     auto isFullStack(void) -> bool {
         using IsFullStack = bool (__thiscall*)(ItemStack*);
         static auto _IsFullStack = (IsFullStack)nullptr;
