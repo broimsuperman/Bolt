@@ -162,7 +162,7 @@ auto Manager::initHooks(void) -> void {
         
         new Hook_Render(this);
 
-        //new Hook_LoopbackPacketSender(this);
+        new Hook_LoopbackPacketSender(this);
         
         new Hook_Key(this);
 
