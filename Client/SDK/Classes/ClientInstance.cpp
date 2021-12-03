@@ -78,6 +78,9 @@ auto ClientInstance::getLevelRenderer(void) -> LevelRenderer* {
 
 auto ClientInstance::getLoopbackPacketSender(void) -> LoopbackPacketSender* {
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            return *(LoopbackPacketSender**)((uintptr_t)(this) + 0xD8);
+        break;
         case MC_VER::v1_17_41_1:
             return *(LoopbackPacketSender**)((uintptr_t)(this) + 0xD0);
         break;
