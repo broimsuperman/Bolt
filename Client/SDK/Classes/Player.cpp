@@ -2355,6 +2355,72 @@ auto Player::isItemInCooldown(HashedString* hashedString) -> bool {
     return _IsItemInCooldown(this, hashedString);
 };
 
+auto Player::sendInventoryTransaction(InventoryTransaction* inventoryTransaction) -> void {
+    using SendInventoryTransaction = void (__thiscall*)(Actor*, InventoryTransaction*);
+    auto _SendInventoryTransaction = (SendInventoryTransaction)nullptr;
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SendInventoryTransaction = (SendInventoryTransaction)(this->VTable[430]);
+        break;
+        case MC_VER::v1_17_41_1:
+            _SendInventoryTransaction = (SendInventoryTransaction)(this->VTable[431]);
+        break;
+        case MC_VER::v1_17_40_6:
+            _SendInventoryTransaction = (SendInventoryTransaction)(this->VTable[431]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _SendInventoryTransaction = (SendInventoryTransaction)(this->VTable[431]);
+        break;
+    };
+
+    _SendInventoryTransaction(this, inventoryTransaction);
+};
+
+auto Player::sendNetworkPacket(Packet* packet) -> void {
+    using SendNetworkPacket = void (__thiscall*)(Actor*, Packet*);
+    auto _SendNetworkPacket = (SendNetworkPacket)nullptr;
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _SendNetworkPacket = (SendNetworkPacket)(this->VTable[432]);
+        break;
+        case MC_VER::v1_17_41_1:
+            _SendNetworkPacket = (SendNetworkPacket)(this->VTable[433]);
+        break;
+        case MC_VER::v1_17_40_6:
+            _SendNetworkPacket = (SendNetworkPacket)(this->VTable[433]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _SendNetworkPacket = (SendNetworkPacket)(this->VTable[433]);
+        break;
+    };
+
+    _SendNetworkPacket(this, packet);
+};
+
+auto Player::getMoveInputHandler(void) -> MoveInputHandler* {
+    using GetMoveInputHandler = MoveInputHandler* (__thiscall*)(Actor*);
+    auto _GetMoveInputHandler = (GetMoveInputHandler)nullptr;
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_0_02:
+            _GetMoveInputHandler = (GetMoveInputHandler)(this->VTable[434]);
+        break;
+        case MC_VER::v1_17_41_1:
+            _GetMoveInputHandler = (GetMoveInputHandler)(this->VTable[435]);
+        break;
+        case MC_VER::v1_17_40_6:
+            _GetMoveInputHandler = (GetMoveInputHandler)(this->VTable[435]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _GetMoveInputHandler = (GetMoveInputHandler)(this->VTable[435]);
+        break;
+    };
+
+    return _GetMoveInputHandler(this);
+};
+
 auto Player::getXuid(void) -> std::string* {
     using GetXuid = std::string* (__thiscall*)(Actor*);
     auto _GetXuid = (GetXuid)(this->VTable[0]);
