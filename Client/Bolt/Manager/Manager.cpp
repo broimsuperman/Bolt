@@ -143,10 +143,10 @@ auto Manager::initModules(void) -> void {
     new StackableItems(this->getCategory("Other"));
     //new MineplexFlight(this->getCategory("Other"));
     new CakeAura(this->getCategory("Other"));
-    //new NoPacket(this->getCategory("Other"));
-    //new LagSpoof(this->getCategory("Other"));
+    new NoPacket(this->getCategory("Other"));
+    new LagSpoof(this->getCategory("Other"));
     new PacketLogger(this->getCategory("Other"));
-    //new Spammer(this->getCategory("Other"));
+    new Spammer(this->getCategory("Other"));
     new Uninject(this->getCategory("Other"));
 };
 
