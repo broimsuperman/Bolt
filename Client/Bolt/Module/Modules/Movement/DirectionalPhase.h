@@ -12,7 +12,7 @@ public:
     auto onTick(void) -> void override;
     auto onGameMode(GameMode*) -> void override;
 private:
-    float speed = 0.2f;
+    float speed = 0.4f;
 };
 
 #endif /* CLIENT_BOLT_MODULE_MODULES_MOVEMENT_DIRECTIONALPHASE */
