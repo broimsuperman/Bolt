@@ -16,6 +16,9 @@ enum GameType { Survival = 0, Creative = 1, Adventure = 2, Default = 5 };
 struct IMinecraftEventing;
 struct PlayerMovementSettings;
 
+struct InventoryTransaction;
+struct MoveInputHandler;
+
 class Player : public Actor {
 public:
     auto getSupplies(void) -> PlayerInventory*;
@@ -126,6 +129,9 @@ public:
     auto getItemCooldownLeft(HashedString*) -> __int64;
     auto getMaxItemCooldownLeft(void) -> __int64;
     auto isItemInCooldown(HashedString*) -> bool;
+    auto sendInventoryTransaction(InventoryTransaction*) -> void;
+    auto sendNetworkPacket(Packet*) -> void;
+    auto getMoveInputHandler(void) -> MoveInputHandler*;
     auto getXuid(void) -> std::string*;
     auto getMovementSettings(void) -> PlayerMovementSettings*;
 };
