@@ -13,6 +13,8 @@ Manager::Manager(Client* client){
 
     this->initCategories();
     this->initModules();
+
+    this->initModuleConfigs();
     
     this->tickCategories();
 };
@@ -175,6 +177,73 @@ auto Manager::initHooks(void) -> void {
     else {
         Utils::debugLogF("Failed to initialize MinHook");
     };
+};
+
+auto Manager::initModuleConfigs(void) -> void {
+    auto mainDir = Utils::getDebugPath();
+
+    for(auto c : this->getCategories()) {
+        for(auto m : c->getModules()) {
+            auto fileName = std::string(mainDir + "\\Modules\\" + m->name + "\\" + m->name + ".bolt");
+            auto fsPath = std::filesystem::path(fileName);
+
+            if(!std::filesystem::exists(fsPath.parent_path()))
+                std::filesystem::create_directories(fsPath.parent_path());
+            
+            json j;
+            
+            if(!std::filesystem::exists(fsPath)) {
+                j["isEnabled"] = m->isEnabled;
+                j["key"] = m->key;
+
+                CloseHandle(CreateFileA(fileName.c_str(), GENERIC_WRITE | GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL));
+
+                std::ofstream File;
+                
+                File.open(fileName, std::ios::app);
+                
+                File << j.dump();
+                File.close();
+            } else {
+                std::ifstream File(fileName);
+                j = json::parse(File);
+
+                if(j.is_null() || j["isEnabled"].is_null() || j["key"].is_null())
+                    return File.close();
+                
+                m->setState(j["isEnabled"].get<bool>());
+                m->setKey(j["key"].get<uint64_t>());
+
+                File.close();
+            };
+        };
+    };
+};
+
+auto Manager::saveModuleConfigData(Module* mod) -> void {
+    if(mod == nullptr)
+        return;
+    
+    auto mainDir = Utils::getDebugPath();
+    auto fileName = std::string(mainDir + "\\Modules\\" + mod->name + "\\" + mod->name + ".bolt");
+
+    auto fsPath = std::filesystem::path(fileName);
+
+    if(!std::filesystem::exists(fsPath.parent_path()))
+        std::filesystem::create_directories(fsPath.parent_path());
+
+    CloseHandle(CreateFileA(fileName.c_str(), GENERIC_WRITE | GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL));
+
+    std::ofstream File;
+    json j;
+
+    j["isEnabled"] = mod->isEnabled;
+    j["key"] = mod->key;
+    
+    File.open(fileName);
+    
+    File << j.dump();
+    File.close();
 };
 
 auto Manager::tickCategories(void) -> void {
