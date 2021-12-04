@@ -43,6 +43,9 @@ public:
     auto initModules(void) -> void;
     auto initHooks(void) -> void;
 
+    auto initModuleConfigs(void) -> void;
+    auto saveModuleConfigData(Module*) -> void;
+
     auto tickCategories(void) -> void;
 
     auto isHoldingKey(uint64_t) -> bool;
