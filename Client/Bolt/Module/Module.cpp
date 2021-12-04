@@ -41,6 +41,7 @@ auto Module::baseTick(void) -> void {
         } else {
             this->onDisable();
         };
+        this->getManager()->saveModuleConfigData(this);
     };
 
     this->_onTick();
