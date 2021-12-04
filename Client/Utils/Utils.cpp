@@ -3,12 +3,19 @@
 std::string Utils::debugPath = std::string(Utils::getAppDataDir()) + std::string("\\..\\Local\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\RoamingState");
 
 auto Utils::debugLogF(const char* out, const char* fileName) -> void {
+    static bool init = false;
+
     try {
         auto filePath = std::string(getDebugPath() + "\\" + fileName).c_str();
         auto parentDir = std::filesystem::path(filePath).parent_path();
 
         if(!std::filesystem::exists(parentDir))
             std::filesystem::create_directories(parentDir);
+        
+        if(!init) {
+            std::filesystem::remove(filePath);
+            init = true;
+        };
         
         CloseHandle(CreateFileA(filePath, GENERIC_WRITE | GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL));
 
