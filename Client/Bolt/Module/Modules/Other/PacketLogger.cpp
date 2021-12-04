@@ -1,8 +1,5 @@
 #include "PacketLogger.h"
 
-auto packetMap = std::map<std::string, int>();
-auto init = false;
-
 auto PacketLogger::onPacket(Packet* packet, bool* cancel) -> void {
     auto name = packet->getName();
 
@@ -15,7 +12,7 @@ auto PacketLogger::onPacket(Packet* packet, bool* cancel) -> void {
     if(!init) {
         init = true;
 
-        auto path = std::filesystem::path(filePath);
+        auto path = std::filesystem::path(dir);
         
         if(std::filesystem::exists(path.parent_path()))
             std::filesystem::remove_all(path.parent_path());
