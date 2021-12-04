@@ -9,6 +9,9 @@ public:
         //
     };
     auto onPacket(Packet*, bool*) -> void override;
+private:
+    std::map<std::string, int> packetMap = std::map<std::string, int>();
+    bool init = false;
 };
 
 #endif /* CLIENT_BOLT_MODULE_MODULES_OTHER_PACKETLOGGER */
