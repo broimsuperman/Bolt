@@ -10,6 +10,9 @@
 #include <random>
 #include <chrono>
 #include <map>
+#include <nlohmann/json.hpp>
+
+using json = nlohmann::json;
 
 #define PI 3.141592653589793
 

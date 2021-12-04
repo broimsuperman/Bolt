@@ -12,7 +12,7 @@ target_sources(Bolt PRIVATE
 add_subdirectory(Includes)
 add_subdirectory(Client)
 
-target_link_libraries(Bolt PRIVATE minhook)
+target_link_libraries(Bolt PRIVATE minhook nlohmann_json::nlohmann_json)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
