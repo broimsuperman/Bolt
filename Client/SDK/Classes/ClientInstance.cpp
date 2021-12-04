@@ -100,6 +100,9 @@ auto ClientInstance::grabMouse(void) -> void {
 
     if(_GrabMouse == nullptr)
         switch(Minecraft::sdkVer) {
+            case MC_VER::v1_18_0_02:
+                _GrabMouse = (GrabMouse)(this->VTable[271]);
+            break;
             case MC_VER::v1_17_41_1:
                 _GrabMouse = (GrabMouse)(this->VTable[271]);
             break;
@@ -120,6 +123,9 @@ auto ClientInstance::releaseMouse(void) -> void {
 
     if(_ReleaseMouse == nullptr)
         switch(Minecraft::sdkVer) {
+            case MC_VER::v1_18_0_02:
+                _ReleaseMouse = (ReleaseMouse)(this->VTable[272]);
+            break;
             case MC_VER::v1_17_41_1:
                 _ReleaseMouse = (ReleaseMouse)(this->VTable[272]);
             break;
