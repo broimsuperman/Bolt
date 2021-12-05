@@ -34,6 +34,15 @@ public:
     Module* mod = nullptr;
 };
 
+class VWindowButton : public VWindowObject {
+public:
+    VWindowButton(VWindow* window, bool* toggle) : VWindowObject(window) {
+        this->toggle = toggle;
+    };
+public:
+    bool* toggle = nullptr;
+};
+
 class VWindow {
 public:
     VWindow(std::string windowTitle) {
