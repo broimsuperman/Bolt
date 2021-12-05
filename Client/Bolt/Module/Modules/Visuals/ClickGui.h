@@ -3,15 +3,30 @@
 
 #include "../../Module.h"
 
+class VWindow;
+
 class VWindowObject {
+public:
+    VWindowObject(VWindow* window) {
+        this->window = window;
+    };
+public:
+    virtual auto getWindow(void) -> VWindow*;
 public:
     Vec2<float> position;
     std::string displayText;
+private:
+    VWindow* window = nullptr;
+public:
+    template<typename T>
+    auto isType(void) -> bool {
+        return dynamic_cast<T*>(this) != nullptr;
+    };
 };
 
 class VWindowModBtn : public VWindowObject {
 public:
-    VWindowModBtn(Module* m) {
+    VWindowModBtn(VWindow* window, Module* m) : VWindowObject(window) {
         this->mod = m;
         this->displayText = m->name;
     };
