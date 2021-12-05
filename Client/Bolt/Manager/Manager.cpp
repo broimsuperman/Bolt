@@ -83,6 +83,7 @@ auto Manager::initCategories(void) -> void {
 #include "../Module/Modules/Player/Coords.h"
 #include "../Module/Modules/Player/NoKnockback.h"
 #include "../Module/Modules/Player/Flight.h"
+#include "../Module/Modules/Player/ClickNearbyWarp.h"
 
 /* Visuals */
 
@@ -129,6 +130,7 @@ auto Manager::initModules(void) -> void {
     new Coords(this->getCategory("Player"));
     new NoKnockBack(this->getCategory("Player"));
     new Flight(this->getCategory("Player"));
+    new ClickNearbyWarp(this->getCategory("Player"));
     
     /* Visuals */
     new TabGui(this->getCategory("Visuals"));
