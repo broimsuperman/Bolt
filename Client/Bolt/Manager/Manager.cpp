@@ -87,6 +87,7 @@ auto Manager::initCategories(void) -> void {
 /* Visuals */
 
 #include "../Module/Modules/Visuals/TabGui.h"
+#include "../Module/Modules/Visuals/ClickGui.h"
 #include "../Module/Modules/Visuals/ModuleList.h"
 #include "../Module/Modules/Visuals/NameTags.h"
 
@@ -131,6 +132,7 @@ auto Manager::initModules(void) -> void {
     
     /* Visuals */
     new TabGui(this->getCategory("Visuals"));
+    new ClickGui(this->getCategory("Visuals"));
     new ModuleList(this->getCategory("Visuals"));
     new NameTags(this->getCategory("Visuals"));
 
