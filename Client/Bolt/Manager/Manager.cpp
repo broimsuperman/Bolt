@@ -189,34 +189,18 @@ auto Manager::initModuleConfigs(void) -> void {
             auto fileName = std::string(mainDir + "\\Modules\\" + m->name + "\\" + m->name + ".bolt");
             auto fsPath = std::filesystem::path(fileName);
 
-            if(!std::filesystem::exists(fsPath.parent_path()))
-                std::filesystem::create_directories(fsPath.parent_path());
-            
-            json j;
-            
             if(!std::filesystem::exists(fsPath)) {
-                j["isEnabled"] = m->isEnabled;
-                j["key"] = m->key;
-
-                CloseHandle(CreateFileA(fileName.c_str(), GENERIC_WRITE | GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL));
-
-                std::ofstream File;
-                
-                File.open(fileName, std::ios::app);
-                
-                File << j.dump();
-                File.close();
+                saveModuleConfigData(m);
             } else {
                 std::ifstream File(fileName);
-                j = json::parse(File);
+                json j = json::parse(File);
 
-                if(j.is_null() || j["isEnabled"].is_null() || j["key"].is_null())
-                    return File.close();
-                
-                m->setState(j["isEnabled"].get<bool>());
-                m->setKey(j["key"].get<uint64_t>());
-
-                File.close();
+                if(!(j.is_null() || j["isEnabled"].is_null() || j["key"].is_null())) {
+                    m->setState(j["isEnabled"].get<bool>());
+                    m->setKey(Utils::strToUint64(j["key"].get<std::string>()));
+                } else {
+                    saveModuleConfigData(m);
+                };
             };
         };
     };
@@ -240,7 +224,7 @@ auto Manager::saveModuleConfigData(Module* mod) -> void {
     json j;
 
     j["isEnabled"] = mod->isEnabled;
-    j["key"] = mod->key;
+    j["key"] = Utils::uint64ToStr(mod->key);
     
     File.open(fileName);
     
