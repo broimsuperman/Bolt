@@ -40,6 +40,7 @@ public:
     
     virtual auto onRender(RenderUtils*) -> void {};
     virtual auto onKey(uint64_t, bool, bool*) -> void {};
+    virtual auto onMouse(Vec2<float>, char, bool, bool*) -> void {};
     
     virtual auto onDestroyBlock(GameMode*, Vec3<int>*, UCHAR, bool*) -> void {};
     virtual auto onGameMode(GameMode*) -> void {};

@@ -157,6 +157,7 @@ auto Manager::initModules(void) -> void {
 #include "../Hook/Hooks/Render/Render.h"
 #include "../Hook/Hooks/LoopbackPacketSender/LoopbackPacketSender.h"
 #include "../Hook/Hooks/Key/Key.h"
+#include "../Hook/Hooks/Mouse/Mouse.h"
 #include "../Hook/Hooks/GameMode/GameMode.h"
 #include "../Hook/Hooks/Actor/Actor.h"
 
@@ -169,6 +170,8 @@ auto Manager::initHooks(void) -> void {
         new Hook_LoopbackPacketSender(this);
         
         new Hook_Key(this);
+
+        new Hook_Mouse(this);
 
         new Hook_GameMode(this);
         
