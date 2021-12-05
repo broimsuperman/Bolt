@@ -75,6 +75,14 @@ auto ClickGui::onKey(uint64_t key, bool isDown, bool* cancel) -> void {
         return this->setState(false);
 };
 
+auto ClickGui::onMouseClick(Vec2<float> mousePos, char action, bool isDown, bool* cancel) -> void {
+    this->displayToChat("Mouse Click!");
+};
+
+auto ClickGui::onMouseMove(Vec2<float> mousePos, char action, bool isDown, bool* cancel) -> void {
+    this->displayToChat("Mouse Move!");
+};
+
 auto ClickGui::onRender(RenderUtils* r) -> void {
     if(r == nullptr || !r->canDraw())
         return;
