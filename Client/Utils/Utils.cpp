@@ -65,3 +65,18 @@ auto Utils::randomFloat(float min, float max) -> float {
 	std::uniform_real_distribution<>dis(min, max);
 	return dis(gen);
 };
+
+auto Utils::uint64ToStr(uint64_t hex) -> std::string {
+    std::ostringstream o;
+    o << std::hex << hex;
+    return o.str();
+};
+
+auto Utils::strToUint64(std::string str) -> uint64_t {
+    uint64_t val;
+
+    std::istringstream i(str);
+    i >> std::hex >> val;
+
+    return val;
+};
