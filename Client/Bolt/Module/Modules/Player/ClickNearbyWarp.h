@@ -8,6 +8,7 @@ public:
     ClickNearbyWarp(Category* category) : Module(category, "ClickNearbyWarp") {
         //
     };
+    auto onEnable(void) -> void override;
     auto onMouseClick(Vec2<float>, char, bool, bool*) -> void override;
 };
 
