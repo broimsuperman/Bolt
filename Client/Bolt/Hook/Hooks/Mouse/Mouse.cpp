@@ -20,7 +20,10 @@ auto MouseCallback(uint64_t a1, char action, bool isDown, uint64_t a4, uint64_t 
         for(auto c : mouseManager->getCategories()) {
             for(auto m : c->getModules()) {
                 if(m->isEnabled)
-                    m->onMouse(Vec2<float>(x, y), action, isDown, &cancel);
+                    if(action)
+                        m->onMouseClick(Vec2<float>(x, y), action, isDown, &cancel);
+                    else
+                        m->onMouseMove(Vec2<float>(x, y), action, isDown, &cancel);
             };
         };
     };
@@ -32,7 +35,7 @@ auto MouseCallback(uint64_t a1, char action, bool isDown, uint64_t a4, uint64_t 
 auto Hook_Mouse::init(Manager* manager) -> void {
     mouseManager = manager;
 
-    auto sig = Mem::findSig("48 8B C4 48 89 58 ?? 48 89 68 ?? 48 89 70 ?? 57 41 54 41 55 41 56 41 57 48 83 EC ? ? ? ? 48");
+    auto sig = Mem::findSig("48 8B C4 48 89 58 ?? 48 89 68 ?? 48 89 70 ?? 57 41 54 41 55 41 56 41 57 48 83 EC 60 44");
 
     if(!sig)
         return Utils::debugLogF("Unable to find address needed for Mouse Hook");
