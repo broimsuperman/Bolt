@@ -17,6 +17,14 @@ auto VWindow::getElements(void) -> std::vector<VWindowObject*> {
 
 /* Click Gui */
 
+auto ClickGui::onTick(void) -> void {
+    auto instance = Minecraft::getClientInstance();
+    auto player = (instance != nullptr ? instance->getLocalPlayer() : nullptr);
+
+    if(player == nullptr)
+        return this->setState(false);
+};
+
 auto ClickGui::onEnable(void) -> void {
     auto instance = Minecraft::getClientInstance();
 

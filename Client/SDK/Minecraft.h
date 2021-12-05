@@ -20,6 +20,8 @@ public:
     static auto getClientInstance(void) -> ClientInstance*;
     static auto getVersion(void) -> std::string;
     static auto setSdkToCurr(void) -> void;
+    static auto removeThread(void) -> void;
+    static auto getDllHMod(void) -> HMODULE;
 };
 
 #endif /* CLIENT_SDK_MINECRAFT */

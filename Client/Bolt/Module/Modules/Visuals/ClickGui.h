@@ -38,6 +38,7 @@ public:
         this->setKey(VK_INSERT);
     };
 public:
+    auto onTick(void) -> void override;
     auto onEnable(void) -> void override;
     auto onDisable(void) -> void override;
     auto onKey(uint64_t, bool, bool*) -> void override;

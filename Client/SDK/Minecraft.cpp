@@ -74,7 +74,21 @@ auto Minecraft::setSdkToCurr(void) -> void {
             return Utils::debugLogF("Set SDK Version to 1.17.34.2\n");
         };
     };
+    
+    Utils::debugLogF("Unable to detect game version, failed to proceed...");
+    
+    return removeThread();
+};
 
-    sdkVer = MC_VER::v1_17_41_1;
-    return Utils::debugLogF("Could not automatically detect game version, set to 1.17.41.1\n");
+auto Minecraft::removeThread(void) -> void {
+    MH_DisableHook(MH_ALL_HOOKS);
+    MH_Uninitialize();
+    FreeLibraryAndExitThread(getDllHMod(), 0);
+};
+
+auto Minecraft::getDllHMod(void) -> HMODULE {
+    MEMORY_BASIC_INFORMATION info;
+    size_t len = VirtualQueryEx(GetCurrentProcess(), (void*)getDllHMod, &info, sizeof(info));
+    assert(len == sizeof(info));
+    return len ? (HMODULE)info.AllocationBase : NULL;
 };
