@@ -4,6 +4,12 @@
 #include "../../../Manager/Manager.h"
 #include "../../../Client/Client.h"
 
+/* Virtual Object Methods */
+
+auto VWindowObject::getWindow(void) -> VWindow* {
+    return this->window;
+};
+
 /* Virtual Window Methods */
 
 auto VWindow::appendElement(VWindowObject* obj) -> void {
@@ -30,7 +36,7 @@ auto VWindow::calculateRect(RenderUtils* r) -> Vec4<float> {
     };
 
     auto windowPos = this->titlePosition;
-    resultRect = Vec4<float>(windowPos.x, windowPos.y, windowPos.x + (rectWidth + 2), windowPos.y + (this->windowObjects.size() * (10 * this->fontSize)));
+    resultRect = Vec4<float>(windowPos.x, windowPos.y, windowPos.x + (rectWidth + 4), windowPos.y + (this->windowObjects.size() * (10 * this->fontSize)));
 
     return resultRect;
 };
@@ -60,13 +66,13 @@ auto ClickGui::onDisable(void) -> void {
 };
 
 auto ClickGui::onKey(uint64_t key, bool isDown, bool* cancel) -> void {
+    *cancel = true;
+
     if(!isDown)
         return;
     
-    if(key == VK_ESCAPE || key == 0x45 || this->key) {
-        *cancel = true;
+    if(key == VK_ESCAPE || key == 0x45 || key == this->key)
         return this->setState(false);
-    };
 };
 
 auto ClickGui::onRender(RenderUtils* r) -> void {
@@ -99,11 +105,21 @@ auto ClickGui::onRender(RenderUtils* r) -> void {
         int I = 0;
         for(auto windowObj : window->getElements()) {
             windowObj->position = Vec2<float>(windowPos.x + 2, windowPos.y + (I * (10 * window->fontSize)));
-            r->drawString(windowObj->displayText, window->fontSize, windowObj->position, window->textColor);
+            auto color = window->textColor;
+
+            if(windowObj->isType<VWindowModBtn>()) {
+                auto obj = (VWindowModBtn*)windowObj;
+                
+                if(obj->mod != nullptr && obj->mod->isEnabled)
+                    color = Color(3, 252, 252);
+            };
+            
+            r->drawString(windowObj->displayText, window->fontSize, windowObj->position, color);
+
             I++;
         };
+        r->getCtx()->flushText(0);
     };
-    r->getCtx()->flushText(0);
 };
 
 auto ClickGui::getWindows(RenderUtils* r) -> std::vector<VWindow*> {
@@ -116,7 +132,7 @@ auto ClickGui::getWindows(RenderUtils* r) -> std::vector<VWindow*> {
             auto currWindow = new VWindow(c->name);
 
             for(auto m : c->getModules()) {
-                currWindow->appendElement(new VWindowModBtn(m));
+                currWindow->appendElement(new VWindowModBtn(currWindow, m));
             };
 
             currWindow->titlePosition = Vec2<float>((50 * I) + 50, (I * 10) + 30);
