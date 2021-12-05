@@ -19,11 +19,12 @@ auto MouseCallback(uint64_t a1, char action, bool isDown, uint64_t a4, uint64_t 
     if(mouseManager != nullptr) {
         for(auto c : mouseManager->getCategories()) {
             for(auto m : c->getModules()) {
-                if(m->isEnabled)
+                if(m->isEnabled) {
                     if(action)
                         m->onMouseClick(Vec2<float>(x, y), action, isDown, &cancel);
                     else
                         m->onMouseMove(Vec2<float>(x, y), action, isDown, &cancel);
+                };
             };
         };
     };
