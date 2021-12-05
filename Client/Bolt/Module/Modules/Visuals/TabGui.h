@@ -11,7 +11,7 @@ public:
     };
 public:
     auto onRender(RenderUtils*) -> void override;
-    auto onKey(uint64_t, bool) -> void override;
+    auto onKey(uint64_t, bool, bool*) -> void override;
     auto applyAlpha(void) -> void;
 public:
     float alpha = 0.f;

@@ -14,6 +14,8 @@ typedef void(__thiscall* Key)(uint64_t, bool);
 Key _Key;
 
 auto KeyCallback(uint64_t key, bool isDown) -> void {
+    bool cancel = false;
+
     if(keyManager != nullptr) {
         keyManager->setKeyMapData(key, isDown);
         
@@ -27,7 +29,7 @@ auto KeyCallback(uint64_t key, bool isDown) -> void {
             for(auto m : c->getModules()) {
                 
                 if(m->isEnabled)
-                    m->onKey(key, isDown);
+                    m->onKey(key, isDown, &cancel);
                 
                 if(!isDown || instance == nullptr || mcGame == nullptr || !mcGame->canUseKeys())
                     continue;
@@ -37,7 +39,9 @@ auto KeyCallback(uint64_t key, bool isDown) -> void {
             };
         };
     };
-    _Key(key, isDown);
+    
+    if(!cancel)
+        _Key(key, isDown);
 };
 
 auto Hook_Key::init(Manager* manager) -> void {

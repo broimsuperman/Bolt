@@ -4,7 +4,7 @@
 #include "../../../Manager/Manager.h"
 #include "../../../Client/Client.h"
 
-auto AirJump::onKey(uint64_t key, bool isDown) -> void {
+auto AirJump::onKey(uint64_t key, bool isDown, bool* cancel) -> void {
     if(!isDown)
         return;
     

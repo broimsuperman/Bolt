@@ -100,7 +100,7 @@ auto TabGui::onRender(RenderUtils* r) -> void {
     r->getCtx()->flushText(0);
 };
 
-auto TabGui::onKey(uint64_t key, bool isDown) -> void {
+auto TabGui::onKey(uint64_t key, bool isDown, bool* cancel) -> void {
     if(!isDown)
         return;
     
@@ -111,6 +111,8 @@ auto TabGui::onKey(uint64_t key, bool isDown) -> void {
     
     if(key != VK_LEFT && key != VK_RIGHT && key != VK_UP && key != VK_DOWN)
         return;
+    else
+        *cancel = true;
     
     auto manager = this->getCategory()->getManager();
     auto categories = manager->getCategories();
