@@ -176,6 +176,10 @@ auto Actor::setMotion(float f) -> void {
     this->setMotion(Vec3<float>(f, f, f));
 };
 
+auto Actor::setPos(Vec3<float> pos) -> void {
+    this->setPos(&pos);
+};
+
 auto Actor::_getDimensionId(void) -> int {
     int* dimensionId = (int*)nullptr;
 
