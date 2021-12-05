@@ -75,6 +75,8 @@ public:
     auto onEnable(void) -> void override;
     auto onDisable(void) -> void override;
     auto onKey(uint64_t, bool, bool*) -> void override;
+    auto onMouseClick(Vec2<float>, char, bool, bool*) -> void override;
+    auto onMouseMove(Vec2<float>, char, bool, bool*) -> void override;
     auto onRender(RenderUtils*) -> void override;
 public:
     auto getWindows(RenderUtils*) -> std::vector<VWindow*>;
