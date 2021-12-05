@@ -15,6 +15,26 @@ auto VWindow::getElements(void) -> std::vector<VWindowObject*> {
     return this->windowObjects;
 };
 
+auto VWindow::calculateRect(RenderUtils* r) -> Vec4<float> {
+    auto resultRect = Vec4<float>();
+
+    if(r == nullptr || !r->canDraw())
+        return resultRect;
+    
+    auto rectWidth = r->textLen(this->windowTitle, this->fontSize);
+
+    for(auto windowObj : this->windowObjects) {
+        auto currWidth = r->textLen(windowObj->displayText, this->fontSize);
+        if(currWidth > rectWidth)
+            rectWidth = currWidth;
+    };
+
+    auto windowPos = this->titlePosition;
+    resultRect = Vec4<float>(windowPos.x, windowPos.y, windowPos.x + rectWidth, windowPos.y + (this->windowObjects.size() * (10 * this->fontSize)));
+
+    return resultRect;
+};
+
 /* Click Gui */
 
 auto ClickGui::onTick(void) -> void {
@@ -55,35 +75,47 @@ auto ClickGui::onRender(RenderUtils* r) -> void {
     
     auto manager = this->getManager();
 
-    auto ctx = r->getCtx();
-    auto instance = ctx->clientInstance;
+    auto instance = r->getCtx()->clientInstance;
     auto guiData = (instance != nullptr ? instance->getGuiData() : nullptr);
     auto mcGame = (instance != nullptr ? instance->getMinecraftGame() : nullptr);
 
     if(guiData == nullptr || mcGame == nullptr)
         return;
     
-    auto windows = this->getWindows();
+    auto windows = this->getWindows(r);
 
     if(windows.empty())
-        return;
+        return this->setState(false);
     
-    int I = 0;
     for(auto window : windows) {
-        /* Render Logic */
+        auto windowPos = window->calculateRect(r);
+        auto titlePos = Vec4<float>(windowPos.x, windowPos.y - (10 * window->fontSize), windowPos.z, windowPos.y);
 
-        I++;
+        r->fillRectangle(titlePos, window->titleBarColor);
+        r->fillRectangle(windowPos, window->bgColor);
+
+        r->drawString(window->windowTitle, window->fontSize, Vec2<float>(titlePos.x + 2, titlePos.y), window->titleColor);
     };
+    r->getCtx()->flushText(0);
 };
 
-auto ClickGui::getWindows(void) -> std::vector<VWindow*> {
+auto ClickGui::getWindows(RenderUtils* r) -> std::vector<VWindow*> {
+    if(r == nullptr || !r->canDraw())
+        return this->windows;
+    
     if(this->windows.empty()) {
+        int I = 0;
         for(auto c : this->getManager()->getCategories()) {
             auto currWindow = new VWindow(c->name);
+
             for(auto m : c->getModules()) {
-                auto newWindowObj = new VWindowModBtn(m);
-                currWindow->appendElement(newWindowObj);
+                currWindow->appendElement(new VWindowModBtn(m));
             };
+
+            currWindow->titlePosition = Vec2<float>((50 * I) + 50, (I * 10) + 30);
+            this->windows.push_back(currWindow);
+
+            I++;
         };
     };
     return this->windows;
