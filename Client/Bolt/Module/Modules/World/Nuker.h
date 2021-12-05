@@ -10,7 +10,7 @@ public:
     };
     auto onDestroyBlock(GameMode*, Vec3<int>*, UCHAR, bool*) -> void override;
 private:
-    int range = 3;
+    int range = 2;
 };
 
 #endif /* CLIENT_BOLT_MODULE_MODULES_WORLD_NUKER */
