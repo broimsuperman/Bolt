@@ -4,6 +4,10 @@
 #include "../../../Manager/Manager.h"
 #include "../../../Client/Client.h"
 
+auto ClickNearbyWarp::onEnable(void) -> void {
+    this->displayToChat("Click the mouse scroll button to teleport!");
+};
+
 auto ClickNearbyWarp::onMouseClick(Vec2<float> mousePos, char action, bool isDown, bool* cancel) -> void {
     if(!(isDown && action == 3))
         return;
@@ -63,10 +67,7 @@ auto ClickNearbyWarp::onMouseClick(Vec2<float> mousePos, char action, bool isDow
 
         if(dist == distances.at(0)) {
             *cancel = true;
-
-            pos.y += 2.f;
-            player->setPos(&pos);
-            
+            player->setPos(Vec3<float>(pos.x, myPos.y, pos.z));
             break;
         }
     };
