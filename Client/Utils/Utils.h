@@ -37,6 +37,9 @@ public:
         std::uniform_real_distribution<>dis(min, max);
         return dis(gen);
     };
+
+	static auto uint64ToStr(uint64_t) -> std::string;
+	static auto strToUint64(std::string) -> uint64_t;
 };
 
 template<typename T>
