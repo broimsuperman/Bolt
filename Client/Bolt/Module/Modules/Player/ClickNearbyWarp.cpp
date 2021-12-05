@@ -5,8 +5,6 @@
 #include "../../../Client/Client.h"
 
 auto ClickNearbyWarp::onMouseClick(Vec2<float> mousePos, char action, bool isDown, bool* cancel) -> void {
-    *cancel = true;
-    
     if(!(isDown && action == 3))
         return;
     
@@ -64,8 +62,12 @@ auto ClickNearbyWarp::onMouseClick(Vec2<float> mousePos, char action, bool isDow
         auto dist = sqrt(dX * dX + dY * dY + dZ * dZ);
 
         if(dist == distances.at(0)) {
+            *cancel = true;
+
             pos.y += 2.f;
-            return player->setPos(&pos);
+            player->setPos(&pos);
+            
+            break;
         }
     };
 };
