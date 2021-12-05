@@ -35,6 +35,7 @@ public:
 public:
     Color titleBarColor = Color(50, 235, 140);
     Color titleColor = Color(22, 22, 22);
+    Color textColor = Color(255, 255, 255);
     Color bgColor = Color(22, 22, 22);
 private:
     std::vector<VWindowObject*> windowObjects = std::vector<VWindowObject*>();
