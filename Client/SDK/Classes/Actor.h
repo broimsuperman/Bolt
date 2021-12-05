@@ -42,6 +42,8 @@ public:
     auto setMotion(float, float, float) -> void;
     auto setMotion(float) -> void;
 
+    auto setPos(Vec3<float>) -> void;
+
     auto _getDimensionId(void) -> int;
 
     auto getRuntimeID(void) -> __int64;
