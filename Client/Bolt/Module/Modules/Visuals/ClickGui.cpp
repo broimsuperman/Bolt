@@ -30,7 +30,7 @@ auto VWindow::calculateRect(RenderUtils* r) -> Vec4<float> {
     };
 
     auto windowPos = this->titlePosition;
-    resultRect = Vec4<float>(windowPos.x, windowPos.y, windowPos.x + rectWidth, windowPos.y + (this->windowObjects.size() * (10 * this->fontSize)));
+    resultRect = Vec4<float>(windowPos.x, windowPos.y, windowPos.x + (rectWidth + 2), windowPos.y + (this->windowObjects.size() * (10 * this->fontSize)));
 
     return resultRect;
 };
@@ -95,6 +95,13 @@ auto ClickGui::onRender(RenderUtils* r) -> void {
         r->fillRectangle(windowPos, window->bgColor);
 
         r->drawString(window->windowTitle, window->fontSize, Vec2<float>(titlePos.x + 2, titlePos.y), window->titleColor);
+
+        int I = 0;
+        for(auto windowObj : window->getElements()) {
+            windowObj->position = Vec2<float>(windowPos.x + 2, windowPos.y + (I * (10 * window->fontSize)));
+            r->drawString(windowObj->displayText, window->fontSize, windowObj->position, window->textColor);
+            I++;
+        };
     };
     r->getCtx()->flushText(0);
 };
