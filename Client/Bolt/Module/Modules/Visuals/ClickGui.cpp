@@ -76,11 +76,14 @@ auto ClickGui::onKey(uint64_t key, bool isDown, bool* cancel) -> void {
 };
 
 auto ClickGui::onMouseClick(Vec2<float> mousePos, char action, bool isDown, bool* cancel) -> void {
-    this->displayToChat("Mouse Click!");
+    *cancel = true;
+    
+    if(isDown)
+        this->displayToChat(std::to_string(action));
 };
 
 auto ClickGui::onMouseMove(Vec2<float> mousePos, char action, bool isDown, bool* cancel) -> void {
-    this->displayToChat("Mouse Move!");
+    *cancel = true;
 };
 
 auto ClickGui::onRender(RenderUtils* r) -> void {
