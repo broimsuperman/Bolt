@@ -5,6 +5,9 @@ MC_VER Minecraft::sdkVer = MC_VER::Unknown;
 
 auto Minecraft::getClientInstance(void) -> ClientInstance* {
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_1_20:
+            return (ClientInstance*)Mem::findMultiLvlPtr((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x04223B50, { 0x0, 0x50, 0x0 });
+        break;
         case MC_VER::v1_18_0_02:
             return (ClientInstance*)Mem::findMultiLvlPtr((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x0421E660, { 0x0, 0x50, 0x0 });
         break;
@@ -23,6 +26,9 @@ auto Minecraft::getClientInstance(void) -> ClientInstance* {
 
 auto Minecraft::getVersion(void) -> std::string {
     switch(Minecraft::sdkVer) {
+        case MC_VER::v1_18_1_20:
+            return std::string("1.18.1.20");
+        break;
         case MC_VER::v1_18_0_02:
             return std::string("1.18.0.02");
         break;
@@ -44,6 +50,7 @@ auto Minecraft::setSdkToCurr(void) -> void {
     
     std::vector<uintptr_t> versions = std::vector<uintptr_t>();
 
+    versions.push_back(Mem::findSig("31 2E 31 38 2E 31 00 00 0F")); /* 1.18.1.20 */
     versions.push_back(Mem::findSig("31 2E 31 38 2E 30 00 00 0F")); /* 1.18.0.02 */
     versions.push_back(Mem::findSig("31 ? 31 ? 2E 34 ? 00 0F")); /* 1.17.41.1 + 1.17.40.6 */
     versions.push_back(Mem::findSig("31 ? 31 ? 2E ? 34")); /* 1.17.34.2 */
@@ -53,6 +60,11 @@ auto Minecraft::setSdkToCurr(void) -> void {
             continue;
         
         auto version = std::string(reinterpret_cast<char*>(curr));
+
+        if(version.rfind("1.18.1") != std::string::npos) {
+            sdkVer = MC_VER::v1_18_1_20;
+            return Utils::debugLogF("Set SDK Version to 1.18.1.20\n");
+        };
 
         if(version.rfind("1.18.0") != std::string::npos) {
             sdkVer = MC_VER::v1_18_0_02;

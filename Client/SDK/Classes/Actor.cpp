@@ -4,6 +4,9 @@
 
 auto Actor::onGround(void) -> bool* {
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_1_20:
+            return (bool*)((uintptr_t)(this) + 0x1D8);
+        break;
         case MC_VER::v1_18_0_02:
             return (bool*)((uintptr_t)(this) + 0x1D8);
         break;
@@ -24,6 +27,9 @@ auto Actor::getBodyRot(void) -> Vec2<float>* {
     auto bodyRot = (Vec2<float>*)nullptr;
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_1_20:
+            bodyRot = (Vec2<float>*)((uintptr_t)(this) + 0x138);
+        break;
         case MC_VER::v1_18_0_02:
             bodyRot = (Vec2<float>*)((uintptr_t)(this) + 0x138);
         break;
@@ -45,6 +51,9 @@ auto Actor::getFlightSpeed(void) -> float {
     float* flightSpeed = (float*)nullptr;
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_1_20:
+            flightSpeed = (float*)((uintptr_t)(this) + 0x7D8);
+        break;
         case MC_VER::v1_18_0_02:
             flightSpeed = (float*)((uintptr_t)(this) + 0x7D8);
         break;
@@ -66,6 +75,9 @@ auto Actor::setFlightSpeed(float f) -> void {
     float* flightSpeed = (float*)nullptr;
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_1_20:
+            flightSpeed = (float*)((uintptr_t)(this) + 0x7D8);
+        break;
         case MC_VER::v1_18_0_02:
             flightSpeed = (float*)((uintptr_t)(this) + 0x7D8);
         break;
@@ -87,6 +99,9 @@ auto Actor::isFlying(void) -> bool {
     bool* flyingState = (bool*)nullptr;
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_1_20:
+            flyingState = (bool*)((uintptr_t)(this) + 0x978);
+        break;
         case MC_VER::v1_18_0_02:
             flyingState = (bool*)((uintptr_t)(this) + 0x978);
         break;
@@ -108,6 +123,9 @@ auto Actor::setFlyState(bool state) -> void {
     bool* flyingState = (bool*)nullptr;
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_1_20:
+            flyingState = (bool*)((uintptr_t)(this) + 0x978);
+        break;
         case MC_VER::v1_18_0_02:
             flyingState = (bool*)((uintptr_t)(this) + 0x978);
         break;
@@ -130,6 +148,9 @@ auto Actor::getMotion() -> Vec3<float> {
     auto motionVec = (Vec3<float>*)nullptr;
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_1_20:
+            motionVec = (Vec3<float>*)((uintptr_t)(this) + 0x4F0);
+        break;
         case MC_VER::v1_18_0_02:
             motionVec = (Vec3<float>*)((uintptr_t)(this) + 0x4F0);
         break;
@@ -151,6 +172,9 @@ auto Actor::setMotion(Vec3<float> motion) -> void {
     auto motionVec = (Vec3<float>*)nullptr;
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_1_20:
+            motionVec = (Vec3<float>*)((uintptr_t)(this) + 0x4F0);
+        break;
         case MC_VER::v1_18_0_02:
             motionVec = (Vec3<float>*)((uintptr_t)(this) + 0x4F0);
         break;
@@ -184,6 +208,9 @@ auto Actor::_getDimensionId(void) -> int {
     int* dimensionId = (int*)nullptr;
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_1_20:
+            dimensionId = (int*)((uintptr_t)(this) + 0xE4);
+        break;
         case MC_VER::v1_18_0_02:
             dimensionId = (int*)((uintptr_t)(this) + 0xE4);
         break;
