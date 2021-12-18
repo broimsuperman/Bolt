@@ -34,5 +34,4 @@ auto DirectionalPhase::onGameMode(GameMode* GM) -> void {
 
     player->setPos(&pos);
     player->setMotion(Vec3<float>(oMotion.x, 0.f, oMotion.z));
-    //player->setMotion(Vec3<float>(cos(yaw) * 0.02f, 0.f, sin(yaw) * 0.02f));
 };
