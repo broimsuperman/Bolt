@@ -49,6 +49,7 @@ public:
     auto getItemUseStartupProgress(void) -> float;
     auto getItemUseIntervalProgress(void) -> float;
     auto getItemUseIntervalAxis(void) -> __int64;
+    auto getTimeAlongSwing(void) -> __int64;
     auto getMaxHeadXRot(void) -> float;
     auto doHurtTarget(Actor*, ActorDamageCause*) -> bool;
     auto leaveCaravan(void) -> void;
