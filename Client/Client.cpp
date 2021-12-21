@@ -9,10 +9,12 @@ Client::Client(std::string name, std::string version){
 
     Minecraft::setSdkToCurr();
 
-    if(Minecraft::sdkVer == MC_VER::Unknown)
+    if(Minecraft::sdkVer == MC_VER::Unknown) {
         Utils::debugLogF("Unable to initialize Client as an unknown Game version was detected!");
-    else
+        Minecraft::removeThread();
+    } else {
         this->manager = new Manager(this);
+    };
 };
 
 auto Client::getManager(void) -> Manager* {
