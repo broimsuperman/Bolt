@@ -88,8 +88,6 @@ auto Minecraft::setSdkToCurr(void) -> void {
     };
     
     Utils::debugLogF("Unable to detect game version, failed to proceed...");
-    
-    return removeThread();
 };
 
 auto Minecraft::removeThread(void) -> void {
