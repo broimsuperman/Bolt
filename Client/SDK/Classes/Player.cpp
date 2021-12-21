@@ -681,6 +681,9 @@ auto Player::doHurtTarget(Actor* entity, ActorDamageCause* actorDamageCause) -> 
     auto _DoHurtTarget = (DoHurtTarget)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_1_20:
+            _DoHurtTarget = (DoHurtTarget)(this->VTable[307]);
+        break;
         case MC_VER::v1_18_0_02:
             _DoHurtTarget = (DoHurtTarget)(this->VTable[307]);
         break;
@@ -703,6 +706,9 @@ auto Player::leaveCaravan(void) -> void {
     auto _LeaveCaravan = (LeaveCaravan)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_1_20:
+            _LeaveCaravan = (LeaveCaravan)(this->VTable[309]);
+        break;
         case MC_VER::v1_18_0_02:
             _LeaveCaravan = (LeaveCaravan)(this->VTable[309]);
         break;
@@ -725,6 +731,9 @@ auto Player::joinCaravan(Mob* mob) -> void {
     auto _JoinCaravan = (JoinCaravan)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_1_20:
+            _JoinCaravan = (JoinCaravan)(this->VTable[310]);
+        break;
         case MC_VER::v1_18_0_02:
             _JoinCaravan = (JoinCaravan)(this->VTable[310]);
         break;
@@ -747,6 +756,9 @@ auto Player::hasCaravanTail(void) -> bool {
     auto _HasCaravanTail = (HasCaravanTail)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_1_20:
+            _HasCaravanTail = (HasCaravanTail)(this->VTable[311]);
+        break;
         case MC_VER::v1_18_0_02:
             _HasCaravanTail = (HasCaravanTail)(this->VTable[311]);
         break;
@@ -769,6 +781,9 @@ auto Player::getCaravanHead(void) -> const ActorUniqueID & {
     auto _GetCaravanHead = (GetCaravanHead)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_1_20:
+            _GetCaravanHead = (GetCaravanHead)(this->VTable[312]);
+        break;
         case MC_VER::v1_18_0_02:
             _GetCaravanHead = (GetCaravanHead)(this->VTable[312]);
         break;
@@ -791,6 +806,9 @@ auto Player::getArmorValue(void) -> __int64 {
     auto _GetArmorValue = (GetArmorValue)(this->VTable[0]);
     
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_1_20:
+            _GetArmorValue = (GetArmorValue)(this->VTable[313]);
+        break;
         case MC_VER::v1_18_0_02:
             _GetArmorValue = (GetArmorValue)(this->VTable[313]);
         break;
@@ -813,6 +831,9 @@ auto Player::getArmorCoverPercentage(void) -> float {
     auto _GetArmorCoverPercentage = (GetArmorCoverPercentage)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_1_20:
+            _GetArmorCoverPercentage = (GetArmorCoverPercentage)(this->VTable[314]);
+        break;
         case MC_VER::v1_18_0_02:
             _GetArmorCoverPercentage = (GetArmorCoverPercentage)(this->VTable[314]);
         break;
@@ -835,6 +856,9 @@ auto Player::hurtArmorSlots(ActorDamageSource* actorDamageSource, int paramB, st
     auto _HurtArmorSlots = (HurtArmorSlots)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_1_20:
+            _HurtArmorSlots = (HurtArmorSlots)(this->VTable[315]);
+        break;
         case MC_VER::v1_18_0_02:
             _HurtArmorSlots = (HurtArmorSlots)(this->VTable[315]);
         break;
@@ -857,6 +881,9 @@ auto Player::setDamagedArmor(int armorSlot, ItemStack* itemStack) -> void {
     auto _SetDamagedArmor = (SetDamagedArmor)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_1_20:
+            _SetDamagedArmor = (SetDamagedArmor)(this->VTable[316]);
+        break;
         case MC_VER::v1_18_0_02:
             _SetDamagedArmor = (SetDamagedArmor)(this->VTable[316]);
         break;
@@ -879,6 +906,9 @@ auto Player::sendArmor(std::bitset<4>* armorSlots) -> __int64 {
     auto _SendArmor = (SendArmor)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_1_20:
+            _SendArmor = (SendArmor)(this->VTable[318]);
+        break;
         case MC_VER::v1_18_0_02:
             _SendArmor = (SendArmor)(this->VTable[318]);
         break;
@@ -901,6 +931,9 @@ auto Player::containerChanged(int paramA) -> void {
     auto _ContainerChanged = (ContainerChanged)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_1_20:
+            _ContainerChanged = (ContainerChanged)(this->VTable[319]);
+        break;
         case MC_VER::v1_18_0_02:
             _ContainerChanged = (ContainerChanged)(this->VTable[319]);
         break;
@@ -923,6 +956,9 @@ auto Player::updateEquipment(void) -> void {
     auto _UpdateEquipment = (UpdateEquipment)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_1_20:
+            _UpdateEquipment = (UpdateEquipment)(this->VTable[320]);
+        break;
         case MC_VER::v1_18_0_02:
             _UpdateEquipment = (UpdateEquipment)(this->VTable[320]);
         break;
@@ -945,6 +981,9 @@ auto Player::clearEquipment(void) -> __int64 {
     auto _ClearEquipment = (ClearEquipment)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_1_20:
+            _ClearEquipment = (ClearEquipment)(this->VTable[321]);
+        break;
         case MC_VER::v1_18_0_02:
             _ClearEquipment = (ClearEquipment)(this->VTable[321]);
         break;
@@ -960,28 +999,6 @@ auto Player::clearEquipment(void) -> __int64 {
     };
 
     return _ClearEquipment(this);
-};
-
-auto Player::getAllArmor(void) -> std::vector<ItemStack*> {
-    using GetAllArmor = std::vector<ItemStack*> (__thiscall*)(Actor*);
-    auto _GetAllArmor = (GetAllArmor)(this->VTable[0]);
-
-    switch(Minecraft::sdkVer){
-        case MC_VER::v1_18_0_02:
-            _GetAllArmor = (GetAllArmor)(this->VTable[155]);
-        break;
-        case MC_VER::v1_17_41_1:
-            _GetAllArmor = (GetAllArmor)(this->VTable[323]);
-        break;
-        case MC_VER::v1_17_40_6:
-            _GetAllArmor = (GetAllArmor)(this->VTable[323]);
-        break;
-        case MC_VER::v1_17_34_2:
-            _GetAllArmor = (GetAllArmor)(this->VTable[323]);
-        break;
-    };
-
-    return _GetAllArmor(this);
 };
 
 auto Player::getAllArmorID(void) -> __int64 {
