@@ -112,6 +112,11 @@ public:
     auto mul(T v) -> Vec3<T> {
         return Vec3<T>(this->x * v, this->y * v, this->z * v);
     };
+
+	auto distanceTo(Vec3<T> vec) -> float {
+		auto subbed = this->sub(vec);
+		return sqrt(subbed.x * subbed.x + subbed.y * subbed.y + subbed.z + subbed.z);
+	};
 };
 
 template<typename T>
