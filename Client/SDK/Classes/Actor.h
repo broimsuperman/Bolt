@@ -163,6 +163,7 @@ public:
     auto killed(Actor*) -> void;
     auto setArmorSlot(int, ItemStack*) -> void;
     auto getArmor(int) -> ItemStack*;
+    auto getAllArmor(void) -> std::vector<ItemStack*>;
     auto getModelScale(void) -> float;
     auto getEquippedSlot(int) -> ItemStack*;
     auto getCarriedItem(void) -> ItemStack*;
