@@ -3048,6 +3048,31 @@ auto Actor::getArmor(int slot) -> ItemStack* {
     return _GetArmorSlot(this, slot);
 };
 
+auto Actor::getAllArmor(void) -> std::vector<ItemStack*> {
+    using GetAllArmor = std::vector<ItemStack*> (__thiscall*)(Actor*);
+    auto _GetAllArmor = (GetAllArmor)(this->VTable[0]);
+
+    switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_1_20:
+            _GetAllArmor = (GetAllArmor)(this->VTable[155]);
+        break;
+        case MC_VER::v1_18_0_02:
+            _GetAllArmor = (GetAllArmor)(this->VTable[155]);
+        break;
+        case MC_VER::v1_17_41_1:
+            _GetAllArmor = (GetAllArmor)(this->VTable[323]);
+        break;
+        case MC_VER::v1_17_40_6:
+            _GetAllArmor = (GetAllArmor)(this->VTable[323]);
+        break;
+        case MC_VER::v1_17_34_2:
+            _GetAllArmor = (GetAllArmor)(this->VTable[323]);
+        break;
+    };
+
+    return _GetAllArmor(this);
+};
+
 auto Actor::getModelScale(void) -> float {
     using GetModelScale = float (__thiscall*)(Actor*);
     auto _GetModelScale = (GetModelScale)(this->VTable[0]);
