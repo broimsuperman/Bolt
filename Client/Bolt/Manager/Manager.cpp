@@ -177,7 +177,7 @@ auto Manager::initHooks(void) -> void {
 
         new Hook_GameMode(this);
         
-        //new Hook_Actor(this);
+        new Hook_Actor(this);
 
         Utils::debugLogF("\n");
     }
@@ -258,9 +258,6 @@ auto Manager::addEntityToMap(__int64 entityRuntimeId, Actor* entity) -> void {
 };
 
 auto Manager::cleanEntityMap(GameMode* GM) -> void {
-    if(Minecraft::sdkVer == MC_VER::v1_18_1_20)
-        return;
-    
     if(GM == nullptr || GM->player == nullptr)
         return entityMap.clear();
     
