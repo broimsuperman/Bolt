@@ -76,6 +76,7 @@ auto Manager::initCategories(void) -> void {
 #include "../Module/Modules/Movement/AirSpeed.h"
 #include "../Module/Modules/Movement/Jesus.h"
 #include "../Module/Modules/Movement/Jetpack.h"
+#include "../Module/Modules/Movement/EntityJetpack.h"
 #include "../Module/Modules/Movement/DirectionalPhase.h"
 
 /* Player */
@@ -123,6 +124,7 @@ auto Manager::initModules(void) -> void {
     new AirSpeed(this->getCategory("Movement"));
     new Jesus(this->getCategory("Movement"));
     new Jetpack(this->getCategory("Movement"));
+    new EntityJetpack(this->getCategory("Movement"));
     new DirectionalPhase(this->getCategory("Movement"));
 
     /* Player */

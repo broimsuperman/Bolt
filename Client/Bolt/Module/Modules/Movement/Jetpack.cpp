@@ -6,11 +6,12 @@
 
 auto Jetpack::onTick(void) -> void {
     auto instance = Minecraft::getClientInstance();
+    auto player = (instance != nullptr ? instance->getLocalPlayer() : nullptr);
 
-    if(instance == nullptr || instance->getMinecraftGame() == nullptr || !instance->getMinecraftGame()->canUseKeys())
+    if(player == nullptr || !instance->getMinecraftGame()->canUseKeys())
         return this->setState(false);
     
-    if(!this->getCategory()->getManager()->isHoldingKey(this->key))
+    if(!this->getCategory()->getManager()->isHoldingKey(this->key) || player->isRidingMob())
         return this->setState(false);
     
     this->setState(true);
@@ -20,7 +21,7 @@ auto Jetpack::onGameMode(GameMode* GM) -> void {
     if(GM == nullptr || GM->player == nullptr)
         return;
     
-    if(!this->getCategory()->getManager()->isHoldingKey(this->key))
+    if(!this->getCategory()->getManager()->isHoldingKey(this->key) || GM->player->isRidingMob())
         return;
     
     auto bodyRot = *GM->player->getBodyRot();
