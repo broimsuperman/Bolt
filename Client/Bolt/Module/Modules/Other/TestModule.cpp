@@ -44,17 +44,22 @@ auto TestModule::onRender(RenderUtils* r) -> void {
     r->getCtx()->flushText(0);*/
 };
 
+#include "../Combat/Killaura.h"
+
 auto TestModule::onGameMode(GameMode* GM) -> void {
     if(GM == nullptr || GM->player == nullptr)
         return;
     
     auto player = GM->player;
     
-    player->_fireDimensionChanged();
+    if(!player->isRidingMob())
+        return this->setState(false);
     
-    this->displayToChat("The chunks may have been refreshed.. unsure though :P");
-
-    return this->setState(false); /* Disable Module */
+    for(auto [runtimeId, entity] : this->getManager()->getEntityMap()) {
+        if(entity->isPassenger(player)) {
+            entity->setMotion(0, 1.f, 0);
+        };
+    };
 };
 
 auto TestModule::onPacket(Packet* packet, bool* cancel) -> void {

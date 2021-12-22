@@ -348,6 +348,26 @@ auto Actor::getLevel(void) -> Level* {
     return level;
 };
 
+auto Actor::isPassenger(Actor* passenger) -> bool {
+    using IsPassenger = bool (__thiscall*)(Actor*, Actor*);
+    static auto _IsPassenger = (IsPassenger)nullptr;
+
+    if(_IsPassenger == nullptr)
+        _IsPassenger = (IsPassenger)(Mem::findSig("48 89 5C 24 ? 57 48 83 EC 30 4C 8B 82 ? ? ? ? 48 8B FA 48"));
+
+    return (_IsPassenger != nullptr ? _IsPassenger(this, passenger) : false);
+};
+
+auto Actor::getFirstPassenger(void) -> Actor* {
+    using GetFirstPassenger = Actor* (__thiscall*)(Actor*);
+    static auto _GetFirstPassenger = (GetFirstPassenger)nullptr;
+
+    if(_GetFirstPassenger == nullptr)
+        _GetFirstPassenger = (GetFirstPassenger)(Mem::findSig("48 8B 91 ? ? ? ? 48 8B 81 ? ? ? ? 48 2B C2 48 C1 F8 03 48 85 C0 74 17 48"));
+    
+    return (_GetFirstPassenger != nullptr ? _GetFirstPassenger(this) : nullptr);
+};
+
 auto Actor::outOfWorld(void) -> bool {
     using OutOfWorld = bool (__thiscall*)(Actor*);
     auto _OutOfWorld = (OutOfWorld)(this->VTable[0]);

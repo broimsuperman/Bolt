@@ -53,6 +53,9 @@ public:
     auto getDimension(void) -> Dimension*;
     auto getLevel(void) -> Level*;
 public:
+    auto isPassenger(Actor*) -> bool;
+    auto getFirstPassenger(void) -> Actor*;
+public:
     auto outOfWorld(void) -> bool;
     
     auto _serverInitItemStackIds(void) -> void;

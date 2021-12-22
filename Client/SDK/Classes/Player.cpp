@@ -51,27 +51,27 @@ auto Player::getGameMode(void) -> GameMode* {
 };
 
 auto Player::isRidingMob(void) -> bool {
-    auto isRiding = (bool*)nullptr;
+    auto isRiding = (int*)nullptr;
 
     switch(Minecraft::sdkVer) {
         case MC_VER::v1_18_1_20:
-            isRiding = (bool*)((uintptr_t)(this) + 0x32C);
+            isRiding = (int*)((uintptr_t)(this) + 0x32C);
         break;
         case MC_VER::v1_18_0_02:
-            isRiding = (bool*)((uintptr_t)(this) + 0x32C);
+            isRiding = (int*)((uintptr_t)(this) + 0x32C);
         break;
         case MC_VER::v1_17_41_1:
-            isRiding = (bool*)((uintptr_t)(this) + 0x334);
+            isRiding = (int*)((uintptr_t)(this) + 0x334);
         break;
         case MC_VER::v1_17_40_6:
-            isRiding = (bool*)((uintptr_t)(this) + 0x334);
+            isRiding = (int*)((uintptr_t)(this) + 0x334);
         break;
         case MC_VER::v1_17_34_2:
-            isRiding = (bool*)((uintptr_t)(this) + 0x334);
+            isRiding = (int*)((uintptr_t)(this) + 0x334);
         break;
     };
 
-    return *isRiding;
+    return (int)(*isRiding) > 0;
 };
 
 auto Player::knockback(Actor* entity, int paramA, float paramB, float paramC, float paramD, float paramE, float paramF) -> void {
