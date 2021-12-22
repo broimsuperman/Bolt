@@ -115,7 +115,7 @@ public:
 
 	auto distanceTo(Vec3<T> vec) -> float {
 		auto subbed = this->sub(vec);
-		return sqrt(subbed.x * subbed.x + subbed.y * subbed.y + subbed.z + subbed.z);
+		return sqrt(subbed.x * subbed.x + subbed.y * subbed.y + subbed.z * subbed.z);
 	};
 };
 
