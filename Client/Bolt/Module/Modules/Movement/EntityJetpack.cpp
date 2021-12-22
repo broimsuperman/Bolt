@@ -27,7 +27,9 @@ auto EntityJetpack::onGameMode(GameMode* GM) -> void {
             
             player->setMotion(motion);
             entity->setMotion(motion);
-            entity->setRot(&bodyRot);
+            
+            auto currRot = *entity->getBodyRot();
+            *entity->getBodyRot() = Vec2<float>(bodyRot.x >= ((Player*)(entity))->getMaxHeadXRot() ? currRot.x : bodyRot.x, bodyRot.y);
 
             break;
         };
