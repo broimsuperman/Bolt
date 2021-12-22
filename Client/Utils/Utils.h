@@ -138,12 +138,12 @@ public:
 template<typename T>
 class AABB {
 public:
-    Vec3<T> vecA;
-    Vec3<T> vecB;
+    Vec3<T> lower;
+    Vec3<T> upper;
 
     AABB(Vec3<T> vecA = Vec3((T)0, (T)0, (T)0), Vec3<T> vecB = Vec3((T)0, (T)0, (T)0)){
-        this->vecA = vecA;
-        this->vecB = vecB;
+        this->lower = vecA;
+        this->upper = vecB;
     };
 };
 

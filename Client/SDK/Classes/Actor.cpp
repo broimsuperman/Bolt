@@ -47,6 +47,30 @@ auto Actor::getBodyRot(void) -> Vec2<float>* {
     return bodyRot;
 };
 
+auto Actor::getAABB(void) -> AABB<float>* {
+    auto aabb = (AABB<float>*)nullptr;
+
+    switch(Minecraft::sdkVer) {
+        case MC_VER::v1_18_1_20:
+            aabb = (AABB<float>*)((uintptr_t)(this) + 0x4B8);
+        break;
+        case MC_VER::v1_18_0_02:
+            aabb = (AABB<float>*)((uintptr_t)(this) + 0x4B8);
+        break;
+        case MC_VER::v1_17_41_1:
+            aabb = (AABB<float>*)((uintptr_t)(this) + 0x4C0);
+        break;
+        case MC_VER::v1_17_40_6:
+            aabb = (AABB<float>*)((uintptr_t)(this) + 0x4C0);
+        break;
+        case MC_VER::v1_17_34_2:
+            aabb = (AABB<float>*)((uintptr_t)(this) + 0x4C0);
+        break;
+    };
+
+    return aabb;
+};
+
 auto Actor::getFlightSpeed(void) -> float {
     float* flightSpeed = (float*)nullptr;
 

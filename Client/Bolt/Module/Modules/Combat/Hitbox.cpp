@@ -30,8 +30,10 @@ auto Hitbox::onGameMode(GameMode* GM) -> void {
         if(entity == GM->player || runtimeId == GM->player->getRuntimeID())
             continue;
         
-        if(collisions.find(entity->getEntityTypeId()) == collisions.end())
-            collisions[entity->getEntityTypeId()] = Vec2<float>(entity->getShadowRadiusOffs(), entity->getShadowHeightOffs());
+        if(collisions.find(entity->getEntityTypeId()) == collisions.end()) {
+            auto entityAABB = *entity->getAABB();
+            collisions[entity->getEntityTypeId()] = Vec2<float>(entityAABB.upper.x - entityAABB.lower.x, entityAABB.upper.y - entityAABB.lower.y);
+        };
         
         entity->setSize(hitboxRadius.x, hitboxRadius.y);
     };
