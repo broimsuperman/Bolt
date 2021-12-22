@@ -25,15 +25,7 @@ auto Killaura::onGameMode(GameMode* GM) -> void {
         if(attackCount >= (this->multi ? 4 : 1))
             break;
         
-        auto pos = *entity->getPos();
-        
-        auto dX = pos.x - myPos.x;
-        auto dY = pos.y - myPos.y;
-        auto dZ = pos.z - myPos.z;
-
-        auto dist = sqrt(dX * dX + dY * dY + dZ * dZ);
-        
-        if(dist <= this->range) {
+        if(distance <= this->range) {
             GM->attack(entity);
             player->swing();
             attackCount++;
@@ -72,15 +64,7 @@ auto Killaura::distanceRangedEnts(void) -> std::unordered_map<Actor*, float> {
         if(!this->canAttackEnt(localPlayer, entity))
             continue;
         
-        auto pos = *entity->getPos();
-        
-        auto dX = pos.x - myPos.x;
-        auto dY = pos.y - myPos.y;
-        auto dZ = pos.z - myPos.z;
-
-        auto dist = sqrt(dX * dX + dY * dY + dZ * dZ);
-        
-        dists.push_back(dist);
+        dists.push_back(entity->getPos()->distanceTo(myPos));
     };
 
     std::sort(dists.begin(), dists.end());
@@ -90,15 +74,7 @@ auto Killaura::distanceRangedEnts(void) -> std::unordered_map<Actor*, float> {
             if(!this->canAttackEnt(localPlayer, entity))
                 continue;
             
-            auto pos = *entity->getPos();
-        
-            auto dX = pos.x - myPos.x;
-            auto dY = pos.y - myPos.y;
-            auto dZ = pos.z - myPos.z;
-
-            auto currDist = sqrt(dX * dX + dY * dY + dZ * dZ);
-            
-            if(dist == currDist)
+            if(dist == entity->getPos()->distanceTo(myPos))
                 newMap.insert(std::map<Actor*, float>::value_type(entity, dist));
         };
     };
