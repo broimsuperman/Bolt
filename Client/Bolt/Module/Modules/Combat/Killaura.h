@@ -13,8 +13,10 @@ public:
     auto onGameMode(GameMode*) -> void override;
 public:
     auto canAttackEnt(Player*, Actor*) -> bool;
+    auto distanceRangedEnts(void) -> std::unordered_map<Actor*, float>;
 public:
     float range = 10.f;
+    bool multi = true;
 };
 
 #endif /* CLIENT_BOLT_MODULE_MODULES_COMBAT_KILLAURA */

@@ -15,19 +15,25 @@ auto Killaura::onGameMode(GameMode* GM) -> void {
         return;
     
     auto player = GM->player;
-    auto myPos = *player->getPos();
     auto attackCount = (int)0;
+    auto myPos = *player->getPos();
 
-    for(auto [runtimeId, entity] : this->getManager()->getEntityMap()) {
-        if(!canAttackEnt(player, entity))
-            continue;
+    auto rangedEntities = this->distanceRangedEnts();
+
+    for(auto [entity, distance] : rangedEntities) {
         
-        if(attackCount >= 4)
+        if(attackCount >= (this->multi ? 4 : 1))
             break;
         
-        auto distToTarget = entity->getPos()->distanceTo(myPos); /* Calculate the distance between entities (target - player) */
+        auto pos = *entity->getPos();
         
-        if(distToTarget <= this->range) {
+        auto dX = pos.x - myPos.x;
+        auto dY = pos.y - myPos.y;
+        auto dZ = pos.z - myPos.z;
+
+        auto dist = sqrt(dX * dX + dY * dY + dZ * dZ);
+        
+        if(dist <= this->range) {
             GM->attack(entity);
             player->swing();
             attackCount++;
@@ -49,4 +55,53 @@ auto Killaura::canAttackEnt(Player* player, Actor* entity) -> bool {
         return false;
     
     return true;
+};
+
+auto Killaura::distanceRangedEnts(void) -> std::unordered_map<Actor*, float> {
+    auto newMap = std::unordered_map<Actor*, float>();
+    auto localPlayer = (Minecraft::getClientInstance() != nullptr ? Minecraft::getClientInstance()->getLocalPlayer() : nullptr);
+
+    if(localPlayer == nullptr)
+        return newMap;
+    
+    auto dists = std::vector<float>();
+    auto myPos = *localPlayer->getPos();
+    auto entityMap = this->getManager()->getEntityMap();
+
+    for(auto [runtimeId, entity] : entityMap) {
+        if(!this->canAttackEnt(localPlayer, entity))
+            continue;
+        
+        auto pos = *entity->getPos();
+        
+        auto dX = pos.x - myPos.x;
+        auto dY = pos.y - myPos.y;
+        auto dZ = pos.z - myPos.z;
+
+        auto dist = sqrt(dX * dX + dY * dY + dZ * dZ);
+        
+        dists.push_back(dist);
+    };
+
+    std::sort(dists.begin(), dists.end());
+
+    for(auto dist : dists) {
+        for(auto [runtimeId, entity] : entityMap) {
+            if(!this->canAttackEnt(localPlayer, entity))
+                continue;
+            
+            auto pos = *entity->getPos();
+        
+            auto dX = pos.x - myPos.x;
+            auto dY = pos.y - myPos.y;
+            auto dZ = pos.z - myPos.z;
+
+            auto currDist = sqrt(dX * dX + dY * dY + dZ * dZ);
+            
+            if(dist == currDist)
+                newMap.insert(std::map<Actor*, float>::value_type(entity, dist));
+        };
+    };
+
+    return newMap;
 };
