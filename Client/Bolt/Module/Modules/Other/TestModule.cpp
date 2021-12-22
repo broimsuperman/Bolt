@@ -16,7 +16,7 @@ auto TestModule::onRender(RenderUtils* r) -> void {
     if(r == nullptr || !r->canDraw())
         return;
     
-    /*auto instance = Minecraft::getClientInstance();
+    auto instance = Minecraft::getClientInstance();
     auto player = (instance != nullptr ? instance->getLocalPlayer() : nullptr);
 
     if(player == nullptr)
@@ -41,10 +41,8 @@ auto TestModule::onRender(RenderUtils* r) -> void {
     r->drawRectangle(rectPos, Color(66, 239, 245, .8f), 1);
     
     r->drawString(text, textSize, textPos, Color(255, 255, 255));
-    r->getCtx()->flushText(0);*/
+    r->getCtx()->flushText(0);
 };
-
-#include "../Combat/Killaura.h"
 
 auto TestModule::onGameMode(GameMode* GM) -> void {
     if(GM == nullptr || GM->player == nullptr)
@@ -53,10 +51,11 @@ auto TestModule::onGameMode(GameMode* GM) -> void {
     auto player = GM->player;
     
     if(!player->isRidingMob())
-        return this->setState(false);
+        return;
     
     for(auto [runtimeId, entity] : this->getManager()->getEntityMap()) {
         if(entity->isPassenger(player)) {
+            /* Control entity here */
             entity->setMotion(0, 1.f, 0);
         };
     };
