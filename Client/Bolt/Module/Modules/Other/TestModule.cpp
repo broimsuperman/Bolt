@@ -54,7 +54,7 @@ auto TestModule::onGameMode(GameMode* GM) -> void {
         return;
     
     for(auto [runtimeId, entity] : this->getManager()->getEntityMap()) {
-        if(entity->isPassenger(player)) {
+        if(entity->isPassenger(player) || entity->getFirstPassenger() == player) {
             /* Control entity here */
             entity->setMotion(0, 1.f, 0);
         };
