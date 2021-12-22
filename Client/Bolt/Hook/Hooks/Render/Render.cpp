@@ -23,6 +23,7 @@ auto RenderCallback(void* a1, MinecraftUIRenderContext* ctx) -> void {
             if(instance == nullptr || instance->getLocalPlayer() == nullptr)
                 renderManager->emptyEntityMap();
         };
+        
         if(renderUtils == nullptr) {
             auto instance = ctx->clientInstance;
         

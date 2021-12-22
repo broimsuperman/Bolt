@@ -23,6 +23,6 @@ auto AirJump::onKey(uint64_t key, bool isDown, bool* cancel) -> void {
     if(player == nullptr || mcGame == nullptr)
         return;
     
-    if(mcGame->canUseKeys())
+    if(mcGame->canUseKeys() && !player->isFlying())
         player->jumpFromGround();
 };

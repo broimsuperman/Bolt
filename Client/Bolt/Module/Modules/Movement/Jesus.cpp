@@ -7,6 +7,9 @@ auto Jesus::onGameMode(GameMode* GM) -> void {
     auto player = GM->player;
     auto oMotion = player->getMotion();
 
+    if(player->isFlying())
+        return;
+
     if(player->isInWater() || player->hasEnteredWater() || player->isInLava())
         player->setMotion(Vec3<float>(oMotion.x, .38f, oMotion.z));
 };

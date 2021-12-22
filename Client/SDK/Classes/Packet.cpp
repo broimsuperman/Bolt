@@ -19,6 +19,9 @@ auto Packet::getName(void) -> std::string {
 
 TextPacket::TextPacket() {
     switch(Minecraft::sdkVer) {
+        case MC_VER::v1_18_1_20:
+            this->VTable = (uint64_t**)((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x03E9F8A8);
+        break;
         case MC_VER::v1_18_0_02:
             this->VTable = (uint64_t**)((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x03E9A700);
         break;
