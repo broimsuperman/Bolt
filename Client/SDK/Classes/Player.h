@@ -26,6 +26,7 @@ class Player : public Actor {
 public:
     auto getSupplies(void) -> PlayerInventory*;
     auto getGameMode(void) -> GameMode*;
+    auto isRidingMob(void) -> bool;
 public:
     auto knockback(Actor*, int, float, float, float, float, float) -> void;
     auto setSprinting(bool) -> void;
