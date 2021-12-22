@@ -1,10 +1,14 @@
 #include "Scaffold.h"
 
-auto Scaffold::onGameMode(GameMode* GM) -> void {
-    if(GM == nullptr || GM->player == nullptr)
+auto Scaffold::onRender(RenderUtils* r) -> void {
+    if(r == nullptr || !r->canDraw())
         return;
     
-    auto player = GM->player;
+    auto player = (Minecraft::getClientInstance() != nullptr ? Minecraft::getClientInstance()->getLocalPlayer() : nullptr);
+    auto GM = (player != nullptr ? player->getGameMode() : nullptr);
+
+    if(player == nullptr || GM == nullptr)
+        return;
 
     auto carriedItem = player->getCarriedItem();
 

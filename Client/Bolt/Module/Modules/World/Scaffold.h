@@ -8,7 +8,7 @@ public:
     Scaffold(Category* category) : Module(category, "Scaffold") {
         //
     };
-    auto onGameMode(GameMode*) -> void override;
+    auto onRender(RenderUtils*) -> void override;
     auto tryScaffold(GameMode*, Vec3<float>) -> bool;
 };
 

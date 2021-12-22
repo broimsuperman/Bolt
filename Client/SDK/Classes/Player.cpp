@@ -26,6 +26,30 @@ auto Player::getSupplies(void) -> PlayerInventory* {
     return supplies;
 };
 
+auto Player::getGameMode(void) -> GameMode* {
+    auto gm = (GameMode*)nullptr;
+
+    switch(Minecraft::sdkVer) {
+        case MC_VER::v1_18_1_20:
+            gm = *(GameMode**)((uintptr_t)(this) + 0x1248);
+        break;
+        case MC_VER::v1_18_0_02:
+            gm = *(GameMode**)((uintptr_t)(this) + 0x1248);
+        break;
+        case MC_VER::v1_17_41_1:
+            gm = *(GameMode**)((uintptr_t)(this) + 0x1250);
+        break;
+        case MC_VER::v1_17_40_6:
+            gm = *(GameMode**)((uintptr_t)(this) + 0x1250);
+        break;
+        case MC_VER::v1_17_34_2:
+            gm = *(GameMode**)((uintptr_t)(this) + 0x1338);
+        break;
+    };
+
+    return gm;
+};
+
 auto Player::knockback(Actor* entity, int paramA, float paramB, float paramC, float paramD, float paramE, float paramF) -> void {
     using Knockback = void (__thiscall*)(Actor*, Actor*, int, float, float, float, float, float);
     auto _Knockback = (Knockback)(this->VTable[0]);

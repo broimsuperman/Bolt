@@ -2,6 +2,7 @@
 #define CLIENT_SDK_CLASSES_PLAYER
 
 #include "Actor.h"
+#include "GameMode.h"
 #include "PlayerInventory.h"
 
 #include "../../Mem/Mem.h"
@@ -24,6 +25,7 @@ class Packet;
 class Player : public Actor {
 public:
     auto getSupplies(void) -> PlayerInventory*;
+    auto getGameMode(void) -> GameMode*;
 public:
     auto knockback(Actor*, int, float, float, float, float, float) -> void;
     auto setSprinting(bool) -> void;
