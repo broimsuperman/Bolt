@@ -357,10 +357,10 @@ auto Actor::getLevel(void) -> Level* {
 
     switch(Minecraft::sdkVer){
         case MC_VER::v1_18_1_20:
-            level = *(Level**)((uintptr_t)(this) + 0x360);
+            level = *(Level**)((uintptr_t)(this) + 0x368);
         break;
         case MC_VER::v1_18_0_02:
-            level = *(Level**)((uintptr_t)(this) + 0x360);
+            level = *(Level**)((uintptr_t)(this) + 0x368);
         break;
         case MC_VER::v1_17_41_1:
             level = *(Level**)((uintptr_t)(this) + 0x370);
