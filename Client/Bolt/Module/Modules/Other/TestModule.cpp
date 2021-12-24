@@ -18,8 +18,9 @@ auto TestModule::onRender(RenderUtils* r) -> void {
     
     auto instance = Minecraft::getClientInstance();
     auto player = (instance != nullptr ? instance->getLocalPlayer() : nullptr);
+    auto mcGame = (instance != nullptr ? instance->getMinecraftGame() : nullptr);
 
-    if(player == nullptr)
+    if(player == nullptr || (mcGame == nullptr || !mcGame->canUseKeys()))
         return;
     
     auto inGamePos = Vec3<float>(0, -58.f, 0);
