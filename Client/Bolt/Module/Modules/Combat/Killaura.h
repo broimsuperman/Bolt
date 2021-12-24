@@ -12,8 +12,7 @@ public:
     auto onTick(void) -> void override;
     auto onGameMode(GameMode*) -> void override;
 public:
-    auto canAttackEnt(Player*, Actor*) -> bool;
-    auto distanceRangedEnts(void) -> std::unordered_map<Actor*, float>;
+    auto rangedEnts(std::map<__int64, Actor*>) -> std::unordered_map<Actor*, float>;
 public:
     float range = 10.f;
     bool multi = true;
