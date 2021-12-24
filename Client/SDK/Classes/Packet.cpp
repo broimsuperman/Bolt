@@ -74,3 +74,7 @@ MovePlayerPacket::MovePlayerPacket(Actor* entity, Vec3<float> position, Vec2<flo
 auto MovePlayerPacket::getMode(void) -> std::pair<uint8_t, std::string> {
     return std::pair<uint8_t, std::string>(this->mode, std::string(this->mode == 0 ? "Normal" : this->mode == 1 ? "Reset" : this->mode == 2 ? "Teleport" : "Rotation"));
 };
+
+auto MovePlayerPacket::getTeleportCause(void) -> std::pair<uint8_t, std::string> {
+    return std::pair<uint8_t, std::string>(this->teleportCause, std::string(this->teleportCause == 0 ? "Unknown" : this->teleportCause == 1 ? "Projectile" : this->teleportCause == 2 ? "Chorus Fruit" : this->teleportCause == 3 ? "Command" : "Behavior"));
+};
