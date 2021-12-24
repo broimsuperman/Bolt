@@ -35,5 +35,18 @@ auto PacketLogger::onPacket(Packet* packet, bool* cancel) -> void {
     fileOutput.write(logged, 0x110);
     fileOutput.close();
 
+    if(this->logVTable && packetMap[name] <= 0) {
+        auto fName = std::string(dir + "\\VTable.txt");
+        auto vtableStr = std::string("Minecraft.Windows.exe + " + Utils::ptrToStr((uintptr_t)packet->VTable - (uintptr_t)GetModuleHandleA("Minecraft.Windows.exe")));
+
+        CloseHandle(CreateFileA(fName.c_str(), GENERIC_WRITE | GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL));
+        
+        std::ofstream fOutput;
+        fOutput.open(fName.c_str(), std::ios::binary | std::ios::out);
+
+        fOutput << vtableStr << std::endl;
+        fOutput.close();
+    };
+
     packetMap[name]++;
 };
