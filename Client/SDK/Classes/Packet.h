@@ -35,4 +35,9 @@ public:
     std::string platformChatId;
 };
 
+class MovePlayerPacket : public Packet {
+public:
+    MovePlayerPacket();
+};
+
 #endif /* CLIENT_SDK_CLASSES_PACKET */
