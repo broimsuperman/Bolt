@@ -30,7 +30,7 @@ public:
     auto setKey(uint64_t) -> void;
     auto setLogState(bool) -> void;
 
-    auto displayToChat(std::string) -> bool;
+    auto displayToChat(std::string message, bool raw = false) -> bool;
     
     virtual auto _onTick(void) -> void {};
     virtual auto onTick(void) -> void {};
