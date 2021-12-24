@@ -50,30 +50,6 @@ auto Player::getGameMode(void) -> GameMode* {
     return gm;
 };
 
-auto Player::isRidingMob(void) -> bool {
-    auto isRiding = (int*)nullptr;
-
-    switch(Minecraft::sdkVer) {
-        case MC_VER::v1_18_1_20:
-            isRiding = (int*)((uintptr_t)(this) + 0x32C);
-        break;
-        case MC_VER::v1_18_0_02:
-            isRiding = (int*)((uintptr_t)(this) + 0x32C);
-        break;
-        case MC_VER::v1_17_41_1:
-            isRiding = (int*)((uintptr_t)(this) + 0x334);
-        break;
-        case MC_VER::v1_17_40_6:
-            isRiding = (int*)((uintptr_t)(this) + 0x334);
-        break;
-        case MC_VER::v1_17_34_2:
-            isRiding = (int*)((uintptr_t)(this) + 0x334);
-        break;
-    };
-
-    return (int)(*isRiding) > 0;
-};
-
 auto Player::knockback(Actor* entity, int paramA, float paramB, float paramC, float paramD, float paramE, float paramF) -> void {
     using Knockback = void (__thiscall*)(Actor*, Actor*, int, float, float, float, float, float);
     auto _Knockback = (Knockback)(this->VTable[0]);
