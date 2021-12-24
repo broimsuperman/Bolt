@@ -270,19 +270,7 @@ auto Manager::cleanEntityMap(GameMode* GM) -> void {
         if(level->fetchEntity(runtimeId, false) == nullptr)
             continue;
         
-        if(entity == nullptr || entity->VTable == nullptr)
-            continue;
-        
-        if(entity->getRuntimeID() <= 0)
-            continue;
-        
-        if(entity->getEntityTypeId() <= 0)
-            continue;
-        
-        if(!entity->isAlive())
-            continue;
-        
-        if(!GM->player->canAttack(entity, false))
+        if(!entity->isAlive() || !GM->player->canAttack(entity, false))
             continue;
         
         newMap[entity->getRuntimeID()] = entity;
