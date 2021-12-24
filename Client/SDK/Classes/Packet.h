@@ -60,8 +60,10 @@ private:
 	char pad_0052[6];        //0x0052
 public:
 	__int64 ridingRuntimeId; //0x0058
+    uint8_t teleportCause;   //0x0060
 public:
     auto getMode(void) -> std::pair<uint8_t, std::string>;
+    auto getTeleportCause(void) -> std::pair<uint8_t, std::string>;
 };
 
 #endif /* CLIENT_SDK_CLASSES_PACKET */
