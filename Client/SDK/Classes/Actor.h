@@ -31,6 +31,7 @@ public:
     auto onGround(void) -> bool*;
     auto getBodyRot(void) -> Vec2<float>*;
     auto getAABB(void) -> AABB<float>*;
+    auto isRidingMob(Actor*) -> bool;
     
     auto getFlightSpeed(void) -> float;
     auto setFlightSpeed(float) -> void;
