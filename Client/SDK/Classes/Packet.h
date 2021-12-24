@@ -61,7 +61,7 @@ private:
 public:
 	__int64 ridingRuntimeId; //0x0058
 public:
-    auto getModeEnum(void) -> MovePlayerPacketMode;
+    auto getMode(void) -> std::pair<uint8_t, std::string>;
 };
 
 #endif /* CLIENT_SDK_CLASSES_PACKET */
