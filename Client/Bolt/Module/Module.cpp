@@ -62,7 +62,7 @@ auto Module::setLogState(bool state) -> void {
     this->logState = state;
 };
 
-auto Module::displayToChat(std::string message) -> bool {
+auto Module::displayToChat(std::string message, bool raw) -> bool {
     auto instance = Minecraft::getClientInstance();
     auto player = (Player*)nullptr;
 
@@ -77,7 +77,7 @@ auto Module::displayToChat(std::string message) -> bool {
     if(player == nullptr || client == nullptr)
         return false;
     else
-        player->displayClientMessage(std::string("§3" + client->name + "§f: " + message));
+        player->displayClientMessage(std::string(raw ? message : "§3" + client->name + "§f: " + message));
     
     return true;
 };
