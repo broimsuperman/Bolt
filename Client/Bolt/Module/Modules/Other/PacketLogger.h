@@ -12,6 +12,7 @@ public:
 private:
     std::map<std::string, int> packetMap = std::map<std::string, int>();
     bool init = false;
+    bool logVTable = true;
 };
 
 #endif /* CLIENT_BOLT_MODULE_MODULES_OTHER_PACKETLOGGER */
