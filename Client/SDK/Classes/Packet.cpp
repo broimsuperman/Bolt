@@ -70,3 +70,7 @@ MovePlayerPacket::MovePlayerPacket(Actor* entity, Vec3<float> position, Vec2<flo
     this->headYaw = bodyRot.y;
     this->ridingRuntimeId = NULL;
 };
+
+auto MovePlayerPacket::getModeEnum(void) -> MovePlayerPacketMode {
+    return (MovePlayerPacketMode)this->mode;
+};
