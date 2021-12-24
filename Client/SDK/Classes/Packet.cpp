@@ -71,6 +71,6 @@ MovePlayerPacket::MovePlayerPacket(Actor* entity, Vec3<float> position, Vec2<flo
     this->ridingRuntimeId = NULL;
 };
 
-auto MovePlayerPacket::getModeEnum(void) -> MovePlayerPacketMode {
-    return (MovePlayerPacketMode)this->mode;
+auto MovePlayerPacket::getMode(void) -> std::pair<uint8_t, std::string> {
+    return std::pair<uint8_t, std::string>(this->mode, std::string(this->mode == 0 ? "Normal" : this->mode == 1 ? "Reset" : this->mode == 2 ? "Teleport" : "Rotation"));
 };
