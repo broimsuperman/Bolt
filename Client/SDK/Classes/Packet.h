@@ -4,6 +4,8 @@
 #include "../../Mem/Mem.h"
 #include "../../Utils/Utils.h"
 
+class Actor;
+
 class Packet {
 public:
     uintptr_t** VTable;
