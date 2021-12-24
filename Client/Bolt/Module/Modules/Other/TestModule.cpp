@@ -62,5 +62,22 @@ auto TestModule::onGameMode(GameMode* GM) -> void {
 };
 
 auto TestModule::onPacket(Packet* packet, bool* cancel) -> void {
-    return;
+    /*auto newPacket = new MovePlayerPacket();
+
+    if(newPacket->VTable == packet->VTable) {
+        auto currPacket = (MovePlayerPacket*)packet;
+
+        this->displayToChat(std::string("Position (X): " + std::to_string(currPacket->position.x)));
+        this->displayToChat(std::string("Position (Y): " + std::to_string(currPacket->position.y)));
+        this->displayToChat(std::string("Position (Z): " + std::to_string(currPacket->position.z)));
+        this->displayToChat(std::string("Rotation (X): " + std::to_string(currPacket->bodyRot.x)));
+        this->displayToChat(std::string("Rotation (Y): " + std::to_string(currPacket->bodyRot.y)));
+        this->displayToChat(std::string("Runtime ID: " + std::to_string(currPacket->runtimeId)));
+        this->displayToChat(std::string("OnGround: " + std::to_string(currPacket->onGround)));
+        this->displayToChat(std::string("Mode: " + currPacket->getMode().second));
+        
+        this->displayToChat("\n", true);
+    };
+
+    delete newPacket;*/
 };
