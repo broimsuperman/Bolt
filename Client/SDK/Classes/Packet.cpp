@@ -39,7 +39,7 @@ TextPacket::TextPacket() {
 
 /* Move Player Packet */
 
-MovePlayerPacket::MovePlayerPacket(Actor* entity, Vec3<float> position, Vec2<float> bodyRot, bool onGround) {
+MovePlayerPacket::MovePlayerPacket(Actor* entity, Vec3<float> position, Vec2<float> bodyRot, bool onGround, MovePlayerPacketMode mode) {
     switch(Minecraft::sdkVer) {
         case MC_VER::v1_18_1_20:
             this->VTable = (uint64_t**)((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x03E4D0F0);
@@ -58,12 +58,15 @@ MovePlayerPacket::MovePlayerPacket(Actor* entity, Vec3<float> position, Vec2<flo
         break;
     };
 
+    if(entity == nullptr) /* VTable still set, can be compared/modified */
+        return;
+
     this->runtimeId = entity->getRuntimeID();
     this->position = position;
     this->bodyRot = bodyRot;
     this->onGround = onGround;
 
-    this->mode = 0;
+    this->mode = mode;
     this->headYaw = bodyRot.y;
     this->ridingRuntimeId = NULL;
 };
