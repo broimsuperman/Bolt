@@ -54,7 +54,7 @@ MovePlayerPacket::MovePlayerPacket() {
             this->VTable = (uint64_t**)((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x03E5B7B0);
         break;
         case MC_VER::v1_17_34_2:
-            this->VTable = (uint64_t**)((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x3D7CDE0);
+            this->VTable = (uint64_t**)((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x03D7CDE0);
         break;
     };
 };
