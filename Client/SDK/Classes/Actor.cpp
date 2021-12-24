@@ -71,6 +71,10 @@ auto Actor::getAABB(void) -> AABB<float>* {
     return aabb;
 };
 
+auto Actor::isRidingMob(Actor* isRiding) -> bool {
+    return (isRiding->isPassenger(this) || (isRiding->getFirstPassenger() != nullptr && isRiding->getFirstPassenger()->getRuntimeID() == this->getRuntimeID()));
+};
+
 auto Actor::getFlightSpeed(void) -> float {
     float* flightSpeed = (float*)nullptr;
 
