@@ -44,9 +44,21 @@ auto TestModule::onRender(RenderUtils* r) -> void {
     r->getCtx()->flushText(0);
 };
 
+bool sendMovePlayerPacket = false;
+
 auto TestModule::onGameMode(GameMode* GM) -> void {
     if(GM == nullptr || GM->player == nullptr)
         return;
+    
+    if(!sendMovePlayerPacket) {
+        sendMovePlayerPacket = true;
+
+        auto newPacket = new MovePlayerPacket(GM->player, Vec3<float>(10.f, 25.f, 11.f), Vec2<float>(32.f, 89.f), true);
+        Minecraft::getClientInstance()->getLoopbackPacketSender()->send(newPacket);
+        delete newPacket;
+
+        this->displayToChat("Sent MovePlayerPacket Packet!");
+    };
 };
 
 auto TestModule::onPacket(Packet* packet, bool* cancel) -> void {
