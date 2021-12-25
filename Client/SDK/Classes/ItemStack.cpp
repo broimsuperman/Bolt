@@ -8,6 +8,9 @@ auto Item::isCamera(void) -> bool {
 
     if(_IsCamera == nullptr) {
         switch(Minecraft::sdkVer) {
+            case MC_VER::v1_18_2_30:
+                _IsCamera = (IsCamera)(this->VTable[11]);
+            break;
             case MC_VER::v1_18_1_20:
                 _IsCamera = (IsCamera)(this->VTable[11]);
             break;
@@ -35,6 +38,9 @@ auto Item::isDamageable(void) -> bool {
 
     if(_IsDamageable == nullptr) {
         switch(Minecraft::sdkVer) {
+            case MC_VER::v1_18_2_30:
+                _IsDamageable = (IsDamageable)(this->VTable[13]);
+            break;
             case MC_VER::v1_18_1_20:
                 _IsDamageable = (IsDamageable)(this->VTable[13]);
             break;
@@ -62,6 +68,9 @@ auto Item::isFood(void) -> bool {
 
     if(_IsFood == nullptr) {
         switch(Minecraft::sdkVer) {
+            case MC_VER::v1_18_2_30:
+                _IsFood = (IsFood)(this->VTable[18]);
+            break;
             case MC_VER::v1_18_1_20:
                 _IsFood = (IsFood)(this->VTable[18]);
             break;
@@ -89,6 +98,9 @@ auto Item::getCamera(void) -> ICameraItemComponent* {
 
     if(_GetCamera == nullptr) {
         switch(Minecraft::sdkVer) {
+            case MC_VER::v1_18_2_30:
+                _GetCamera = (GetCamera)(this->VTable[22]);
+            break;
             case MC_VER::v1_18_1_20:
                 _GetCamera = (GetCamera)(this->VTable[22]);
             break;
@@ -116,6 +128,9 @@ auto Item::getFood(void) -> IFoodItemComponent* {
 
     if(_GetFood == nullptr) {
         switch(Minecraft::sdkVer) {
+            case MC_VER::v1_18_2_30:
+                _GetFood = (GetFood)(this->VTable[23]);
+            break;
             case MC_VER::v1_18_1_20:
                 _GetFood = (GetFood)(this->VTable[23]);
             break;
@@ -143,6 +158,9 @@ auto Item::setMaxStackSize(UCHAR stackSize) -> Item* {
 
     if(_SetMaxStackSize == nullptr) {
         switch(Minecraft::sdkVer) {
+            case MC_VER::v1_18_2_30:
+                _SetMaxStackSize = (SetMaxStackSize)(this->VTable[25]);
+            break;
             case MC_VER::v1_18_1_20:
                 _SetMaxStackSize = (SetMaxStackSize)(this->VTable[25]);
             break;
@@ -170,6 +188,9 @@ auto Item::setStackedByData(bool state) -> Item* {
 
     if(_SetStacked == nullptr) {
         switch(Minecraft::sdkVer) {
+            case MC_VER::v1_18_2_30:
+                _SetStacked = (SetStacked)(this->VTable[26]);
+            break;
             case MC_VER::v1_18_1_20:
                 _SetStacked = (SetStacked)(this->VTable[26]);
             break;
@@ -197,6 +218,9 @@ auto Item::setMaxDamage(int) -> Item* {
 
     if(_SetMaxDamage == nullptr) {
         switch(Minecraft::sdkVer) {
+            case MC_VER::v1_18_2_30:
+                _SetMaxDamage = (SetMaxDamage)(this->VTable[27]);
+            break;
             case MC_VER::v1_18_1_20:
                 _SetMaxDamage = (SetMaxDamage)(this->VTable[27]);
             break;
@@ -224,6 +248,9 @@ auto Item::setHandEquipped(void) -> Item* {
 
     if(_SetHandEquipped == nullptr) {
         switch(Minecraft::sdkVer) {
+            case MC_VER::v1_18_2_30:
+                _SetHandEquipped = (SetHandEquipped)(this->VTable[28]);
+            break;
             case MC_VER::v1_18_1_20:
                 _SetHandEquipped = (SetHandEquipped)(this->VTable[28]);
             break;
@@ -251,6 +278,9 @@ auto Item::setUseAnimation(UseAnimation useAnimation) -> Item* {
 
     if(_SetUseAnimation == nullptr) {
         switch(Minecraft::sdkVer) {
+            case MC_VER::v1_18_2_30:
+                _SetUseAnimation = (SetUseAnimation)(this->VTable[29]);
+            break;
             case MC_VER::v1_18_1_20:
                 _SetUseAnimation = (SetUseAnimation)(this->VTable[29]);
             break;
@@ -278,6 +308,9 @@ auto Item::setMaxUseDuration(int paramA) -> Item* {
 
     if(_SetMaxUseDuration == nullptr) {
         switch(Minecraft::sdkVer) {
+            case MC_VER::v1_18_2_30:
+                _SetMaxUseDuration = (SetMaxUseDuration)(this->VTable[30]);
+            break;
             case MC_VER::v1_18_1_20:
                 _SetMaxUseDuration = (SetMaxUseDuration)(this->VTable[30]);
             break;
@@ -305,6 +338,9 @@ auto Item::setRequiresWorldBuilder(bool paramA) -> Item* {
 
     if(_SetRequiresWorldBuilder == nullptr) {
         switch(Minecraft::sdkVer) {
+            case MC_VER::v1_18_2_30:
+                _SetRequiresWorldBuilder = (SetRequiresWorldBuilder)(this->VTable[31]);
+            break;
             case MC_VER::v1_18_1_20:
                 _SetRequiresWorldBuilder = (SetRequiresWorldBuilder)(this->VTable[31]);
             break;
@@ -332,6 +368,9 @@ auto Item::setExplodable(bool paramA) -> Item* {
 
     if(_SetExplodable == nullptr) {
         switch(Minecraft::sdkVer) {
+            case MC_VER::v1_18_2_30:
+                _SetExplodable = (SetExplodable)(this->VTable[32]);
+            break;
             case MC_VER::v1_18_1_20:
                 _SetExplodable = (SetExplodable)(this->VTable[32]);
             break;
@@ -359,6 +398,9 @@ auto Item::setFireResistant(bool paramA) -> Item* {
 
     if(_SetFireResistant == nullptr) {
         switch(Minecraft::sdkVer) {
+            case MC_VER::v1_18_2_30:
+                _SetFireResistant = (SetFireResistant)(this->VTable[33]);
+            break;
             case MC_VER::v1_18_1_20:
                 _SetFireResistant = (SetFireResistant)(this->VTable[33]);
             break;
@@ -386,6 +428,9 @@ auto Item::setIsGlint(bool paramA) -> Item* {
 
     if(_SetIsGlint == nullptr) {
         switch(Minecraft::sdkVer) {
+            case MC_VER::v1_18_2_30:
+                _SetIsGlint = (SetIsGlint)(this->VTable[34]);
+            break;
             case MC_VER::v1_18_1_20:
                 _SetIsGlint = (SetIsGlint)(this->VTable[34]);
             break;
@@ -413,6 +458,9 @@ auto Item::setShouldDespawn(bool paramA) -> Item* {
 
     if(_SetShouldDespawn == nullptr) {
         switch(Minecraft::sdkVer) {
+            case MC_VER::v1_18_2_30:
+                _SetShouldDespawn = (SetShouldDespawn)(this->VTable[35]);
+            break;
             case MC_VER::v1_18_1_20:
                 _SetShouldDespawn = (SetShouldDespawn)(this->VTable[35]);
             break;
