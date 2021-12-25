@@ -81,7 +81,7 @@ auto MovePlayerPacket::getTeleportCause(void) -> std::pair<uint8_t, std::string>
 
 /* Player Auth Input Packet */
 
-PlayerAuthInputPacket::PlayerAuthInputPacket() {
+PlayerAuthInputPacket::PlayerAuthInputPacket(Vec3<float> position, Vec2<float> bodyRot, Vec3<float> velocity) {
     switch(Minecraft::sdkVer) {
         case MC_VER::v1_18_1_20:
             this->VTable = (uint64_t**)((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x03EB98A8);
@@ -99,4 +99,17 @@ PlayerAuthInputPacket::PlayerAuthInputPacket() {
             this->VTable = (uint64_t**)((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x03DB4B80);
         break;
     };
+
+    this->position = position;
+    this->rotation = bodyRot;
+    this->headYaw = bodyRot.y;
+    this->velocity = velocity;
+};
+
+auto PlayerAuthInputPacket::getInputMode(void) -> std::pair<uint8_t, std::string> {
+    return std::pair<uint8_t, std::string>(this->inputMode, std::string(this->inputMode == 0 ? "Unknown" : this->inputMode == 1 ? "Mouse" : this->inputMode == 2 ? "Touch" : this->inputMode == 3 ? "Game Pad" : "Motion Controller"));
+};
+
+auto PlayerAuthInputPacket::getClientPlayMode(void) -> std::pair<uint8_t, std::string> {
+    return std::pair<uint8_t, std::string>(this->clientPlayMode, std::string(this->clientPlayMode == 0 ? "Normal" : this->clientPlayMode == 1 ? "Teaser" : this->clientPlayMode == 2 ? "Screen" : this->clientPlayMode == 3 ? "Viewer" : this->clientPlayMode == 4 ? "Reality" : this->clientPlayMode == 5 ? "Placement" : this->clientPlayMode == 6 ? "Living Room" : this->clientPlayMode == 7 ? "Exit Level" : this->clientPlayMode == 8 ? "Exit Level Living Room" : "Num Modes"));
 };
