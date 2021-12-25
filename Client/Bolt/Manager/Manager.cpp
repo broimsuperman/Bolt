@@ -264,22 +264,15 @@ auto Manager::cleanEntityMap(GameMode* GM) -> void {
         return entityMap.clear();
     
     auto newMap = std::map<__int64, Actor*>();
-    auto level = GM->player->getLevel();
 
     for(auto [runtimeId, entity] : entityMap) {
-        if(level == nullptr || level->fetchEntity(runtimeId, false) == nullptr)
-            continue;
-        
         if(entity == nullptr || entity->VTable == nullptr)
             continue;
         
         if(entity->getRuntimeID() <= 0)
             continue;
         
-        if(entity->getEntityTypeId() <= 0)
-            continue;
-        
-        if(!entity->isAlive())
+        if(!entity->isAlive() || entity->isInCreativeMode())
             continue;
         
         if(!GM->player->canAttack(entity, false))
