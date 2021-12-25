@@ -6,6 +6,7 @@
 
 enum class MC_VER {
     Unknown,
+    v1_18_2_30,
     v1_18_1_20,
     v1_18_0_02,
     v1_17_41_1,
