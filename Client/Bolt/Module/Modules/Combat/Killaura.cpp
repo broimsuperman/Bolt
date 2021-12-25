@@ -14,6 +14,11 @@ auto Killaura::onGameMode(GameMode* GM) -> void {
     if(GM == nullptr || GM->player == nullptr)
         return;
     
+    auto mcGame = (Minecraft::getClientInstance() != nullptr ? Minecraft::getClientInstance()->getMinecraftGame() : nullptr);
+
+    if(mcGame == nullptr || !mcGame->canUseKeys())
+        return;
+    
     auto player = GM->player;
     auto myPos = *player->getPos();
     auto count = 0;
