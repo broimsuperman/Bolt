@@ -81,9 +81,9 @@ private:
 public:
 	uint8_t inputMode;      //0x0070
 private:
-	char pad_0071[7];       //0x0071
+	char pad_0071[3];       //0x0071
 public:
-	uint8_t clientPlayMode; //0x0078
+	uint8_t clientPlayMode; //0x0074
 public:
     auto getInputMode(void) -> std::pair<uint8_t, std::string>;
     auto getClientPlayMode(void) -> std::pair<uint8_t, std::string>;
