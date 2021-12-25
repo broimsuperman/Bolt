@@ -4,6 +4,9 @@
 
 auto Actor::onGround(void) -> bool* {
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            return (bool*)((uintptr_t)(this) + 0x1D8);
+        break;
         case MC_VER::v1_18_1_20:
             return (bool*)((uintptr_t)(this) + 0x1D8);
         break;
@@ -27,6 +30,9 @@ auto Actor::getBodyRot(void) -> Vec2<float>* {
     auto bodyRot = (Vec2<float>*)nullptr;
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            bodyRot = (Vec2<float>*)((uintptr_t)(this) + 0x138);
+        break;
         case MC_VER::v1_18_1_20:
             bodyRot = (Vec2<float>*)((uintptr_t)(this) + 0x138);
         break;
@@ -51,6 +57,9 @@ auto Actor::getAABB(void) -> AABB<float>* {
     auto aabb = (AABB<float>*)nullptr;
 
     switch(Minecraft::sdkVer) {
+        case MC_VER::v1_18_2_30:
+            aabb = (AABB<float>*)((uintptr_t)(this) + 0x4B8);
+        break;
         case MC_VER::v1_18_1_20:
             aabb = (AABB<float>*)((uintptr_t)(this) + 0x4B8);
         break;
@@ -79,6 +88,9 @@ auto Actor::getFlightSpeed(void) -> float {
     float* flightSpeed = (float*)nullptr;
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            flightSpeed = (float*)((uintptr_t)(this) + 0x7D8);
+        break;
         case MC_VER::v1_18_1_20:
             flightSpeed = (float*)((uintptr_t)(this) + 0x7D8);
         break;
@@ -103,6 +115,9 @@ auto Actor::setFlightSpeed(float f) -> void {
     float* flightSpeed = (float*)nullptr;
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            flightSpeed = (float*)((uintptr_t)(this) + 0x7D8);
+        break;
         case MC_VER::v1_18_1_20:
             flightSpeed = (float*)((uintptr_t)(this) + 0x7D8);
         break;
@@ -127,6 +142,9 @@ auto Actor::isFlying(void) -> bool {
     bool* flyingState = (bool*)nullptr;
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            flyingState = (bool*)((uintptr_t)(this) + 0x978);
+        break;
         case MC_VER::v1_18_1_20:
             flyingState = (bool*)((uintptr_t)(this) + 0x978);
         break;
@@ -151,6 +169,9 @@ auto Actor::setFlyState(bool state) -> void {
     bool* flyingState = (bool*)nullptr;
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            flyingState = (bool*)((uintptr_t)(this) + 0x978);
+        break;
         case MC_VER::v1_18_1_20:
             flyingState = (bool*)((uintptr_t)(this) + 0x978);
         break;
@@ -176,6 +197,9 @@ auto Actor::getMotion() -> Vec3<float> {
     auto motionVec = (Vec3<float>*)nullptr;
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            motionVec = (Vec3<float>*)((uintptr_t)(this) + 0x4F0);
+        break;
         case MC_VER::v1_18_1_20:
             motionVec = (Vec3<float>*)((uintptr_t)(this) + 0x4F0);
         break;
@@ -200,6 +224,9 @@ auto Actor::setMotion(Vec3<float> motion) -> void {
     auto motionVec = (Vec3<float>*)nullptr;
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            motionVec = (Vec3<float>*)((uintptr_t)(this) + 0x4F0);
+        break;
         case MC_VER::v1_18_1_20:
             motionVec = (Vec3<float>*)((uintptr_t)(this) + 0x4F0);
         break;
@@ -236,6 +263,9 @@ auto Actor::_getDimensionId(void) -> int {
     int* dimensionId = (int*)nullptr;
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            dimensionId = (int*)((uintptr_t)(this) + 0xE4);
+        break;
         case MC_VER::v1_18_1_20:
             dimensionId = (int*)((uintptr_t)(this) + 0xE4);
         break;
@@ -260,6 +290,9 @@ auto Actor::getRuntimeID(void) -> __int64 {
     auto RuntimeID = (__int64*)nullptr;
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            RuntimeID = (__int64*)((uintptr_t)(this) + 0x558);
+        break;
         case MC_VER::v1_18_1_20:
             RuntimeID = (__int64*)((uintptr_t)(this) + 0x558);
         break;
@@ -284,6 +317,9 @@ auto Actor::getXboxGamertag(void) -> std::string {
     auto gamertag = (std::string*)nullptr;
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            gamertag = (std::string*)((uintptr_t)(this) + 0x8D8);
+        break;
         case MC_VER::v1_18_1_20:
             gamertag = (std::string*)((uintptr_t)(this) + 0x8D8);
         break;
@@ -308,6 +344,9 @@ auto Actor::getRegionConst(void) -> BlockSource* {
     auto regionConst = (BlockSource*)nullptr;
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            regionConst = *(BlockSource**)((uintptr_t)(this) + 0x358);
+        break;
         case MC_VER::v1_18_1_20:
             regionConst = *(BlockSource**)((uintptr_t)(this) + 0x358);
         break;
@@ -332,6 +371,9 @@ auto Actor::getDimension(void) -> Dimension* {
     auto dimension = (Dimension*)nullptr;
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            dimension = *(Dimension**)((uintptr_t)(this) + 0x360);
+        break;
         case MC_VER::v1_18_1_20:
             dimension = *(Dimension**)((uintptr_t)(this) + 0x360);
         break;
@@ -356,6 +398,9 @@ auto Actor::getLevel(void) -> Level* {
     auto level = (Level*)nullptr;
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            level = *(Level**)((uintptr_t)(this) + 0x368);
+        break;
         case MC_VER::v1_18_1_20:
             level = *(Level**)((uintptr_t)(this) + 0x368);
         break;
@@ -401,6 +446,9 @@ auto Actor::outOfWorld(void) -> bool {
     auto _OutOfWorld = (OutOfWorld)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _OutOfWorld = (OutOfWorld)(this->VTable[7]);
+        break;
         case MC_VER::v1_18_1_20:
             _OutOfWorld = (OutOfWorld)(this->VTable[7]);
         break;
@@ -426,6 +474,9 @@ auto Actor::_serverInitItemStackIds(void) -> void {
     auto _ServerInitItemStackIds = (ServerInitItemStackIds)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _ServerInitItemStackIds = (ServerInitItemStackIds)(this->VTable[12]);
+        break;
         case MC_VER::v1_18_1_20:
             _ServerInitItemStackIds = (ServerInitItemStackIds)(this->VTable[12]);
         break;
@@ -451,6 +502,9 @@ auto Actor::_doInitialMove(void) -> void {
     auto _DoInitialMove = (DoInitialMove)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _DoInitialMove = (DoInitialMove)(this->VTable[13]);
+        break;
         case MC_VER::v1_18_1_20:
             _DoInitialMove = (DoInitialMove)(this->VTable[13]);
         break;
@@ -476,6 +530,9 @@ auto Actor::reset(void) -> void {
     auto _Reset = (Reset)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _Reset = (Reset)(this->VTable[15]);
+        break;
         case MC_VER::v1_18_1_20:
             _Reset = (Reset)(this->VTable[15]);
         break;
@@ -501,6 +558,9 @@ auto Actor::getOnDeathExperience(void) -> __int64 {
     auto _GetOnDeathExperience = (GetOnDeathExperience)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _GetOnDeathExperience = (GetOnDeathExperience)(this->VTable[16]);
+        break;
         case MC_VER::v1_18_1_20:
             _GetOnDeathExperience = (GetOnDeathExperience)(this->VTable[16]);
         break;
@@ -526,6 +586,9 @@ auto Actor::getOwnerEntityType(void) -> uint8_t {
     auto _GetOwnerEntityType = (GetOwnerEntityType)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _GetOwnerEntityType = (GetOwnerEntityType)(this->VTable[17]);
+        break;
         case MC_VER::v1_18_1_20:
             _GetOwnerEntityType = (GetOwnerEntityType)(this->VTable[17]);
         break;
@@ -551,6 +614,9 @@ auto Actor::remove(void) -> void {
     auto _Remove = (Remove)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _Remove = (Remove)(this->VTable[18]);
+        break;
         case MC_VER::v1_18_1_20:
             _Remove = (Remove)(this->VTable[18]);
         break;
@@ -576,6 +642,9 @@ auto Actor::setPos(Vec3<float>* blockPos) -> void {
     auto _SetPos = (SetPos)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _SetPos = (SetPos)(this->VTable[19]);
+        break;
         case MC_VER::v1_18_1_20:
             _SetPos = (SetPos)(this->VTable[19]);
         break;
@@ -601,6 +670,9 @@ auto Actor::getPos(void) -> Vec3<float>* {
     auto _GetPos = (GetPos)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _GetPos = (GetPos)(this->VTable[22]);
+        break;
         case MC_VER::v1_18_1_20:
             _GetPos = (GetPos)(this->VTable[22]);
         break;
@@ -626,6 +698,9 @@ auto Actor::getPosOld(void) -> Vec3<float>* {
     auto _GetPosOld = (GetPosOld)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _GetPosOld = (GetPosOld)(this->VTable[23]);
+        break;
         case MC_VER::v1_18_1_20:
             _GetPosOld = (GetPosOld)(this->VTable[23]);
         break;
@@ -651,6 +726,9 @@ auto Actor::getPosExtrapolated(float f) -> Vec3<float>* {
     auto _GetPosExtrapolated = (GetPosExtrapolated)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _GetPosExtrapolated = (GetPosExtrapolated)(this->VTable[24]);
+        break;
         case MC_VER::v1_18_1_20:
             _GetPosExtrapolated = (GetPosExtrapolated)(this->VTable[24]);
         break;
@@ -676,6 +754,9 @@ auto Actor::getAttachPos(enum ActorLocation actorLocation, float f) -> Vec3<floa
     auto _GetAttachPos = (GetAttachPos)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _GetAttachPos = (GetAttachPos)(this->VTable[25]);
+        break;
         case MC_VER::v1_18_1_20:
             _GetAttachPos = (GetAttachPos)(this->VTable[25]);
         break;
@@ -701,6 +782,9 @@ auto Actor::getFiringPos(void) -> Vec3<float>* {
     auto _GetFiringPos = (GetFiringPos)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _GetFiringPos = (GetFiringPos)(this->VTable[26]);
+        break;
         case MC_VER::v1_18_1_20:
             _GetFiringPos = (GetFiringPos)(this->VTable[26]);
         break;
@@ -726,6 +810,9 @@ auto Actor::setRot(Vec2<float>* bodyRot) -> void {
     auto _SetRot = (SetRot)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _SetRot = (SetRot)(this->VTable[27]);
+        break;
         case MC_VER::v1_18_1_20:
             _SetRot = (SetRot)(this->VTable[27]);
         break;
@@ -751,6 +838,9 @@ auto Actor::move(struct IActorMovementProxy* proxy, Vec3<float>* moveVec) -> voi
     auto _Move = (Move)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _Move = (Move)(this->VTable[28]);
+        break;
         case MC_VER::v1_18_1_20:
             _Move = (Move)(this->VTable[28]);
         break;
@@ -776,6 +866,9 @@ auto Actor::move(Vec3<float>* moveVec) -> void {
     auto _Move = (Move)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _Move = (Move)(this->VTable[29]);
+        break;
         case MC_VER::v1_18_1_20:
             _Move = (Move)(this->VTable[29]);
         break;
@@ -801,6 +894,9 @@ auto Actor::getInterpolatedRidingPosition(float f) -> Vec3<float>* {
     auto _GetInterpolatedRidingPosition = (GetInterpolatedRidingPosition)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _GetInterpolatedRidingPosition = (GetInterpolatedRidingPosition)(this->VTable[30]);
+        break;
         case MC_VER::v1_18_1_20:
             _GetInterpolatedRidingPosition = (GetInterpolatedRidingPosition)(this->VTable[30]);
         break;
@@ -826,6 +922,9 @@ auto Actor::getInterpolatedBodyRot(float f) -> float {
     auto _GetInterpolatedBodyRot = (GetInterpolatedBodyRot)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _GetInterpolatedBodyRot = (GetInterpolatedBodyRot)(this->VTable[31]);
+        break;
         case MC_VER::v1_18_1_20:
             _GetInterpolatedBodyRot = (GetInterpolatedBodyRot)(this->VTable[31]);
         break;
@@ -851,6 +950,9 @@ auto Actor::getYawSpeedInDegreesPerSecond(void) -> float {
     auto _GetYawSpeedInDegreesPerSecond = (GetYawSpeedInDegreesPerSecond)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _GetYawSpeedInDegreesPerSecond = (GetYawSpeedInDegreesPerSecond)(this->VTable[34]);
+        break;
         case MC_VER::v1_18_1_20:
             _GetYawSpeedInDegreesPerSecond = (GetYawSpeedInDegreesPerSecond)(this->VTable[34]);
         break;
@@ -876,6 +978,9 @@ auto Actor::getInterpolatedWalkAnimSpeed(float f) -> float {
     auto _GetInterpolatedWalkAnimSpeed = (GetInterpolatedWalkAnimSpeed)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _GetInterpolatedWalkAnimSpeed = (GetInterpolatedWalkAnimSpeed)(this->VTable[35]);
+        break;
         case MC_VER::v1_18_1_20:
             _GetInterpolatedWalkAnimSpeed = (GetInterpolatedWalkAnimSpeed)(this->VTable[35]);
         break;
@@ -901,6 +1006,9 @@ auto Actor::getWorldPosition(void) -> Vec3<float>* {
     auto _GetWorldPosition = (GetWorldPosition)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _GetWorldPosition = (GetWorldPosition)(this->VTable[36]);
+        break;
         case MC_VER::v1_18_1_20:
             _GetWorldPosition = (GetWorldPosition)(this->VTable[36]);
         break;
@@ -926,6 +1034,9 @@ auto Actor::updateEntityInside(void) -> void {
     auto _UpdateEntityInside = (UpdateEntityInside)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _UpdateEntityInside = (UpdateEntityInside)(this->VTable[38]);
+        break;
         case MC_VER::v1_18_1_20:
             _UpdateEntityInside = (UpdateEntityInside)(this->VTable[38]);
         break;
@@ -951,6 +1062,9 @@ auto Actor::updateEntityInside(AABB<float>* aabb) -> void {
     auto _UpdateEntityInside = (UpdateEntityInside)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _UpdateEntityInside = (UpdateEntityInside)(this->VTable[39]);
+        break;
         case MC_VER::v1_18_1_20:
             _UpdateEntityInside = (UpdateEntityInside)(this->VTable[39]);
         break;
@@ -976,6 +1090,9 @@ auto Actor::isFireImmune(void) -> bool {
     auto _IsFireImmune = (IsFireImmune)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _IsFireImmune = (IsFireImmune)(this->VTable[40]);
+        break;
         case MC_VER::v1_18_1_20:
             _IsFireImmune = (IsFireImmune)(this->VTable[40]);
         break;
@@ -1001,6 +1118,9 @@ auto Actor::blockedByShield(struct ActorDamageSource* actorDamageSource, Actor* 
     auto _BlockedByShield = (BlockedByShield)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _BlockedByShield = (BlockedByShield)(this->VTable[42]);
+        break;
         case MC_VER::v1_18_1_20:
             _BlockedByShield = (BlockedByShield)(this->VTable[42]);
         break;
@@ -1026,6 +1146,9 @@ auto Actor::teleportTo(Vec3<float>* tpPos, bool paramB, int paramC, int paramD) 
     auto _TeleportTo = (TeleportTo)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _TeleportTo = (TeleportTo)(this->VTable[43]);
+        break;
         case MC_VER::v1_18_1_20:
             _TeleportTo = (TeleportTo)(this->VTable[43]);
         break;
@@ -1051,6 +1174,9 @@ auto Actor::tryTeleportTo(Vec3<float>* tpPos, bool paramB, bool paramC, int para
     auto _TeleportTo = (TeleportTo)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _TeleportTo = (TeleportTo)(this->VTable[44]);
+        break;
         case MC_VER::v1_18_1_20:
             _TeleportTo = (TeleportTo)(this->VTable[44]);
         break;
@@ -1076,6 +1202,9 @@ auto Actor::chorusFruitTeleport(Vec3<float>* tpPos) -> void {
     auto _ChorusFruitTeleport = (ChorusFruitTeleport)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _ChorusFruitTeleport = (ChorusFruitTeleport)(this->VTable[45]);
+        break;
         case MC_VER::v1_18_1_20:
             _ChorusFruitTeleport = (ChorusFruitTeleport)(this->VTable[45]);
         break;
@@ -1101,6 +1230,9 @@ auto Actor::lerpMotion(Vec3<float>* lerpTo) -> void {
     auto _LerpMotion = (LerpMotion)(this->VTable[0]);
     
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _LerpMotion = (LerpMotion)(this->VTable[46]);
+        break;
         case MC_VER::v1_18_1_20:
             _LerpMotion = (LerpMotion)(this->VTable[46]);
         break;
@@ -1126,6 +1258,9 @@ auto Actor::tryCreateAddActorPacket(void) -> __int64 {
     auto _TryCreateAddActorPacket = (TryCreateAddActorPacket)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _TryCreateAddActorPacket = (TryCreateAddActorPacket)(this->VTable[47]);
+        break;
         case MC_VER::v1_18_1_20:
             _TryCreateAddActorPacket = (TryCreateAddActorPacket)(this->VTable[47]);
         break;
@@ -1151,6 +1286,9 @@ auto Actor::normalTick(void) -> void {
     auto _NormalTick = (NormalTick)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _NormalTick = (NormalTick)(this->VTable[48]);
+        break;
         case MC_VER::v1_18_1_20:
             _NormalTick = (NormalTick)(this->VTable[48]);
         break;
@@ -1176,6 +1314,9 @@ auto Actor::baseTick(void) -> void {
     auto _BaseTick = (BaseTick)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _BaseTick = (BaseTick)(this->VTable[49]);
+        break;
         case MC_VER::v1_18_1_20:
             _BaseTick = (BaseTick)(this->VTable[49]);
         break;
@@ -1201,6 +1342,9 @@ auto Actor::rideTick(void) -> void {
     auto _RideTick = (RideTick)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _RideTick = (RideTick)(this->VTable[50]);
+        break;
         case MC_VER::v1_18_1_20:
             _RideTick = (RideTick)(this->VTable[50]);
         break;
@@ -1226,6 +1370,9 @@ auto Actor::positionPassenger(Actor* entity) -> void {
     auto _PositionPassenger = (PositionPassenger)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _PositionPassenger = (PositionPassenger)(this->VTable[51]);
+        break;
         case MC_VER::v1_18_1_20:
             _PositionPassenger = (PositionPassenger)(this->VTable[51]);
         break;
