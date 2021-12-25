@@ -272,7 +272,7 @@ auto Manager::cleanEntityMap(GameMode* GM) -> void {
         if(entity->getRuntimeID() <= 0)
             continue;
         
-        if(!entity->isAlive() || entity->isInCreativeMode())
+        if(!entity->isAlive())
             continue;
         
         if(!GM->player->canAttack(entity, false))

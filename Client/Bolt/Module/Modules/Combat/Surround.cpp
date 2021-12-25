@@ -26,7 +26,13 @@ auto Surround::onGameMode(GameMode* GM) -> void {
     auto distances = std::vector<float>();
 
     for(auto [runtimeId, entity] : this->getManager()->getEntityMap()) {
-        if(runtimeId == player->getRuntimeID() || !entity->isAlive())
+        if(runtimeId == player->getRuntimeID())
+            continue;
+        
+        if(entity == nullptr || entity->VTable == nullptr)
+            continue;
+        
+        if(!entity->isAlive())
             continue;
         
         auto pos = *entity->getPos();
@@ -47,7 +53,13 @@ auto Surround::onGameMode(GameMode* GM) -> void {
     std::sort(distances.begin(), distances.end());
 
     for(auto [runtimeId, entity] : this->getManager()->getEntityMap()) {
-        if(runtimeId == player->getRuntimeID() || !entity->isAlive())
+        if(runtimeId == player->getRuntimeID())
+            continue;
+        
+        if(entity == nullptr || entity->VTable == nullptr)
+            continue;
+        
+        if(!entity->isAlive())
             continue;
         
         auto pos = *entity->getPos();
