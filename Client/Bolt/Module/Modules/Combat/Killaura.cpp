@@ -10,11 +10,17 @@ auto Killaura::onTick(void) -> void {
         this->setState(false);
 };
 
-auto Killaura::onGameMode(GameMode* GM) -> void {
-    if(GM == nullptr || GM->player == nullptr)
+auto Killaura::onRender(RenderUtils* r) -> void {
+    if(r == nullptr || !r->canDraw())
         return;
     
-    auto player = GM->player;
+    auto instance = r->getCtx()->clientInstance;
+    auto player = (instance != nullptr ? instance->getLocalPlayer() : nullptr);
+    auto GM = (player != nullptr ? player->getGameMode() : nullptr);
+    
+    if(player == nullptr || GM == nullptr)
+        return;
+    
     auto myPos = *player->getPos();
     auto count = 0;
 
