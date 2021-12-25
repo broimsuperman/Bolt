@@ -17,6 +17,8 @@ auto NameTags::onRender(RenderUtils* r) -> void {
     
     auto myPos = *player->getPos();
 
+    this->getManager()->cleanEntityMap(player->getGameMode());
+
     for(auto [runtimeId, entity] : this->getManager()->getEntityMap()) {
         if(runtimeId == player->getRuntimeID())
             continue;
