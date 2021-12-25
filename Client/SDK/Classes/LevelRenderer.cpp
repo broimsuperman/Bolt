@@ -6,6 +6,9 @@ auto LevelRenderer::getOrigin(void) -> Vec3<float> {
     auto origin = (Vec3<float>*)nullptr;
 
     switch(Minecraft::sdkVer) {
+        case MC_VER::v1_18_2_30:
+            origin = (Vec3<float>*)((uintptr_t)(this) + 0x878);
+        break;
         case MC_VER::v1_18_1_20:
             origin = (Vec3<float>*)((uintptr_t)(this) + 0x878);
         break;
