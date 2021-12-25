@@ -55,6 +55,9 @@ auto Player::knockback(Actor* entity, int paramA, float paramB, float paramC, fl
     auto _Knockback = (Knockback)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _Knockback = (Knockback)(this->VTable[275]);
+        break;
         case MC_VER::v1_18_1_20:
             _Knockback = (Knockback)(this->VTable[275]);
         break;
@@ -80,6 +83,9 @@ auto Player::setSprinting(bool setSprinting) -> void {
     auto _SetSprinting = (SetSprinting)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _SetSprinting = (SetSprinting)(this->VTable[277]);
+        break;
         case MC_VER::v1_18_1_20:
             _SetSprinting = (SetSprinting)(this->VTable[277]);
         break;
@@ -105,6 +111,9 @@ auto Player::getSpeed(void) -> float {
     auto _GetSpeed = (GetSpeed)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _GetSpeed = (GetSpeed)(this->VTable[281]);
+        break;
         case MC_VER::v1_18_1_20:
             _GetSpeed = (GetSpeed)(this->VTable[281]);
         break;
@@ -130,6 +139,9 @@ auto Player::setSpeed(float f) -> void {
     auto _SetSpeed = (SetSpeed)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _SetSpeed = (SetSpeed)(this->VTable[282]);
+        break;
         case MC_VER::v1_18_1_20:
             _SetSpeed = (SetSpeed)(this->VTable[282]);
         break;
@@ -155,6 +167,9 @@ auto Player::getJumpPower(void) -> float {
     auto _GetJumpPower = (GetJumpPower)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _GetJumpPower = (GetJumpPower)(this->VTable[283]);
+        break;
         case MC_VER::v1_18_1_20:
             _GetJumpPower = (GetJumpPower)(this->VTable[283]);
         break;
@@ -180,6 +195,9 @@ auto Player::hurtEffects(ActorDamageSource* actorDamageSource, int paramB, bool 
     auto _HurtEffects = (HurtEffects)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _HurtEffects = (HurtEffects)(this->VTable[284]);
+        break;
         case MC_VER::v1_18_1_20:
             _HurtEffects = (HurtEffects)(this->VTable[284]);
         break;
@@ -205,6 +223,9 @@ auto Player::getMeleeWeaponDamageBonus(Mob* mob) -> __int64 {
     auto _GetMeleeWeaponDamageBonus = (GetMeleeWeaponDamageBonus)(this->VTable[0]);
     
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _GetMeleeWeaponDamageBonus = (GetMeleeWeaponDamageBonus)(this->VTable[285]);
+        break;
         case MC_VER::v1_18_1_20:
             _GetMeleeWeaponDamageBonus = (GetMeleeWeaponDamageBonus)(this->VTable[285]);
         break;
@@ -230,6 +251,9 @@ auto Player::getMeleeKnockbackBonus(void) -> __int64 {
     auto _GetMeleeKnockbackBonus = (GetMeleeKnockbackBonus)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _GetMeleeKnockbackBonus = (GetMeleeKnockbackBonus)(this->VTable[286]);
+        break;
         case MC_VER::v1_18_1_20:
             _GetMeleeKnockbackBonus = (GetMeleeKnockbackBonus)(this->VTable[286]);
         break;
@@ -255,6 +279,9 @@ auto Player::travel(IMobMovementProxy* iMobMovementProxy, float paramB, float pa
     auto _Travel = (Travel)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _Travel = (Travel)(this->VTable[287]);
+        break;
         case MC_VER::v1_18_1_20:
             _Travel = (Travel)(this->VTable[287]);
         break;
@@ -280,6 +307,9 @@ auto Player::travel(float paramA, float paramB, float paramC) -> void {
     auto _Travel = (Travel)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _Travel = (Travel)(this->VTable[288]);
+        break;
         case MC_VER::v1_18_1_20:
             _Travel = (Travel)(this->VTable[288]);
         break;
@@ -305,6 +335,9 @@ auto Player::applyFinalFriction(float paramA, bool paramB) -> void {
     auto _ApplyFinalFriction = (ApplyFinalFriction)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _ApplyFinalFriction = (ApplyFinalFriction)(this->VTable[289]);
+        break;
         case MC_VER::v1_18_1_20:
             _ApplyFinalFriction = (ApplyFinalFriction)(this->VTable[289]);
         break;
@@ -330,6 +363,9 @@ auto Player::updateWalkAnim(void) -> void {
     auto _UpdateWalkAnim = (UpdateWalkAnim)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _UpdateWalkAnim = (UpdateWalkAnim)(this->VTable[290]);
+        break;
         case MC_VER::v1_18_1_20:
             _UpdateWalkAnim = (UpdateWalkAnim)(this->VTable[290]);
         break;
@@ -355,6 +391,9 @@ auto Player::aiStep(IMobMovementProxy* iMobMovementProxy) -> void {
     auto _AiStep = (AiStep)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _AiStep = (AiStep)(this->VTable[291]);
+        break;
         case MC_VER::v1_18_1_20:
             _AiStep = (AiStep)(this->VTable[291]);
         break;
@@ -380,6 +419,9 @@ auto Player::aiStep(void) -> void {
     auto _AiStep = (AiStep)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _AiStep = (AiStep)(this->VTable[292]);
+        break;
         case MC_VER::v1_18_1_20:
             _AiStep = (AiStep)(this->VTable[292]);
         break;
@@ -405,6 +447,9 @@ auto Player::pushActors(void) -> void {
     auto _PushActors = (PushActors)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _PushActors = (PushActors)(this->VTable[293]);
+        break;
         case MC_VER::v1_18_1_20:
             _PushActors = (PushActors)(this->VTable[293]);
         break;
@@ -430,6 +475,9 @@ auto Player::lookAt(Actor* entity, float paramB, float paramC) -> void {
     auto _LookAt = (LookAt)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _LookAt = (LookAt)(this->VTable[294]);
+        break;
         case MC_VER::v1_18_1_20:
             _LookAt = (LookAt)(this->VTable[294]);
         break;
@@ -455,6 +503,9 @@ auto Player::isLookingAtAnEntity(void) -> bool {
     auto _IsLookingAtAnEntity = (IsLookingAtAnEntity)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _IsLookingAtAnEntity = (IsLookingAtAnEntity)(this->VTable[295]);
+        break;
         case MC_VER::v1_18_1_20:
             _IsLookingAtAnEntity = (IsLookingAtAnEntity)(this->VTable[295]);
         break;
@@ -480,6 +531,9 @@ auto Player::checkSpawnRules(bool checkSpawnRules) -> bool {
     auto _CheckSpawnRules = (CheckSpawnRules)(this->VTable[0]);
     
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _CheckSpawnRules = (CheckSpawnRules)(this->VTable[296]);
+        break;
         case MC_VER::v1_18_1_20:
             _CheckSpawnRules = (CheckSpawnRules)(this->VTable[296]);
         break;
@@ -505,6 +559,9 @@ auto Player::checkSpawnObstruction(void) -> bool {
     auto _CheckSpawnObstruction = (CheckSpawnObstruction)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _CheckSpawnObstruction = (CheckSpawnObstruction)(this->VTable[297]);
+        break;
         case MC_VER::v1_18_1_20:
             _CheckSpawnObstruction = (CheckSpawnObstruction)(this->VTable[297]);
         break;
@@ -530,6 +587,9 @@ auto Player::getAttackAnim(float f) -> float {
     auto _GetAttackAnim = (GetAttackAnim)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _GetAttackAnim = (GetAttackAnim)(this->VTable[298]);
+        break;
         case MC_VER::v1_18_1_20:
             _GetAttackAnim = (GetAttackAnim)(this->VTable[298]);
         break;
@@ -555,6 +615,9 @@ auto Player::getItemUseDuration(void) -> __int64 {
     auto _GetItemUseDuration = (GetItemUseDuration)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _GetItemUseDuration = (GetItemUseDuration)(this->VTable[299]);
+        break;
         case MC_VER::v1_18_1_20:
             _GetItemUseDuration = (GetItemUseDuration)(this->VTable[299]);
         break;
@@ -580,6 +643,9 @@ auto Player::getItemUseStartupProgress(void) -> float {
     auto _GetItemUseStartupProgress = (GetItemUseStartupProgress)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _GetItemUseStartupProgress = (GetItemUseStartupProgress)(this->VTable[300]);
+        break;
         case MC_VER::v1_18_1_20:
             _GetItemUseStartupProgress = (GetItemUseStartupProgress)(this->VTable[300]);
         break;
@@ -605,6 +671,9 @@ auto Player::getItemUseIntervalProgress(void) -> float {
     auto _GetItemUseIntervalProgress = (GetItemUseIntervalProgress)(this->VTable[0]);
     
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _GetItemUseIntervalProgress = (GetItemUseIntervalProgress)(this->VTable[301]);
+        break;
         case MC_VER::v1_18_1_20:
             _GetItemUseIntervalProgress = (GetItemUseIntervalProgress)(this->VTable[301]);
         break;
@@ -630,6 +699,9 @@ auto Player::getItemUseIntervalAxis(void) -> __int64 {
     auto _GetItemUseIntervalAxis = (GetItemUseIntervalAxis)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _GetItemUseIntervalAxis = (GetItemUseIntervalAxis)(this->VTable[302]);
+        break;
         case MC_VER::v1_18_1_20:
             _GetItemUseIntervalAxis = (GetItemUseIntervalAxis)(this->VTable[302]);
         break;
@@ -655,6 +727,9 @@ auto Player::getTimeAlongSwing(void) -> __int64 {
     auto _GetTimeAlongSwing = (GetTimeAlongSwing)nullptr;
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _GetTimeAlongSwing = (GetTimeAlongSwing)(this->VTable[303]);
+        break;
         case MC_VER::v1_18_1_20:
             _GetTimeAlongSwing = (GetTimeAlongSwing)(this->VTable[303]);
         break;
@@ -680,6 +755,9 @@ auto Player::getMaxHeadXRot(void) -> float {
     auto _GetMaxHeadXRot = (GetMaxHeadXRot)(this->VTable[0]);
 
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            _GetMaxHeadXRot = (GetMaxHeadXRot)(this->VTable[305]);
+        break;
         case MC_VER::v1_18_1_20:
             _GetMaxHeadXRot = (GetMaxHeadXRot)(this->VTable[305]);
         break;
