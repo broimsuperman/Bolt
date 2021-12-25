@@ -78,36 +78,12 @@ auto Surround::onGameMode(GameMode* GM) -> void {
                 blockSides.push_back(Vec3<int>(1, 0, 0));
             };
             
-            auto range = 2.f;
-            pos.y += (range / 2);
+            auto AABB = *entity->getAABB();
 
-            auto motion = entity->getMotion();
-            auto speed = sqrtf(motion.x * motion.x + motion.z * motion.z);
-
-            auto squaredLen = motion.x * motion.x + motion.y * motion.y + motion.z * motion.z;
-            auto magnitude = sqrtf(squaredLen);
-
-            auto norm = Vec3<float>(motion.x / magnitude, motion.y / magnitude, motion.z / magnitude);
-
-            for(auto x = -range; x < range; x += 0.2f) {
-                for(auto y = -range; y < range; y += 0.2f) {
-                    for(auto z = -range; z < range; z += 0.2f) {
-                        
-                        auto blockPos = Vec3<float>(pos.x + x, pos.y + y, pos.z + z);
-
-                        if(!scaffoldMod->tryScaffold(GM, blockPos)) {
-                            if(speed > 0.05f) {
-                                blockPos.z -= norm.z * 0.4f;
-                                if(!scaffoldMod->tryScaffold(GM, blockPos)) {
-                                    blockPos.x -= norm.x * 0.4f;
-                                    if(!scaffoldMod->tryScaffold(GM, blockPos)) {
-                                        blockPos.z += norm.z;
-                                        blockPos.x += norm.x;
-                                        scaffoldMod->tryScaffold(GM, blockPos);
-                                    };
-                                };
-                            };
-                        };
+            for(auto x = (AABB.lower.x - 1.f); x < (AABB.upper.x + 1.f); x += 0.2f) {
+                for(auto y = AABB.lower.y; y < (AABB.upper.y + 1.f); y += 0.2f) {
+                    for(auto z = (AABB.lower.z - 1.f); z < (AABB.upper.z + 1.f); z += 0.2f) {
+                        scaffoldMod->tryScaffold(GM, Vec3<float>(x, y, z));
                     };
                 };
             };
