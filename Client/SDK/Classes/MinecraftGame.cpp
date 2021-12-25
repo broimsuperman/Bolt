@@ -3,6 +3,9 @@
 
 auto MinecraftGame::getFont(void) -> Font* {
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            return *(Font**)((uintptr_t)(this) + 0x108);
+        break;
         case MC_VER::v1_18_1_20:
             return *(Font**)((uintptr_t)(this) + 0x108);
         break;
