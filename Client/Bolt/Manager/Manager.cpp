@@ -264,8 +264,12 @@ auto Manager::cleanEntityMap(GameMode* GM) -> void {
         return entityMap.clear();
     
     auto newMap = std::map<__int64, Actor*>();
+    auto level = GM->player->getLevel();
 
     for(auto [runtimeId, entity] : entityMap) {
+        if(level == nullptr || level->fetchEntity(runtimeId, false) == nullptr)
+            continue;
+        
         if(entity == nullptr || entity->VTable == nullptr)
             continue;
         
