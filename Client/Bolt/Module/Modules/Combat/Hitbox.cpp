@@ -27,7 +27,7 @@ auto Hitbox::onGameMode(GameMode* GM) -> void {
         return;
     
     for(auto [runtimeId, entity] : this->getManager()->getEntityMap()) {
-        if(entity == GM->player || runtimeId == GM->player->getRuntimeID())
+        if(runtimeId == GM->player->getRuntimeID())
             continue;
         
         if(collisions.find(entity->getEntityTypeId()) == collisions.end()) {

@@ -261,21 +261,16 @@ auto Manager::addEntityToMap(__int64 entityRuntimeId, Actor* entity) -> void {
 
 auto Manager::cleanEntityMap(GameMode* GM) -> void {
     if(GM == nullptr || GM->player == nullptr)
-        return entityMap.clear();
+        return this->emptyEntityMap();
     
     auto newMap = std::map<__int64, Actor*>();
+    auto level = GM->player->getLevel();
+
+    if(level == nullptr)
+        return this->emptyEntityMap();
 
     for(auto [runtimeId, entity] : entityMap) {
-        if(entity == nullptr || entity->VTable == nullptr)
-            continue;
-        
-        if(entity->getRuntimeID() <= 0)
-            continue;
-        
-        if(!entity->isAlive())
-            continue;
-        
-        if(!GM->player->canAttack(entity, false))
+        if(level->fetchEntity(runtimeId, false) == nullptr || !entity->isAlive())
             continue;
         
         newMap[entity->getRuntimeID()] = entity;

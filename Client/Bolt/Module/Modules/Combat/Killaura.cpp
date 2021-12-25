@@ -42,6 +42,9 @@ auto Killaura::rangedEnts(std::map<__int64, Actor*> entityMap) -> std::unordered
         if(runtimeId == player->getRuntimeID())
             continue;
         
+        if(!player->canAttack(entity, false))
+            continue;
+        
         auto dist = entity->getPos()->distanceTo(myPos);
         
         if(dist <= this->range)
