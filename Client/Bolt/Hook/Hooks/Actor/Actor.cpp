@@ -55,6 +55,9 @@ auto Hook_Actor::init(Manager* manager) -> void {
     uintptr_t addr = NULL;
 
     switch(Minecraft::sdkVer){ /* 48 8B 89 ? ? ? ? 8B 52 04 E9 ? ? ? ? CC 48 89 */
+        case MC_VER::v1_18_2_30:
+            addr = (uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x1DD7B10;
+        break;
         case MC_VER::v1_18_1_20:
             addr = (uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x1DD7860;
         break;
