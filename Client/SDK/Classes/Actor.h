@@ -137,7 +137,7 @@ public:
     auto attack(Actor*, enum ActorDamageCause) -> bool;
     auto performRangedAttack(Actor*, float) -> void;
     auto getEquipmentCount(void) -> __int64;
-    auto setOwner(ActorUniqueID*) -> void;
+    auto setOwner(ActorUniqueID&) -> void;
     auto setSitting(bool) -> void;
     auto getInventorySize(void) -> __int64;
     auto getEquipSlots(void) -> __int64;
