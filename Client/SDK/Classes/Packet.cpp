@@ -19,6 +19,9 @@ auto Packet::getName(void) -> std::string {
 
 TextPacket::TextPacket() {
     switch(Minecraft::sdkVer) {
+        case MC_VER::v1_18_2_30:
+            this->VTable = (uint64_t**)((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x03E9F8A8);
+        break;
         case MC_VER::v1_18_1_20:
             this->VTable = (uint64_t**)((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x03E9F8A8);
         break;
@@ -41,6 +44,9 @@ TextPacket::TextPacket() {
 
 MovePlayerPacket::MovePlayerPacket(Actor* entity, Vec3<float> position, Vec2<float> bodyRot, bool onGround, MovePlayerPacketMode mode) {
     switch(Minecraft::sdkVer) {
+        case MC_VER::v1_18_2_30:
+            this->VTable = (uint64_t**)((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x03E4D0F0);
+        break;
         case MC_VER::v1_18_1_20:
             this->VTable = (uint64_t**)((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x03E4D0F0);
         break;
@@ -83,6 +89,9 @@ auto MovePlayerPacket::getTeleportCause(void) -> std::pair<uint8_t, std::string>
 
 PlayerAuthInputPacket::PlayerAuthInputPacket(Vec3<float> position, Vec2<float> bodyRot, Vec3<float> velocity) {
     switch(Minecraft::sdkVer) {
+        case MC_VER::v1_18_2_30:
+            this->VTable = (uint64_t**)((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x03EB98A8);
+        break;
         case MC_VER::v1_18_1_20:
             this->VTable = (uint64_t**)((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x03EB98A8);
         break;
