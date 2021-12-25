@@ -24,5 +24,5 @@ auto Level::fetchEntity(__int64 runtimeId, bool paramB) -> Actor* {
         break;
     };
 
-    return _FetchEntity(this, runtimeId, paramB);
+    return (_FetchEntity != nullptr ? _FetchEntity(this, runtimeId, paramB) : nullptr);
 };
