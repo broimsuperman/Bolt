@@ -7,6 +7,9 @@ auto Level::fetchEntity(__int64 runtimeId, bool paramB) -> Actor* {
     auto _FetchEntity = (FetchEntity)nullptr;
 
     switch(Minecraft::sdkVer) {
+        case MC_VER::v1_18_2_30:
+            _FetchEntity = (FetchEntity)(this->VTable[49]);
+        break;
         case MC_VER::v1_18_1_20:
             _FetchEntity = (FetchEntity)(this->VTable[49]);
         break;
