@@ -3,6 +3,9 @@
 
 auto ClientInstance::getLocalPlayer(void) -> Player* {
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            return *(Player**)((uintptr_t)(this) + 0x148);
+        break;
         case MC_VER::v1_18_1_20:
             return *(Player**)((uintptr_t)(this) + 0x148);
         break;
@@ -24,6 +27,9 @@ auto ClientInstance::getLocalPlayer(void) -> Player* {
 
 auto ClientInstance::getMinecraftGame(void) -> MinecraftGame* {
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            return *(MinecraftGame**)((uintptr_t)(this) + 0xA8);
+        break;
         case MC_VER::v1_18_1_20:
             return *(MinecraftGame**)((uintptr_t)(this) + 0xA8);
         break;
@@ -45,6 +51,9 @@ auto ClientInstance::getMinecraftGame(void) -> MinecraftGame* {
 
 auto ClientInstance::getGuiData(void) -> GuiData* {
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            return *(GuiData**)((uintptr_t)(this) + 0x4D0);
+        break;
         case MC_VER::v1_18_1_20:
             return *(GuiData**)((uintptr_t)(this) + 0x4D0);
         break;
@@ -68,6 +77,9 @@ auto ClientInstance::getLevelRenderer(void) -> LevelRenderer* {
     auto levelRenderer = (LevelRenderer*)nullptr;
 
     switch(Minecraft::sdkVer) {
+        case MC_VER::v1_18_2_30:
+            levelRenderer = *(LevelRenderer**)((uintptr_t)(this) + 0xD0);
+        break;
         case MC_VER::v1_18_1_20:
             levelRenderer = *(LevelRenderer**)((uintptr_t)(this) + 0xD0);
         break;
@@ -90,6 +102,9 @@ auto ClientInstance::getLevelRenderer(void) -> LevelRenderer* {
 
 auto ClientInstance::getLoopbackPacketSender(void) -> LoopbackPacketSender* {
     switch(Minecraft::sdkVer){
+        case MC_VER::v1_18_2_30:
+            return *(LoopbackPacketSender**)((uintptr_t)(this) + 0xE0);
+        break;
         case MC_VER::v1_18_1_20:
             return *(LoopbackPacketSender**)((uintptr_t)(this) + 0xE0);
         break;
@@ -115,6 +130,9 @@ auto ClientInstance::grabMouse(void) -> void {
 
     if(_GrabMouse == nullptr)
         switch(Minecraft::sdkVer) {
+            case MC_VER::v1_18_2_30:
+                _GrabMouse = (GrabMouse)(this->VTable[271]);
+            break;
             case MC_VER::v1_18_1_20:
                 _GrabMouse = (GrabMouse)(this->VTable[271]);
             break;
@@ -141,6 +159,9 @@ auto ClientInstance::releaseMouse(void) -> void {
 
     if(_ReleaseMouse == nullptr)
         switch(Minecraft::sdkVer) {
+            case MC_VER::v1_18_2_30:
+                _ReleaseMouse = (ReleaseMouse)(this->VTable[272]);
+            break;
             case MC_VER::v1_18_1_20:
                 _ReleaseMouse = (ReleaseMouse)(this->VTable[272]);
             break;
@@ -165,6 +186,9 @@ auto ClientInstance::getFov(void) -> Vec2<float> {
     auto fov = Vec2<float>();
 
     switch(Minecraft::sdkVer) {
+        case MC_VER::v1_18_2_30:
+            fov = Vec2<float>(*(float*)((uintptr_t)(this) + 0x658), *(float*)((uintptr_t)(this) + 0x66C));
+        break;
         case MC_VER::v1_18_1_20:
             fov = Vec2<float>(*(float*)((uintptr_t)(this) + 0x658), *(float*)((uintptr_t)(this) + 0x66C));
         break;
@@ -187,6 +211,9 @@ auto ClientInstance::getFov(void) -> Vec2<float> {
 
 auto ClientInstance::getRefDef(void) -> glmatrixf* {
     switch(Minecraft::sdkVer) {
+        case MC_VER::v1_18_2_30:
+            return (glmatrixf*)((uintptr_t)(this) + 0x2D8);
+        break;
         case MC_VER::v1_18_1_20:
             return (glmatrixf*)((uintptr_t)(this) + 0x2D8);
         break;
