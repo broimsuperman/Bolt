@@ -78,3 +78,25 @@ auto MovePlayerPacket::getMode(void) -> std::pair<uint8_t, std::string> {
 auto MovePlayerPacket::getTeleportCause(void) -> std::pair<uint8_t, std::string> {
     return std::pair<uint8_t, std::string>(this->teleportCause, std::string(this->teleportCause == 0 ? "Unknown" : this->teleportCause == 1 ? "Projectile" : this->teleportCause == 2 ? "Chorus Fruit" : this->teleportCause == 3 ? "Command" : "Behavior"));
 };
+
+/* Player Auth Input Packet */
+
+PlayerAuthInputPacket::PlayerAuthInputPacket() {
+    switch(Minecraft::sdkVer) {
+        case MC_VER::v1_18_1_20:
+            this->VTable = (uint64_t**)((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x03EB98A8);
+        break;
+        case MC_VER::v1_18_0_02:
+            this->VTable = (uint64_t**)((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x03EB4778);
+        break;
+        case MC_VER::v1_17_41_1:
+            this->VTable = (uint64_t**)((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x03E953C0);
+        break;
+        case MC_VER::v1_17_40_6:
+            this->VTable = (uint64_t**)((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x03E944D8);
+        break;
+        case MC_VER::v1_17_34_2:
+            this->VTable = (uint64_t**)((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x03DB4B80);
+        break;
+    };
+};
