@@ -45,22 +45,11 @@ auto TestModule::onRender(RenderUtils* r) -> void {
     r->getCtx()->flushText(0);
 };
 
-bool sendMovePlayerPacket = false;
-
 auto TestModule::onGameMode(GameMode* GM) -> void {
     if(GM == nullptr || GM->player == nullptr)
         return;
 };
 
 auto TestModule::onPacket(Packet* packet, bool* cancel) -> void {
-    auto newPacket = new MovePlayerPacket();
-
-    if(newPacket->VTable == packet->VTable) {
-        auto currPacket = (MovePlayerPacket*)packet;
-
-        if(currPacket->mode == MovePlayerPacketMode::TELEPORT)
-            this->displayToChat(std::string("Teleport Cause: " + currPacket->getTeleportCause().second));
-    };
-
-    delete newPacket;
+    return;
 };
