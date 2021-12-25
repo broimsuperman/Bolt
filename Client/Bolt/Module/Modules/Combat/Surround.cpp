@@ -65,19 +65,6 @@ auto Surround::onGameMode(GameMode* GM) -> void {
         auto dist = sqrt(dX * dX + dY * dY + dZ * dZ);
 
         if(dist == distances[0]) {
-            static auto blockSides = std::vector<Vec3<int>>();
-
-            if(blockSides.empty()) {
-                blockSides.push_back(Vec3<int>(0, -1, 0));
-                blockSides.push_back(Vec3<int>(0, 1, 0));
-
-                blockSides.push_back(Vec3<int>(0, 0, -1));
-                blockSides.push_back(Vec3<int>(0, 0, 1));
-
-                blockSides.push_back(Vec3<int>(-1, 0, 0));
-                blockSides.push_back(Vec3<int>(1, 0, 0));
-            };
-            
             auto AABB = *entity->getAABB();
 
             for(auto x = (AABB.lower.x - 1.f); x < (AABB.upper.x + 1.f); x += 0.2f) {
