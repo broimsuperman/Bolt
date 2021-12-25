@@ -66,4 +66,9 @@ public:
     auto getTeleportCause(void) -> std::pair<uint8_t, std::string>;
 };
 
+class PlayerAuthInputPacket : public Packet {
+public:
+    PlayerAuthInputPacket();
+};
+
 #endif /* CLIENT_SDK_CLASSES_PACKET */
