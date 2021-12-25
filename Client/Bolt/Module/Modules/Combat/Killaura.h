@@ -10,7 +10,7 @@ public:
     };
 public:
     auto onTick(void) -> void override;
-    auto onGameMode(GameMode*) -> void override;
+    auto onRender(RenderUtils*) -> void override;
 public:
     auto rangedEnts(std::map<__int64, Actor*>) -> std::unordered_map<Actor*, float>;
 public:
