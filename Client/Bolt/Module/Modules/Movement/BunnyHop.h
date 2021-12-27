@@ -10,6 +10,7 @@ public:
     };
 public:
     auto onGameMode(GameMode*) -> void override;
+    auto canUse(void) -> bool;
 };
 
 #endif /* CLIENT_BOLT_MODULE_MODULES_MOVEMENT_BUNNYHOP */
