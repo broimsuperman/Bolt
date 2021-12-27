@@ -72,6 +72,7 @@ auto Manager::initCategories(void) -> void {
 /* Movement */
 
 #include "../Module/Modules/Movement/AirJump.h"
+#include "../Module/Modules/Movement/BunnyHop.h"
 #include "../Module/Modules/Movement/AutoSprint.h"
 #include "../Module/Modules/Movement/AirSpeed.h"
 #include "../Module/Modules/Movement/MoveStrafe.h"
@@ -121,6 +122,7 @@ auto Manager::initModules(void) -> void {
     
     /* Movement */
     new AirJump(this->getCategory("Movement"));
+    new BunnyHop(this->getCategory("Movement"));
     new AutoSprint(this->getCategory("Movement"));
     new AirSpeed(this->getCategory("Movement"));
     new MoveStrafe(this->getCategory("Movement"));
