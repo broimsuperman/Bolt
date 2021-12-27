@@ -1,7 +1,7 @@
 target_sources(Bolt PRIVATE
     "TestModule.cpp"
-        "StackableItems.cpp"
-            "MineplexFlight.cpp"
+        "FreeLook.cpp"
+            "StackableItems.cpp"
                 "CakeAura.cpp"
                     "NoPacket.cpp"
                         "LagSpoof.cpp"

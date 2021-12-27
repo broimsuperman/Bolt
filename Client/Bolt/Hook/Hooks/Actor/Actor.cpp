@@ -49,6 +49,21 @@ auto LerpCallback(Actor* entity, Vec3<float>* motion) -> void {
         _LerpMotion(entity, motion);
 };
 
+typedef void (__thiscall* SetRot)(Actor*, Vec2<float>*);
+SetRot _SetRot;
+
+auto SetRotCallback(Actor* entity, Vec2<float>* rot) -> void {
+    if(actorManager != nullptr) {
+        for(auto c : actorManager->getCategories()) {
+            for(auto m : c->getModules()) {
+                if(m->isEnabled)
+                    m->onActorRot(entity, rot);
+            };
+        };
+    };
+    _SetRot(entity, rot);
+};
+
 auto Hook_Actor::init(Manager* manager) -> void {
     actorManager = manager;
 
@@ -95,5 +110,17 @@ auto Hook_Actor::init(Manager* manager) -> void {
             MH_EnableHook((void*)lerpSig);
         } else {
             Utils::debugLogF("Lerp Motion Hook Creation: Failed");
+        };
+    
+    uintptr_t setRotSig = Mem::findSig("48 89 5C 24 ? 57 48 83 EC ? 8B 42 ? 48 8B F9 48 81");
+
+    if(setRotSig == NULL)
+        Utils::debugLogF("address needed for Actor::setRot is NULL!");
+    else
+        if(MH_CreateHook((void*)setRotSig, &SetRotCallback, reinterpret_cast<LPVOID*>(&_SetRot)) == MH_OK){
+            Utils::debugLogF("Set Rot Hook Creation: Success");
+            MH_EnableHook((void*)setRotSig);
+        } else {
+            Utils::debugLogF("Set Rot Hook Creation: Failed");
         };
 };
