@@ -105,6 +105,7 @@ auto Manager::initCategories(void) -> void {
 
 #include "../Module/Modules/Other/TestModule.h"
 #include "../Module/Modules/Other/FreeLook.h"
+#include "../Module/Modules/Other/Zoom.h"
 #include "../Module/Modules/Other/StackableItems.h"
 #include "../Module/Modules/Other/CakeAura.h"
 #include "../Module/Modules/Other/NoPacket.h"
@@ -153,6 +154,7 @@ auto Manager::initModules(void) -> void {
     /* Other */
     new TestModule(this->getCategory("Other"));
     new FreeLook(this->getCategory("Other"));
+    new Zoom(this->getCategory("Other"));
     new StackableItems(this->getCategory("Other"));
     new CakeAura(this->getCategory("Other"));
     new NoPacket(this->getCategory("Other"));
