@@ -10,9 +10,8 @@ auto FreeLook::onTick(void) -> void {
     
     auto instance = Minecraft::getClientInstance();
     auto player = (instance != nullptr ? instance->getLocalPlayer() : nullptr);
-    auto mcGame = (instance != nullptr ? instance->getMinecraftGame() : nullptr);
-
-    if(player == nullptr || (mcGame == nullptr || !mcGame->canUseKeys()))
+    
+    if(player == nullptr)
         return this->setState(false);
     
     this->bodyRot = *player->getBodyRot();
@@ -22,9 +21,8 @@ auto FreeLook::onTick(void) -> void {
 auto FreeLook::onActorRot(Actor* entity, Vec2<float>* bodyRot) -> void {
     auto instance = Minecraft::getClientInstance();
     auto player = (instance != nullptr ? instance->getLocalPlayer() : nullptr);
-    auto mcGame = (instance != nullptr ? instance->getMinecraftGame() : nullptr);
-
-    if(player == nullptr || (mcGame == nullptr || !mcGame->canUseKeys()))
+    
+    if(player == nullptr)
         return this->setState(false);
     
     if(entity == nullptr || entity->getRuntimeID() != player->getRuntimeID())
