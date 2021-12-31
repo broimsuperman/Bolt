@@ -26,7 +26,7 @@ auto CrystalAura::onGameMode(GameMode* GM) -> void {
         if(entity->getEntityTypeId() != 71)
             continue;
         
-        if(entity->getPos()->distanceTo(myPos) > 6.f)
+        if(entity->getPos()->distanceTo(myPos) > 7.f)
             continue;
         
         GM->attack(entity);
