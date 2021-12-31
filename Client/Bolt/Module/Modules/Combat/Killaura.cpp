@@ -25,8 +25,14 @@ auto Killaura::onRender(RenderUtils* r) -> void {
     auto count = 0;
 
     for(auto [entity, distance] : this->rangedEnts(this->getManager()->getEntityMap())) {
+        if(distance > this->range)
+            continue;
+        
         if(count >= (this->multi ? 4 : 1))
             break;
+        
+        if(entity->getEntityTypeId() == 64) /* Item Actor */
+            continue;
         
         GM->attack(entity);
         player->swing();
@@ -51,10 +57,7 @@ auto Killaura::rangedEnts(std::map<__int64, Actor*> entityMap) -> std::unordered
         if(!player->canAttack(entity, false))
             continue;
         
-        auto dist = entity->getPos()->distanceTo(myPos);
-        
-        if(dist <= this->range)
-            dists.push_back(dist);
+        dists.push_back(entity->getPos()->distanceTo(myPos));
     };
 
     std::sort(dists.begin(), dists.end());
