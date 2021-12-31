@@ -16,6 +16,10 @@ auto DirectionalPhase::onTick(void) -> void {
     this->setState(true);
 };
 
+auto DirectionalPhase::onDisable(void) -> void {
+    lastY = -60.f;
+};
+
 auto DirectionalPhase::onGameMode(GameMode* GM) -> void {
     if(GM == nullptr || GM->player == nullptr)
         return;
@@ -25,6 +29,9 @@ auto DirectionalPhase::onGameMode(GameMode* GM) -> void {
     
     auto player = GM->player;
     auto pos = *player->getPos();
+
+    if(this->lastY <= -60.f)
+        this->lastY = pos.y;
     
     auto yaw = (player->getBodyRot()->y + 90.f) * (PI / 180.f);
     auto oMotion = player->getMotion();
@@ -32,6 +39,19 @@ auto DirectionalPhase::onGameMode(GameMode* GM) -> void {
     pos.x += cos(yaw) * speed;
     pos.z += sin(yaw) * speed;
 
+    pos.y = this->lastY;
+
     player->setPos(&pos);
     player->setMotion(Vec3<float>(oMotion.x, 0.f, oMotion.z));
+};
+
+auto DirectionalPhase::onPacket(Packet* packet, bool* cancel) -> void {
+    auto movePacket = new MovePlayerPacket();
+
+    if(movePacket->VTable == packet->VTable) {
+        auto currPacket = (MovePlayerPacket*)packet;
+        currPacket->position.y = this->lastY;
+    };
+
+    delete movePacket;
 };
