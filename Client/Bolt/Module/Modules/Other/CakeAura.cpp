@@ -17,7 +17,7 @@ auto CakeAura::onGameMode(GameMode* GM) -> void {
         for(auto y = -range; y < range; y++) {
             for(auto z = -range; z < range; z++) {
                 auto blockPos = Vec3<int>(pos.x + x, pos.y + y, pos.z + z);
-                auto block = region->getBlock(&blockPos);
+                auto block = region->getBlock(blockPos);
 
                 if(block->blockLegacy->name.rfind("cake") != std::string::npos) {
                     GM->startBuildBlock(&blockPos, 0);
