@@ -46,19 +46,12 @@ auto DirectionalPhase::onGameMode(GameMode* GM) -> void {
 };
 
 auto DirectionalPhase::onPacket(Packet* packet, bool* cancel) -> void {
-    auto movePacket = new MovePlayerPacket();
-    auto authPacket = new PlayerAuthInputPacket();
-
-    if(movePacket->VTable == packet->VTable) {
+    if(strcmp(packet->getName().c_str(), "MovePlayerPacket") == 0) {
         auto currPacket = (MovePlayerPacket*)packet;
         currPacket->position.y = this->lastY;
     };
-
-    if(authPacket->VTable == packet->VTable) {
+    if(strcmp(packet->getName().c_str(), "PlayerAuthInputPacket") == 0) {
         auto currPacket = (PlayerAuthInputPacket*)packet;
         currPacket->position.y = this->lastY;
     };
-
-    delete movePacket;
-    delete authPacket;
 };
