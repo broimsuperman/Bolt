@@ -8,8 +8,8 @@
 
 class BlockSource {
 public:
-    auto getBlock(Vec3<int>*) -> Block*;
-    auto getBlock(Vec3<float>*) -> Block*;
+    auto getBlock(Vec3<int>) -> Block*;
+    auto getBlock(Vec3<float>) -> Block*;
 };
 
 #endif /* CLIENT_SDK_CLASSES_BLOCKSOURCE */
