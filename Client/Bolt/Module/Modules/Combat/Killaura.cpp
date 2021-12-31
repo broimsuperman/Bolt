@@ -31,10 +31,8 @@ auto Killaura::onRender(RenderUtils* r) -> void {
         if(count >= (this->multi ? 4 : 1))
             break;
         
-        if(entity->getEntityTypeId() == 64 || entity->getEntityTypeId() == 66)
+        if(entity->getEntityTypeId() <= 107)
             continue;
-        
-        this->displayToChat(std::to_string(entity->getEntityTypeId()));
         
         GM->attack(entity);
         player->swing();
