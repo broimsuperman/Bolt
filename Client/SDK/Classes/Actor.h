@@ -60,6 +60,7 @@ public:
 public:
     auto isHostileType(void) -> bool;
     auto isPassiveType(void) -> bool;
+    auto isPlayerType(void) -> bool;
 public:
     auto outOfWorld(void) -> bool;
     

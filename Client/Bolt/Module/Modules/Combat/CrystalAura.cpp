@@ -43,7 +43,7 @@ auto CrystalAura::onGameMode(GameMode* GM) -> void {
         if(entity->getRuntimeID() == player->getRuntimeID())
             continue;
         
-        if(!entity->isPassiveType() && !entity->isHostileType())
+        if(!entity->isPlayerType() && !entity->isPassiveType() && !entity->isHostileType())
             continue;
         
         if(distance > 6.f)

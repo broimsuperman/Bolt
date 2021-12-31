@@ -56,6 +56,9 @@ auto Surround::onGameMode(GameMode* GM) -> void {
         if(runtimeId == player->getRuntimeID())
             continue;
         
+        if(!entity->isPlayerType() && !entity->isPassiveType() && !entity->isHostileType())
+            continue;
+        
         auto pos = *entity->getPos();
 
         auto dX = myPos.x - pos.x;

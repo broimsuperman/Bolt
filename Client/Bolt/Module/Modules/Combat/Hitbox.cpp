@@ -30,7 +30,7 @@ auto Hitbox::onGameMode(GameMode* GM) -> void {
         if(runtimeId == GM->player->getRuntimeID())
             continue;
         
-        if(!entity->isPassiveType() && !entity->isHostileType())
+        if(!entity->isPlayerType() && !entity->isPassiveType() && !entity->isHostileType())
             continue;
         
         if(collisions.find(entity->getEntityTypeId()) == collisions.end()) {

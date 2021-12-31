@@ -477,6 +477,10 @@ auto Actor::isPassiveType(void) -> bool {
     return false;
 };
 
+auto Actor::isPlayerType(void) -> bool {
+    return (this->getEntityTypeId() == 63);
+};
+
 auto Actor::outOfWorld(void) -> bool {
     using OutOfWorld = bool (__thiscall*)(Actor*);
     auto _OutOfWorld = (OutOfWorld)(this->VTable[0]);
