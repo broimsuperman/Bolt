@@ -22,11 +22,11 @@ public:
 
 class BlockLegacy {
 private:
-    char pad_0000[48];   //0x0000
+    char pad_0000[48];     //0x0000
 public:
-	std::string name;    //0x0030
+	std::string name;      //0x0030
 private:
-    char pad_0038[160];  //0x0038
+    char pad_0038[160];    //0x0038
 public:
 	//Material* material;  //0x00D8
 	
