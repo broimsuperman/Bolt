@@ -95,7 +95,7 @@ auto Surround::tryScaffold(GameMode* GM, Vec3<float> blockBelow) -> bool {
     if(region == nullptr)
         return false;
 
-    auto block = region->getBlock(&blok);
+    auto block = region->getBlock(blok);
 
     if(block == nullptr)
         return false;
@@ -130,7 +130,7 @@ auto Surround::tryScaffold(GameMode* GM, Vec3<float> blockBelow) -> bool {
 
     for(auto curr : checkList) {
         Vec3<int> calc = Vec3<int>(blok.x - curr->x, blok.y - curr->y, blok.z - curr->z);
-        if(!((player->getRegionConst()->getBlock(&calc)->blockLegacy))->getMaterial()->isReplaceable) {
+        if(!((player->getRegionConst()->getBlock(calc)->blockLegacy))->getMaterial()->isReplaceable) {
             foundBlock = true;
             blok = calc;
             break;
