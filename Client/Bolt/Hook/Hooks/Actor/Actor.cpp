@@ -67,28 +67,7 @@ auto SetRotCallback(Actor* entity, Vec2<float>* rot) -> void {
 auto Hook_Actor::init(Manager* manager) -> void {
     actorManager = manager;
 
-    uintptr_t addr = NULL;
-
-    switch(Minecraft::sdkVer){ /* 48 8B 89 ? ? ? ? 8B 52 04 E9 ? ? ? ? CC 48 89 */
-        case MC_VER::v1_18_2_30:
-            addr = (uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x1DD7B10;
-        break;
-        case MC_VER::v1_18_1_20:
-            addr = (uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x1DD7860;
-        break;
-        case MC_VER::v1_18_0_02:
-            addr = (uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x1DD3AA0;
-        break;
-        case MC_VER::v1_17_41_1:
-            addr = (uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x1DFC6D0;
-        break;
-        case MC_VER::v1_17_40_6:
-            addr = (uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x1DFC6D0;
-        break;
-        case MC_VER::v1_17_34_2:
-            addr = (uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x1D77DC0;
-        break;
-    };
+    auto addr = Mem::findSig("40 53 55 56 41 57 48 83 EC 48");
 
     if(addr == NULL)
         Utils::debugLogF("address needed for Actor tick is NULL!");
