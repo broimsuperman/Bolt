@@ -30,6 +30,9 @@ auto Hitbox::onGameMode(GameMode* GM) -> void {
         if(runtimeId == GM->player->getRuntimeID())
             continue;
         
+        if(entity->getEntityTypeId() == 64) /* Item Actor */
+            continue;
+        
         if(collisions.find(entity->getEntityTypeId()) == collisions.end()) {
             auto entityAABB = *entity->getAABB();
             collisions[entity->getEntityTypeId()] = Vec2<float>(entityAABB.upper.x - entityAABB.lower.x, entityAABB.upper.y - entityAABB.lower.y);
