@@ -58,6 +58,9 @@ public:
     auto isPassenger(Actor*) -> bool;
     auto getFirstPassenger(void) -> Actor*;
 public:
+    auto isHostileType(void) -> bool;
+    auto isPassiveType(void) -> bool;
+public:
     auto outOfWorld(void) -> bool;
     
     auto _serverInitItemStackIds(void) -> void;
