@@ -3,4 +3,5 @@ target_sources(Bolt PRIVATE
         "BoostHit.cpp"
             "Hitbox.cpp"
                 "Surround.cpp"
+                    "CrystalAura.cpp"
 )

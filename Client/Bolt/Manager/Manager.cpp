@@ -68,6 +68,7 @@ auto Manager::initCategories(void) -> void {
 #include "../Module/Modules/Combat/BoostHit.h"
 #include "../Module/Modules/Combat/Hitbox.h"
 #include "../Module/Modules/Combat/Surround.h"
+#include "../Module/Modules/Combat/CrystalAura.h"
 
 /* Movement */
 
@@ -120,6 +121,7 @@ auto Manager::initModules(void) -> void {
     new BoostHit(this->getCategory("Combat"));
     new Hitbox(this->getCategory("Combat"));
     new Surround(this->getCategory("Combat"));
+    new CrystalAura(this->getCategory("Combat"));
     
     /* Movement */
     new AirJump(this->getCategory("Movement"));
