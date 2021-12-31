@@ -441,6 +441,42 @@ auto Actor::getFirstPassenger(void) -> Actor* {
     return (_GetFirstPassenger != nullptr ? _GetFirstPassenger(this) : nullptr);
 };
 
+auto Actor::isHostileType(void) -> bool {
+    auto type = this->getEntityTypeId();
+
+    if(type >= 32 && type <= 50)
+        return true;
+    
+    if(type >= 52 && type <= 55)
+        return true;
+    
+    if(type >= 57 && type <= 59)
+        return true;
+    
+    if(type >= 104 && type <= 105)
+        return true;
+    
+    if(type == 110 || type == 114 || type == 116 || (type >= 123 && type <= 124) || (type >= 126 && type <= 127))
+        return true;
+
+    return false;
+};
+
+auto Actor::isPassiveType(void) -> bool {
+    auto type = this->getEntityTypeId();
+
+    if(type >= 10 && type <= 31 || type >= 74 && type <= 75)
+        return true;
+    
+    if(type >= 108 && type <= 109 || type >= 111 && type <= 113)
+        return true;
+    
+    if(type == 115 || type == 118 || type == 121 || type == 122 || type == 125 || type == 128)
+        return true;
+
+    return false;
+};
+
 auto Actor::outOfWorld(void) -> bool {
     using OutOfWorld = bool (__thiscall*)(Actor*);
     auto _OutOfWorld = (OutOfWorld)(this->VTable[0]);
