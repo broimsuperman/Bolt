@@ -25,5 +25,6 @@ auto TeleportCommand::onCommand(std::string message, std::vector<std::string> ar
 
     } catch(std::exception e) {
         this->reply(std::string("Invalid usage, example: " + this->getManager()->cmdPrefix + this->name + " 75 255 120"));
+        this->reply(std::string("Invalid usage, example: " + this->getManager()->cmdPrefix + this->name + " ~ ~2 ~24"));
     };
 };
