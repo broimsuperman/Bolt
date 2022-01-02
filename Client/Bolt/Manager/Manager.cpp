@@ -1,8 +1,9 @@
 #include "Manager.h"
 
-#include "../../Client.h"
 #include "../Category/Category.h"
+#include "../Command/Command.h"
 #include "../Module/Module.h"
+#include "../../Client.h"
 
 Manager::Manager(Client* client){
     Utils::debugLogF("Initializing Manager\n");
@@ -12,6 +13,7 @@ Manager::Manager(Client* client){
     this->initHooks();
 
     this->initCategories();
+    this->initCommands();
     this->initModules();
 
     this->initModuleConfigs();
@@ -51,7 +53,7 @@ auto Manager::getModule(std::string moduleName) -> Module* {
         };
     };
     return nullptr;
-};
+};;
 
 auto Manager::initCategories(void) -> void {
     new Category(this, "Combat");
@@ -60,6 +62,12 @@ auto Manager::initCategories(void) -> void {
     new Category(this, "Visuals");
     new Category(this, "World");
     new Category(this, "Other");
+};
+
+#include "../Command/Commands/TeleportCommand.h"
+
+auto Manager::initCommands(void) -> void {
+    this->addCommand(new TeleportCommand(this));
 };
 
 /* Combat */
@@ -293,4 +301,31 @@ auto Manager::emptyEntityMap(void) -> void {
 
 auto Manager::getEntityMap(void) -> std::map<__int64, Actor*> {
     return this->entityMap;
+};
+
+auto Manager::handleCommand(std::string message) -> void {
+    auto modifiedStr = std::string(message);
+    modifiedStr.erase(0, this->cmdPrefix.length()); /* Remove prefix */
+
+    auto args = std::vector<std::string>();
+    auto space = std::string(" ");
+    auto pos = 0;
+
+    modifiedStr += " ";
+
+    while((pos = modifiedStr.find(space)) != std::string::npos) {
+        args.push_back(modifiedStr.substr(0, pos));
+        modifiedStr.erase(0, pos + space.length());
+    };
+
+    for(auto cmd : this->commands) {
+        if(args.at(0).rfind(cmd->name) == 0)
+            return cmd->onCommand(message, args);
+    };
+};
+
+auto Manager::addCommand(Command* command) -> void {
+    if(std::find(this->commands.begin(), this->commands.end(), command) != this->commands.end())
+        return Utils::debugLogF(std::string("Command '" + command->name + "' has already been registered to the Manager\n").c_str());
+    this->commands.push_back(command);
 };

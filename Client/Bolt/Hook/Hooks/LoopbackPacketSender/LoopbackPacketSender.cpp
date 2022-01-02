@@ -23,6 +23,16 @@ auto SendCallback(LoopbackPacketSender* _this, Packet* packet) -> void {
                     m->onPacket(packet, &cancel);
             };
         };
+
+        if(strcmp(packet->getName().c_str(), "TextPacket") == 0) {
+            auto textPacket = (TextPacket*)packet;
+            
+            if(textPacket->messageContents.rfind(loopbackManager->cmdPrefix) == 0) {
+                loopbackManager->handleCommand(textPacket->messageContents);
+                cancel = true;
+            };
+            
+        };
     };
 
     if(!cancel)

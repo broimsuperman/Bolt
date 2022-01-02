@@ -1,9 +1,10 @@
 #include "Module.h"
+
 #include "../Category/Category.h"
 #include "../Manager/Manager.h"
 #include "../../Client.h"
 
-Module::Module(Category* category, std::string name){
+Module::Module(Category* category, std::string name) {
     this->category = category;
     this->name = name;
 

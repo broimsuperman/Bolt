@@ -7,6 +7,8 @@
 class Client;
 class Category;
 class Module;
+class Command;
+
 class Actor;
 class GameMode;
 
@@ -14,10 +16,11 @@ class Manager {
 private:
     Client* client = nullptr;
     std::vector<Category*> categories = std::vector<Category*>();
+    std::vector<Command*> commands = std::vector<Command*>();
     std::map<uint64_t, bool> keyMap = std::map<uint64_t, bool>();
-    std::vector<Actor*> entityList = std::vector<Actor*>();
-    
     std::map<__int64, Actor*> entityMap = std::map<__int64, Actor*>();
+public:
+    std::string cmdPrefix = std::string("*");
 public:
     Manager(Client*);
 
@@ -40,6 +43,7 @@ public:
     auto getModule(std::string) -> Module*;
     
     auto initCategories(void) -> void;
+    auto initCommands(void) -> void;
     auto initModules(void) -> void;
     auto initHooks(void) -> void;
 
@@ -55,6 +59,9 @@ public:
     auto cleanEntityMap(GameMode*) -> void;
     auto emptyEntityMap(void) -> void;
     auto getEntityMap(void) -> std::map<__int64, Actor*>;
+
+    auto handleCommand(std::string) -> void;
+    auto addCommand(Command*) -> void;
 };
 
 #endif /* CLIENT_BOLT_MANAGER_MANAGER */
