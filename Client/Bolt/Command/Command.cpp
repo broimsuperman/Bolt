@@ -14,7 +14,7 @@ auto Command::reply(std::string msg) -> void {
     auto player = (instance != nullptr ? instance->getLocalPlayer() : nullptr);
 
     if(player != nullptr)
-        player->displayClientMessage(msg);
+        player->displayClientMessage("§3" + this->name + "§f: " + msg);
 };
 
 auto Command::getManager(void) -> Manager* {
