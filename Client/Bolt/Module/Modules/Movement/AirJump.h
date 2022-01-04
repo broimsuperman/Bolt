@@ -8,7 +8,7 @@ public:
     AirJump(Category* category) : Module(category, "AirJump") {
         /*this->isEnabled = true;*/
     };
-
+public:
     auto onKey(uint64_t, bool, bool*) -> void override;
 };
 

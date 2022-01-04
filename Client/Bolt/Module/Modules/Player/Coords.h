@@ -8,6 +8,7 @@ public:
     Coords(Category* category) : Module(category, "Coords") {
         this->setState(true);
     };
+public:
     auto onRender(RenderUtils*) -> void override;
     auto applyAlpha(void) -> void;
 private:

@@ -8,6 +8,7 @@ public:
     Hitbox(Category* category) : Module(category, "Hitbox") {
         //
     };
+public:
     auto onTick(void) -> void override;
     auto onDisable(void) -> void override;
     auto onGameMode(GameMode*) -> void override;

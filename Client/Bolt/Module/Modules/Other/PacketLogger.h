@@ -8,6 +8,7 @@ public:
     PacketLogger(Category* category) : Module(category, "Packet Logger") {
         //
     };
+public:
     auto onPacket(Packet*, bool*) -> void override;
 private:
     std::map<std::string, int> packetMap = std::map<std::string, int>();

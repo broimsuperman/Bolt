@@ -8,6 +8,7 @@ public:
     Jesus(Category* category) : Module(category, "Jesus") {
         //
     };
+public:
     auto onGameMode(GameMode*) -> void override;
 };
 

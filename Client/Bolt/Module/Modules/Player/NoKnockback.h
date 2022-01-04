@@ -8,6 +8,7 @@ public:
     NoKnockBack(Category* category) : Module(category, "NoKnockBack") {
         //
     };
+public:
     auto onLerpMotion(Actor*, Vec3<float>*, bool*) -> void override;
 };
 

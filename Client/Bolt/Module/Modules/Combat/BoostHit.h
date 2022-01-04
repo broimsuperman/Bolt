@@ -8,6 +8,7 @@ public:
     BoostHit(Category* category) : Module(category, "Boost Hit") {
         //
     };
+public:
     auto onPlayerAttack(GameMode*, Actor*) -> void override;
 private:
     float boost = 1.2f;

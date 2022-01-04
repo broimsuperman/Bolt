@@ -8,6 +8,7 @@ public:
     CakeAura(Category* category) : Module(category, "CakeAura") {
         //
     };
+public:
     auto onGameMode(GameMode*) -> void override;
 };
 

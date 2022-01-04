@@ -8,7 +8,7 @@ public:
     Uninject(Category* category) : Module(category, "Uninject") {
         //
     };
-
+public:
     auto onEnable(void) -> void override;
 };
 

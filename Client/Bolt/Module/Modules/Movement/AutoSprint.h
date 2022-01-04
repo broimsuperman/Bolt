@@ -8,7 +8,7 @@ public:
     AutoSprint(Category* category) : Module(category, "AutoSprint") {
         //
     };
-
+public:
     auto onGameMode(GameMode*) -> void override;
 };
 

@@ -8,6 +8,7 @@ public:
     Surround(Category* category) : Module(category, "Surround") {
         //
     };
+public:
     auto onGameMode(GameMode*) -> void override;
     auto tryScaffold(GameMode*, Vec3<float>) -> bool;
 public:

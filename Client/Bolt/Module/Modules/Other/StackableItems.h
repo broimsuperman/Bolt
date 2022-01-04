@@ -8,6 +8,7 @@ public:
     StackableItems(Category* category) : Module(category, "Stackable Items") {
         //
     };
+public:
     auto onGameMode(GameMode*) -> void override;
 };
 

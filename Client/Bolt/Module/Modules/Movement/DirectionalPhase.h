@@ -9,6 +9,7 @@ public:
         this->setKey(0x47); /* G */
         this->setLogState(false);
     };
+public:
     auto onTick(void) -> void override;
     auto onDisable(void) -> void override;
     auto onGameMode(GameMode*) -> void override;
