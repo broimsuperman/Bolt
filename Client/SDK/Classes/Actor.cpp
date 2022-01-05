@@ -441,44 +441,131 @@ auto Actor::getFirstPassenger(void) -> Actor* {
     return (_GetFirstPassenger != nullptr ? _GetFirstPassenger(this) : nullptr);
 };
 
-auto Actor::isHostileType(void) -> bool {
-    auto type = this->getEntityTypeId();
-
-    if(type >= 32 && type <= 50)
-        return true;
-    
-    if(type >= 52 && type <= 55)
-        return true;
-    
-    if(type >= 57 && type <= 59)
-        return true;
-    
-    if(type >= 104 && type <= 105)
-        return true;
-    
-    if(type == 110 || type == 114 || type == 116 || (type >= 123 && type <= 124) || (type >= 126 && type <= 127))
-        return true;
-
-    return false;
-};
-
-auto Actor::isPassiveType(void) -> bool {
-    auto type = this->getEntityTypeId();
-
-    if(type >= 10 && type <= 31 || type >= 74 && type <= 75)
-        return true;
-    
-    if(type >= 108 && type <= 109 || type >= 111 && type <= 113)
-        return true;
-    
-    if(type == 115 || type == 118 || type == 121 || type == 122 || type == 125 || type == 128)
-        return true;
-
-    return false;
-};
-
 auto Actor::isPlayerType(void) -> bool {
-    return (this->getEntityTypeId() == 63);
+    return (this->getEntityTypeId() == EntityType::Client_Player);
+};
+
+auto Actor::isNotMob(void) -> bool {
+    auto type = this->getEntityTypeId();
+
+    switch(type) {
+        case EntityType::Dropped_Item:
+            return true;
+        break;
+        case EntityType::Experience_Orb:
+            return true;
+        break;
+        case EntityType::TNT:
+            return true;
+        break;
+        case EntityType::Falling_Block:
+            return true;
+        break;
+        case EntityType::Moving_Block:
+            return true;
+        break;
+        case EntityType::Armor_Stand:
+            return true;
+        break;
+        case EntityType::Bottle_Of_Enchanting:
+            return true;
+        break;
+        case EntityType::Eye_Of_Ender:
+            return true;
+        break;
+        case EntityType::Ender_Crystal:
+            return true;
+        break;
+        case EntityType::Fireworks_Rocket:
+            return true;
+        break;
+        case EntityType::Thrown_Trident:
+            return true;
+        break;
+        case EntityType::Shulker_Bullet:
+            return true;
+        break;
+        case EntityType::Fishing_Hook:
+            return true;
+        break;
+        case EntityType::Dragon_Fireball:
+            return true;
+        break;
+        case EntityType::Arrow:
+            return true;
+        break;
+        case EntityType::Snowball:
+            return true;
+        break;
+        case EntityType::Egg:
+            return true;
+        break;
+        case EntityType::Painting:
+            return true;
+        break;
+        case EntityType::Minecart:
+            return true;
+        break;
+        case EntityType::Fireball:
+            return true;
+        break;
+        case EntityType::Splash_Potion:
+            return true;
+        break;
+        case EntityType::Ender_Pearl:
+            return true;
+        break;
+        case EntityType::Leash_Knot:
+            return true;
+        break;
+        case EntityType::Wither_Skull:
+            return true;
+        break;
+        case EntityType::Boat:
+            return true;
+        break;
+        case EntityType::Wither_Skull_Dangerous:
+            return true;
+        break;
+        case EntityType::Lightning_Bolt:
+            return true;
+        break;
+        case EntityType::Small_Fireball:
+            return true;
+        break;
+        case EntityType::Area_Effect_Cloud:
+            return true;
+        break;
+        case EntityType::Hopper_Minecart:
+            return true;
+        break;
+        case EntityType::TNT_Minecart:
+            return true;
+        break;
+        case EntityType::Chest_Minecart:
+            return true;
+        break;
+        case EntityType::Command_Block_Minecart:
+            return true;
+        break;
+        case EntityType::Lingering_Potion:
+            return true;
+        break;
+        case EntityType::Llama_Spit:
+            return true;
+        break;
+        case EntityType::Evocation_Fang:
+            return true;
+        break;
+        case EntityType::Ice_Bomb:
+            return true;
+        break;
+        case EntityType::Balloon:
+            return true;
+        break;
+    };
+    
+    return false;
 };
 
 auto Actor::outOfWorld(void) -> bool {
