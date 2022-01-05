@@ -31,7 +31,7 @@ auto Killaura::onRender(RenderUtils* r) -> void {
         if(count >= (this->multi ? 4 : 1))
             break;
         
-        if(!entity->isPlayerType() && !entity->isPassiveType() && !entity->isHostileType())
+        if(entity->isNotMob())
             continue;
         
         GM->attack(entity);
