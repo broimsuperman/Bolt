@@ -37,16 +37,9 @@ public:
     std::string platformChatId;
 };
 
-enum MovePlayerPacketMode {
-    NORMAL = 0,
-    RESET = 1,
-    TELEPORT = 2,
-    ROTATION = 3
-};
-
 class MovePlayerPacket : public Packet {
 public:
-    MovePlayerPacket(Actor* entity = (Actor*)nullptr, Vec3<float> position = Vec3<float>(0.f, 0.f, 0.f), Vec2<float> bodyRot = Vec2<float>(0.f, 0.f), bool onGround = false, MovePlayerPacketMode mode = MovePlayerPacketMode::NORMAL);
+    MovePlayerPacket(Actor* entity = (Actor*)nullptr, Vec3<float> position = Vec3<float>(0.f, 0.f, 0.f), Vec2<float> bodyRot = Vec2<float>(0.f, 0.f), bool onGround = false, int mode = 0);
 private:
 	char pad_0008[40];       //0x0008
 public:
@@ -54,7 +47,7 @@ public:
 	Vec3<float> position;    //0x0038
 	Vec2<float> bodyRot;     //0x0044
 	float headYaw;           //0x004C
-	uint8_t mode;            //0x0050
+	uint8_t mode;            //0x0050 | Normal = 0, Reset = 1, Teleport = 2, Rotation = 3
 	bool onGround;           //0x0051
 private:
 	char pad_0052[6];        //0x0052
