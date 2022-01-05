@@ -42,7 +42,7 @@ TextPacket::TextPacket() {
 
 /* Move Player Packet */
 
-MovePlayerPacket::MovePlayerPacket(Actor* entity, Vec3<float> position, Vec2<float> bodyRot, bool onGround, MovePlayerPacketMode mode) {
+MovePlayerPacket::MovePlayerPacket(Actor* entity, Vec3<float> position, Vec2<float> bodyRot, bool onGround, int mode) {
     switch(Minecraft::sdkVer) {
         case MC_VER::v1_18_2_30:
             this->VTable = (uint64_t**)((uintptr_t)(GetModuleHandleA("Minecraft.Windows.exe")) + 0x03E4D0F0);
