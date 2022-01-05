@@ -5,20 +5,12 @@
 #include "../../../Client/Client.h"
 
 auto AirJump::onKey(uint64_t key, bool isDown, bool* cancel) -> void {
-    if(!isDown)
-        return;
-    
-    if(key != VK_SPACE)
+    if(!isDown && key != VK_SPACE)
         return;
     
     auto instance = Minecraft::getClientInstance();
-    auto player = (Player*)nullptr;
-    auto mcGame = (MinecraftGame*)nullptr;
-
-    if(instance != nullptr) {
-        player = instance->getLocalPlayer();
-        mcGame = instance->getMinecraftGame();
-    };
+    auto player = (instance != nullptr ? instance->getLocalPlayer() : nullptr);
+    auto mcGame = (instance != nullptr ? instance->getMinecraftGame() : nullptr);
     
     if(player == nullptr || mcGame == nullptr)
         return;
