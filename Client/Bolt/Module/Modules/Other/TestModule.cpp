@@ -48,6 +48,17 @@ auto TestModule::onRender(RenderUtils* r) -> void {
 auto TestModule::onGameMode(GameMode* GM) -> void {
     if(GM == nullptr || GM->player == nullptr)
         return;
+    
+    auto player = GM->player;
+    auto playerRuntimeId = player->getRuntimeID();
+    
+    for(auto [runtimeId, entity] : this->getManager()->getEntityMap()) {
+        if(playerRuntimeId == runtimeId)
+            continue;
+        
+        if(entity->getEntityTypeId() == EntityType::Boat)
+            return (void)this->displayToChat("Boat!");
+    };
 };
 
 auto TestModule::onPacket(Packet* packet, bool* cancel) -> void {
