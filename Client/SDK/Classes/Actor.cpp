@@ -568,6 +568,33 @@ auto Actor::isNotMob(void) -> bool {
     return false;
 };
 
+auto Actor::getEntityType(void) -> std::string {
+    auto type = (std::string*)nullptr;
+
+    switch(Minecraft::sdkVer) {
+        case MC_VER::v1_18_2_30:
+            type = (std::string*)((uintptr_t)(this) + 0x3F8);
+        break;
+        case MC_VER::v1_18_1_20:
+            type = (std::string*)((uintptr_t)(this) + 0x3F8);
+        break;
+        case MC_VER::v1_18_0_02:
+            type = (std::string*)((uintptr_t)(this) + 0x3F8);
+        break;
+        case MC_VER::v1_17_41_1:
+            type = (std::string*)((uintptr_t)(this) + 0x400);
+        break;
+        case MC_VER::v1_17_40_6:
+            type = (std::string*)((uintptr_t)(this) + 0x400);
+        break;
+        case MC_VER::v1_17_34_2:
+            type = (std::string*)((uintptr_t)(this) + 0x400);
+        break;
+    };
+
+    return *type;
+};
+
 auto Actor::outOfWorld(void) -> bool {
     using OutOfWorld = bool (__thiscall*)(Actor*);
     auto _OutOfWorld = (OutOfWorld)(this->VTable[0]);
