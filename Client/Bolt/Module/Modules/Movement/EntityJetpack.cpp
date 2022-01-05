@@ -24,7 +24,7 @@ auto EntityJetpack::onGameMode(GameMode* GM) -> void {
             entity->setMotion(motion);
             player->setMotion(motion);
             
-            if(entity->isHostileType() || entity->isPassiveType()) {
+            if(entity->isPlayerType() || entity->isHostileType() || entity->isPassiveType()) {
                 auto currRot = *entity->getBodyRot();
                 *entity->getBodyRot() = Vec2<float>(bodyRot.x >= ((Player*)(entity))->getMaxHeadXRot() ? currRot.x : bodyRot.x, bodyRot.y);
             };
