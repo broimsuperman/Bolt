@@ -16,19 +16,20 @@ auto NameTags::onRender(RenderUtils* r) -> void {
         return;
     
     auto myPos = *player->getPos();
+    auto playerRuntimeId = player->getRuntimeID();
 
     for(auto [runtimeId, entity] : this->getManager()->getEntityMap()) {
-        if(runtimeId == player->getRuntimeID())
+        if(playerRuntimeId == runtimeId)
             continue;
         
-        if(entity == nullptr || entity->VTable == nullptr)
+        if(entity->isNotMob())
             continue;
         
-        if(entity->getEntityTypeId() != 63 || !entity->isAlive())
-            continue;
+        auto isPlayer = entity->isPlayerType();
         
         auto pos = *entity->getPos();
-        auto gamertag = entity->getXboxGamertag();
+        auto gamertag = (isPlayer ? entity->getXboxGamertag() : entity->getEntityType());
+
         pos.y += 1.3f;
 
         auto screenCoords = r->gameToScreenPos(pos);
@@ -50,7 +51,7 @@ auto NameTags::onRender(RenderUtils* r) -> void {
         
         auto alpha = (mcGame->canUseKeys() ? 1.f : 0.f);
         
-        auto outlineColor = Color(52, 159, 235, alpha);
+        auto outlineColor = (isPlayer ? Color(52, 159, 235, alpha) : Color(52, 235, 152, alpha));
         auto textColor = Color(30, 200, 200, alpha);
         auto bgColor = Color(25, 25, 25, (alpha > 0.f ? alpha - 0.6f : alpha));
         
