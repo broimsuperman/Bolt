@@ -23,7 +23,7 @@ auto CrystalAura::onGameMode(GameMode* GM) -> void {
         if(runtimeId == player->getRuntimeID())
             continue;
         
-        if(entity->getEntityTypeId() != 71)
+        if(entity->getEntityTypeId() != EntityType::Ender_Crystal)
             continue;
         
         if(entity->getPos()->distanceTo(myPos) > 7.f)
@@ -43,7 +43,7 @@ auto CrystalAura::onGameMode(GameMode* GM) -> void {
         if(entity->getRuntimeID() == player->getRuntimeID())
             continue;
         
-        if(!entity->isPlayerType() && !entity->isPassiveType() && !entity->isHostileType())
+        if(entity->isNotMob())
             continue;
         
         if(distance > 6.f)
