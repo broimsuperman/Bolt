@@ -28,21 +28,8 @@ public:
 private:
     char pad_0038[160];    //0x0038
 public:
-	//Material* material;  //0x00D8
-	
-	auto getMaterial(void) -> Material* {
-		return *(Material**)((uintptr_t)(this) + 0xD8);
-	};
-
-	auto getBlockItemId(void) -> __int16 {
-		using GetBlockItemId = __int16 (__thiscall*)(BlockLegacy*);
-		static auto _GetBlockItemId = (GetBlockItemId)nullptr;
-
-		if(_GetBlockItemId == nullptr)
-			_GetBlockItemId = (GetBlockItemId)Mem::findSig("0F B7 91 ? ? ? ? B8 ? ? ? ? 66 3B D0 72 09");
-		
-		return _GetBlockItemId(this);
-	};
+	auto getMaterial(void) -> Material*;
+	auto getBlockItemId(void) -> __int16;
 };
 
 class Block {
@@ -50,6 +37,8 @@ private:
     char pad_0000[16]; //0x0000
 public:
     BlockLegacy* blockLegacy;
+public:
+	auto getRuntimeId(void) -> uint8_t;
 };
 
 #endif /* CLIENT_SDK_CLASSES_BLOCK */
