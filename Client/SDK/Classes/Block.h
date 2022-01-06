@@ -1,6 +1,9 @@
 #ifndef CLIENT_SDK_CLASSES_BLOCK
 #define CLIENT_SDK_CLASSES_BLOCK
 
+#include "../../Mem/Mem.h"
+#include "../../Utils/Utils.h"
+
 class Material {
 public:
 	int type; // 5 for water, 6 for lava
